@@ -1,0 +1,45 @@
+﻿@model OCC.UI.Webhost.Models.VolunteerTask
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>VolunteerTask</legend>
+
+    <div class="display-label">EventId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EventId)
+    </div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">Capacity</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Capacity)
+    </div>
+
+    <div class="display-label">StartTime</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartTime)
+    </div>
+
+    <div class="display-label">EndTime</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndTime)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

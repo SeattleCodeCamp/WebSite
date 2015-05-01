@@ -1,0 +1,306 @@
+﻿.grayTile
+{
+    background-color: #353535;
+}
+
+.orangeTile
+{
+    background-color: Orange;
+}
+
+.redTile
+{
+    background-color: Tomato;
+}
+
+.greenTile
+{
+    background-color: DarkCyan;
+}
+
+.blueTile
+{
+    background-color: DeepSkyBlue;
+}
+
+.pinkTile
+{
+    background-color: DarkMagenta;
+}
+
+.limeTile
+{
+    background-color: LimeGreen;
+}
+
+.greenTileBackground {
+    background-color: rgb(0, 153, 0);
+}
+
+.blueTileBackground {
+    background-color: rgb(19, 143, 203);
+}
+
+.singleTileGreenImage {
+    background-image: url("../../Content/themes/Metro/Green Tile Background.png");
+}
+
+.singleTileGreenImage:hover {
+    background-image: url("../../Content/themes/Metro/Green Tile Background.OnHover.png");
+}
+
+.singleTileBlueImage {
+    background-image: url("../../Content/themes/Metro/Blue Tile Background.png");
+}
+
+.singleTileBlueImage:hover {
+    background-image: url("../../Content/themes/Metro/Blue Tile Background.OnHover.png");
+}
+
+.singleTileMapImage {
+    background-image: url("../../Content/themes/Metro/MetroIcons/MapIcon.png");
+}
+
+.singleTileTransparentImage {
+    background-image: url("../../Content/themes/Metro/Transparent Tile Background.png");
+}
+
+.singleTileTransparentImage:hover {
+    background-image: url("../../Content/themes/Metro/Transparent Tile Background.OnHover.png");
+}
+
+.doubleTileBlueImage {
+    background-image: url("../../Content/themes/Metro/Double Blue Tile Background.png");
+}
+
+.doubleTileBlueImage:hover {
+    background-image: url("../../Content/themes/Metro/Double Blue Tile Background.OnHover.png");
+}
+
+.doubleTileGreenImage {
+    background-image: url("../../Content/themes/Metro/Double Green Tile Background.png");
+}
+
+.doubleTileGreenImage:hover {
+    background-image: url("../../Content/themes/Metro/Double Green Tile Background.OnHover.png");
+}
+
+.singleTile {
+    display: inline;
+    float: left;
+    height: 140px;
+    width: 140px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.doubleTile {
+    display: inline;
+    float: left;
+    height: 140px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+    position: relative;
+    width: 290px;
+}
+
+.labelLowerLeft {
+    float: left;
+    font-size: 1em;
+    margin: -2px 0px 0px 0px;
+}
+
+.labelLowerLeft a {
+    float: left;
+    font-size: 1em;
+    margin: -2px 0px 0px 0px;
+}
+
+.singleTileIcon {
+    top: 46px;
+    left: 46px;
+    position: absolute;
+}
+
+.outerSingleTileContent {
+    height: 109px;
+    width: 128px;
+    margin-left: 6px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.outerDoubleTileContent {
+    height: 109px;
+    margin-left: 6px;
+    margin-top: 6px;
+    overflow: hidden;
+    width: 278px;
+}
+
+.middleSingleTileContent {
+    display: table;
+    position: static;
+    height: 109px;
+    width: 128px;
+}
+
+.middleDoubleTileContent {
+    height: 109px;
+    width: 278px;
+    display: table;
+    position: static;
+}
+
+.innerSingleTileContent {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.innerSingleTileContent a {
+    height: auto;
+    width: auto;
+    position: relative;
+}
+
+.innerSingleTileContent img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.imageVisible {
+    display: block;
+    /*height: 80px;*/
+    margin: auto;
+}
+
+.sponsorImageVisible {
+    display: block;
+    margin: auto;
+}
+
+.imageHidden {
+    display: none;
+}
+
+.tileFooter {
+    margin: 3px 6px 0px 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.badge
+{
+    position: absolute;
+    width: inherit;
+    font-family: Tahoma; 
+    font-weight: nomral;
+    font-size: 24px; 
+    text-align: right; 
+    -border: 1px solid yellow; 
+}
+
+#mainTwitterContent {
+    margin-bottom: 2px;
+}
+
+.followButton {
+    margin-left: 160px;
+    margin-top: 2px;
+}
+
+.hashtagButton {
+    float: left;
+    padding-top: 2px;
+}
+
+.tweetWrapper {
+    height: 100px;
+    margin-bottom: 24px;
+    margin-left: -6px;
+    margin-top: -24px;
+}
+
+.tweetVisible {
+    height: 104px;
+    margin-bottom: 0px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 6px;
+    overflow: hidden;
+    width: 276px;
+}
+
+.tweetVisible #outerTweetPicture {
+    float: left;
+    height: 70px;
+    margin-left: 0px;
+    margin-right: 2px;
+    overflow: hidden;
+    width: 70px;
+}
+
+.tweetVisible #middleTweetPicture {
+    display: table;
+    height: 65px;
+    position: static;
+    width: 65px;
+}
+
+.tweetVisible #innerTweetPicture {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+/*#region Tweet content not used */
+
+/*.tweetContent
+{
+    float: right;
+    margin-top: 0px;
+    width: 200px;
+}
+
+.tweetContent p
+{
+    color: black;
+    font-size: 0.80em;
+    line-height: 115%;
+    font-weight: 500;
+}
+
+.tweetContent h6 {
+    line-height: 155%;
+    margin-top: -1px;
+}
+
+.tweetContent a:link
+{
+    color: rgb(251, 221, 6);
+    font-weight: 700;
+}
+
+.tweetContent a:visited
+{
+    color: rgb(251, 221, 6);
+    font-weight: 700;
+}*/
+
+/*#endregion*/
+
+.tweetHidden {
+    display: none;
+}
+
+.tweetHidden #innerTweetPicture {
+    display: none;
+}

@@ -1,0 +1,20 @@
+﻿@model List<OCC.DataService.Webhost.ODataService.Session>
+@{
+    
+    ViewBag.Title = "Sessions";
+}
+<style>
+   label {
+       display:inline-block;
+       margin-left:20px;
+   }
+</style>
+<h2>Sessions</h2>
+
+<ul>
+    @foreach (var session in Model)
+    {
+        <li><h3>@session.Name</h3><p><label> Number of attendees: @session.SessionAttendees.Count</label></p></li>
+    }
+
+</ul>

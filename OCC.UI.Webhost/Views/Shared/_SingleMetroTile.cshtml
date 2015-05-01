@@ -1,0 +1,44 @@
+﻿@using OCC.UI.Webhost.Models
+@model OCC.UI.Webhost.Models.MetroTileViewModel
+
+<div class="singleTile @Model.TileBackgroundCssClass">
+    @if(!string.IsNullOrEmpty(Model.TileLinkActionName) && Model.TileDisplayName != "Sponsors")
+    {
+        <a href="@Url.Action(Model.TileLinkActionName, Model.TileLinkControllerName)" > </a>
+    }
+    else
+    {
+       <a href="@Model.MetroTileIcons[0].AnchorTagUri"></a> 
+    }
+    <div id="outerTileContent" class="outerSingleTileContent">
+
+            <div class="badge">@Model.TileNotificationMessage</div>
+    
+            <div id="middleTileContent" class="middleSingleTileContent">
+
+            <div id="innerTileContent" class="innerSingleTileContent">
+                @{ IList<MetroTileImage> iconList = Model.MetroTileIcons; }
+                @foreach(MetroTileImage t in iconList)
+                {
+                    if(t == iconList[0])
+                    {
+                        <a href="@t.AnchorTagUri" target="_blank">@Html.TileImageTag(t, "imageVisible")</a>
+                    }
+                    else
+                    {
+                        <a href="@t.AnchorTagUri" target="_blank">@Html.TileImageTag(t, "imageHidden")</a>
+                    }
+                }
+                @if(iconList.Count < 1)
+                {
+                    <a href="@Url.Action(Model.TileLinkActionName, Model.TileLinkControllerName)">@Html.TileImageTag(Model.DefaultTileImage, "imageVisible")</a>
+                }
+            </div>
+
+        </div>
+    </div>
+    <div class="tileFooter">
+        <div class="labelLowerLeft" style="font-family: Verdana; font-size: 14px;"><a href="@Url.Action(Model.TileLinkActionName, Model.TileLinkControllerName)" style="color: White">@Model.TileDisplayName</a></div>
+    </div>
+    
+</div>

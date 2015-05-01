@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://onetug.org/2012/CodeCampService" elementFormDefault="qualified" targetNamespace="http://onetug.org/2012/CodeCampService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:62257/Services/CodeCampService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" />
+  <xs:element name="RegisterPerson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="person" nillable="true" type="q1:Person" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterPersonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegisterPersonResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="person" nillable="true" type="q2:Person" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="LoginResult" nillable="true" type="q3:Person" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="personId" type="xs:int" />
+        <xs:element minOccurs="0" name="oldPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="temporaryPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="temporaryPasswordHash" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePerson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="person" nillable="true" type="q4:Person" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePersonResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePerson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="personId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePersonResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPersonByEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPersonByEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="FindPersonByEmailResult" nillable="true" type="q5:Person" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdministrators">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdministratorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetAdministratorsResult" nillable="true" type="q6:ArrayOfPerson" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAdministrator">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="personId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAdministratorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAdministrator">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="personId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAdministratorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAttendees">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAttendeesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetAllAttendeesResult" nillable="true" type="q7:ArrayOfPerson" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEvents">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetEventsResult" nillable="true" type="q8:ArrayOfEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventsByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fromDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="toDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventsByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetEventsByDateResult" nillable="true" type="q9:ArrayOfEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="_event" nillable="true" type="q10:Event" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEventResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEvent" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetEventResult" nillable="true" type="q11:Event" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="_event" nillable="true" type="q12:Event" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEventResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultEvent">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetDefaultEventResult" nillable="true" type="q13:Event" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSponsors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEvent" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSponsorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSponsorsResult" nillable="true" type="q14:ArrayOfSponsor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSponsor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSponsorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSponsorResult" nillable="true" type="q15:Sponsor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSponsor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="sponsor" nillable="true" type="q16:Sponsor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSponsorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSponsor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="sponsor" nillable="true" type="q17:Sponsor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSponsorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSponsor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSponsorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnnouncements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEvent" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnnouncementsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetAnnouncementsResult" nillable="true" type="q18:ArrayOfAnnouncement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentAnnouncements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEvent" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentAnnouncementsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetCurrentAnnouncementsResult" nillable="true" type="q19:ArrayOfAnnouncement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnnouncement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnnouncementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetAnnouncementResult" nillable="true" type="q20:Announcement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAnnouncement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="sponsor" nillable="true" type="q21:Announcement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAnnouncementResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAnnouncement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="sponsor" nillable="true" type="q22:Announcement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAnnouncementResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAnnouncement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAnnouncementResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTracks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEvent" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTracksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTracksResult" nillable="true" type="q23:ArrayOfTrack" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrack">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrackResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTrackResult" nillable="true" type="q24:Track" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTrack">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="track" nillable="true" type="q25:Track" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTrackResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTrack">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="track" nillable="true" type="q26:Track" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTrackResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTrack">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTrackResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTimeslots">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEvent" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTimeslotsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTimeslotsResult" nillable="true" type="q27:ArrayOfTimeslot" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTimeslot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTimeslotResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTimeslotResult" nillable="true" type="q28:Timeslot" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTimeslot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="Timeslot" nillable="true" type="q29:Timeslot" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTimeslotResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTimeslot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="Timeslot" nillable="true" type="q30:Timeslot" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTimeslotResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTimeslot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTimeslotResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HasSubmittedRating">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="personid" type="xs:int" />
+        <xs:element minOccurs="0" name="eventid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HasSubmittedRatingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="HasSubmittedRatingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRateSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="rating" nillable="true" type="q31:Rate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRateSessionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTags">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTagsResult" nillable="true" type="q32:ArrayOfTag" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagsByEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagsByEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTagsByEventResult" nillable="true" type="q33:ArrayOfTag" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSessionsResult" nillable="true" type="q34:ArrayOfSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApprovedSessions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApprovedSessionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetApprovedSessionsResult" nillable="true" type="q35:ArrayOfSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSessionResult" nillable="true" type="q36:Session" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpeakerSessions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+        <xs:element minOccurs="0" name="speakerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpeakerSessionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSpeakerSessionsResult" nillable="true" type="q37:ArrayOfSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="session" nillable="true" type="q38:Session" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSessionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="session" nillable="true" type="q39:Session" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSessionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSessionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpeakers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpeakersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSpeakersResult" nillable="true" type="q40:ArrayOfSpeaker" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpeaker">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+        <xs:element minOccurs="0" name="speakerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpeakerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSpeakerResult" nillable="true" type="q41:Speaker" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskAssignees">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="taskId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskAssigneesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTaskAssigneesResult" nillable="true" type="q42:ArrayOfPerson" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCurrentEventTasks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCurrentEventTasksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetAllCurrentEventTasksResult" nillable="true" type="q43:ArrayOfTask" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignTaskToPerson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="task" nillable="true" type="q44:Task" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignTaskToPersonResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveTaskFromPerson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="task" nillable="true" type="q45:Task" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveTaskFromPersonResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="taskId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTaskByIdResult" nillable="true" type="q46:Task" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTaskToEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="newTask" nillable="true" type="q47:Task" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTaskToEventResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisableTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="existingTaskId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisableTaskResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="existingTask" nillable="true" type="q48:Task" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventAttendee">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+        <xs:element minOccurs="0" name="personId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventAttendeeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetEventAttendeeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Rsvp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+        <xs:element minOccurs="0" name="personId" type="xs:int" />
+        <xs:element minOccurs="0" name="rsvp" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RsvpResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Schedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" type="xs:int" />
+        <xs:element minOccurs="0" name="trackId" type="xs:int" />
+        <xs:element minOccurs="0" name="timeslotId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScheduleResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgenda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgendaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetAgendaResult" nillable="true" type="q49:ArrayOfTrack" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMyAgenda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+        <xs:element minOccurs="0" name="personId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMyAgendaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetMyAgendaResult" nillable="true" type="q50:ArrayOfSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RateSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="s" nillable="true" type="q51:SessionAttendee" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RateSessionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendedSessions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+        <xs:element minOccurs="0" name="personId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendedSessionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetAttendedSessionsResult" nillable="true" type="q52:ArrayOfSessionAttendee" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AttendSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="personId" type="xs:int" />
+        <xs:element minOccurs="0" name="sessionId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AttendSessionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTracksCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTracksCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTracksCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionsCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionsCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSessionsCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpeakersCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpeakersCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSpeakersCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendeesCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendeesCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAttendeesCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

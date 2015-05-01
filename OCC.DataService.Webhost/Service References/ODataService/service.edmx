@@ -1,0 +1,187 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema Namespace="OrlandoCodeCampModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="Announcement">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Event_ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Title" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Content" Type="Edm.String" Nullable="true" MaxLength="2000" Unicode="true" FixedLength="false" />
+        <Property Name="PublishDate" Type="Edm.DateTime" Nullable="false" />
+      </EntityType>
+      <EntityType Name="Person">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="FirstName" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="LastName" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Title" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Bio" Type="Edm.String" Nullable="true" MaxLength="2000" Unicode="true" FixedLength="false" />
+        <Property Name="Website" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Blog" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Twitter" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="ImageUrl" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Sessions" Relationship="OrlandoCodeCampModel.Session_Speaker" FromRole="People" ToRole="Sessions" />
+        <NavigationProperty Name="SessionAttendees" Relationship="OrlandoCodeCampModel.SessionAttendee_Person" FromRole="People" ToRole="SessionAttendees" />
+      </EntityType>
+      <EntityType Name="SessionAttendee">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Session_ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Person_ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Rating" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Comment" Type="Edm.String" Nullable="true" MaxLength="2000" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Person" Relationship="OrlandoCodeCampModel.SessionAttendee_Person" FromRole="SessionAttendees" ToRole="People" />
+        <NavigationProperty Name="Session" Relationship="OrlandoCodeCampModel.SessionAttendee_Session" FromRole="SessionAttendees" ToRole="Sessions" />
+      </EntityType>
+      <EntityType Name="Session">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Event_ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Speaker_ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Track_ID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="Timeslot_ID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="Name" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Description" Type="Edm.String" Nullable="true" MaxLength="2000" Unicode="true" FixedLength="false" />
+        <Property Name="Status" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Level" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Location" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Person" Relationship="OrlandoCodeCampModel.Session_Speaker" FromRole="Sessions" ToRole="People" />
+        <NavigationProperty Name="SessionAttendees" Relationship="OrlandoCodeCampModel.SessionAttendee_Session" FromRole="Sessions" ToRole="SessionAttendees" />
+        <NavigationProperty Name="Timeslot" Relationship="OrlandoCodeCampModel.Session_Timeslot" FromRole="Sessions" ToRole="Timeslots" />
+        <NavigationProperty Name="Track" Relationship="OrlandoCodeCampModel.Session_Track" FromRole="Sessions" ToRole="Tracks" />
+      </EntityType>
+      <EntityType Name="Sponsor">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Event_ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Description" Type="Edm.String" Nullable="true" MaxLength="2000" Unicode="true" FixedLength="false" />
+        <Property Name="SponsorshipLevel" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="ImageUrl" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="WebsiteUrl" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+      </EntityType>
+      <EntityType Name="Timeslot">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Event_ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="StartTime" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="EndTime" Type="Edm.DateTime" Nullable="true" />
+        <NavigationProperty Name="Sessions" Relationship="OrlandoCodeCampModel.Session_Timeslot" FromRole="Timeslots" ToRole="Sessions" />
+      </EntityType>
+      <EntityType Name="Track">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Event_ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Description" Type="Edm.String" Nullable="true" MaxLength="2000" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Sessions" Relationship="OrlandoCodeCampModel.Session_Track" FromRole="Tracks" ToRole="Sessions" />
+      </EntityType>
+      <Association Name="Session_Speaker">
+        <End Role="People" Type="OrlandoCodeCampModel.Person" Multiplicity="1" />
+        <End Role="Sessions" Type="OrlandoCodeCampModel.Session" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="People">
+            <PropertyRef Name="ID" />
+          </Principal>
+          <Dependent Role="Sessions">
+            <PropertyRef Name="Speaker_ID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="SessionAttendee_Person">
+        <End Role="People" Type="OrlandoCodeCampModel.Person" Multiplicity="1" />
+        <End Role="SessionAttendees" Type="OrlandoCodeCampModel.SessionAttendee" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="People">
+            <PropertyRef Name="ID" />
+          </Principal>
+          <Dependent Role="SessionAttendees">
+            <PropertyRef Name="Person_ID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="SessionAttendee_Session">
+        <End Role="Sessions" Type="OrlandoCodeCampModel.Session" Multiplicity="1" />
+        <End Role="SessionAttendees" Type="OrlandoCodeCampModel.SessionAttendee" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Sessions">
+            <PropertyRef Name="ID" />
+          </Principal>
+          <Dependent Role="SessionAttendees">
+            <PropertyRef Name="Session_ID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="Session_Timeslot">
+        <End Role="Timeslots" Type="OrlandoCodeCampModel.Timeslot" Multiplicity="0..1" />
+        <End Role="Sessions" Type="OrlandoCodeCampModel.Session" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Timeslots">
+            <PropertyRef Name="ID" />
+          </Principal>
+          <Dependent Role="Sessions">
+            <PropertyRef Name="Timeslot_ID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="Session_Track">
+        <End Role="Tracks" Type="OrlandoCodeCampModel.Track" Multiplicity="0..1" />
+        <End Role="Sessions" Type="OrlandoCodeCampModel.Session" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Tracks">
+            <PropertyRef Name="ID" />
+          </Principal>
+          <Dependent Role="Sessions">
+            <PropertyRef Name="Track_ID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+    </Schema>
+    <Schema Namespace="OCC.DataService.Webhost" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="OrlandoCodeCampEntities" p7:LazyLoadingEnabled="true" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntitySet Name="Announcements" EntityType="OrlandoCodeCampModel.Announcement" />
+        <EntitySet Name="People" EntityType="OrlandoCodeCampModel.Person" />
+        <EntitySet Name="SessionAttendees" EntityType="OrlandoCodeCampModel.SessionAttendee" />
+        <EntitySet Name="Sessions" EntityType="OrlandoCodeCampModel.Session" />
+        <EntitySet Name="Sponsors" EntityType="OrlandoCodeCampModel.Sponsor" />
+        <EntitySet Name="Timeslots" EntityType="OrlandoCodeCampModel.Timeslot" />
+        <EntitySet Name="Tracks" EntityType="OrlandoCodeCampModel.Track" />
+        <AssociationSet Name="Session_Speaker" Association="OrlandoCodeCampModel.Session_Speaker">
+          <End Role="People" EntitySet="People" />
+          <End Role="Sessions" EntitySet="Sessions" />
+        </AssociationSet>
+        <AssociationSet Name="SessionAttendee_Person" Association="OrlandoCodeCampModel.SessionAttendee_Person">
+          <End Role="People" EntitySet="People" />
+          <End Role="SessionAttendees" EntitySet="SessionAttendees" />
+        </AssociationSet>
+        <AssociationSet Name="SessionAttendee_Session" Association="OrlandoCodeCampModel.SessionAttendee_Session">
+          <End Role="Sessions" EntitySet="Sessions" />
+          <End Role="SessionAttendees" EntitySet="SessionAttendees" />
+        </AssociationSet>
+        <AssociationSet Name="Session_Timeslot" Association="OrlandoCodeCampModel.Session_Timeslot">
+          <End Role="Timeslots" EntitySet="Timeslots" />
+          <End Role="Sessions" EntitySet="Sessions" />
+        </AssociationSet>
+        <AssociationSet Name="Session_Track" Association="OrlandoCodeCampModel.Session_Track">
+          <End Role="Tracks" EntitySet="Tracks" />
+          <End Role="Sessions" EntitySet="Sessions" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

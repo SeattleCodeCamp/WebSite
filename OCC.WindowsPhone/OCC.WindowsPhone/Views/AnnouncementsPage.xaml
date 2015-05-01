@@ -1,0 +1,49 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="OCC.WindowsPhone.Views.AnnouncementsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="announcementListItem">
+            <Grid Margin="0,0,0,6">
+                <StackPanel>
+                    <TextBlock Text="{Binding PublishDate, Converter={StaticResource FormatConverter},ConverterParameter=g}" Foreground="{StaticResource PhoneSubtleBrush}" FontSize="{StaticResource PhoneFontSizeSmall}"/>
+                    <TextBlock Text="{Binding Title}" Margin="0,-12,0,0" FontSize="{StaticResource PhoneFontSizeExtraLarge}" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel -->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="ORLANDO CODE CAMP" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="news" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel -->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ListBox 
+                    ItemsSource="{Binding Announcements}" 
+                    ItemTemplate="{StaticResource announcementListItem}"
+                    SelectionChanged="AnnouncementSelected"
+                />
+        </Grid>
+    </Grid>
+</phone:PhoneApplicationPage>

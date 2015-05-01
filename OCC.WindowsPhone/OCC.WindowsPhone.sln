@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCC.WindowsPhone", "OCC.WindowsPhone\OCC.WindowsPhone.csproj", "{ABD007EB-8A4C-498E-A15B-A6865DF219BF}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://esteban.tfspreview.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = OCC.WindowsPhone\\OCC.WindowsPhone.csproj
+		SccProjectName1 = OCC.WindowsPhone
+		SccLocalPath1 = OCC.WindowsPhone
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABD007EB-8A4C-498E-A15B-A6865DF219BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD007EB-8A4C-498E-A15B-A6865DF219BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD007EB-8A4C-498E-A15B-A6865DF219BF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{ABD007EB-8A4C-498E-A15B-A6865DF219BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD007EB-8A4C-498E-A15B-A6865DF219BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABD007EB-8A4C-498E-A15B-A6865DF219BF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://onetug.org/2012/CodeCampService" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://onetug.org/2012/CodeCampService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://onetug.org/2012/CodeCampService/Imports">
+      <xsd:import schemaLocation="http://localhost:62257/Services/CodeCampService.svc?xsd=xsd0" namespace="http://onetug.org/2012/CodeCampService" />
+      <xsd:import schemaLocation="http://localhost:62257/Services/CodeCampService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:62257/Services/CodeCampService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICodeCampService_RegisterPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterPerson" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_RegisterPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_ResetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_ResetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdatePerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePerson" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdatePerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeletePerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePerson" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeletePerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_FindPersonByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPersonByEmail" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_FindPersonByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPersonByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAdministrators_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdministrators" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAdministrators_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdministratorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_AddAdministrator_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAdministrator" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_AddAdministrator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAdministratorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_RemoveAdministrator_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAdministrator" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_RemoveAdministrator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAdministratorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAllAttendees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAttendees" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAllAttendees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAttendeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvents" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetEventsByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventsByDate" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetEventsByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventsByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEvent" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvent" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvent" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetDefaultEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultEvent" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetDefaultEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSponsors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSponsors" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSponsors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSponsorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSponsor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSponsor" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSponsor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSponsorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateSponsor_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSponsor" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateSponsor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSponsorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateSponsor_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSponsor" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateSponsor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSponsorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteSponsor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSponsor" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteSponsor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSponsorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAnnouncements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnouncements" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAnnouncements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnouncementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetCurrentAnnouncements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentAnnouncements" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetCurrentAnnouncements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentAnnouncementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAnnouncement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnouncement" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAnnouncement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnouncementResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateAnnouncement_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAnnouncement" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateAnnouncement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAnnouncementResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateAnnouncement_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnnouncement" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateAnnouncement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnnouncementResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteAnnouncement_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAnnouncement" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteAnnouncement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAnnouncementResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTracks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracks" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTracks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracksResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTrack_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrack" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTrack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateTrack_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTrack" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateTrack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTrackResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateTrack_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTrack" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateTrack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTrackResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteTrack_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrack" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteTrack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrackResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTimeslots_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimeslots" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTimeslots_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimeslotsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTimeslot_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimeslot" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTimeslot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimeslotResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateTimeslot_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTimeslot" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateTimeslot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTimeslotResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateTimeslot_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTimeslot" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateTimeslot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTimeslotResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteTimeslot_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTimeslot" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteTimeslot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTimeslotResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_HasSubmittedRating_InputMessage">
+    <wsdl:part name="parameters" element="tns:HasSubmittedRating" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_HasSubmittedRating_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HasSubmittedRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateRateSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRateSession" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateRateSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRateSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTags_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTags" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTagsByEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagsByEvent" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTagsByEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagsByEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSessions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessions" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSessions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetApprovedSessions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovedSessions" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetApprovedSessions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovedSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSession" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSpeakerSessions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeakerSessions" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSpeakerSessions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeakerSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSession" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_CreateSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSession" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSession" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSpeakers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeakers" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSpeakers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeakersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSpeaker_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeaker" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSpeaker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeakerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTaskAssignees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskAssignees" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTaskAssignees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskAssigneesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAllCurrentEventTasks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCurrentEventTasks" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAllCurrentEventTasks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCurrentEventTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_AssignTaskToPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignTaskToPerson" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_AssignTaskToPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignTaskToPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_RemoveTaskFromPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTaskFromPerson" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_RemoveTaskFromPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTaskFromPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTaskById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskById" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTaskById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_AddTaskToEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTaskToEvent" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_AddTaskToEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTaskToEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DisableTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisableTask" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DisableTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisableTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTask" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_UpdateTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetEventAttendee_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventAttendee" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetEventAttendee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventAttendeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_Rsvp_InputMessage">
+    <wsdl:part name="parameters" element="tns:Rsvp" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_Rsvp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RsvpResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_Schedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:Schedule" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_Schedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAgenda_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgenda" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAgenda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgendaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetMyAgenda_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyAgenda" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetMyAgenda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyAgendaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_RateSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:RateSession" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_RateSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RateSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAttendedSessions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendedSessions" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAttendedSessions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendedSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_AttendSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:AttendSession" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_AttendSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AttendSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTracksCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracksCount" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTracksCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracksCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSessionsCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionsCount" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSessionsCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSpeakersCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeakersCount" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetSpeakersCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeakersCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAttendeesCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendeesCount" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetAttendeesCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendeesCountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICodeCampService">
+    <wsdl:operation name="RegisterPerson">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/RegisterPerson" message="tns:ICodeCampService_RegisterPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/RegisterPersonResponse" message="tns:ICodeCampService_RegisterPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/Login" message="tns:ICodeCampService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/LoginResponse" message="tns:ICodeCampService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/ChangePassword" message="tns:ICodeCampService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/ChangePasswordResponse" message="tns:ICodeCampService_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/ResetPassword" message="tns:ICodeCampService_ResetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/ResetPasswordResponse" message="tns:ICodeCampService_ResetPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePerson">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdatePerson" message="tns:ICodeCampService_UpdatePerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdatePersonResponse" message="tns:ICodeCampService_UpdatePerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePerson">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeletePerson" message="tns:ICodeCampService_DeletePerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeletePersonResponse" message="tns:ICodeCampService_DeletePerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPersonByEmail">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/FindPersonByEmail" message="tns:ICodeCampService_FindPersonByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/FindPersonByEmailResponse" message="tns:ICodeCampService_FindPersonByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdministrators">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAdministrators" message="tns:ICodeCampService_GetAdministrators_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAdministratorsResponse" message="tns:ICodeCampService_GetAdministrators_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAdministrator">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/AddAdministrator" message="tns:ICodeCampService_AddAdministrator_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/AddAdministratorResponse" message="tns:ICodeCampService_AddAdministrator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAdministrator">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/RemoveAdministrator" message="tns:ICodeCampService_RemoveAdministrator_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/RemoveAdministratorResponse" message="tns:ICodeCampService_RemoveAdministrator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAttendees">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAllAttendees" message="tns:ICodeCampService_GetAllAttendees_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAllAttendeesResponse" message="tns:ICodeCampService_GetAllAttendees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetEvents" message="tns:ICodeCampService_GetEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetEventsResponse" message="tns:ICodeCampService_GetEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventsByDate">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetEventsByDate" message="tns:ICodeCampService_GetEventsByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetEventsByDateResponse" message="tns:ICodeCampService_GetEventsByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEvent">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateEvent" message="tns:ICodeCampService_CreateEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateEventResponse" message="tns:ICodeCampService_CreateEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvent">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetEvent" message="tns:ICodeCampService_GetEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetEventResponse" message="tns:ICodeCampService_GetEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvent">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateEvent" message="tns:ICodeCampService_UpdateEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateEventResponse" message="tns:ICodeCampService_UpdateEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultEvent">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetDefaultEvent" message="tns:ICodeCampService_GetDefaultEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetDefaultEventResponse" message="tns:ICodeCampService_GetDefaultEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSponsors">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSponsors" message="tns:ICodeCampService_GetSponsors_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSponsorsResponse" message="tns:ICodeCampService_GetSponsors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSponsor">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSponsor" message="tns:ICodeCampService_GetSponsor_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSponsorResponse" message="tns:ICodeCampService_GetSponsor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSponsor">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateSponsor" message="tns:ICodeCampService_CreateSponsor_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateSponsorResponse" message="tns:ICodeCampService_CreateSponsor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSponsor">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateSponsor" message="tns:ICodeCampService_UpdateSponsor_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateSponsorResponse" message="tns:ICodeCampService_UpdateSponsor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSponsor">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteSponsor" message="tns:ICodeCampService_DeleteSponsor_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteSponsorResponse" message="tns:ICodeCampService_DeleteSponsor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnouncements">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAnnouncements" message="tns:ICodeCampService_GetAnnouncements_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAnnouncementsResponse" message="tns:ICodeCampService_GetAnnouncements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentAnnouncements">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetCurrentAnnouncements" message="tns:ICodeCampService_GetCurrentAnnouncements_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetCurrentAnnouncementsResponse" message="tns:ICodeCampService_GetCurrentAnnouncements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnouncement">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAnnouncement" message="tns:ICodeCampService_GetAnnouncement_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAnnouncementResponse" message="tns:ICodeCampService_GetAnnouncement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAnnouncement">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateAnnouncement" message="tns:ICodeCampService_CreateAnnouncement_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateAnnouncementResponse" message="tns:ICodeCampService_CreateAnnouncement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAnnouncement">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateAnnouncement" message="tns:ICodeCampService_UpdateAnnouncement_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateAnnouncementResponse" message="tns:ICodeCampService_UpdateAnnouncement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAnnouncement">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteAnnouncement" message="tns:ICodeCampService_DeleteAnnouncement_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteAnnouncementResponse" message="tns:ICodeCampService_DeleteAnnouncement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTracks">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTracks" message="tns:ICodeCampService_GetTracks_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTracksResponse" message="tns:ICodeCampService_GetTracks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrack">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTrack" message="tns:ICodeCampService_GetTrack_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTrackResponse" message="tns:ICodeCampService_GetTrack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTrack">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateTrack" message="tns:ICodeCampService_CreateTrack_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateTrackResponse" message="tns:ICodeCampService_CreateTrack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrack">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateTrack" message="tns:ICodeCampService_UpdateTrack_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateTrackResponse" message="tns:ICodeCampService_UpdateTrack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrack">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteTrack" message="tns:ICodeCampService_DeleteTrack_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteTrackResponse" message="tns:ICodeCampService_DeleteTrack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeslots">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTimeslots" message="tns:ICodeCampService_GetTimeslots_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTimeslotsResponse" message="tns:ICodeCampService_GetTimeslots_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeslot">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTimeslot" message="tns:ICodeCampService_GetTimeslot_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTimeslotResponse" message="tns:ICodeCampService_GetTimeslot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTimeslot">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateTimeslot" message="tns:ICodeCampService_CreateTimeslot_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateTimeslotResponse" message="tns:ICodeCampService_CreateTimeslot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTimeslot">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateTimeslot" message="tns:ICodeCampService_UpdateTimeslot_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateTimeslotResponse" message="tns:ICodeCampService_UpdateTimeslot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTimeslot">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteTimeslot" message="tns:ICodeCampService_DeleteTimeslot_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteTimeslotResponse" message="tns:ICodeCampService_DeleteTimeslot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HasSubmittedRating">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/HasSubmittedRating" message="tns:ICodeCampService_HasSubmittedRating_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/HasSubmittedRatingResponse" message="tns:ICodeCampService_HasSubmittedRating_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRateSession">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateRateSession" message="tns:ICodeCampService_CreateRateSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateRateSessionResponse" message="tns:ICodeCampService_CreateRateSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTags">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTags" message="tns:ICodeCampService_GetTags_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTagsResponse" message="tns:ICodeCampService_GetTags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagsByEvent">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTagsByEvent" message="tns:ICodeCampService_GetTagsByEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTagsByEventResponse" message="tns:ICodeCampService_GetTagsByEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessions">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSessions" message="tns:ICodeCampService_GetSessions_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSessionsResponse" message="tns:ICodeCampService_GetSessions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovedSessions">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetApprovedSessions" message="tns:ICodeCampService_GetApprovedSessions_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetApprovedSessionsResponse" message="tns:ICodeCampService_GetApprovedSessions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSession">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSession" message="tns:ICodeCampService_GetSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSessionResponse" message="tns:ICodeCampService_GetSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeakerSessions">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSpeakerSessions" message="tns:ICodeCampService_GetSpeakerSessions_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSpeakerSessionsResponse" message="tns:ICodeCampService_GetSpeakerSessions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSession">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateSession" message="tns:ICodeCampService_CreateSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateSessionResponse" message="tns:ICodeCampService_CreateSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSession">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateSession" message="tns:ICodeCampService_UpdateSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateSessionResponse" message="tns:ICodeCampService_UpdateSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSession">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteSession" message="tns:ICodeCampService_DeleteSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteSessionResponse" message="tns:ICodeCampService_DeleteSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeakers">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSpeakers" message="tns:ICodeCampService_GetSpeakers_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSpeakersResponse" message="tns:ICodeCampService_GetSpeakers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeaker">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSpeaker" message="tns:ICodeCampService_GetSpeaker_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSpeakerResponse" message="tns:ICodeCampService_GetSpeaker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskAssignees">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTaskAssignees" message="tns:ICodeCampService_GetTaskAssignees_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTaskAssigneesResponse" message="tns:ICodeCampService_GetTaskAssignees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCurrentEventTasks">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAllCurrentEventTasks" message="tns:ICodeCampService_GetAllCurrentEventTasks_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAllCurrentEventTasksResponse" message="tns:ICodeCampService_GetAllCurrentEventTasks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignTaskToPerson">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/AssignTaskToPerson" message="tns:ICodeCampService_AssignTaskToPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/AssignTaskToPersonResponse" message="tns:ICodeCampService_AssignTaskToPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTaskFromPerson">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/RemoveTaskFromPerson" message="tns:ICodeCampService_RemoveTaskFromPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/RemoveTaskFromPersonResponse" message="tns:ICodeCampService_RemoveTaskFromPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskById">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTaskById" message="tns:ICodeCampService_GetTaskById_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTaskByIdResponse" message="tns:ICodeCampService_GetTaskById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTaskToEvent">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/AddTaskToEvent" message="tns:ICodeCampService_AddTaskToEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/AddTaskToEventResponse" message="tns:ICodeCampService_AddTaskToEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisableTask">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DisableTask" message="tns:ICodeCampService_DisableTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DisableTaskResponse" message="tns:ICodeCampService_DisableTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTask">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateTask" message="tns:ICodeCampService_UpdateTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/UpdateTaskResponse" message="tns:ICodeCampService_UpdateTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventAttendee">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetEventAttendee" message="tns:ICodeCampService_GetEventAttendee_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetEventAttendeeResponse" message="tns:ICodeCampService_GetEventAttendee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Rsvp">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/Rsvp" message="tns:ICodeCampService_Rsvp_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/RsvpResponse" message="tns:ICodeCampService_Rsvp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Schedule">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/Schedule" message="tns:ICodeCampService_Schedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/ScheduleResponse" message="tns:ICodeCampService_Schedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgenda">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAgenda" message="tns:ICodeCampService_GetAgenda_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAgendaResponse" message="tns:ICodeCampService_GetAgenda_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyAgenda">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetMyAgenda" message="tns:ICodeCampService_GetMyAgenda_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetMyAgendaResponse" message="tns:ICodeCampService_GetMyAgenda_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RateSession">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/RateSession" message="tns:ICodeCampService_RateSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/RateSessionResponse" message="tns:ICodeCampService_RateSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendedSessions">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAttendedSessions" message="tns:ICodeCampService_GetAttendedSessions_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAttendedSessionsResponse" message="tns:ICodeCampService_GetAttendedSessions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AttendSession">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/AttendSession" message="tns:ICodeCampService_AttendSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/AttendSessionResponse" message="tns:ICodeCampService_AttendSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTracksCount">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTracksCount" message="tns:ICodeCampService_GetTracksCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTracksCountResponse" message="tns:ICodeCampService_GetTracksCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionsCount">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSessionsCount" message="tns:ICodeCampService_GetSessionsCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSessionsCountResponse" message="tns:ICodeCampService_GetSessionsCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeakersCount">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSpeakersCount" message="tns:ICodeCampService_GetSpeakersCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetSpeakersCountResponse" message="tns:ICodeCampService_GetSpeakersCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendeesCount">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAttendeesCount" message="tns:ICodeCampService_GetAttendeesCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAttendeesCountResponse" message="tns:ICodeCampService_GetAttendeesCount_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

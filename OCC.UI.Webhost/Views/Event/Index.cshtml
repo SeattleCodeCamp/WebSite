@@ -1,0 +1,16 @@
+﻿ @using OCC.UI.Webhost.Models;
+           
+@model List<Event>
+
+@{
+    ViewBag.Title = "Events";
+}
+
+<div class="title">events | @Html.ActionLink("new", "Create") | @Html.ActionLink("back", "Admin", "Home")</div>
+
+@foreach (Event e in ViewData.Model)
+{
+    <div>
+        @Html.ActionLink(e.Name, "Edit", new { id = e.ID })
+    </div>
+}

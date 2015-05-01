@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Blog" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Twitter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Website" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Person" nillable="true" type="tns:Person" />
+  <xs:complexType name="ArrayOfPerson">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPerson" nillable="true" type="tns:ArrayOfPerson" />
+  <xs:complexType name="ArrayOfEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Event" nillable="true" type="tns:Event" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEvent" nillable="true" type="tns:ArrayOfEvent" />
+  <xs:complexType name="Event">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Announcements" nillable="true" type="tns:ArrayOfAnnouncement" />
+      <xs:element minOccurs="0" name="Attendees" nillable="true" type="tns:ArrayOfPerson" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsAttendeeRegistrationOpen" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDefault" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSpeakerRegistrationOpen" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSponsorRegistrationOpen" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsVolunteerRegistrationOpen" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sponsors" nillable="true" type="tns:ArrayOfSponsor" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tracks" nillable="true" type="tns:ArrayOfTrack" />
+      <xs:element minOccurs="0" name="TwitterHashTag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Event" nillable="true" type="tns:Event" />
+  <xs:complexType name="ArrayOfAnnouncement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Announcement" nillable="true" type="tns:Announcement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnnouncement" nillable="true" type="tns:ArrayOfAnnouncement" />
+  <xs:complexType name="Announcement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EventID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="PublishDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Announcement" nillable="true" type="tns:Announcement" />
+  <xs:complexType name="ArrayOfSponsor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Sponsor" nillable="true" type="tns:Sponsor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSponsor" nillable="true" type="tns:ArrayOfSponsor" />
+  <xs:complexType name="Sponsor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EventID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SponsorshipLevel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebsiteUrl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Sponsor" nillable="true" type="tns:Sponsor" />
+  <xs:complexType name="ArrayOfTrack">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Track" nillable="true" type="tns:Track" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrack" nillable="true" type="tns:ArrayOfTrack" />
+  <xs:complexType name="Track">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EventID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sessions" nillable="true" type="tns:ArrayOfSession" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Track" nillable="true" type="tns:Track" />
+  <xs:complexType name="ArrayOfSession">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Session" nillable="true" type="tns:Session" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSession" nillable="true" type="tns:ArrayOfSession" />
+  <xs:complexType name="Session">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EventID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Level" type="xs:int" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speaker" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SpeakerID" type="xs:int" />
+      <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TagID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeslotID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Track" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrackID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Session" nillable="true" type="tns:Session" />
+  <xs:complexType name="ArrayOfTimeslot">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Timeslot" nillable="true" type="tns:Timeslot" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTimeslot" nillable="true" type="tns:ArrayOfTimeslot" />
+  <xs:complexType name="Timeslot">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EventID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Timeslot" nillable="true" type="tns:Timeslot" />
+  <xs:complexType name="Rate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EventID" type="xs:int" />
+      <xs:element minOccurs="0" name="RateFood" type="xs:int" />
+      <xs:element minOccurs="0" name="RateSignin" type="xs:int" />
+      <xs:element minOccurs="0" name="RateSwag" type="xs:int" />
+      <xs:element minOccurs="0" name="RatedSessions" nillable="true" type="tns:ArrayOfRateSession" />
+      <xs:element minOccurs="0" name="ReferralSource" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Rate" nillable="true" type="tns:Rate" />
+  <xs:complexType name="ArrayOfRateSession">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RateSession" nillable="true" type="tns:RateSession" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRateSession" nillable="true" type="tns:ArrayOfRateSession" />
+  <xs:complexType name="RateSession">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Rating" type="xs:int" />
+      <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeSlotID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RateSession" nillable="true" type="tns:RateSession" />
+  <xs:complexType name="ArrayOfTag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tag" nillable="true" type="tns:Tag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTag" nillable="true" type="tns:ArrayOfTag" />
+  <xs:complexType name="Tag">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="SessionsCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TagName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tag" nillable="true" type="tns:Tag" />
+  <xs:complexType name="ArrayOfSpeaker">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Speaker" nillable="true" type="tns:Speaker" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpeaker" nillable="true" type="tns:ArrayOfSpeaker" />
+  <xs:complexType name="Speaker">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Person">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Sessions" nillable="true" type="tns:ArrayOfSession" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Speaker" nillable="true" type="tns:Speaker" />
+  <xs:complexType name="ArrayOfTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Task" nillable="true" type="tns:Task" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTask" nillable="true" type="tns:ArrayOfTask" />
+  <xs:complexType name="Task">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Assignees" nillable="true" type="tns:ArrayOfPerson" />
+      <xs:element minOccurs="0" name="Capacity" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Event" nillable="true" type="tns:Event" />
+      <xs:element minOccurs="0" name="EventID" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Task" nillable="true" type="tns:Task" />
+  <xs:complexType name="SessionAttendee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="SessionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessionRating" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SpeakerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SpeakerRating" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SessionAttendee" nillable="true" type="tns:SessionAttendee" />
+  <xs:complexType name="ArrayOfSessionAttendee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SessionAttendee" nillable="true" type="tns:SessionAttendee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSessionAttendee" nillable="true" type="tns:ArrayOfSessionAttendee" />
+</xs:schema>

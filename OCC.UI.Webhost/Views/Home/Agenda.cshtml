@@ -1,0 +1,44 @@
+﻿@using OCC.UI.Webhost.Models;
+
+@model List<Track>
+
+@{
+    ViewBag.Title = "Agenda";
+}
+
+<div class="title">agenda | @Html.ActionLink("my agenda", "MyAgenda")</div>
+
+@*
+<div>
+<a href="@Url.Content("~/Content/Documents/OrlandoCodeCamp2012Agenda.pdf")">Click here </a> for a PDF version of the agenda.
+</div>
+*@
+
+<table>
+
+@foreach (var track in ViewData.Model)
+{
+    <tr>
+        <td colspan="3">
+            <div class="field-name">@track.Name</div>
+        </td>
+    </tr>
+    
+    foreach (var session in track.Sessions)
+    {
+        <tr>
+            <td nowrap="nowrap">
+                <div style="font-size:small">@session.StartTime - @session.EndTime</div>
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                @Html.ActionLink(session.Name, "Details", "Session", new { id = session.ID }, null)  
+                - 
+                @Html.ActionLink(session.Speaker, "Details", "Speaker", new { id = session.SpeakerID }, null)  
+            </td>
+        </tr>
+    }
+
+}
+
+</table>

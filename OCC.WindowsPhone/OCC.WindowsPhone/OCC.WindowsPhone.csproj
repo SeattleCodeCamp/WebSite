@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ABD007EB-8A4C-498E-A15B-A6865DF219BF}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OCC.WindowsPhone</RootNamespace>
+    <AssemblyName>OCC.WindowsPhone</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>OCC.WindowsPhone.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>OCC.WindowsPhone.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="System.Data.Services.Client, Version=7.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="mscorlib.extensions" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Board.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\DataType.cs" />
+    <Compile Include="Common\PhoneHyperlinkButton.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\PhoneApplicationPageExtensions.cs" />
+    <Compile Include="Models\BoardMember.cs" />
+    <Compile Include="Models\Person.partial.cs" />
+    <Compile Include="Models\Session.partial.cs" />
+    <Compile Include="Models\Timeslot.partial.cs" />
+    <Compile Include="Models\TwitterItem.cs" />
+    <Compile Include="Service References\OrlandoCodeCampService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.datasvcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services\DataService.cs" />
+    <Compile Include="ValueConverters\FormatConverter.cs" />
+    <Compile Include="ValueConverters\RelativeUrlValueConverter.cs" />
+    <Compile Include="ValueConverters\VisibilityConverter.cs" />
+    <Compile Include="ValueConverters\VisibleIfNotNullConverter.cs" />
+    <Compile Include="ViewModels\AnnouncementsViewModel.cs" />
+    <Compile Include="ViewModels\AnnouncementViewModel.cs" />
+    <Compile Include="ViewModels\SponsorViewModel.cs" />
+    <Compile Include="ViewModels\TimeslotViewModel.cs" />
+    <Compile Include="ViewModels\TimeslotsViewModel.cs" />
+    <Compile Include="ViewModels\SponsorsViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SessionsViewModel.cs" />
+    <Compile Include="ViewModels\SpeakerViewModel.cs" />
+    <Compile Include="ViewModels\SpeakersViewModel.cs" />
+    <Compile Include="ViewModels\TrackViewModel.cs" />
+    <Compile Include="ViewModels\TracksViewModel.cs" />
+    <Compile Include="ViewModels\SessionViewModel.cs" />
+    <Compile Include="Views\AboutControl.xaml.cs">
+      <DependentUpon>AboutControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TimeslotPage.xaml.cs">
+      <DependentUpon>TimeslotPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AnnouncementsPage.xaml.cs">
+      <DependentUpon>AnnouncementsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AnnouncementPage.xaml.cs">
+      <DependentUpon>AnnouncementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SponsorPage.xaml.cs">
+      <DependentUpon>SponsorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TimeslotsPage.xaml.cs">
+      <DependentUpon>TimeslotsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SponsorsPage.xaml.cs">
+      <DependentUpon>SponsorsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Extensions.cs" />
+    <Compile Include="ViewModels\RelayedCommand.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\Pages.cs" />
+    <Compile Include="Views\SessionPage.xaml.cs">
+      <DependentUpon>SessionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SessionsPage.xaml.cs">
+      <DependentUpon>SessionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpeakerPage.xaml.cs">
+      <DependentUpon>SpeakerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpeakersPage.xaml.cs">
+      <DependentUpon>SpeakersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrackPage.xaml.cs">
+      <DependentUpon>TrackPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TracksPage.xaml.cs">
+      <DependentUpon>TracksPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="Views\AboutControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TimeslotPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AnnouncementsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AnnouncementPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SponsorPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TimeslotsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SponsorsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SessionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SessionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpeakerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpeakersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TrackPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TracksPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml" />
+    <None Include="Service References\OrlandoCodeCampService\service.edmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\anonymousUser.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\appbar.questionmark.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\appbar.refresh.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\AppBarRefresh.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\BrianMishler.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\BrianHall.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Esteban.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\JohnSmith.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\johntorrey.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\z.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CodeCamp2012HeaderLogo.png" />
+    <Content Include="Images\OneTugLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\PanoramaBackground.png" />
+    <None Include="Service References\OrlandoCodeCampService\Reference.datasvcmap">
+      <Generator>DataServiceClientGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ServiceReferenceMetadataStorage Include="Service References\OrlandoCodeCampService\">
+      <Type>datasvcmap</Type>
+    </ServiceReferenceMetadataStorage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

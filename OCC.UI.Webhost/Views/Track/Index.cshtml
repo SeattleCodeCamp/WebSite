@@ -1,0 +1,22 @@
+﻿@using OCC.UI.Webhost.Models;
+
+@model IList<Track> 
+
+@{
+    ViewBag.Title = "Tracks";
+}
+
+@*
+<div>
+    @Html.ActionLink("[back]", "Admin", "Home")
+    @Html.ActionLink("[new]", "Create")
+</div>
+*@
+<div class="title">tracks | @Html.ActionLink("new", "Create") | @Html.ActionLink("back", "Admin", "Home")</div>
+
+@foreach (Track track in ViewData.Model)
+{
+    <div>
+        @Html.ActionLink(track.Name, "Edit", new { id = track.ID })
+    </div>
+}

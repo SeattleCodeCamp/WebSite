@@ -1,0 +1,67 @@
+﻿@using OCC.UI.Webhost.Models;
+
+@model List<Session>
+
+@{
+    ViewBag.Title = "Sessions";
+    var count = 0;
+}
+
+<div class="title">sessions</div>
+
+
+
+@if (ViewBag.Event.IsSpeakerRegistrationOpen)
+{
+    <div>
+        The following sessions have been submitted, but not yet approved.
+    </div>
+    <div style="clear: both"></div>
+    <div>&nbsp;</div>
+    <div style="clear: both"></div>
+}
+else
+{ 
+<div>
+    <span>Timeslots:</span><br />
+    @Html.ActionLink("All", "sessions", "home", new { id = -1 }, null)<span>&nbsp;</span>
+    @Html.ActionLink("9:00-9:50", "sessions", "home", new { id = 32 }, null)<span>&nbsp;</span>
+    @Html.ActionLink("10:00-10:50", "sessions", "home", new { id = 33 }, null)<span>&nbsp;</span>
+    @Html.ActionLink("11:00-11:50", "sessions", "home", new { id = 34 }, null)<span>&nbsp;</span>
+    @Html.ActionLink("1:00-1:50", "sessions", "home", new { id = 36 }, null)<span>&nbsp;</span>
+    @Html.ActionLink("2:00-2:50", "sessions", "home", new { id = 37 }, null)<span>&nbsp;</span>
+    @Html.ActionLink("3:00-3:50", "sessions", "home", new { id = 38 }, null)<span>&nbsp;</span>
+    @Html.ActionLink("4:00-4:50", "sessions", "home", new { id = 39 }, null)<span>&nbsp;</span>
+</div>
+}
+@foreach (var session in ViewData.Model)
+{
+    //if (count % 2 == 0)
+    //{
+    <div style="clear: both"></div>
+    <div>&nbsp;</div>
+    <div style="clear: both"></div>
+    @*}*@
+    <div style="float:left;width: 95%">
+        <div style="float: left; width: 48px">
+            <a href="@Url.Action("Details", "Speaker", new { id = session.SpeakerID })">
+                <div>
+                    @Html.ImageTag(session.ImageUrl, session.Speaker, 48, 48, session.Speaker)
+                    <div style="position: relative; top: 0px; left: 0px;"><small>@session.Speaker</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div style="float: left; padding-left: 20px; width: 80%">
+            @Html.ActionLink(session.Name, "Details", "Session", new { id = session.ID }, null)&nbsp;@(string.IsNullOrEmpty(session.Location)?string.Empty:string.Format("(Room: {0})",session.Location))<br />
+            <text>@session.Description.Substring(0,Math.Min(200,session.Description.Length))...</text>
+            @if (session.Status == "APPROVED")
+            {
+                <small>@Html.ActionLink("Add to My Agenda", "Attend", "Session", new { id = (int)session.ID }, null) </small>
+            }
+        </div>
+
+    </div>
+    count = count + 1;
+}

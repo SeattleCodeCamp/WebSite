@@ -1,0 +1,22 @@
+﻿@using OCC.UI.Webhost.Models;
+
+@model Event
+
+@{
+    ViewBag.Title = "Venue";
+}
+
+<div class="title">venue</div>
+
+@*
+<div>TODO: fix bing map</div>
+*@
+
+<div id="mapviewer"><iframe id="map" scrolling="no" width="500" height="400" frameborder="0" src="http://www.bing.com/maps/embed/?v=2&amp;cp=28.744408180573707~-81.30552291870117&amp;lvl=15&amp;dir=0&amp;sty=r&amp;ss=ypid.YN183x162104803~pg.1&amp;form=LMLTEW&amp;emid=7f78487c-1ee9-52b6-47ad-75d26dbc9148"></iframe><div id="LME_maplinks" style="line-height:20px;"><a id="LME_largerMap" href="http://www.bing.com/maps/?v=2&amp;cp=28.744408180573707~-81.30552291870117&amp;lvl=15&amp;dir=0&amp;sty=r&amp;ss=ypid.YN183x162104803~pg.1&amp;form=LMLTEW" target="_blank" style="margin:0 7px">View Larger Map</a><a id="LME_directions" href="http://www.bing.com/maps/?v=2&amp;cp=28.744408180573707~-81.30552291870117&amp;lvl=15&amp;dir=0&amp;sty=r&amp;ss=ypid.YN183x162104803~pg.1&amp;form=LMLTEW&amp;rtp=%7Epos.28.744408180573707_-81.30552291870117_Sanford" target="_blank" style="margin:0 7px">Driving Directions</a></div></div>
+
+<pre>
+University Partnership Building
+@ViewData.Model.Location
+@ViewData.Model.Address1 &nbsp; @ViewData.Model.Address2
+@ViewData.Model.City @ViewData.Model.State @ViewData.Model.Zip
+</pre>

@@ -1,0 +1,23 @@
+﻿@using OCC.UI.Webhost.Models;
+
+@model Track
+
+@{
+    ViewBag.Title = "Track";
+}
+
+<div class="title">track</div>
+
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.ID }) |
+    @Html.ActionLink("Back", "Index")
+</div>
+
+<div class="error-message">@ViewBag.ErrorMessage</div>
+
+<div class="field-name">name</div>
+<div class="field-value">@Html.DisplayFor(model => model.Name)</div>
+
+<div class="field-name">description</div>
+<div class="field-value">@Html.DisplayFor(model => model.Description)</div>

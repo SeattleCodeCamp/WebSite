@@ -1,0 +1,614 @@
+USE [master]
+GO
+
+USE [master]
+GO
+
+/****** Object:  Database [OrlandoCodeCamp]    Script Date: 5/20/2014 1:26:47 PM ******/
+DROP DATABASE [OrlandoCodeCamp]
+GO
+
+/****** Object:  Database [OrlandoCodeCamp]    Script Date: 5/20/2014 1:26:47 PM ******/
+CREATE DATABASE [OrlandoCodeCamp]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'OrlandoCodeCamp', FILENAME = N'C:\SQLData\MSSQL11.SQL2012\MSSQL\DATA\OrlandoCodeCamp.mdf' , SIZE = 4096KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'OrlandoCodeCamp_log', FILENAME = N'C:\SQLData\MSSQL11.SQL2012\MSSQL\DATA\OrlandoCodeCamp_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET COMPATIBILITY_LEVEL = 110
+GO
+
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [OrlandoCodeCamp].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET ANSI_NULL_DEFAULT OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET ANSI_NULLS OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET ANSI_PADDING OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET ANSI_WARNINGS OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET ARITHABORT OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET AUTO_CLOSE OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET AUTO_CREATE_STATISTICS ON 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET AUTO_SHRINK OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET AUTO_UPDATE_STATISTICS ON 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET CURSOR_DEFAULT  GLOBAL 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET NUMERIC_ROUNDABORT OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET QUOTED_IDENTIFIER OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET RECURSIVE_TRIGGERS OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET  DISABLE_BROKER 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET TRUSTWORTHY OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET PARAMETERIZATION SIMPLE 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET HONOR_BROKER_PRIORITY OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET RECOVERY FULL 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET  MULTI_USER 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET PAGE_VERIFY CHECKSUM  
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET DB_CHAINING OFF 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+
+ALTER DATABASE [OrlandoCodeCamp] SET  READ_WRITE 
+GO
+
+USE OrlandoCodeCamp
+
+
+SET NUMERIC_ROUNDABORT OFF
+GO
+SET ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, ARITHABORT, QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+IF EXISTS (SELECT * FROM tempdb..sysobjects WHERE id=OBJECT_ID('tempdb..#tmpErrors')) DROP TABLE #tmpErrors
+GO
+CREATE TABLE #tmpErrors (Error int)
+GO
+SET XACT_ABORT ON
+GO
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
+GO
+
+IF EXISTS (SELECT * FROM master.dbo.syslogins WHERE loginname = N'CodeCampAppUser')
+DROP LOGIN [CodeCampAppUser]
+GO
+
+IF EXISTS (SELECT * FROM master.dbo.sysusers WHERE name = N'CodeCampAppUser')
+DROP USER [CodeCampAppUser]
+GO
+
+
+CREATE LOGIN [CodeCampAppUser] WITH PASSWORD = 'p@ssw0rd'
+GO
+
+
+CREATE USER [CodeCampAppUser] FOR LOGIN [CodeCampAppUser] WITH DEFAULT_SCHEMA=[CodeCampAppUser]
+GO
+BEGIN TRANSACTION
+GO
+PRINT N'Creating schemata'
+GO
+--CREATE SCHEMA [CodeCampAppUser]
+--AUTHORIZATION [CodeCampAppUser]
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[People]'
+GO
+
+CREATE TABLE [dbo].[People]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[Email] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[FirstName] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[LastName] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Title] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Bio] [nvarchar] (2000) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Website] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Blog] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Twitter] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[PasswordHash] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[ImageUrl] [nvarchar] (500) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[IsAdmin] [bit] NOT NULL,
+[Location] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK__People__3214EC2714FCD345] on [dbo].[People]'
+GO
+ALTER TABLE [dbo].[People] ADD CONSTRAINT [PK__People__3214EC2714FCD345] PRIMARY KEY CLUSTERED  ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[EventAttendees]'
+GO
+CREATE TABLE [dbo].[EventAttendees]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[Event_ID] [int] NOT NULL,
+[Person_ID] [int] NOT NULL,
+[Rsvp] [nvarchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK__EventAtt__3214EC27114A936A] on [dbo].[EventAttendees]'
+GO
+ALTER TABLE [dbo].[EventAttendees] ADD CONSTRAINT [PK__EventAtt__3214EC27114A936A] PRIMARY KEY CLUSTERED  ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[Events]'
+GO
+CREATE TABLE [dbo].[Events]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[Name] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Description] [nvarchar] (2000) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[TwitterHashTag] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[StartTime] [datetime] NOT NULL,
+[EndTime] [datetime] NOT NULL,
+[Location] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Address1] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Address2] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[City] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[State] [nvarchar] (2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Zip] [nvarchar] (5) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[IsDefault] [bit] NOT NULL CONSTRAINT [DF_Events_IsDefault] DEFAULT ((0)),
+[IsSponsorRegistrationOpen] [bit] NOT NULL CONSTRAINT [DF_Events_IsSponsorRegistrationOpen] DEFAULT ((0)),
+[IsSpeakerRegistrationOpen] [bit] NOT NULL CONSTRAINT [DF_Events_IsSpeakerRegistrationOpen] DEFAULT ((0)),
+[IsAttendeeRegistrationOpen] [bit] NOT NULL CONSTRAINT [DF_Events_IsAttendeeRegistrationOpen] DEFAULT ((0)),
+[IsVolunteerRegistrationOpen] [bit] NOT NULL CONSTRAINT [DF_Events_IsVolunteerRegistrationOpen] DEFAULT ((0))
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK__Events__3214EC2705D8E0BE] on [dbo].[Events]'
+GO
+ALTER TABLE [dbo].[Events] ADD CONSTRAINT [PK__Events__3214EC2705D8E0BE] PRIMARY KEY CLUSTERED  ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[Sessions]'
+GO
+CREATE TABLE [dbo].[Sessions]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[Event_ID] [int] NOT NULL,
+[Speaker_ID] [int] NOT NULL,
+[Track_ID] [int] NULL,
+[Timeslot_ID] [int] NULL,
+[Name] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Description] [nvarchar] (2000) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Status] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Level] [int] NOT NULL,
+[Location] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Tag_ID] [int] NULL CONSTRAINT [DF_Sessions_Tag_ID] DEFAULT ((1))
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK__Sessions__3214EC2714C5D8F8] on [dbo].[Sessions]'
+GO
+ALTER TABLE [dbo].[Sessions] ADD CONSTRAINT [PK__Sessions__3214EC2714C5D8F8] PRIMARY KEY CLUSTERED  ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[EventAttendeeRatings]'
+GO
+CREATE TABLE [dbo].[EventAttendeeRatings]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[EventAttendee_ID] [int] NOT NULL,
+[SignIn] [int] NOT NULL CONSTRAINT [DF_EventAttendeeRating_SignIn] DEFAULT ((-1)),
+[Swag] [int] NOT NULL CONSTRAINT [DF_EventAttendeeRating_Swag] DEFAULT ((-1)),
+[Refreshments] [int] NOT NULL,
+[ReferralSource] [int] NOT NULL CONSTRAINT [DF_EventAttendeeRating_ReferralSource] DEFAULT ((-1)),
+[Comments] [ntext] COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK_EventAttendeeRating] on [dbo].[EventAttendeeRatings]'
+GO
+ALTER TABLE [dbo].[EventAttendeeRatings] ADD CONSTRAINT [PK_EventAttendeeRating] PRIMARY KEY CLUSTERED  ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[EventAttendeeSessionRatings]'
+GO
+CREATE TABLE [dbo].[EventAttendeeSessionRatings]
+(
+[Id] [int] NOT NULL IDENTITY(1, 1),
+[EventAttendee_ID] [int] NOT NULL,
+[Session_ID] [int] NOT NULL,
+[Ranking] [int] NOT NULL CONSTRAINT [DF_EventAttendeeSessionRating_Ranking] DEFAULT ((-1)),
+[Timeslot_ID] [int] NOT NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK_EventAttendeeSessionRating] on [dbo].[EventAttendeeSessionRatings]'
+GO
+ALTER TABLE [dbo].[EventAttendeeSessionRatings] ADD CONSTRAINT [PK_EventAttendeeSessionRating] PRIMARY KEY CLUSTERED  ([Id])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[Announcements]'
+GO
+CREATE TABLE [dbo].[Announcements]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[Event_ID] [int] NOT NULL,
+[Title] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Content] [nvarchar] (2000) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[PublishDate] [datetime] NOT NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK__Announce__3214EC270D7A0286] on [dbo].[Announcements]'
+GO
+ALTER TABLE [dbo].[Announcements] ADD CONSTRAINT [PK__Announce__3214EC270D7A0286] PRIMARY KEY CLUSTERED  ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[PersonTasks]'
+GO
+CREATE TABLE [dbo].[PersonTasks]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[Task_ID] [int] NOT NULL,
+[Person_ID] [int] NOT NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK__PersonTa__3214EC27339FAB6E] on [dbo].[PersonTasks]'
+GO
+ALTER TABLE [dbo].[PersonTasks] ADD CONSTRAINT [PK__PersonTa__3214EC27339FAB6E] PRIMARY KEY CLUSTERED  ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[Tasks]'
+GO
+CREATE TABLE [dbo].[Tasks]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[Description] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[StartTime] [datetime] NOT NULL,
+[EndTime] [datetime] NOT NULL,
+[Disabled] [bit] NOT NULL,
+[Capacity] [int] NOT NULL,
+[Event_ID] [int] NOT NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK__Tasks__3214EC2737703C52] on [dbo].[Tasks]'
+GO
+ALTER TABLE [dbo].[Tasks] ADD CONSTRAINT [PK__Tasks__3214EC2737703C52] PRIMARY KEY CLUSTERED  ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[Tags]'
+GO
+CREATE TABLE [dbo].[Tags]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[TagName] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK_Tags] on [dbo].[Tags]'
+GO
+ALTER TABLE [dbo].[Tags] ADD CONSTRAINT [PK_Tags] PRIMARY KEY CLUSTERED  ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[Timeslots]'
+GO
+CREATE TABLE [dbo].[Timeslots]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[Event_ID] [int] NOT NULL,
+[Name] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[StartTime] [datetime] NULL,
+[EndTime] [datetime] NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK__Timeslot__3214EC2718EBB532] on [dbo].[Timeslots]'
+GO
+ALTER TABLE [dbo].[Timeslots] ADD CONSTRAINT [PK__Timeslot__3214EC2718EBB532] PRIMARY KEY CLUSTERED  ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[Tracks]'
+GO
+CREATE TABLE [dbo].[Tracks]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[Event_ID] [int] NOT NULL,
+[Name] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Description] [nvarchar] (2000) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK__Tracks__3214EC27151B244E] on [dbo].[Tracks]'
+GO
+ALTER TABLE [dbo].[Tracks] ADD CONSTRAINT [PK__Tracks__3214EC27151B244E] PRIMARY KEY CLUSTERED  ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[SessionAttendees]'
+GO
+CREATE TABLE [dbo].[SessionAttendees]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[Session_ID] [int] NOT NULL,
+[Person_ID] [int] NOT NULL,
+[SpeakerRating] [int] NOT NULL,
+[Comment] [nvarchar] (2000) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[SessionRating] [int] NOT NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK__SessionA__3214EC27245D67DE] on [dbo].[SessionAttendees]'
+GO
+ALTER TABLE [dbo].[SessionAttendees] ADD CONSTRAINT [PK__SessionA__3214EC27245D67DE] PRIMARY KEY CLUSTERED  ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[Sponsors]'
+GO
+CREATE TABLE [dbo].[Sponsors]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[Event_ID] [int] NOT NULL,
+[Name] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Description] [nvarchar] (2000) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[SponsorshipLevel] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[ImageUrl] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[WebsiteUrl] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [PK__Sponsors__3214EC271CBC4616] on [dbo].[Sponsors]'
+GO
+ALTER TABLE [dbo].[Sponsors] ADD CONSTRAINT [PK__Sponsors__3214EC271CBC4616] PRIMARY KEY CLUSTERED  ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Adding foreign keys to [dbo].[Announcements]'
+GO
+ALTER TABLE [dbo].[Announcements] ADD CONSTRAINT [Announcement_Event] FOREIGN KEY ([Event_ID]) REFERENCES [dbo].[Events] ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Adding foreign keys to [dbo].[EventAttendees]'
+GO
+ALTER TABLE [dbo].[EventAttendees] ADD CONSTRAINT [EventAttendee_Event] FOREIGN KEY ([Event_ID]) REFERENCES [dbo].[Events] ([ID])
+ALTER TABLE [dbo].[EventAttendees] ADD CONSTRAINT [EventAttendee_Person] FOREIGN KEY ([Person_ID]) REFERENCES [dbo].[People] ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Adding foreign keys to [dbo].[Sessions]'
+GO
+ALTER TABLE [dbo].[Sessions] ADD CONSTRAINT [Session_Event] FOREIGN KEY ([Event_ID]) REFERENCES [dbo].[Events] ([ID])
+ALTER TABLE [dbo].[Sessions] ADD CONSTRAINT [Session_Speaker] FOREIGN KEY ([Speaker_ID]) REFERENCES [dbo].[People] ([ID])
+ALTER TABLE [dbo].[Sessions] ADD CONSTRAINT [Session_Track] FOREIGN KEY ([Track_ID]) REFERENCES [dbo].[Tracks] ([ID])
+ALTER TABLE [dbo].[Sessions] ADD CONSTRAINT [Session_Timeslot] FOREIGN KEY ([Timeslot_ID]) REFERENCES [dbo].[Timeslots] ([ID])
+ALTER TABLE [dbo].[Sessions] ADD CONSTRAINT [Session_Tag] FOREIGN KEY ([Tag_ID]) REFERENCES [dbo].[Tags] ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Adding foreign keys to [dbo].[Sponsors]'
+GO
+ALTER TABLE [dbo].[Sponsors] ADD CONSTRAINT [Sponsor_Event] FOREIGN KEY ([Event_ID]) REFERENCES [dbo].[Events] ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Adding foreign keys to [dbo].[Tasks]'
+GO
+ALTER TABLE [dbo].[Tasks] ADD CONSTRAINT [Task_Event] FOREIGN KEY ([Event_ID]) REFERENCES [dbo].[Events] ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Adding foreign keys to [dbo].[Timeslots]'
+GO
+ALTER TABLE [dbo].[Timeslots] ADD CONSTRAINT [Timeslot_Event] FOREIGN KEY ([Event_ID]) REFERENCES [dbo].[Events] ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Adding foreign keys to [dbo].[Tracks]'
+GO
+ALTER TABLE [dbo].[Tracks] ADD CONSTRAINT [Track_Event] FOREIGN KEY ([Event_ID]) REFERENCES [dbo].[Events] ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Adding foreign keys to [dbo].[SessionAttendees]'
+GO
+ALTER TABLE [dbo].[SessionAttendees] ADD CONSTRAINT [SessionAttendee_Session] FOREIGN KEY ([Session_ID]) REFERENCES [dbo].[Sessions] ([ID])
+ALTER TABLE [dbo].[SessionAttendees] ADD CONSTRAINT [SessionAttendee_Person] FOREIGN KEY ([Person_ID]) REFERENCES [dbo].[People] ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Adding foreign keys to [dbo].[PersonTasks]'
+GO
+ALTER TABLE [dbo].[PersonTasks] ADD CONSTRAINT [PersonTask_Task] FOREIGN KEY ([Task_ID]) REFERENCES [dbo].[Tasks] ([ID])
+ALTER TABLE [dbo].[PersonTasks] ADD CONSTRAINT [PersonTask_Person] FOREIGN KEY ([Person_ID]) REFERENCES [dbo].[People] ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Adding foreign keys to [dbo].[EventAttendeeSessionRatings]'
+GO
+ALTER TABLE [dbo].[EventAttendeeSessionRatings] ADD CONSTRAINT [FK_EventAttendeeSessionRating_EventAttendees] FOREIGN KEY ([EventAttendee_ID]) REFERENCES [dbo].[EventAttendees] ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Adding foreign keys to [dbo].[EventAttendeeRatings]'
+GO
+ALTER TABLE [dbo].[EventAttendeeRatings] ADD CONSTRAINT [FK_EventAttendeeRating_EventAttendees] FOREIGN KEY ([EventAttendee_ID]) REFERENCES [dbo].[EventAttendees] ([ID])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+IF EXISTS (SELECT * FROM #tmpErrors) ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT>0 BEGIN
+PRINT 'The database update succeeded'
+COMMIT TRANSACTION
+END
+ELSE PRINT 'The database update failed'
+GO
+DROP TABLE #tmpErrors
+GO

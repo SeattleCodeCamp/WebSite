@@ -1,0 +1,28 @@
+﻿@model OCC.UI.Webhost.Models.UserDisplayProfileModel
+           
+<div class="userProfileOuterContainer">
+    @if(Model.IsLoggedIn)
+    {
+        <div class="userProfileMiddleContainer">
+            <div class="userDisplayName">
+                
+                    <h2><a href="@Url.Action("UpdateProfile", "Account")">@Model.DisplayFirstName</a></h2>
+                
+                        <h3><a href="@Url.Action("UpdateProfile", "Account")">@Model.DisplayLastName</a></h3>
+            </div>
+            <div class="avatarImage">
+                <a href="@Url.Action("UpdateProfile", "Account")">
+                    @if (Model.Avatar != null)
+                    {
+                        @Html.ImageTag(Model.Avatar, string.Format("{0} {1}",Model.DisplayFirstName,Model.DisplayLastName),48,48)
+                    }
+                </a>
+            </div>
+            <p><a href="@Url.Action("LogOff", "Account")">@Model.LoginOrLogout</a>&nbsp;<a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")">F.A.Q.</a></p>
+        </div>
+    }
+    else
+    {
+        <h6 class="userProfileMiddleContainer"><a class="loginDisplayArea" href="@Url.Action("LogOn", "Account")">@Model.LoginOrLogout</a>&nbsp;<a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")">F.A.Q.</a></h6>
+    }
+</div>

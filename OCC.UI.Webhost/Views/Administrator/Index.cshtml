@@ -1,0 +1,24 @@
+﻿@using OCC.UI.Webhost.Models;
+
+@model IEnumerable<Person> 
+           
+@{
+    ViewBag.Title = "Administrators";
+}
+
+@*
+<div>
+    @Html.ActionLink("[back]", "Admin", "Home")
+    @Html.ActionLink("[new]", "Create")
+</div>
+*@
+
+<div class="title">administrators | @Html.ActionLink("new", "Add") | @Html.ActionLink("back", "Admin", "Home")</div>
+
+@foreach (Person admin in Model)
+{
+    <div>
+        @Html.ActionLink("[x]", "Delete", new { id = admin.ID })
+        @admin.FirstName @admin.LastName
+    </div>
+}

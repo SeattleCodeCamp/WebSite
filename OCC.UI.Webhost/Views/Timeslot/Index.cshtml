@@ -1,0 +1,16 @@
+﻿@using OCC.UI.Webhost.Models;
+
+@model IList<Timeslot> 
+
+@{
+    ViewBag.Title = "Timeslots";
+}
+
+<div class="title">timeslots | @Html.ActionLink("new", "Create") | @Html.ActionLink("back", "Admin", "Home")</div>
+
+@foreach (Timeslot timeslot in ViewData.Model)
+{
+    <div>
+        @Html.ActionLink(timeslot.Name, "Edit", new { id = timeslot.ID })
+    </div>
+}

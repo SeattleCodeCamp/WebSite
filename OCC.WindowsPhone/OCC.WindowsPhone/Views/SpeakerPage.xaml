@@ -1,0 +1,74 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="OCC.WindowsPhone.Views.SpeakerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ValueConverters="clr-namespace:OCC.WindowsPhone.ValueConverters"
+    xmlns:Common="clr-namespace:OCC.WindowsPhone.Common" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True" d:DataContext="{d:DesignData /SampleData/SpeakerViewModelSampleData.xaml}">
+
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="speakerSessionListItem">
+            <Grid Margin="12,0,0,6">
+                <TextBlock Text="{Binding Name}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeMediumLarge}" HorizontalAlignment="Left"/>
+            </Grid>
+
+        </DataTemplate>
+
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="ORLANDO CODE CAMP" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="speaker profile" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Image Source="{Binding Speaker.ImageUrl, Converter={StaticResource RelativeUrlValueConverter},ConverterParameter=../images/anonymousUser.png}" Width="150"/>
+            <TextBlock FontSize="{StaticResource PhoneFontSizeLarge}" Margin="12,0,0,0" TextWrapping="Wrap" Text="{Binding Speaker.FullName}" Grid.Column="1"/>
+
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+                <TextBlock Text="Contact" Foreground="{StaticResource PhoneAccentBrush}" Margin="0,12,0,0"/>
+                <Common:PhoneHyperlinkButton FontSize="{StaticResource PhoneFontSizeMediumLarge}"  Content="{Binding Speaker.Website}" Tag="{Binding Speaker.Website}" Margin="0,0,0,0" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Visibility="{Binding Speaker.Website, Converter={StaticResource VisibleIfNotNullConverter}}"/>
+                <Common:PhoneHyperlinkButton FontSize="{StaticResource PhoneFontSizeMediumLarge}"  Content="{Binding Speaker.Blog}" Tag="{Binding Speaker.Blog}" Margin="0,0,0,0"  HorizontalContentAlignment="Left" HorizontalAlignment="Left"  Visibility="{Binding Speaker.Blog, Converter={StaticResource VisibleIfNotNullConverter}}"/>
+                <TextBlock  FontSize="{StaticResource PhoneFontSizeMediumLarge}"  Text="{Binding Speaker.Twitter}" Margin="12,0,0,0" />
+                <TextBlock Text="Sessions:" Foreground="{StaticResource PhoneAccentBrush}" Margin="0,12,0,0"/>
+            </StackPanel>
+            <ListBox  Grid.Row="2" Grid.ColumnSpan="2" 
+                      ItemsSource="{Binding Sessions}" 
+                      ItemTemplate="{StaticResource speakerSessionListItem}" 
+                      SelectionChanged="OnSessionSelected"/>
+        </Grid>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" >
+            <shell:ApplicationBarIconButton IconUri="/images/appbar.questionmark.rest.png" 
+                        Text="Bio" Click="OnBioClick" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>

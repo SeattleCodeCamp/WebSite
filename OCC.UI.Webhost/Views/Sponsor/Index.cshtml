@@ -1,0 +1,16 @@
+﻿@using OCC.UI.Webhost.Models;
+
+@model IList<Sponsor> 
+
+@{
+    ViewBag.Title = "Sponsors";
+}
+
+<div class="title">sponsors | @Html.ActionLink("new", "Create") | @Html.ActionLink("back", "Admin", "Home")</div>
+
+@foreach (Sponsor sponsor in ViewData.Model)
+{
+    <div>
+        @Html.ActionLink(sponsor.Name, "Edit", new { id = sponsor.ID })
+    </div>
+}

@@ -1,0 +1,5 @@
+﻿<%@ ServiceHost 
+Language="C#" 
+Debug="true" 
+Service="OCC.Service.Webhost.Services.CodeCampService" 
+CodeBehind="CodeCampService.svc.cs" %>

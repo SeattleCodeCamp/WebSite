@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="OCC.WindowsPhone.Views.AboutControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Common="clr-namespace:OCC.WindowsPhone.Common" mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    <UserControl.Resources>
+        <DataTemplate x:Key="boardMemberListItem">
+            <Grid Margin="0,0,0,6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding ImageUrl}" Width="75" Height="75" Stretch="UniformToFill"/>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
+
+                </StackPanel>
+            </Grid>
+
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Image Source="/images/OneTugLogo.png"  />
+        <StackPanel Grid.Column="1" Margin="12,0,0,0" >
+            <TextBlock Text="Orlando .Net User Group" FontSize="{StaticResource PhoneFontSizeMediumLarge}" TextWrapping="Wrap"/>
+            <Common:PhoneHyperlinkButton Content="www.onetug.org"  Tag="http://www.onetug.org" />
+
+        </StackPanel>
+        <TextBlock Text="Board of Directors:" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <ListBox  Grid.Row="2" Grid.ColumnSpan="2"
+                    ItemsSource="{Binding BoardMembers}" 
+                    ItemTemplate="{StaticResource boardMemberListItem}"
+                />        
+
+    </Grid>
+</UserControl>

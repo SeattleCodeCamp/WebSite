@@ -1,0 +1,42 @@
+﻿@using OCC.UI.Webhost.Models;
+
+@model List<Session>
+
+@{
+    ViewBag.Title = "My Agenda";
+}
+
+<div class="title">my agenda | @Html.ActionLink("agenda", "Agenda")</div>
+
+<p><strong>Note:&nbsp;</strong>Print this page out for your own convenience</p>
+<p><strong>Note:&nbsp;</strong>You can now add multiple sessions to one timeslot so you can have backups</p>
+
+<table>
+
+@foreach (var session in ViewData.Model)
+{
+    <tr>
+        <td nowrap="nowrap">
+            <div style="font-size:small">@session.StartTime - @session.EndTime</div>
+        </td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>
+            @Html.ActionLink(session.Name, "Details", "Session", new { id = session.ID }, null)  
+            - 
+            @Html.ActionLink(session.Speaker, "Details", "Speaker", new { id = session.SpeakerID }, null)  
+        </td>
+    </tr>
+}
+
+</table>
+
+<br />
+
+<div class="title">Common Agenda:</div>
+<div>
+7:00 am: Registration opens (breakfast)<br />
+8:00 am: Opening announcements & keynote<br />
+11:50 - 1:00 pm: Lunch<br />
+5:00 pm: Closing & Prizes<br />
+6:00 pm: After party at Liam Fitzpatrick’s Irish Restaurant & Pub: 950 Market Promenade Ave, Lake Mary, FL 32746
+</div>

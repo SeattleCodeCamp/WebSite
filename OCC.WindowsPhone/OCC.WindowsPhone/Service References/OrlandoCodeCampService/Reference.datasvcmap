@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ed090b32-d781-4cda-8a3b-8340868b0111" xmlns="urn:schemas-microsoft-com:xml-dataservicemap">
+  <MetadataSources>
+    <MetadataSource Address="http://odata.orlandocodecamp.com/DataService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.edmx" MetadataType="Edmx" ID="d19c0aa8-d2f0-4e97-b915-b1401559e4c3" SourceId="1" SourceUrl="http://odata.orlandocodecamp.com/DataService.svc" />
+  </Metadata>
+  <Extensions />
+  <Parameters>
+    <Parameter Name="UseDataServiceCollection" Value="true" />
+    <Parameter Name="Version" Value="2.0" />
+  </Parameters>
+</ReferenceGroup>

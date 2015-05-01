@@ -1,0 +1,1299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="orlandocodecampModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="orlandocodecampModelStoreContainer">
+          <EntitySet Name="Announcements" EntityType="orlandocodecampModel.Store.Announcements" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventAttendeeRatings" EntityType="orlandocodecampModel.Store.EventAttendeeRatings" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventAttendees" EntityType="orlandocodecampModel.Store.EventAttendees" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventAttendeeSessionRatings" EntityType="orlandocodecampModel.Store.EventAttendeeSessionRatings" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Events" EntityType="orlandocodecampModel.Store.Events" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="People" EntityType="orlandocodecampModel.Store.People" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PersonTasks" EntityType="orlandocodecampModel.Store.PersonTasks" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SessionAttendees" EntityType="orlandocodecampModel.Store.SessionAttendees" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sessions" EntityType="orlandocodecampModel.Store.Sessions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sponsors" EntityType="orlandocodecampModel.Store.Sponsors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tags" EntityType="orlandocodecampModel.Store.Tags" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tasks" EntityType="orlandocodecampModel.Store.Tasks" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Timeslots" EntityType="orlandocodecampModel.Store.Timeslots" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tracks" EntityType="orlandocodecampModel.Store.Tracks" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="Announcement_Event" Association="orlandocodecampModel.Store.Announcement_Event">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Announcements" EntitySet="Announcements" />
+          </AssociationSet>
+          <AssociationSet Name="EventAttendee_Event" Association="orlandocodecampModel.Store.EventAttendee_Event">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="EventAttendees" EntitySet="EventAttendees" />
+          </AssociationSet>
+          <AssociationSet Name="EventAttendee_Person" Association="orlandocodecampModel.Store.EventAttendee_Person">
+            <End Role="People" EntitySet="People" />
+            <End Role="EventAttendees" EntitySet="EventAttendees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventAttendeeRating_EventAttendees" Association="orlandocodecampModel.Store.FK_EventAttendeeRating_EventAttendees">
+            <End Role="EventAttendees" EntitySet="EventAttendees" />
+            <End Role="EventAttendeeRatings" EntitySet="EventAttendeeRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventAttendeeSessionRating_EventAttendees" Association="orlandocodecampModel.Store.FK_EventAttendeeSessionRating_EventAttendees">
+            <End Role="EventAttendees" EntitySet="EventAttendees" />
+            <End Role="EventAttendeeSessionRatings" EntitySet="EventAttendeeSessionRatings" />
+          </AssociationSet>
+          <AssociationSet Name="PersonTask_Person" Association="orlandocodecampModel.Store.PersonTask_Person">
+            <End Role="People" EntitySet="People" />
+            <End Role="PersonTasks" EntitySet="PersonTasks" />
+          </AssociationSet>
+          <AssociationSet Name="PersonTask_Task" Association="orlandocodecampModel.Store.PersonTask_Task">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="PersonTasks" EntitySet="PersonTasks" />
+          </AssociationSet>
+          <AssociationSet Name="Session_Event" Association="orlandocodecampModel.Store.Session_Event">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="Session_Speaker" Association="orlandocodecampModel.Store.Session_Speaker">
+            <End Role="People" EntitySet="People" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="Session_Tag" Association="orlandocodecampModel.Store.Session_Tag">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="Session_Timeslot" Association="orlandocodecampModel.Store.Session_Timeslot">
+            <End Role="Timeslots" EntitySet="Timeslots" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="Session_Track" Association="orlandocodecampModel.Store.Session_Track">
+            <End Role="Tracks" EntitySet="Tracks" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="SessionAttendee_Person" Association="orlandocodecampModel.Store.SessionAttendee_Person">
+            <End Role="People" EntitySet="People" />
+            <End Role="SessionAttendees" EntitySet="SessionAttendees" />
+          </AssociationSet>
+          <AssociationSet Name="SessionAttendee_Session" Association="orlandocodecampModel.Store.SessionAttendee_Session">
+            <End Role="Sessions" EntitySet="Sessions" />
+            <End Role="SessionAttendees" EntitySet="SessionAttendees" />
+          </AssociationSet>
+          <AssociationSet Name="Sponsor_Event" Association="orlandocodecampModel.Store.Sponsor_Event">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Sponsors" EntitySet="Sponsors" />
+          </AssociationSet>
+          <AssociationSet Name="Task_Event" Association="orlandocodecampModel.Store.Task_Event">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="Timeslot_Event" Association="orlandocodecampModel.Store.Timeslot_Event">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Timeslots" EntitySet="Timeslots" />
+          </AssociationSet>
+          <AssociationSet Name="Track_Event" Association="orlandocodecampModel.Store.Track_Event">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Tracks" EntitySet="Tracks" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Announcements">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Content" Type="nvarchar" MaxLength="2000" />
+          <Property Name="PublishDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventAttendeeRatings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EventAttendee_ID" Type="int" Nullable="false" />
+          <Property Name="SignIn" Type="int" Nullable="false" />
+          <Property Name="Swag" Type="int" Nullable="false" />
+          <Property Name="Refreshments" Type="int" Nullable="false" />
+          <Property Name="ReferralSource" Type="int" Nullable="false" />
+          <Property Name="Comments" Type="ntext" />
+        </EntityType>
+        <EntityType Name="EventAttendees">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Person_ID" Type="int" Nullable="false" />
+          <Property Name="Rsvp" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="EventAttendeeSessionRatings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EventAttendee_ID" Type="int" Nullable="false" />
+          <Property Name="Session_ID" Type="int" Nullable="false" />
+          <Property Name="Ranking" Type="int" Nullable="false" />
+          <Property Name="Timeslot_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+          <Property Name="TwitterHashTag" Type="nvarchar" MaxLength="100" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="State" Type="nvarchar" MaxLength="2" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="5" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+          <Property Name="IsSponsorRegistrationOpen" Type="bit" Nullable="false" />
+          <Property Name="IsSpeakerRegistrationOpen" Type="bit" Nullable="false" />
+          <Property Name="IsAttendeeRegistrationOpen" Type="bit" Nullable="false" />
+          <Property Name="IsVolunteerRegistrationOpen" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="People">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Bio" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Website" Type="nvarchar" MaxLength="100" />
+          <Property Name="Blog" Type="nvarchar" MaxLength="100" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="100" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="100" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PersonTasks">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Task_ID" Type="int" Nullable="false" />
+          <Property Name="Person_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SessionAttendees">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Session_ID" Type="int" Nullable="false" />
+          <Property Name="Person_ID" Type="int" Nullable="false" />
+          <Property Name="SpeakerRating" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="2000" />
+          <Property Name="SessionRating" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sessions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Speaker_ID" Type="int" Nullable="false" />
+          <Property Name="Track_ID" Type="int" />
+          <Property Name="Timeslot_ID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Status" Type="nvarchar" MaxLength="100" />
+          <Property Name="Level" Type="int" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="100" />
+          <Property Name="Tag_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Sponsors">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+          <Property Name="SponsorshipLevel" Type="nvarchar" MaxLength="100" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="WebsiteUrl" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TagName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="Capacity" Type="int" Nullable="false" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Timeslots">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tracks">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <Association Name="Announcement_Event">
+          <End Role="Events" Type="orlandocodecampModel.Store.Events" Multiplicity="1" />
+          <End Role="Announcements" Type="orlandocodecampModel.Store.Announcements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Announcements">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventAttendee_Event">
+          <End Role="Events" Type="orlandocodecampModel.Store.Events" Multiplicity="1" />
+          <End Role="EventAttendees" Type="orlandocodecampModel.Store.EventAttendees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventAttendees">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventAttendee_Person">
+          <End Role="People" Type="orlandocodecampModel.Store.People" Multiplicity="1" />
+          <End Role="EventAttendees" Type="orlandocodecampModel.Store.EventAttendees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventAttendees">
+              <PropertyRef Name="Person_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventAttendeeRating_EventAttendees">
+          <End Role="EventAttendees" Type="orlandocodecampModel.Store.EventAttendees" Multiplicity="1" />
+          <End Role="EventAttendeeRatings" Type="orlandocodecampModel.Store.EventAttendeeRatings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventAttendees">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventAttendeeRatings">
+              <PropertyRef Name="EventAttendee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventAttendeeSessionRating_EventAttendees">
+          <End Role="EventAttendees" Type="orlandocodecampModel.Store.EventAttendees" Multiplicity="1" />
+          <End Role="EventAttendeeSessionRatings" Type="orlandocodecampModel.Store.EventAttendeeSessionRatings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventAttendees">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventAttendeeSessionRatings">
+              <PropertyRef Name="EventAttendee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonTask_Person">
+          <End Role="People" Type="orlandocodecampModel.Store.People" Multiplicity="1" />
+          <End Role="PersonTasks" Type="orlandocodecampModel.Store.PersonTasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonTasks">
+              <PropertyRef Name="Person_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonTask_Task">
+          <End Role="Tasks" Type="orlandocodecampModel.Store.Tasks" Multiplicity="1" />
+          <End Role="PersonTasks" Type="orlandocodecampModel.Store.PersonTasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonTasks">
+              <PropertyRef Name="Task_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Session_Event">
+          <End Role="Events" Type="orlandocodecampModel.Store.Events" Multiplicity="1" />
+          <End Role="Sessions" Type="orlandocodecampModel.Store.Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Session_Speaker">
+          <End Role="People" Type="orlandocodecampModel.Store.People" Multiplicity="1" />
+          <End Role="Sessions" Type="orlandocodecampModel.Store.Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="Speaker_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Session_Tag">
+          <End Role="Tags" Type="orlandocodecampModel.Store.Tags" Multiplicity="0..1" />
+          <End Role="Sessions" Type="orlandocodecampModel.Store.Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="Tag_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Session_Timeslot">
+          <End Role="Timeslots" Type="orlandocodecampModel.Store.Timeslots" Multiplicity="0..1" />
+          <End Role="Sessions" Type="orlandocodecampModel.Store.Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Timeslots">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="Timeslot_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Session_Track">
+          <End Role="Tracks" Type="orlandocodecampModel.Store.Tracks" Multiplicity="0..1" />
+          <End Role="Sessions" Type="orlandocodecampModel.Store.Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tracks">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="Track_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SessionAttendee_Person">
+          <End Role="People" Type="orlandocodecampModel.Store.People" Multiplicity="1" />
+          <End Role="SessionAttendees" Type="orlandocodecampModel.Store.SessionAttendees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SessionAttendees">
+              <PropertyRef Name="Person_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SessionAttendee_Session">
+          <End Role="Sessions" Type="orlandocodecampModel.Store.Sessions" Multiplicity="1" />
+          <End Role="SessionAttendees" Type="orlandocodecampModel.Store.SessionAttendees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sessions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SessionAttendees">
+              <PropertyRef Name="Session_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Sponsor_Event">
+          <End Role="Events" Type="orlandocodecampModel.Store.Events" Multiplicity="1" />
+          <End Role="Sponsors" Type="orlandocodecampModel.Store.Sponsors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sponsors">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Task_Event">
+          <End Role="Events" Type="orlandocodecampModel.Store.Events" Multiplicity="1" />
+          <End Role="Tasks" Type="orlandocodecampModel.Store.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Timeslot_Event">
+          <End Role="Events" Type="orlandocodecampModel.Store.Events" Multiplicity="1" />
+          <End Role="Timeslots" Type="orlandocodecampModel.Store.Timeslots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Timeslots">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Track_Event">
+          <End Role="Events" Type="orlandocodecampModel.Store.Events" Multiplicity="1" />
+          <End Role="Tracks" Type="orlandocodecampModel.Store.Tracks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tracks">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OrlandoCodeCampModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="OrlandoCodeCampEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Announcements" EntityType="OrlandoCodeCampModel.Announcement" />
+          <EntitySet Name="EventAttendees" EntityType="OrlandoCodeCampModel.EventAttendee" />
+          <EntitySet Name="Events" EntityType="OrlandoCodeCampModel.Event" />
+          <EntitySet Name="People" EntityType="OrlandoCodeCampModel.Person" />
+          <EntitySet Name="Sessions" EntityType="OrlandoCodeCampModel.Session" />
+          <EntitySet Name="Sponsors" EntityType="OrlandoCodeCampModel.Sponsor" />
+          <EntitySet Name="Timeslots" EntityType="OrlandoCodeCampModel.Timeslot" />
+          <EntitySet Name="Tracks" EntityType="OrlandoCodeCampModel.Track" />
+          <AssociationSet Name="Announcement_Event" Association="OrlandoCodeCampModel.Announcement_Event">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Announcements" EntitySet="Announcements" />
+          </AssociationSet>
+          <AssociationSet Name="EventAttendee_Event" Association="OrlandoCodeCampModel.EventAttendee_Event">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="EventAttendees" EntitySet="EventAttendees" />
+          </AssociationSet>
+          <AssociationSet Name="EventAttendee_Person" Association="OrlandoCodeCampModel.EventAttendee_Person">
+            <End Role="People" EntitySet="People" />
+            <End Role="EventAttendees" EntitySet="EventAttendees" />
+          </AssociationSet>
+          <AssociationSet Name="Session_Event" Association="OrlandoCodeCampModel.Session_Event">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="Sponsor_Event" Association="OrlandoCodeCampModel.Sponsor_Event">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Sponsors" EntitySet="Sponsors" />
+          </AssociationSet>
+          <AssociationSet Name="Timeslot_Event" Association="OrlandoCodeCampModel.Timeslot_Event">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Timeslots" EntitySet="Timeslots" />
+          </AssociationSet>
+          <AssociationSet Name="Track_Event" Association="OrlandoCodeCampModel.Track_Event">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Tracks" EntitySet="Tracks" />
+          </AssociationSet>
+          <AssociationSet Name="Session_Speaker" Association="OrlandoCodeCampModel.Session_Speaker">
+            <End Role="People" EntitySet="People" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="Session_Timeslot" Association="OrlandoCodeCampModel.Session_Timeslot">
+            <End Role="Timeslots" EntitySet="Timeslots" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="Session_Track" Association="OrlandoCodeCampModel.Session_Track">
+            <End Role="Tracks" EntitySet="Tracks" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <EntitySet Name="PersonIdentities" EntityType="OrlandoCodeCampModel.PersonIdentity" />
+          <AssociationSet Name="PersonPersonIdentity" Association="OrlandoCodeCampModel.PersonPersonIdentity">
+            <End Role="Person" EntitySet="People" />
+            <End Role="PersonIdentity" EntitySet="PersonIdentities" />
+          </AssociationSet>
+          <EntitySet Name="PersonTasks" EntityType="OrlandoCodeCampModel.PersonTask" />
+          <EntitySet Name="Tasks" EntityType="OrlandoCodeCampModel.Task" />
+          <AssociationSet Name="Task_Event" Association="OrlandoCodeCampModel.Task_Event">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="PersonTask_Person" Association="OrlandoCodeCampModel.PersonTask_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="PersonTask" EntitySet="PersonTasks" />
+          </AssociationSet>
+          <AssociationSet Name="PersonTask_Task" Association="OrlandoCodeCampModel.PersonTask_Task">
+            <End Role="Task" EntitySet="Tasks" />
+            <End Role="PersonTask" EntitySet="PersonTasks" />
+          </AssociationSet>
+          <EntitySet Name="Tags" EntityType="OrlandoCodeCampModel.Tag" />
+          <AssociationSet Name="Session_Tag" Association="OrlandoCodeCampModel.Session_Tag">
+            <End Role="Tag" EntitySet="Tags" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+          <EntitySet Name="SessionAttendees" EntityType="OrlandoCodeCampModel.SessionAttendee" />
+          <AssociationSet Name="SessionAttendee_Person" Association="OrlandoCodeCampModel.SessionAttendee_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="SessionAttendee" EntitySet="SessionAttendees" />
+          </AssociationSet>
+          <AssociationSet Name="SessionAttendee_Session" Association="OrlandoCodeCampModel.SessionAttendee_Session">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="SessionAttendee" EntitySet="SessionAttendees" />
+          </AssociationSet>
+          <EntitySet Name="EventAttendeeRating1" EntityType="OrlandoCodeCampModel.EventAttendeeRating1" />
+          <EntitySet Name="EventAttendeeSessionRating1" EntityType="OrlandoCodeCampModel.EventAttendeeSessionRating1" />
+          <AssociationSet Name="FK_EventAttendeeRating_EventAttendees1" Association="OrlandoCodeCampModel.FK_EventAttendeeRating_EventAttendees1">
+            <End Role="EventAttendee" EntitySet="EventAttendees" />
+            <End Role="EventAttendeeRating1" EntitySet="EventAttendeeRating1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventAttendeeSessionRating_EventAttendees1" Association="OrlandoCodeCampModel.FK_EventAttendeeSessionRating_EventAttendees1">
+            <End Role="EventAttendee" EntitySet="EventAttendees" />
+            <End Role="EventAttendeeSessionRating1" EntitySet="EventAttendeeSessionRating1" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="PublishDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Event" Relationship="OrlandoCodeCampModel.Announcement_Event" FromRole="Announcements" ToRole="Events" />
+        </EntityType>
+        <EntityType Name="EventAttendee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Person_ID" Type="Int32" Nullable="false" />
+          <Property Name="Rsvp" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Event" Relationship="OrlandoCodeCampModel.EventAttendee_Event" FromRole="EventAttendees" ToRole="Events" />
+          <NavigationProperty Name="Person" Relationship="OrlandoCodeCampModel.EventAttendee_Person" FromRole="EventAttendees" ToRole="People" />
+          <NavigationProperty Name="EventAttendeeRatings1" Relationship="OrlandoCodeCampModel.FK_EventAttendeeRating_EventAttendees1" FromRole="EventAttendee" ToRole="EventAttendeeRating1" />
+          <NavigationProperty Name="EventAttendeeSessionRatings1" Relationship="OrlandoCodeCampModel.FK_EventAttendeeSessionRating_EventAttendees1" FromRole="EventAttendee" ToRole="EventAttendeeSessionRating1" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="TwitterHashTag" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Location" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Address1" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Address2" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="Zip" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Announcements" Relationship="OrlandoCodeCampModel.Announcement_Event" FromRole="Events" ToRole="Announcements" />
+          <NavigationProperty Name="EventAttendees" Relationship="OrlandoCodeCampModel.EventAttendee_Event" FromRole="Events" ToRole="EventAttendees" />
+          <NavigationProperty Name="Sessions" Relationship="OrlandoCodeCampModel.Session_Event" FromRole="Events" ToRole="Sessions" />
+          <NavigationProperty Name="Sponsors" Relationship="OrlandoCodeCampModel.Sponsor_Event" FromRole="Events" ToRole="Sponsors" />
+          <NavigationProperty Name="Timeslots" Relationship="OrlandoCodeCampModel.Timeslot_Event" FromRole="Events" ToRole="Timeslots" />
+          <NavigationProperty Name="Tracks" Relationship="OrlandoCodeCampModel.Track_Event" FromRole="Events" ToRole="Tracks" />
+          <NavigationProperty Name="Tasks" Relationship="OrlandoCodeCampModel.Task_Event" FromRole="Event" ToRole="Task" />
+          <Property Type="Boolean" Name="IsDefault" Nullable="false" />
+          <Property Type="Boolean" Name="IsSponsorRegistrationOpen" Nullable="false" />
+          <Property Type="Boolean" Name="IsSpeakerRegistrationOpen" Nullable="false" />
+          <Property Type="Boolean" Name="IsAttendeeRegistrationOpen" Nullable="false" />
+          <Property Type="Boolean" Name="IsVolunteerRegistrationOpen" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Bio" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="Website" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Blog" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Twitter" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="EventAttendees" Relationship="OrlandoCodeCampModel.EventAttendee_Person" FromRole="People" ToRole="EventAttendees" />
+          <NavigationProperty Name="Sessions" Relationship="OrlandoCodeCampModel.Session_Speaker" FromRole="People" ToRole="Sessions" />
+          <NavigationProperty Name="PersonIdentity" Relationship="OrlandoCodeCampModel.PersonPersonIdentity" FromRole="Person" ToRole="PersonIdentity" />
+          <NavigationProperty Name="PersonTasks" Relationship="OrlandoCodeCampModel.PersonTask_Person" FromRole="Person" ToRole="PersonTask" />
+          <NavigationProperty Name="SessionAttendees" Relationship="OrlandoCodeCampModel.SessionAttendee_Person" FromRole="Person" ToRole="SessionAttendee" />
+          <Property Type="String" Name="Location" Unicode="true" FixedLength="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Speaker_ID" Type="Int32" Nullable="false" />
+          <Property Name="Track_ID" Type="Int32" />
+          <Property Name="Timeslot_ID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Level" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Event" Relationship="OrlandoCodeCampModel.Session_Event" FromRole="Sessions" ToRole="Events" />
+          <NavigationProperty Name="Person" Relationship="OrlandoCodeCampModel.Session_Speaker" FromRole="Sessions" ToRole="People" />
+          <NavigationProperty Name="Timeslot" Relationship="OrlandoCodeCampModel.Session_Timeslot" FromRole="Sessions" ToRole="Timeslots" />
+          <NavigationProperty Name="Track" Relationship="OrlandoCodeCampModel.Session_Track" FromRole="Sessions" ToRole="Tracks" />
+          <Property Type="Int32" Name="Tag_ID" />
+          <NavigationProperty Name="Tag" Relationship="OrlandoCodeCampModel.Session_Tag" FromRole="Session" ToRole="Tag" />
+          <NavigationProperty Name="SessionAttendees" Relationship="OrlandoCodeCampModel.SessionAttendee_Session" FromRole="Session" ToRole="SessionAttendee" />
+        </EntityType>
+        <EntityType Name="Sponsor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="SponsorshipLevel" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="WebsiteUrl" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Event" Relationship="OrlandoCodeCampModel.Sponsor_Event" FromRole="Sponsors" ToRole="Events" />
+        </EntityType>
+        <EntityType Name="Timeslot">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Event" Relationship="OrlandoCodeCampModel.Timeslot_Event" FromRole="Timeslots" ToRole="Events" />
+          <NavigationProperty Name="Sessions" Relationship="OrlandoCodeCampModel.Session_Timeslot" FromRole="Timeslots" ToRole="Sessions" />
+        </EntityType>
+        <EntityType Name="Track">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Event" Relationship="OrlandoCodeCampModel.Track_Event" FromRole="Tracks" ToRole="Events" />
+          <NavigationProperty Name="Sessions" Relationship="OrlandoCodeCampModel.Session_Track" FromRole="Tracks" ToRole="Sessions" />
+        </EntityType>
+        <Association Name="Announcement_Event">
+          <End Role="Events" Type="OrlandoCodeCampModel.Event" Multiplicity="1" />
+          <End Role="Announcements" Type="OrlandoCodeCampModel.Announcement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Announcements">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventAttendee_Event">
+          <End Role="Events" Type="OrlandoCodeCampModel.Event" Multiplicity="1" />
+          <End Role="EventAttendees" Type="OrlandoCodeCampModel.EventAttendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventAttendees">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventAttendee_Person">
+          <End Role="People" Type="OrlandoCodeCampModel.Person" Multiplicity="1" />
+          <End Role="EventAttendees" Type="OrlandoCodeCampModel.EventAttendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventAttendees">
+              <PropertyRef Name="Person_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Session_Event">
+          <End Role="Events" Type="OrlandoCodeCampModel.Event" Multiplicity="1" />
+          <End Role="Sessions" Type="OrlandoCodeCampModel.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Sponsor_Event">
+          <End Role="Events" Type="OrlandoCodeCampModel.Event" Multiplicity="1" />
+          <End Role="Sponsors" Type="OrlandoCodeCampModel.Sponsor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sponsors">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Timeslot_Event">
+          <End Role="Events" Type="OrlandoCodeCampModel.Event" Multiplicity="1" />
+          <End Role="Timeslots" Type="OrlandoCodeCampModel.Timeslot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Timeslots">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Track_Event">
+          <End Role="Events" Type="OrlandoCodeCampModel.Event" Multiplicity="1" />
+          <End Role="Tracks" Type="OrlandoCodeCampModel.Track" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tracks">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Session_Speaker">
+          <End Role="People" Type="OrlandoCodeCampModel.Person" Multiplicity="1" />
+          <End Role="Sessions" Type="OrlandoCodeCampModel.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="Speaker_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Session_Timeslot">
+          <End Role="Timeslots" Type="OrlandoCodeCampModel.Timeslot" Multiplicity="0..1" />
+          <End Role="Sessions" Type="OrlandoCodeCampModel.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Timeslots">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="Timeslot_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Session_Track">
+          <End Role="Tracks" Type="OrlandoCodeCampModel.Track" Multiplicity="0..1" />
+          <End Role="Sessions" Type="OrlandoCodeCampModel.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tracks">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="Track_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PersonIdentity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Boolean" Name="IsAdmin" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="true" a:GetterAccess="Public" a:SetterAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Person" Relationship="OrlandoCodeCampModel.PersonPersonIdentity" FromRole="PersonIdentity" ToRole="Person" />
+          <Property Type="String" Name="Location" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="PersonPersonIdentity">
+          <End Type="OrlandoCodeCampModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="OrlandoCodeCampModel.PersonIdentity" Role="PersonIdentity" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonIdentity">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PersonTask">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Task_ID" Nullable="false" />
+          <Property Type="Int32" Name="Person_ID" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="OrlandoCodeCampModel.PersonTask_Person" FromRole="PersonTask" ToRole="Person" />
+          <NavigationProperty Name="Task" Relationship="OrlandoCodeCampModel.PersonTask_Task" FromRole="PersonTask" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="EndTime" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="Disabled" Nullable="false" />
+          <Property Type="Int32" Name="Capacity" Nullable="false" />
+          <Property Type="Int32" Name="Event_ID" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="OrlandoCodeCampModel.Task_Event" FromRole="Task" ToRole="Event" />
+          <NavigationProperty Name="PersonTasks" Relationship="OrlandoCodeCampModel.PersonTask_Task" FromRole="Task" ToRole="PersonTask" />
+        </EntityType>
+        <Association Name="Task_Event">
+          <End Type="OrlandoCodeCampModel.Event" Role="Event" Multiplicity="1" />
+          <End Type="OrlandoCodeCampModel.Task" Role="Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonTask_Person">
+          <End Type="OrlandoCodeCampModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="OrlandoCodeCampModel.PersonTask" Role="PersonTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonTask">
+              <PropertyRef Name="Person_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonTask_Task">
+          <End Type="OrlandoCodeCampModel.Task" Role="Task" Multiplicity="1" />
+          <End Type="OrlandoCodeCampModel.PersonTask" Role="PersonTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonTask">
+              <PropertyRef Name="Task_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TagName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Sessions1" Relationship="OrlandoCodeCampModel.Session_Tag" FromRole="Tag" ToRole="Session" />
+        </EntityType>
+        <Association Name="Session_Tag">
+          <End Type="OrlandoCodeCampModel.Tag" Role="Tag" Multiplicity="0..1" />
+          <End Type="OrlandoCodeCampModel.Session" Role="Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="Tag_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SessionAttendee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Session_ID" Nullable="false" />
+          <Property Type="Int32" Name="Person_ID" Nullable="false" />
+          <Property Type="Int32" Name="SpeakerRating" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SessionRating" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="OrlandoCodeCampModel.SessionAttendee_Person" FromRole="SessionAttendee" ToRole="Person" />
+          <NavigationProperty Name="Session" Relationship="OrlandoCodeCampModel.SessionAttendee_Session" FromRole="SessionAttendee" ToRole="Session" />
+        </EntityType>
+        <Association Name="SessionAttendee_Person">
+          <End Type="OrlandoCodeCampModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="OrlandoCodeCampModel.SessionAttendee" Role="SessionAttendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SessionAttendee">
+              <PropertyRef Name="Person_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SessionAttendee_Session">
+          <End Type="OrlandoCodeCampModel.Session" Role="Session" Multiplicity="1" />
+          <End Type="OrlandoCodeCampModel.SessionAttendee" Role="SessionAttendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SessionAttendee">
+              <PropertyRef Name="Session_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EventAttendeeRating1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EventAttendee_ID" Nullable="false" />
+          <Property Type="Int32" Name="SignIn" Nullable="false" />
+          <Property Type="Int32" Name="Swag" Nullable="false" />
+          <Property Type="Int32" Name="Refreshments" Nullable="false" />
+          <Property Type="Int32" Name="ReferralSource" Nullable="false" />
+          <Property Type="String" Name="Comments" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EventAttendee" Relationship="OrlandoCodeCampModel.FK_EventAttendeeRating_EventAttendees1" FromRole="EventAttendeeRating1" ToRole="EventAttendee" />
+        </EntityType>
+        <EntityType Name="EventAttendeeSessionRating1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EventAttendee_ID" Nullable="false" />
+          <Property Type="Int32" Name="Session_ID" Nullable="false" />
+          <Property Type="Int32" Name="Ranking" Nullable="false" />
+          <Property Type="Int32" Name="Timeslot_ID" Nullable="false" />
+          <NavigationProperty Name="EventAttendee" Relationship="OrlandoCodeCampModel.FK_EventAttendeeSessionRating_EventAttendees1" FromRole="EventAttendeeSessionRating1" ToRole="EventAttendee" />
+        </EntityType>
+        <Association Name="FK_EventAttendeeRating_EventAttendees1">
+          <End Type="OrlandoCodeCampModel.EventAttendee" Role="EventAttendee" Multiplicity="1" />
+          <End Type="OrlandoCodeCampModel.EventAttendeeRating1" Role="EventAttendeeRating1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventAttendee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventAttendeeRating1">
+              <PropertyRef Name="EventAttendee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventAttendeeSessionRating_EventAttendees1">
+          <End Type="OrlandoCodeCampModel.EventAttendee" Role="EventAttendee" Multiplicity="1" />
+          <End Type="OrlandoCodeCampModel.EventAttendeeSessionRating1" Role="EventAttendeeSessionRating1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventAttendee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventAttendeeSessionRating1">
+              <PropertyRef Name="EventAttendee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="orlandocodecampModelStoreContainer" CdmEntityContainer="OrlandoCodeCampEntities">
+          <EntitySetMapping Name="Announcements"><EntityTypeMapping TypeName="OrlandoCodeCampModel.Announcement"><MappingFragment StoreEntitySet="Announcements">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="EventAttendees"><EntityTypeMapping TypeName="OrlandoCodeCampModel.EventAttendee"><MappingFragment StoreEntitySet="EventAttendees">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+            <ScalarProperty Name="Person_ID" ColumnName="Person_ID" />
+            <ScalarProperty Name="Rsvp" ColumnName="Rsvp" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Events"><EntityTypeMapping TypeName="OrlandoCodeCampModel.Event"><MappingFragment StoreEntitySet="Events">
+            <ScalarProperty Name="IsVolunteerRegistrationOpen" ColumnName="IsVolunteerRegistrationOpen" />
+                <ScalarProperty Name="IsAttendeeRegistrationOpen" ColumnName="IsAttendeeRegistrationOpen" />
+                <ScalarProperty Name="IsSpeakerRegistrationOpen" ColumnName="IsSpeakerRegistrationOpen" />
+                <ScalarProperty Name="IsSponsorRegistrationOpen" ColumnName="IsSponsorRegistrationOpen" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="TwitterHashTag" ColumnName="TwitterHashTag" />
+            <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+            <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+            <ScalarProperty Name="Location" ColumnName="Location" />
+            <ScalarProperty Name="Address1" ColumnName="Address1" />
+            <ScalarProperty Name="Address2" ColumnName="Address2" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="State" ColumnName="State" />
+            <ScalarProperty Name="Zip" ColumnName="Zip" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="People"><EntityTypeMapping TypeName="OrlandoCodeCampModel.Person"><MappingFragment StoreEntitySet="People">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Bio" ColumnName="Bio" />
+            <ScalarProperty Name="Website" ColumnName="Website" />
+            <ScalarProperty Name="Blog" ColumnName="Blog" />
+            <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+            <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Sessions"><EntityTypeMapping TypeName="OrlandoCodeCampModel.Session"><MappingFragment StoreEntitySet="Sessions">
+            <ScalarProperty Name="Tag_ID" ColumnName="Tag_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+            <ScalarProperty Name="Speaker_ID" ColumnName="Speaker_ID" />
+            <ScalarProperty Name="Track_ID" ColumnName="Track_ID" />
+            <ScalarProperty Name="Timeslot_ID" ColumnName="Timeslot_ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="Level" ColumnName="Level" />
+            <ScalarProperty Name="Location" ColumnName="Location" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Sponsors"><EntityTypeMapping TypeName="OrlandoCodeCampModel.Sponsor"><MappingFragment StoreEntitySet="Sponsors">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="SponsorshipLevel" ColumnName="SponsorshipLevel" />
+            <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+            <ScalarProperty Name="WebsiteUrl" ColumnName="WebsiteUrl" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Timeslots"><EntityTypeMapping TypeName="OrlandoCodeCampModel.Timeslot"><MappingFragment StoreEntitySet="Timeslots">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+            <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Tracks"><EntityTypeMapping TypeName="OrlandoCodeCampModel.Track"><MappingFragment StoreEntitySet="Tracks">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PersonIdentities">
+            <EntityTypeMapping TypeName="IsTypeOf(OrlandoCodeCampModel.PersonIdentity)">
+              <MappingFragment StoreEntitySet="People">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonTasks">
+            <EntityTypeMapping TypeName="OrlandoCodeCampModel.PersonTask">
+              <MappingFragment StoreEntitySet="PersonTasks">
+                <ScalarProperty Name="Person_ID" ColumnName="Person_ID" />
+                <ScalarProperty Name="Task_ID" ColumnName="Task_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="OrlandoCodeCampModel.Task">
+              <MappingFragment StoreEntitySet="Tasks">
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="OrlandoCodeCampModel.Tag">
+              <MappingFragment StoreEntitySet="Tags">
+                <ScalarProperty Name="TagName" ColumnName="TagName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SessionAttendees">
+            <EntityTypeMapping TypeName="OrlandoCodeCampModel.SessionAttendee">
+              <MappingFragment StoreEntitySet="SessionAttendees">
+                <ScalarProperty Name="SessionRating" ColumnName="SessionRating" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="SpeakerRating" ColumnName="SpeakerRating" />
+                <ScalarProperty Name="Person_ID" ColumnName="Person_ID" />
+                <ScalarProperty Name="Session_ID" ColumnName="Session_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventAttendeeRating1">
+            <EntityTypeMapping TypeName="OrlandoCodeCampModel.EventAttendeeRating1">
+              <MappingFragment StoreEntitySet="EventAttendeeRatings">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="ReferralSource" ColumnName="ReferralSource" />
+                <ScalarProperty Name="Refreshments" ColumnName="Refreshments" />
+                <ScalarProperty Name="Swag" ColumnName="Swag" />
+                <ScalarProperty Name="SignIn" ColumnName="SignIn" />
+                <ScalarProperty Name="EventAttendee_ID" ColumnName="EventAttendee_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventAttendeeSessionRating1">
+            <EntityTypeMapping TypeName="OrlandoCodeCampModel.EventAttendeeSessionRating1">
+              <MappingFragment StoreEntitySet="EventAttendeeSessionRatings">
+                <ScalarProperty Name="Timeslot_ID" ColumnName="Timeslot_ID" />
+                <ScalarProperty Name="Ranking" ColumnName="Ranking" />
+                <ScalarProperty Name="Session_ID" ColumnName="Session_ID" />
+                <ScalarProperty Name="EventAttendee_ID" ColumnName="EventAttendee_ID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="OccModel" ZoomLevel="131">
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.Announcement" Width="1.5" PointX="5.375" PointY="5.375" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.EventAttendee" Width="1.5" PointX="3" PointY="10.25" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.Event" Width="1.5" PointX="0.75" PointY="9.125" Height="4.480205078125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.Person" Width="1.5" PointX="2.75" PointY="4.25" Height="3.5186979166666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.Session" Width="1.5" PointX="5.25" PointY="14.875" Height="3.9033007812499978" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.Sponsor" Width="1.5" PointX="3" PointY="16.125" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.Timeslot" Width="1.5" PointX="3" PointY="19.375" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.Track" Width="1.5" PointX="3" PointY="22.5" Height="2.172587890624996" IsExpanded="true" />
+        <AssociationConnector Association="OrlandoCodeCampModel.Announcement_Event" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="13.141297200520834" />
+          <ConnectorPoint PointX="2.7604166666666665" PointY="13.141297200520834" />
+          <ConnectorPoint PointX="2.9270833333333335" PointY="13.141297200520834" />
+          <ConnectorPoint PointX="6.125" PointY="13.141297200520834" />
+          <ConnectorPoint PointX="6.125" PointY="7.547587890625" />
+        </AssociationConnector>
+        <AssociationConnector Association="OrlandoCodeCampModel.EventAttendee_Event" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="11.3362939453125" />
+          <ConnectorPoint PointX="2.7604166666666665" PointY="11.3362939453125" />
+          <ConnectorPoint PointX="2.9270833333333335" PointY="11.3362939453125" />
+          <ConnectorPoint PointX="3" PointY="11.3362939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="OrlandoCodeCampModel.EventAttendee_Person" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.625" PointY="7.9609993489583326" />
+          <ConnectorPoint PointX="3.625" PointY="10.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="OrlandoCodeCampModel.Session_Event" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5312525" PointY="13.797506510416666" />
+          <ConnectorPoint PointX="1.5312525" PointY="15.63281375" />
+          <ConnectorPoint PointX="1.7682347916666668" PointY="15.63281375" />
+          <ConnectorPoint PointX="1.9349014583333333" PointY="15.63281375" />
+          <ConnectorPoint PointX="1.9987032291666667" PointY="15.63281375" />
+          <ConnectorPoint PointX="2.1653698958333334" PointY="15.63281375" />
+          <ConnectorPoint PointX="5.25" PointY="15.63281375" />
+        </AssociationConnector>
+        <AssociationConnector Association="OrlandoCodeCampModel.Sponsor_Event" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.851568125" PointY="13.797506510416666" />
+          <ConnectorPoint PointX="1.851568125" PointY="17.403595377604166" />
+          <ConnectorPoint PointX="1.9987032291666667" PointY="17.403595377604166" />
+          <ConnectorPoint PointX="2.1653698958333334" PointY="17.403595377604166" />
+          <ConnectorPoint PointX="3" PointY="17.403595377604166" />
+        </AssociationConnector>
+        <AssociationConnector Association="OrlandoCodeCampModel.Timeslot_Event" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.10937375" PointY="13.797506510416666" />
+          <ConnectorPoint PointX="1.10937375" PointY="20.557444661458334" />
+          <ConnectorPoint PointX="1.9987032291666667" PointY="20.557444661458334" />
+          <ConnectorPoint PointX="2.1653698958333334" PointY="20.557444661458334" />
+          <ConnectorPoint PointX="3" PointY="20.557444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="OrlandoCodeCampModel.Track_Event" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.0820365625" PointY="13.797506510416666" />
+          <ConnectorPoint PointX="2.0820365625" PointY="23.586293945312498" />
+          <ConnectorPoint PointX="3" PointY="23.586293945312498" />
+        </AssociationConnector>
+        <AssociationConnector Association="OrlandoCodeCampModel.Session_Speaker" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.84375" PointY="7.9609993489583326" />
+          <ConnectorPoint PointX="2.84375" PointY="15.222654374999998" />
+          <ConnectorPoint PointX="5.25" PointY="15.222654374999998" />
+        </AssociationConnector>
+        <AssociationConnector Association="OrlandoCodeCampModel.Session_Timeslot" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="20.557444661458334" />
+          <ConnectorPoint PointX="5.5104141666666671" PointY="20.557444661458334" />
+          <ConnectorPoint PointX="5.6770808333333331" PointY="20.557444661458334" />
+          <ConnectorPoint PointX="6" PointY="20.557444661458334" />
+          <ConnectorPoint PointX="6" PointY="18.778300781249996" />
+        </AssociationConnector>
+        <AssociationConnector Association="OrlandoCodeCampModel.Session_Track" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="23.586293945312498" />
+          <ConnectorPoint PointX="5.5937475" PointY="23.586293945312498" />
+          <ConnectorPoint PointX="5.5937475" PointY="18.778300781249996" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.PersonIdentity" Width="1.5" PointX="0.5" PointY="4.25" Height="1.7879850260416665" />
+        <AssociationConnector Association="OrlandoCodeCampModel.PersonPersonIdentity">
+          <ConnectorPoint PointX="2.75" PointY="5.1439925130208337" />
+          <ConnectorPoint PointX="2.2395833333333335" PointY="5.1439925130208328" />
+          <ConnectorPoint PointX="2.0729166666666665" PointY="5.1439925130208337" />
+          <ConnectorPoint PointX="2" PointY="5.1439925130208337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.PersonTask" Width="1.5" PointX="5.25" PointY="2.75" Height="1.9802864583333353" />
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.Task" Width="1.5" PointX="3.125" PointY="0.75" Height="2.7494921875000031" />
+        <AssociationConnector Association="OrlandoCodeCampModel.Task_Event" >
+          <ConnectorPoint PointX="2.15625" PointY="9.125" />
+          <ConnectorPoint PointX="2.15625" PointY="2.1247460937500016" />
+          <ConnectorPoint PointX="3.125" PointY="2.1247460937500016" />
+        </AssociationConnector>
+        <AssociationConnector Association="OrlandoCodeCampModel.PersonTask_Person" >
+          <ConnectorPoint PointX="4.25" PointY="4.4901432291666676" />
+          <ConnectorPoint PointX="5.25" PointY="4.4901432291666676" />
+        </AssociationConnector>
+        <AssociationConnector Association="OrlandoCodeCampModel.PersonTask_Task" >
+          <ConnectorPoint PointX="4.625" PointY="3.1247460937500016" />
+          <ConnectorPoint PointX="5.25" PointY="3.1247460937500016" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.Tag" Width="1.5" PointX="1.454115736044066" PointY="16.376778148290132" />
+        <AssociationConnector Association="OrlandoCodeCampModel.Session_Tag" />
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.SessionAttendee" Width="1.5" PointX="8.0056656375553761" PointY="17.762565263436439" />
+        <AssociationConnector Association="OrlandoCodeCampModel.SessionAttendee_Person" />
+        <AssociationConnector Association="OrlandoCodeCampModel.SessionAttendee_Session" />
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.EventAttendeeRating1" Width="1.5" PointX="9.5552728649020544" PointY="19.564588675072692" />
+        <EntityTypeShape EntityType="OrlandoCodeCampModel.EventAttendeeSessionRating1" Width="1.5" PointX="1.9549615522636852" PointY="5.5696745540805512" />
+        <AssociationConnector Association="OrlandoCodeCampModel.FK_EventAttendeeRating_EventAttendees1" />
+        <AssociationConnector Association="OrlandoCodeCampModel.FK_EventAttendeeSessionRating_EventAttendees1" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

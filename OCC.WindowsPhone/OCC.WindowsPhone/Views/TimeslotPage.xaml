@@ -1,0 +1,121 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="OCC.WindowsPhone.Views.TimeslotPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="sessionListItem">
+            <Grid Width="456" Margin="0,0,0,6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Image x:Name="imgSpeakerAvatar" Margin="0,0,6,0"  Source="{Binding Speaker.ImageUrl, Converter={StaticResource RelativeUrlValueConverter},ConverterParameter=../images/anonymousUser.png}" VerticalAlignment="Top" Width="100" Grid.RowSpan="2" />
+                <TextBlock x:Name="txtSessionName" Text="{Binding Name}" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Grid.Column="1" TextWrapping="Wrap" d:LayoutOverrides="Height" />
+
+                <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="txtSpeakerName" Text="{Binding Speaker.FullName}" Foreground="{StaticResource PhoneSubtleBrush}" TextWrapping="Wrap" HorizontalAlignment="Left"   />
+                    <TextBlock x:Name="txtTrackName" Text="{Binding Track.Name}" Foreground="{StaticResource PhoneAccentBrush}" HorizontalAlignment="Right" TextWrapping="Wrap"  Grid.Column="1"/>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+
+    </phone:PhoneApplicationPage.Resources>
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="ORLANDO CODE CAMP" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="{Binding Timeslot.ShortPeriod}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ListBox 
+                    ItemsSource="{Binding Sessions}" 
+                    ItemTemplate="{StaticResource sessionListItem}"
+                    SelectionChanged="SessionSelected"
+                >
+
+            </ListBox>
+
+            <!-- Lunch Sponsor -->
+            <Grid   Visibility="{Binding Timeslot.IsLunchPeriod, Converter={StaticResource VisibilityConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+                <TextBlock Text="Thanks to our Lunch Sponsor:" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="{StaticResource PhoneAccentBrush}" Margin="0,100,0,0"/>
+                <Image Grid.Row="1"  Source="{Binding LunchSponsor.ImageUrl, Converter={StaticResource RelativeUrlValueConverter},ConverterParameter=../images/anonymousUser.png}"  HorizontalAlignment="Stretch"/>
+
+
+
+            </Grid>
+            <!-- Keynote -->
+            <Grid   Visibility="{Binding Timeslot.IsKeynotePeriod, Converter={StaticResource VisibilityConverter}}">
+                <Grid.RowDefinitions>
+
+                    <RowDefinition />
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Background="Black">
+                    <Image Source="/images/CodeCamp2012HeaderLogo.png"  HorizontalAlignment="Stretch"/>
+                </Border>
+                <TextBlock Grid.Row="1"  Text="Welcome to Code Camp 2012" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="{StaticResource PhoneAccentBrush}" Margin="0,20,0,0"/>
+                <ScrollViewer Grid.Row="2">
+                    <StackPanel>
+                        <TextBlock TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeMediumLarge}">
+                            As you arrive, please head over to the auditorium for registration and to attend the keynote address.
+
+                        </TextBlock>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+
+
+            <!-- Keynote -->
+            <Grid   Visibility="{Binding Timeslot.IsClosingPeriod, Converter={StaticResource VisibilityConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+
+                <TextBlock  Text="Closing Activities" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Foreground="{StaticResource PhoneAccentBrush}" Margin="0,20,0,0"/>
+                <TextBlock  Grid.Row="1" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeMediumLarge}">
+                            Thanks for attending Code Camp 2012. Be sure to stick around for closing announcements and a chance to win an XBOX 360 and other prizes.
+                </TextBlock>
+            </Grid>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

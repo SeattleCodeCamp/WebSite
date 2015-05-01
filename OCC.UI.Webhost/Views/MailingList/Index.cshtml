@@ -1,0 +1,16 @@
+﻿@model IEnumerable<MailChimp.Lists.ListInfo>
+
+
+@{
+    ViewBag.Title = "Mailing Lists";
+}
+
+<div class="title">mailing lists</div>
+
+@foreach (var item in Model)
+{ 
+    <div><strong>@item.Name</strong></div>
+    <div>@string.Format("{0} members", item.Stats.MemberCount)</div>
+    <div>@Html.ActionLink("Update List", "Update", "MailingList", new { id = item.Id }, null)</div>
+    <div>&nbsp;</div>
+}

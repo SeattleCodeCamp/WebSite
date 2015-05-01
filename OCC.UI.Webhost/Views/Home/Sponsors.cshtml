@@ -1,0 +1,42 @@
+﻿@using OCC.UI.Webhost.Models;
+
+@model List<Sponsor>
+
+@{
+    ViewBag.Title = "Sponsors";
+    var counter = 0;
+}
+
+<div class="title">sponsors</div>
+
+@if (ViewBag.Event.IsSponsorRegistrationOpen)
+{
+    <div>
+    Interested in sponsoring our event?  <a href="@Url.Content("~/Content/Documents/Orlando Code Camp 2015 Contributor Information.pdf")">Click here </a> to view our sponsor package.
+    </div>
+}
+                <div>&nbsp;</div>
+
+
+@foreach (var sponsor in ViewData.Model)
+{
+        counter++;
+    <div style="float:left;width:275px;padding-right:20px">
+@*    <div>@Html.ActionLink(string.Format("{0} ({1})", sponsor.Name, sponsor.SponsorshipLevel), "Details", "Sponsor", new { id = sponsor.ID }, null)</div>*@
+        <div class="field-value"><strong>@sponsor.Name</strong></div>
+        <div class="field-value">@sponsor.SponsorshipLevel</div>
+    <div class="field-value">
+        <div style="width: 250px">
+            <a href="@sponsor.WebsiteUrl" target="_blank">
+                <img style="max-width: 100%;" src="@sponsor.ImageUrl" alt="@sponsor.Name" />
+            </a>
+        </div>
+    </div>
+    </div>
+            if ((counter % 2)==0)
+            {
+                <div style="clear:both"></div>
+                <div>&nbsp;</div>
+                <div style="clear:both"></div>
+            }
+}

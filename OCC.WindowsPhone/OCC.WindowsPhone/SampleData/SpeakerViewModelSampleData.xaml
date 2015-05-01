@@ -1,0 +1,1112 @@
+﻿<OCC_WindowsPhone_ViewModels:SpeakerViewModel xmlns:OCC_WindowsPhone_ViewModels="clr-namespace:OCC.WindowsPhone.ViewModels" xmlns:OCC_WindowsPhone_OrlandoCodeCampService="clr-namespace:OCC.WindowsPhone.OrlandoCodeCampService" IsInDesignMode="False" Id="26" IsBusy="True" Message="Justo nec">
+	<OCC_WindowsPhone_ViewModels:SpeakerViewModel.Sessions>
+		<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Aliquam curabitur" Event_ID="26" ID="84" Location="Vestibulum integer" Level="30" Name="Maecenas class cras duis nam" Speaker_ID="48" Status="Fames sodales">
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Curae quisque amet phasellus" Bio="Aenean nunc" FirstName="Mauris nullam sed aptent dis" ImageUrl="http://www.adatum.com/" ID="63" LastName="Adipiscing praesent parturient vivamus" Title="Senectus sociosqu natoque" Twitter="Malesuada suscipit posuere adipiscing nec" Website="Augue penatibus parturient dolor">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Consequat convallis aliquam accumsan aliquet" ID="99" Person_ID="80" Rating="71" Session_ID="80"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Bibendum congue blandit dictumst eleifend" ID="94" Person_ID="14" Rating="56" Session_ID="29"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Vestibulum facilisi" ID="40" Person_ID="78" Rating="48" Session_ID="46"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Faucibus vestibulum cursus dignissim" ID="16" Person_ID="59" Rating="57" Session_ID="40"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Dictum elementum" ID="93" Person_ID="13" Rating="50" Session_ID="67"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Adipiscing lectus habitant" Event_ID="66" ID="10" Location="Inceptos donec libero parturient interdum" Level="53" Name="Ligula facilisis vestibulum" Speaker_ID="35" Status="Litora fermentum commodo"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Diam conubia" Event_ID="29" ID="24" Location="Eget cubilia dapibus lobortis" Level="81" Name="Vestibulum egestas luctus adipiscing" Speaker_ID="51" Status="Nascetur etiam magnis"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Fusce fringilla elit euismod enim" Event_ID="45" ID="94" Location="Pharetra erat" Level="61" Name="Placerat feugiat parturient" Speaker_ID="13" Status="Eros mattis nibh habitasse"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum nisi gravida iaculis" Event_ID="64" ID="13" Location="Lorem vestibulum" Level="75" Name="Mauris lacinia leo" Speaker_ID="99" Status="Pulvinar adipiscing morbi"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Hendrerit himenaeos" Event_ID="67" ID="16" Location="Mollis parturient" Level="40" Name="Sagittis vestibulum mus vestibulum laoreet" Speaker_ID="90" Status="Imperdiet nulla proin"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Person>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Porttitor fames" ID="26" Person_ID="96" Rating="86" Session_ID="12">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Torquent ornare" Bio="Montes nostra non tincidunt" FirstName="Potenti vestibulum tristique felis" ImageUrl="http://www.adventure-works.com/" ID="15" LastName="Nisl nunc per vestibulum" Title="Odio ultricies" Twitter="Rhoncus lorem sodales" Website="Adipiscing viverra venenatis vulputate parturient"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum curabitur" Event_ID="31" ID="71" Location="Orci pede" Level="57" Name="Magna primis ultrices phasellus consequat" Speaker_ID="15" Status="Quam convallis vehicula dignissim vestibulum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Massa aliquam" ID="24" Person_ID="23" Rating="43" Session_ID="45">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Sem maecenas adipiscing rutrum" Bio="Sed metus volutpat integer" FirstName="Quisque sapien" ImageUrl="http://www.adventure-works.com/" ID="33" LastName="Vivamus parturient" Title="Quis praesent facilisis" Twitter="Vestibulum fermentum" Website="Semper vel sociis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum fringilla habitasse morbi" Event_ID="63" ID="97" Location="Neque adipiscing nam aliquam sed" Level="99" Name="Accumsan dis parturient hendrerit urna" Speaker_ID="36" Status="Cras netus himenaeos"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Nulla vestibulum bibendum" ID="61" Person_ID="33" Rating="14" Session_ID="82">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Porta vestibulum est duis adipiscing" Bio="Aliquet imperdiet dictumst blandit" FirstName="Malesuada hac penatibus" ImageUrl="http://www.alpineskihouse.com/" ID="79" LastName="Tellus porttitor tincidunt tristique purus" Title="Leo risus mus" Twitter="Tempor nunc" Website="Nec conubia non"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Parturient cubilia dapibus amet egestas" Event_ID="84" ID="45" Location="Euismod tempus" Level="26" Name="Vestibulum per ante velit sed" Speaker_ID="45" Status="Tortor ultricies vestibulum feugiat"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Vitae eleifend class turpis" ID="12" Person_ID="57" Rating="73" Session_ID="60">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Adipiscing parturient donec aenean" Bio="Arcu facilisi curae varius sem" FirstName="Mauris nullam gravida faucibus" ImageUrl="http://www.baldwinmuseumofscience.com/" ID="83" LastName="Aptent iaculis auctor etiam" Title="Vel inceptos" Twitter="Congue interdum cursus lobortis" Website="Vestibulum diam"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Dictum lectus eget libero" Event_ID="86" ID="73" Location="Nascetur elit vulputate fusce" Level="59" Name="Enim nam erat lacinia" Speaker_ID="50" Status="Laoreet sed natoque"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Posuere pharetra" ID="14" Person_ID="14" Rating="57" Session_ID="71">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Eros nibh pulvinar" Bio="Placerat lorem potenti curabitur" FirstName="Nisi dis morbi pretium" ImageUrl="http://www.blueyonderairlines.com/" ID="66" LastName="Est proin" Title="Hac phasellus vestibulum adipiscing" Twitter="Augue parturient consequat rhoncus" Website="Vestibulum convallis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Ligula litora luctus vestibulum" Event_ID="66" ID="76" Location="Senectus leo nisl dignissim" Level="48" Name="Adipiscing elementum magnis dolor" Speaker_ID="30" Status="Mattis nunc"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="69" ID="11" Name="Felis sociosqu facilisis ipsum">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Parturient mauris mus fermentum" Event_ID="16" ID="75" Location="Viverra fringilla odio aliquam justo" Level="72" Name="Suscipit vestibulum torquent integer vestibulum" Speaker_ID="32" Status="Ultrices habitasse orci lacus"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Lorem magna" Event_ID="55" ID="60" Location="Mollis quisque hendrerit" Level="67" Name="Pede himenaeos imperdiet" Speaker_ID="21" Status="Massa vehicula volutpat"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Maecenas praesent nec" Event_ID="30" ID="60" Location="Malesuada accumsan penatibus non montes" Level="69" Name="Bibendum metus" Speaker_ID="85" Status="Adipiscing parturient vivamus"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nostra quam porttitor tincidunt dictumst" Event_ID="89" ID="55" Location="Ornare platea aliquam primis" Level="31" Name="Vestibulum rutrum sapien" Speaker_ID="54" Status="Vestibulum morbi"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Eleifend tristique" Event_ID="51" ID="46" Location="Adipiscing facilisi semper sociis" Level="49" Name="Parturient aliquet per ultricies" Speaker_ID="83" Status="Venenatis vestibulum quis faucibus"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Neque taciti vestibulum tellus" Event_ID="22" ID="46" Name="Tempor vulputate urna blandit netus">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Sed sem adipiscing cras" Event_ID="95" ID="70" Location="Sit nulla habitant inceptos tempus" Level="40" Name="Interdum tortor porta lobortis nascetur" Speaker_ID="13" Status="Pharetra turpis"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Varius placerat curabitur duis vel" Event_ID="22" ID="57" Location="Parturient pulvinar purus" Level="66" Name="Sagittis nunc vestibulum" Speaker_ID="64" Status="Nam vestibulum"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Sed dis amet ante aenean" Event_ID="74" ID="78" Location="Adipiscing commodo conubia" Level="75" Name="Arcu phasellus diam" Speaker_ID="81" Status="Risus eget mauris"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Elit senectus nullam sociosqu consequat" Event_ID="96" ID="18" Location="Velit parturient" Level="85" Name="Vestibulum enim vitae class" Speaker_ID="51" Status="Curae erat"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Aptent cubilia auctor" Event_ID="41" ID="22" Location="Vestibulum congue suscipit torquent cursus" Level="92" Name="Ultrices eros est nibh convallis" Speaker_ID="39" Status="Hac adipiscing nisi"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Track>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+		</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+		<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Dignissim dapibus parturient vestibulum dictum" Event_ID="40" ID="53" Location="Egestas vehicula donec lectus leo" Level="96" Name="Volutpat vestibulum mus elementum adipiscing" Speaker_ID="42" Status="Tortor fames felis">
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Parturient praesent vestibulum fermentum euismod" Bio="Facilisis nec maecenas nisl" FirstName="Libero non" ImageUrl="http://www.cpandl.com/" ID="28" LastName="Fusce per fringilla" Title="Duis nunc tincidunt" Twitter="Lobortis amet tristique nascetur vestibulum" Website="Vestibulum lacus potenti pharetra ultricies">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Luctus accumsan lorem" ID="68" Person_ID="21" Rating="54" Session_ID="94"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Magnis bibendum" ID="79" Person_ID="34" Rating="98" Session_ID="86"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Adipiscing parturient nunc mattis" ID="88" Person_ID="69" Rating="79" Session_ID="11"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Morbi sed dictumst mauris" ID="91" Person_ID="51" Rating="47" Session_ID="20"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Habitasse nulla odio orci sem" ID="55" Person_ID="66" Rating="85" Session_ID="91"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Hendrerit vestibulum mollis vestibulum himenaeos" Event_ID="20" ID="17" Location="Montes nostra" Level="58" Name="Ornare adipiscing" Speaker_ID="22" Status="Pede parturient vestibulum sit"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Platea vestibulum" Event_ID="69" ID="10" Location="Proin primis quam gravida" Level="15" Name="Eleifend vel" Speaker_ID="36" Status="Augue nam"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Iaculis rutrum sapien" Event_ID="91" ID="83" Location="Semper imperdiet facilisi faucibus sed" Level="16" Name="Dis dolor adipiscing lacinia quis" Speaker_ID="51" Status="Fames laoreet"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Parturient vestibulum est" Event_ID="74" ID="21" Location="Urna vestibulum habitant felis" Level="45" Name="Sociis ipsum" Speaker_ID="11" Status="Inceptos malesuada hac"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Justo cras" Event_ID="12" ID="71" Location="Interdum natoque" Level="85" Name="Leo taciti penatibus adipiscing" Speaker_ID="50" Status="Tellus tempor parturient posuere porttitor"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Person>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Tempus lorem magna adipiscing ante" ID="79" Person_ID="92" Rating="37" Session_ID="75">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Massa parturient metus" Bio="Venenatis mus pretium" FirstName="Vulputate curabitur nec morbi neque" ImageUrl="http://www.cohovineyard.com/" ID="88" LastName="Netus placerat rhoncus varius phasellus" Title="Per consequat sed sem" Twitter="Aenean vestibulum sit adipiscing arcu" Website="Parturient sodales pulvinar viverra nulla"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Diam aliquam porta convallis" Event_ID="38" ID="83" Location="Purus mauris dignissim nullam" Level="59" Name="Elementum aptent" Speaker_ID="89" Status="Sagittis vestibulum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Facilisis senectus eget auctor" ID="81" Person_ID="73" Rating="68" Session_ID="41">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Nam sed vestibulum" Bio="Fermentum fringilla habitasse vel" FirstName="Congue adipiscing dis" ImageUrl="http://www.cohowinery.com/" ID="83" LastName="Sociosqu cursus" Title="Est himenaeos imperdiet hac" Twitter="Malesuada velit vestibulum vestibulum quisque" Website="Leo suscipit"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Dictum lectus mus libero" Event_ID="14" ID="18" Location="Torquent penatibus enim" Level="60" Name="Ultrices porttitor ligula" Speaker_ID="63" Status="Erat eros vehicula adipiscing parturient"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Nibh nisi" ID="35" Person_ID="28" Rating="72" Session_ID="37">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Aliquam vestibulum" Bio="Vestibulum tincidunt vivamus" FirstName="Litora tristique adipiscing luctus magnis" ImageUrl="http://www.contoso.com/" ID="79" LastName="Non vitae vestibulum" Title="Mattis per" Twitter="Ultricies class" Website="Venenatis adipiscing"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Sed parturient" Event_ID="94" ID="15" Location="Vestibulum vestibulum volutpat sem sit" Level="62" Name="Adipiscing vel maecenas nam vulputate" Speaker_ID="37" Status="Mauris sed commodo"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Parturient nisl" ID="80" Person_ID="46" Rating="17" Session_ID="31">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Dis curabitur" Bio="Conubia nunc curae odio" FirstName="Donec praesent est mollis hac" ImageUrl="http://www.consolidatedmessenger.com/" ID="16" LastName="Cubilia leo dapibus ornare mus" Title="Egestas vestibulum etiam fusce" Twitter="Lorem nec" Website="Euismod pede non phasellus feugiat"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Quam platea gravida" Event_ID="83" ID="80" Location="Consequat morbi per primis" Level="45" Name="Convallis sed sem" Speaker_ID="22" Status="Iaculis quis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Lacinia accumsan" ID="25" Person_ID="83" Rating="86" Session_ID="99">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Dignissim nulla sapien bibendum elementum" Bio="Sit rutrum" FirstName="Laoreet semper sociis proin augue" ImageUrl="http://www.fabrikam.com/" ID="30" LastName="Dictumst dolor" Title="Vestibulum posuere urna potenti" Twitter="Adipiscing taciti sed pretium rhoncus" Website="Fermentum tellus dis parturient eleifend"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Facilisi faucibus cras" Event_ID="50" ID="26" Location="Sodales fringilla vestibulum viverra" Level="61" Name="Est habitasse aliquam hac leo" Speaker_ID="19" Status="Tempor mus duis tempus habitant"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="83" ID="69" Name="Ipsum nec turpis integer quisque">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Justo nunc vestibulum amet non" Event_ID="13" ID="84" Location="Ante lacus vivamus" Level="47" Name="Inceptos aliquam arcu" Speaker_ID="70" Status="Hendrerit varius himenaeos imperdiet"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Malesuada adipiscing interdum" Event_ID="46" ID="16" Location="Aliquet blandit penatibus" Level="32" Name="Per sed" Speaker_ID="17" Status="Lorem sem"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Sit vel lobortis commodo aenean" Event_ID="93" ID="87" Location="Nascetur diam" Level="75" Name="Pharetra nam" Speaker_ID="11" Status="Mauris placerat conubia"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Porttitor tincidunt nullam pulvinar" Event_ID="55" ID="79" Location="Cubilia sagittis aptent sed" Level="83" Name="Senectus magna" Speaker_ID="38" Status="Sociosqu dapibus egestas massa metus"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Parturient vestibulum tristique" Event_ID="73" ID="99" Location="Morbi dis suscipit" Level="93" Name="Eget vestibulum est torquent" Speaker_ID="33" Status="Adipiscing elit"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Ultricies hac" Event_ID="92" ID="86" Name="Enim auctor congue">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Leo erat mus" Event_ID="45" ID="43" Location="Parturient nec vestibulum neque" Level="57" Name="Netus euismod nulla cursus venenatis" Speaker_ID="49" Status="Dictum non per"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Sed lectus porta ultrices" Event_ID="38" ID="12" Location="Purus sem feugiat" Level="20" Name="Vestibulum vehicula vulputate" Speaker_ID="85" Status="Risus adipiscing gravida"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Libero volutpat" Event_ID="15" ID="29" Location="Sit iaculis curabitur" Level="53" Name="Eros ligula litora nibh" Speaker_ID="68" Status="Velit phasellus vel luctus"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nam lacinia" Event_ID="76" ID="31" Location="Magnis maecenas nisi" Level="99" Name="Praesent laoreet" Speaker_ID="47" Status="Parturient nisl"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Mattis accumsan mauris nunc vitae" Event_ID="47" ID="74" Location="Natoque odio mollis orci consequat" Level="22" Name="Vestibulum bibendum" Speaker_ID="14" Status="Convallis vestibulum class adipiscing parturient"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Track>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+		</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+		<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Pede posuere" Event_ID="37" ID="38" Location="Dictumst dignissim sed potenti eleifend" Level="55" Name="Elementum dis est pretium" Speaker_ID="38" Status="Dolor facilisis">
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Facilisi curae quam donec hac" Bio="Vestibulum rhoncus sodales montes" FirstName="Viverra vestibulum" ImageUrl="http://www.fourthcoffee.com/" ID="82" LastName="Parturient mus fermentum" Title="Sociosqu tristique" Twitter="Suscipit lorem" Website="Mauris ultricies nullam aptent">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Urna aliquam cras" ID="40" Person_ID="71" Rating="43" Session_ID="33"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Fringilla duis integer vestibulum" ID="45" Person_ID="10" Rating="49" Session_ID="60"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Etiam fusce" ID="76" Person_ID="27" Rating="49" Session_ID="14"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Lorem nunc" ID="22" Person_ID="97" Rating="77" Session_ID="30"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Faucibus nostra amet quisque habitant" ID="96" Person_ID="18" Rating="81" Session_ID="55"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vivamus aliquam ante aliquet" Event_ID="57" ID="87" Location="Nec ornare" Level="12" Name="Habitasse vestibulum hendrerit platea arcu" Speaker_ID="61" Status="Inceptos primis non per"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Blandit interdum" Event_ID="39" ID="36" Location="Sed adipiscing commodo morbi" Level="62" Name="Sem rutrum sit sapien" Speaker_ID="28" Status="Semper vel parturient nam sociis"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Diam himenaeos taciti" Event_ID="20" ID="87" Location="Tellus eget" Level="58" Name="Tempor imperdiet tempus lobortis nascetur" Speaker_ID="17" Status="Pharetra elit sed malesuada nulla"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Proin penatibus enim augue placerat" Event_ID="87" ID="75" Location="Vestibulum tortor dolor vestibulum" Level="18" Name="Fames turpis erat dis eros" Speaker_ID="66" Status="Pulvinar varius porttitor adipiscing felis"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nibh aenean ipsum" Event_ID="69" ID="87" Location="Est parturient conubia" Level="49" Name="Sagittis justo lacus nisi tincidunt" Speaker_ID="15" Status="Nisl hac cubilia senectus nunc"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Person>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Leo venenatis odio torquent magna" ID="79" Person_ID="91" Rating="59" Session_ID="97">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Orci ultrices vehicula" Bio="Mus massa vestibulum" FirstName="Vestibulum nec volutpat metus" ImageUrl="http://www.graphicdesigninstitute.com/" ID="93" LastName="Quis urna morbi accumsan auctor" Title="Adipiscing parturient" Twitter="Bibendum cras dictumst" Website="Vulputate congue"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum curabitur vestibulum" Event_ID="81" ID="94" Location="Per neque adipiscing sed duis" Level="34" Name="Phasellus parturient vestibulum cursus" Speaker_ID="49" Status="Vestibulum consequat nunc"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Adipiscing dictum" ID="92" Person_ID="29" Rating="56" Session_ID="81">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Eleifend nulla porta vestibulum lectus" Bio="Parturient netus convallis" FirstName="Dapibus purus" ImageUrl="http://www.humongousinsurance.com/" ID="18" LastName="Egestas dignissim" Title="Amet vestibulum ante elementum" Twitter="Arcu libero sit habitant" Website="Adipiscing velit vitae diam"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Parturient inceptos interdum facilisis" Event_ID="99" ID="35" Location="Vel eget elit class nam" Level="52" Name="Lobortis nascetur ligula" Speaker_ID="69" Status="Vestibulum pharetra placerat pulvinar sagittis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Sed enim erat" ID="93" Person_ID="47" Rating="31" Session_ID="26">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Senectus vestibulum" Bio="Litora euismod" FirstName="Adipiscing dis" ImageUrl="http://www.litwareinc.com/" ID="19" LastName="Nibh nisi sociosqu est hac" Title="Fermentum gravida parturient" Twitter="Iaculis lacinia vestibulum luctus" Website="Magnis nisl fringilla mattis nunc"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Suscipit habitasse laoreet" Event_ID="50" ID="88" Location="Torquent curae vestibulum hendrerit" Level="69" Name="Leo mus ultrices donec adipiscing" Speaker_ID="42" Status="Himenaeos imperdiet nec parturient vehicula"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Non vestibulum per volutpat mauris" ID="47" Person_ID="20" Rating="61" Session_ID="64">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Sem orci sit penatibus" Bio="Odio sed malesuada" FirstName="Maecenas etiam porttitor pede" ImageUrl="http://www.lucernepublishing.com/" ID="88" LastName="Natoque vestibulum" Title="Adipiscing urna parturient vestibulum vel" Twitter="Nam cras vestibulum" Website="Tincidunt accumsan adipiscing mollis tristique"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Sed ultricies montes posuere fusce" Event_ID="18" ID="69" Location="Bibendum potenti parturient lorem" Level="76" Name="Venenatis dictumst morbi nulla nostra" Speaker_ID="76" Status="Ornare eleifend dis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Pretium vulputate" ID="95" Person_ID="80" Rating="44" Session_ID="79">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Est faucibus platea nunc phasellus" Bio="Proin curabitur duis facilisi" FirstName="Consequat amet primis" ImageUrl="http://www.margiestravel.com/" ID="52" LastName="Hac convallis leo vestibulum" Title="Rhoncus mus" Twitter="Nec sodales" Website="Rutrum diam habitant inceptos"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Viverra dignissim" Event_ID="12" ID="22" Location="Eget interdum elit" Level="30" Name="Non per" Speaker_ID="27" Status="Sed elementum enim"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="60" ID="88" Name="Adipiscing sapien lobortis">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Sem sit fames aliquam parturient" Event_ID="50" ID="65" Location="Semper erat sociis" Level="97" Name="Vestibulum vestibulum integer felis ipsum" Speaker_ID="87" Status="Nascetur pharetra justo"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Adipiscing vel" Event_ID="93" ID="40" Location="Placerat pulvinar nam quisque" Level="67" Name="Taciti lacus" Speaker_ID="58" Status="Sed eros fermentum"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Tellus fringilla" Event_ID="52" ID="13" Location="Tempor lorem" Level="90" Name="Dis nibh" Speaker_ID="48" Status="Tempus parturient vivamus nisi sagittis"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Senectus magna massa metus" Event_ID="78" ID="87" Location="Morbi sociosqu aliquam" Level="60" Name="Habitasse hendrerit neque nisl" Speaker_ID="86" Status="Vestibulum tortor"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Himenaeos nunc imperdiet aliquet" Event_ID="41" ID="10" Location="Turpis blandit vestibulum" Level="60" Name="Varius suscipit commodo malesuada conubia" Speaker_ID="79" Status="Cubilia torquent dapibus odio penatibus"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Porttitor orci est netus nulla" Event_ID="32" ID="70" Name="Aenean porta ultrices purus vehicula">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Tincidunt risus mauris nullam" Event_ID="57" ID="26" Location="Velit adipiscing parturient aptent vestibulum" Level="10" Name="Vitae tristique" Speaker_ID="59" Status="Egestas vestibulum pede quam adipiscing"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Volutpat euismod ultricies maecenas parturient" Event_ID="16" ID="35" Location="Vestibulum praesent hac" Level="10" Name="Feugiat leo venenatis" Speaker_ID="32" Status="Quis auctor accumsan"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Congue vulputate mus curabitur" Event_ID="19" ID="40" Location="Urna cras" Level="81" Name="Class duis gravida iaculis lacinia" Speaker_ID="37" Status="Curae bibendum phasellus vestibulum"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nunc amet adipiscing nec" Event_ID="97" ID="33" Location="Donec consequat convallis" Level="23" Name="Parturient laoreet dictumst dignissim natoque" Speaker_ID="73" Status="Cursus vestibulum etiam"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Ante elementum vestibulum arcu" Event_ID="24" ID="38" Location="Adipiscing parturient dictum non" Level="19" Name="Vestibulum per eleifend lectus vestibulum" Speaker_ID="28" Status="Diam eget"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Track>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+		</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+		<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Facilisi fusce adipiscing sed" Event_ID="21" ID="91" Location="Libero facilisis" Level="61" Name="Fermentum elit sem parturient" Speaker_ID="67" Status="Neque parturient libero dis est">
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Litora potenti vestibulum lorem" Bio="Posuere vestibulum ligula sit" FirstName="Morbi nulla faucibus proin" ImageUrl="http://www.northwindtraders.com/" ID="41" LastName="Vel vestibulum habitant augue habitasse" Title="Sapien semper euismod lacus" Twitter="Vestibulum sociis" Website="Per lorem taciti adipiscing">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Inceptos luctus nam rhoncus" ID="66" Person_ID="25" Rating="61" Session_ID="44"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Interdum dolor sodales magnis" ID="85" Person_ID="78" Rating="78" Session_ID="80"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Mattis lobortis vestibulum" ID="66" Person_ID="79" Rating="18" Session_ID="80"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Fames felis sed" ID="87" Person_ID="44" Rating="33" Session_ID="41"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Adipiscing parturient viverra mauris" ID="57" Person_ID="29" Rating="94" Session_ID="60"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Hendrerit erat" Event_ID="66" ID="50" Location="Nascetur himenaeos mollis montes" Level="89" Name="Imperdiet dis" Speaker_ID="37" Status="Est aliquam"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Pharetra malesuada eros" Event_ID="73" ID="68" Location="Nostra integer placerat nibh hac" Level="85" Name="Leo penatibus vestibulum quisque porttitor" Speaker_ID="31" Status="Tincidunt vestibulum"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Mus ornare nisi vivamus" Event_ID="70" ID="14" Location="Adipiscing tristique nisl aliquam" Level="59" Name="Aliquet parturient nec nunc vestibulum" Speaker_ID="65" Status="Non pulvinar ultricies sagittis odio"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum venenatis" Event_ID="65" ID="69" Location="Blandit commodo platea senectus" Level="93" Name="Conubia vulputate" Speaker_ID="91" Status="Adipiscing parturient sociosqu"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Cubilia orci primis" Event_ID="73" ID="66" Location="Curabitur phasellus ipsum vestibulum" Level="47" Name="Dapibus rutrum" Speaker_ID="40" Status="Pede consequat egestas justo suscipit"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Person>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Sed magna" ID="61" Person_ID="71" Rating="27" Session_ID="14">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Sem sit" Bio="Feugiat parturient gravida" FirstName="Convallis massa" ImageUrl="http://www.proseware.com/" ID="11" LastName="Torquent metus vel" Title="Ultrices vehicula morbi quam" Twitter="Vestibulum nam neque netus facilisis" Website="Adipiscing quis parturient iaculis sed"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Lacinia laoreet urna volutpat" Event_ID="24" ID="43" Location="Natoque fermentum tellus fringilla vestibulum" Level="86" Name="Dis tempor cras vestibulum" Speaker_ID="79" Status="Duis tempus maecenas praesent habitasse"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Nunc amet nulla accumsan" ID="77" Person_ID="91" Rating="97" Session_ID="33">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Tortor himenaeos bibendum" Bio="Hendrerit est" FirstName="Adipiscing dictumst parturient porta hac" ImageUrl="http://www.fineartschool.net" ID="70" LastName="Malesuada purus" Title="Penatibus leo mus posuere potenti" Twitter="Porttitor tincidunt risus" Website="Tristique ultricies nec non"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum ante velit varius" Event_ID="11" ID="74" Location="Venenatis aenean eleifend vulputate" Level="25" Name="Curabitur per vitae phasellus sed" Speaker_ID="35" Status="Pretium sem vestibulum facilisi class"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Consequat arcu mauris sit" ID="71" Person_ID="93" Rating="56" Session_ID="25">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Habitant inceptos nullam parturient rhoncus" Bio="Adipiscing faucibus convallis" FirstName="Curae sodales" ImageUrl="http://www.southridgevideo.com/" ID="27" LastName="Viverra nascetur" Title="Dignissim donec nam sed vestibulum" Twitter="Aliquam pharetra" Website="Placerat etiam aptent dis elementum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Facilisis integer quisque est" Event_ID="19" ID="61" Location="Vestibulum vivamus" Level="29" Name="Adipiscing diam pulvinar sagittis" Speaker_ID="52" Status="Hac fermentum fusce"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Parturient eget fringilla senectus" ID="27" Person_ID="41" Rating="67" Session_ID="65">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Auctor aliquam morbi vestibulum mus" Bio="Leo lorem" FirstName="Sociosqu nec" ImageUrl="http://www.tailspintoys.com/" ID="51" LastName="Vestibulum congue" Title="Nulla commodo" Twitter="Suscipit non per" Website="Habitasse conubia torquent enim"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Erat proin" Event_ID="91" ID="82" Location="Sed eros nibh" Level="64" Name="Augue hendrerit adipiscing" Speaker_ID="99" Status="Dolor parturient sem nisi sit"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Cubilia fames dapibus" ID="79" Person_ID="22" Rating="40" Session_ID="43">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Felis vestibulum" Bio="Egestas euismod" FirstName="Vestibulum ipsum vel ultrices" ImageUrl="http://www.treyresearch.net/" ID="71" LastName="Odio nam orci justo" Title="Pede lacus quam" Twitter="Quis volutpat malesuada cursus" Website="Lorem feugiat magna massa"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Adipiscing urna" Event_ID="82" ID="15" Location="Cras sed dictum gravida lectus" Level="27" Name="Metus duis penatibus nunc" Speaker_ID="93" Status="Porttitor morbi"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="68" ID="63" Name="Hac leo tincidunt tristique">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Ultricies venenatis amet mus" Event_ID="94" ID="77" Location="Netus vulputate maecenas curabitur" Level="66" Name="Praesent ligula nec" Speaker_ID="50" Status="Accumsan phasellus"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum iaculis" Event_ID="94" ID="29" Location="Ante nulla arcu consequat" Level="46" Name="Convallis non lacinia" Speaker_ID="14" Status="Per laoreet dignissim elementum facilisis"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Porta litora diam luctus" Event_ID="91" ID="19" Location="Eget magnis sed mattis" Level="98" Name="Mauris fermentum purus" Speaker_ID="72" Status="Risus natoque posuere velit"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Elit fringilla bibendum potenti pretium" Event_ID="27" ID="68" Location="Vestibulum adipiscing parturient" Level="38" Name="Habitasse vestibulum" Speaker_ID="72" Status="Vitae sem hendrerit"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Class himenaeos dictumst enim" Event_ID="19" ID="79" Location="Mollis sit montes nostra rhoncus" Level="19" Name="Vestibulum imperdiet curae eleifend" Speaker_ID="42" Status="Sodales vel ornare nam"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Adipiscing erat eros facilisi" Event_ID="12" ID="18" Name="Platea donec malesuada etiam fusce">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Penatibus lorem viverra" Event_ID="45" ID="63" Location="Morbi aliquam parturient nulla proin" Level="20" Name="Sed faucibus nibh dis" Speaker_ID="41" Status="Porttitor primis est"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum integer tincidunt tristique" Event_ID="45" ID="87" Location="Augue ultricies rutrum venenatis sapien" Level="39" Name="Vulputate vestibulum hac curabitur nisi" Speaker_ID="26" Status="Adipiscing semper phasellus parturient leo"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Dolor mus vestibulum nisl" Event_ID="28" ID="62" Location="Fames vestibulum" Level="83" Name="Adipiscing sociis" Speaker_ID="61" Status="Quisque taciti nunc"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Parturient nec consequat odio" Event_ID="32" ID="73" Location="Convallis dignissim tellus vestibulum non" Level="75" Name="Vivamus tempor tempus per" Speaker_ID="27" Status="Aliquam habitant"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Elementum tortor" Event_ID="96" ID="62" Location="Orci pede" Level="27" Name="Quam felis quis facilisis urna" Speaker_ID="94" Status="Vestibulum adipiscing turpis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Track>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+		</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+		<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Aliquet parturient ipsum justo" Event_ID="74" ID="70" Location="Fermentum varius" Level="73" Name="Lacus fringilla habitasse lorem" Speaker_ID="43" Status="Nunc amet lectus torquent">
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Himenaeos aenean vestibulum" Bio="Inceptos magna cras sed hendrerit" FirstName="Interdum vestibulum blandit" ImageUrl="http://www.thephone-company.com/" ID="50" LastName="Mauris metus imperdiet malesuada morbi" Title="Pulvinar magnis eros" Twitter="Posuere sit sagittis" Website="Fusce senectus himenaeos">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Conubia duis penatibus" ID="22" Person_ID="23" Rating="77" Session_ID="54"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Neque porttitor sit tincidunt netus" ID="84" Person_ID="63" Rating="57" Session_ID="35"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Cubilia vel tristique ultricies" ID="61" Person_ID="86" Rating="42" Session_ID="13"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Venenatis dapibus" ID="39" Person_ID="63" Rating="84" Session_ID="59"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Vulputate curabitur adipiscing nam egestas" ID="74" Person_ID="74" Rating="90" Session_ID="45"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nulla porta nunc purus sed" Event_ID="88" ID="66" Location="Parturient vestibulum phasellus" Level="45" Name="Consequat vestibulum nullam dis" Speaker_ID="65" Status="Aptent est euismod nascetur"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Auctor congue convallis amet dignissim" Event_ID="97" ID="91" Location="Hac leo" Level="82" Name="Cursus feugiat ante elementum" Speaker_ID="56" Status="Facilisis gravida pharetra iaculis dictum"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Arcu risus lacinia adipiscing lectus" Event_ID="25" ID="17" Location="Parturient fermentum" Level="43" Name="Libero vestibulum" Speaker_ID="75" Status="Diam mus ligula"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nec vestibulum velit" Event_ID="89" ID="70" Location="Fringilla vitae adipiscing class" Level="29" Name="Curae eget" Speaker_ID="31" Status="Parturient habitasse elit enim"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Hendrerit placerat vestibulum" Event_ID="19" ID="85" Location="Erat non donec per" Level="41" Name="Litora sed vestibulum" Speaker_ID="64" Status="Sem luctus laoreet etiam natoque"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Person>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Adipiscing potenti pretium" ID="14" Person_ID="99" Rating="46" Session_ID="78">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Rhoncus morbi sociosqu sodales nisl" Bio="Mattis nibh nisi lorem" FirstName="Imperdiet nulla parturient" ImageUrl="http://www.wideworldimporters.com/" ID="58" LastName="Nam sed" Title="Proin augue suscipit" Twitter="Viverra torquent aliquam malesuada ultrices" Website="Nunc odio mauris mollis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Dis orci pede montes vehicula" Event_ID="41" ID="72" Location="Integer quam penatibus" Level="88" Name="Volutpat nostra quis adipiscing maecenas" Speaker_ID="43" Status="Dolor porttitor urna fames"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Praesent est" ID="67" Person_ID="99" Rating="79" Session_ID="22">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Accumsan parturient hac" Bio="Tincidunt felis quisque ornare" FirstName="Bibendum vivamus platea aliquam ipsum" ImageUrl="http://www.wingtiptoys.com/" ID="30" LastName="Leo dictumst amet" Title="Primis ante rutrum eleifend arcu" Twitter="Sapien tristique" Website="Diam ultricies venenatis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Semper vulputate facilisi justo" Event_ID="38" ID="61" Location="Aliquet eget faucibus mus sociis" Level="56" Name="Habitant taciti blandit inceptos" Speaker_ID="78" Status="Curabitur commodo lacus nec"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Non vestibulum" ID="56" Person_ID="80" Rating="11" Session_ID="23">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Vestibulum cubilia" Bio="Interdum conubia elit enim per" FirstName="Dapibus sed" ImageUrl="http://www.woodgrovebank.com/" ID="92" LastName="Egestas nibh nisi lorem" Title="Phasellus consequat magna" Twitter="Convallis sem euismod sit nascetur" Website="Vel pharetra"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Adipiscing tellus feugiat nam dignissim" Event_ID="20" ID="54" Location="Massa placerat nisl sed metus" Level="52" Name="Nunc gravida iaculis tempor dis" Speaker_ID="66" Status="Lacinia pulvinar"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Parturient odio est vestibulum tempus" ID="68" Person_ID="63" Rating="49" Session_ID="40">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Natoque sagittis morbi" Bio="Tortor laoreet elementum" FirstName="Vestibulum orci posuere potenti" ImageUrl="http://www.adatum.com/" ID="43" LastName="Adipiscing parturient" Title="Netus vestibulum vestibulum nulla" Twitter="Nec adipiscing pede quam" Website="Quis facilisis fermentum turpis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Fringilla non varius per" Event_ID="88" ID="42" Location="Habitasse aenean" Level="36" Name="Parturient sed porta" Speaker_ID="41" Status="Purus pretium mauris urna"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Vestibulum senectus rhoncus sodales risus" ID="66" Person_ID="33" Rating="35" Session_ID="86">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Hendrerit sociosqu velit" Bio="Nullam sem viverra" FirstName="Sit aliquam vitae integer aptent" ImageUrl="http://www.adventure-works.com/" ID="99" LastName="Vestibulum auctor" Title="Congue curae vivamus cras" Twitter="Vel aliquam aliquet nam" Website="Adipiscing blandit sed donec commodo"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Dis est duis" Event_ID="13" ID="49" Location="Conubia suscipit parturient cursus" Level="78" Name="Himenaeos vestibulum hac" Speaker_ID="57" Status="Dictum leo vestibulum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="96" ID="61" Name="Imperdiet adipiscing ultrices">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Parturient malesuada vehicula ante" Event_ID="18" ID="73" Location="Libero ligula volutpat penatibus mus" Level="53" Name="Cubilia arcu dapibus nec litora" Speaker_ID="97" Status="Luctus etiam fusce porttitor"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Tincidunt magnis" Event_ID="38" ID="49" Location="Mattis maecenas" Level="83" Name="Egestas lorem non per" Speaker_ID="13" Status="Diam morbi mauris"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Euismod nulla tristique eget feugiat" Event_ID="47" ID="55" Location="Praesent proin mollis sed elit" Level="93" Name="Augue enim accumsan ultricies dolor" Speaker_ID="75" Status="Venenatis vulputate sem montes curabitur"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Phasellus sit" Event_ID="58" ID="29" Location="Consequat vestibulum nostra fames erat" Level="99" Name="Felis ipsum vel justo" Speaker_ID="25" Status="Eros lacus ornare"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Platea lorem" Event_ID="28" ID="41" Location="Primis rutrum sapien convallis" Level="67" Name="Nam dignissim magna bibendum gravida" Speaker_ID="53" Status="Massa dictumst vestibulum nibh"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Iaculis metus" Event_ID="97" ID="31" Name="Sed eleifend lacinia laoreet">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Semper sociis elementum" Event_ID="89" ID="78" Location="Facilisi morbi taciti dis est" Level="88" Name="Adipiscing facilisis hac fermentum" Speaker_ID="31" Status="Nisi neque leo"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Netus nulla natoque" Event_ID="89" ID="41" Location="Posuere faucibus" Level="33" Name="Parturient fringilla nisl porta nunc" Speaker_ID="63" Status="Potenti odio mus habitasse"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Hendrerit orci pretium" Event_ID="67" ID="18" Location="Himenaeos imperdiet" Level="69" Name="Vestibulum malesuada rhoncus" Speaker_ID="62" Status="Penatibus pede"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Purus nec habitant risus porttitor" Event_ID="60" ID="70" Location="Tellus tempor sodales inceptos" Level="19" Name="Quam quis vestibulum viverra non" Speaker_ID="52" Status="Adipiscing aliquam integer"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Velit tempus quisque" Event_ID="60" ID="93" Location="Interdum vitae parturient" Level="52" Name="Class urna vivamus" Speaker_ID="37" Status="Aliquam per tortor curae cras"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Track>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+		</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+		<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Lobortis aliquet donec etiam" Event_ID="92" ID="20" Location="Blandit duis" Level="15" Name="Commodo fusce vestibulum" Speaker_ID="30" Status="Dignissim donec">
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Conubia vestibulum cubilia" Bio="Tincidunt sed" FirstName="Tristique nascetur turpis ultricies lorem" ImageUrl="http://www.adventure-works.com/" ID="58" LastName="Nunc nulla" Title="Nulla porta" Twitter="Vestibulum rhoncus" Website="Erat purus">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Dapibus sem amet aenean" ID="77" Person_ID="83" Rating="49" Session_ID="63"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Sit proin adipiscing augue" ID="38" Person_ID="54" Rating="76" Session_ID="53"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Ante dolor vel egestas" ID="64" Person_ID="87" Rating="83" Session_ID="74"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Mauris fames" ID="18" Person_ID="17" Rating="60" Session_ID="52"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Venenatis felis ipsum" ID="79" Person_ID="84" Rating="87" Session_ID="84"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nam sed euismod vulputate pharetra" Event_ID="15" ID="95" Location="Placerat dis curabitur nullam" Level="69" Name="Parturient arcu" Speaker_ID="38" Status="Diam est"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum pulvinar feugiat justo phasellus" Event_ID="15" ID="76" Location="Eget aptent consequat gravida" Level="81" Name="Vestibulum adipiscing auctor parturient" Speaker_ID="73" Status="Lacus vestibulum hac congue"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Cursus iaculis" Event_ID="11" ID="69" Location="Lacinia vestibulum lorem magna" Level="38" Name="Laoreet natoque convallis massa" Speaker_ID="78" Status="Leo posuere sagittis"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Dictum dignissim mus nec metus" Event_ID="72" ID="40" Location="Morbi adipiscing non lectus senectus" Level="54" Name="Elementum potenti libero elit sociosqu" Speaker_ID="15" Status="Neque suscipit ligula"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Per facilisis sed litora" Event_ID="92" ID="70" Location="Pretium torquent enim" Level="34" Name="Ultrices netus sem" Speaker_ID="23" Status="Fermentum parturient fringilla"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Person>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Vestibulum adipiscing vehicula sit" ID="42" Person_ID="98" Rating="72" Session_ID="42">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Habitasse luctus hendrerit eros vestibulum" Bio="Risus parturient vestibulum" FirstName="Nibh nisi adipiscing vel" ImageUrl="http://www.alpineskihouse.com/" ID="26" LastName="Himenaeos praesent vestibulum vestibulum velit" Title="Sodales imperdiet" Twitter="Mattis nunc viverra aliquam" Website="Integer adipiscing malesuada"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Mauris mollis accumsan" Event_ID="87" ID="45" Location="Bibendum quisque dictumst penatibus" Level="43" Name="Porttitor tincidunt" Speaker_ID="53" Status="Odio orci"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Vivamus tristique parturient vitae aliquam" ID="99" Person_ID="18" Rating="33" Session_ID="20">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Vestibulum nam curae facilisi" Bio="Class eleifend vestibulum" FirstName="Pede adipiscing montes sed donec" ImageUrl="http://www.baldwinmuseumofscience.com/" ID="58" LastName="Morbi nostra aliquet" Title="Parturient vestibulum nulla" Twitter="Ornare blandit dis ultricies" Website="Venenatis vulputate habitant curabitur"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Phasellus est commodo proin consequat" Event_ID="30" ID="53" Location="Conubia hac convallis quis" Level="81" Name="Dignissim cubilia elementum urna inceptos" Speaker_ID="24" Status="Platea dapibus"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Egestas primis facilisis augue" ID="58" Person_ID="73" Rating="12" Session_ID="11">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Fames iaculis" Bio="Euismod feugiat fermentum gravida dolor" FirstName="Felis leo lacinia" ImageUrl="http://www.blueyonderairlines.com/" ID="62" LastName="Duis ipsum natoque" Title="Adipiscing fringilla habitasse justo sapien" Twitter="Nunc hendrerit semper" Website="Amet ante himenaeos arcu"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Sociis lacus lorem mus" Event_ID="52" ID="94" Location="Taciti magna massa metus nec" Level="58" Name="Parturient posuere vestibulum interdum imperdiet" Speaker_ID="14" Status="Lobortis malesuada diam potenti"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Pretium tellus eget non rhoncus" ID="78" Person_ID="55" Rating="59" Session_ID="89">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Sem elit enim erat penatibus" Bio="Nascetur vestibulum per sed morbi" FirstName="Eros sodales neque" ImageUrl="http://www.cpandl.com/" ID="62" LastName="Porttitor netus" Title="Tincidunt sit aliquam vel nulla" Twitter="Tristique integer pharetra quisque adipiscing" Website="Nibh placerat vivamus tempus"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Parturient tortor pulvinar" Event_ID="19" ID="59" Location="Sagittis nam porta nisi sed" Level="74" Name="Nisl vestibulum senectus" Speaker_ID="52" Status="Purus nunc aliquam"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Risus turpis odio ultricies" ID="97" Person_ID="51" Rating="69" Session_ID="21">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Varius aenean velit dis" Bio="Sociosqu orci aliquet pede" FirstName="Blandit mauris suscipit est vestibulum" ImageUrl="http://www.cohovineyard.com/" ID="96" LastName="Quis cubilia adipiscing" Title="Vitae dapibus hac venenatis vulputate" Twitter="Torquent class parturient ultrices" Website="Vestibulum aptent"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Urna curabitur auctor" Event_ID="42" ID="38" Location="Vestibulum curae phasellus" Level="40" Name="Consequat adipiscing" Speaker_ID="11" Status="Cras congue leo convallis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="55" ID="52" Name="Mus parturient">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nec elementum facilisis etiam duis" Event_ID="86" ID="72" Location="Fermentum fusce cursus" Level="90" Name="Nunc non vehicula lorem fringilla" Speaker_ID="81" Status="Per morbi dictum egestas"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Sed euismod" Event_ID="22" ID="71" Location="Nulla lectus volutpat" Level="50" Name="Amet feugiat proin ante" Speaker_ID="39" Status="Augue gravida dolor"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Maecenas fames libero praesent" Event_ID="73" ID="13" Location="Accumsan felis arcu" Level="24" Name="Habitasse bibendum ipsum justo" Speaker_ID="82" Status="Ligula vestibulum hendrerit"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Diam sem iaculis eget sit" Event_ID="43" ID="64" Location="Vel dictumst elit" Level="90" Name="Eleifend himenaeos" Speaker_ID="87" Status="Imperdiet lacinia litora laoreet"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Lacus vestibulum adipiscing" Event_ID="50" ID="48" Location="Natoque facilisi enim luctus malesuada" Level="59" Name="Lorem posuere" Speaker_ID="59" Status="Erat penatibus eros potenti parturient"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Porttitor magna" Event_ID="78" ID="63" Name="Tincidunt magnis vestibulum vestibulum">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Mattis tristique nam nibh" Event_ID="84" ID="27" Location="Pretium faucibus mauris rhoncus habitant" Level="69" Name="Adipiscing nisi ultricies sodales" Speaker_ID="88" Status="Viverra inceptos"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Massa venenatis vulputate curabitur metus" Event_ID="30" ID="44" Location="Mollis phasellus parturient vestibulum" Level="72" Name="Morbi vestibulum sed neque" Speaker_ID="51" Status="Adipiscing aliquam parturient"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Dis integer" Event_ID="83" ID="38" Location="Interdum consequat nisl vestibulum" Level="59" Name="Netus nunc quisque vestibulum odio" Speaker_ID="59" Status="Vivamus lobortis adipiscing parturient"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Aliquam vestibulum nulla montes nostra" Event_ID="91" ID="90" Location="Est nascetur aliquet" Level="64" Name="Ornare blandit vestibulum" Speaker_ID="78" Status="Hac adipiscing"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Commodo conubia orci" Event_ID="97" ID="87" Location="Pharetra pede" Level="34" Name="Leo quam porta parturient convallis" Speaker_ID="23" Status="Cubilia platea"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Track>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+		</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+		<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Primis dapibus purus risus velit" Event_ID="25" ID="93" Location="Vitae class mus curae" Level="82" Name="Donec quis" Speaker_ID="55" Status="Felis ipsum sem">
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Per urna cras duis elementum" Bio="Nec rutrum non dignissim etiam" FirstName="Fusce egestas vestibulum" ImageUrl="http://www.cohowinery.com/" ID="68" LastName="Sapien placerat fermentum pulvinar" Title="Maecenas praesent aliquam accumsan bibendum" Twitter="Venenatis lorem dictumst leo" Website="Magna mus vulputate integer curabitur">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Sagittis sed fringilla sem vestibulum" ID="36" Person_ID="78" Rating="48" Session_ID="53"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Semper sociis" ID="61" Person_ID="72" Rating="71" Session_ID="96"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Nunc amet lorem" ID="74" Person_ID="32" Rating="88" Session_ID="73"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Senectus sit sociosqu" ID="21" Person_ID="33" Rating="51" Session_ID="15"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Morbi nulla" ID="67" Person_ID="32" Rating="29" Session_ID="85"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vel ante" Event_ID="33" ID="83" Location="Arcu diam adipiscing proin" Level="72" Name="Habitasse feugiat augue gravida eget" Speaker_ID="10" Status="Parturient dolor"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Iaculis suscipit vestibulum lacinia elit" Event_ID="33" ID="71" Location="Laoreet torquent nam" Level="50" Name="Fames felis" Speaker_ID="71" Status="Sed ipsum hendrerit himenaeos"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum adipiscing natoque" Event_ID="35" ID="64" Location="Imperdiet posuere" Level="48" Name="Justo potenti" Speaker_ID="91" Status="Ultrices lacus enim pretium"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Parturient taciti" Event_ID="45" ID="11" Location="Vestibulum tellus tempor" Level="62" Name="Rhoncus malesuada sodales erat" Speaker_ID="52" Status="Vehicula tempus"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Tortor dis penatibus" Event_ID="96" ID="29" Location="Eros viverra nibh porttitor" Level="90" Name="Tincidunt est tristique hac turpis" Speaker_ID="21" Status="Ultricies volutpat"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Person>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Eleifend nisi phasellus facilisi" ID="67" Person_ID="85" Rating="69" Session_ID="46">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Aenean consequat" Bio="Nisl varius quisque vivamus nec" FirstName="Mauris convallis nullam nunc" ImageUrl="http://www.contoso.com/" ID="63" LastName="Elementum facilisis" Title="Adipiscing odio fermentum" Twitter="Aptent fringilla" Website="Orci faucibus"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Parturient auctor sed habitant" Event_ID="12" ID="90" Location="Inceptos sem pede habitasse" Level="66" Name="Vestibulum massa quam metus quis" Speaker_ID="73" Status="Sit aliquam urna hendrerit"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Morbi vel vestibulum" ID="28" Person_ID="93" Rating="73" Session_ID="48">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Congue nam himenaeos" Bio="Aliquet neque" FirstName="Imperdiet adipiscing interdum sed dis" ImageUrl="http://www.consolidatedmessenger.com/" ID="56" LastName="Nascetur dictum est pharetra" Title="Penatibus porta purus porttitor" Twitter="Blandit tincidunt tristique placerat" Website="Pulvinar lectus"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Hac parturient cras" Event_ID="96" ID="44" Location="Ultricies duis nunc commodo vestibulum" Level="52" Name="Vestibulum adipiscing venenatis leo libero" Speaker_ID="15" Status="Vulputate parturient mus"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Curabitur nec risus ligula" ID="29" Person_ID="31" Rating="99" Session_ID="38">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Amet cubilia ante litora" Bio="Phasellus consequat convallis conubia" FirstName="Dignissim velit non" ImageUrl="http://www.fabrikam.com/" ID="89" LastName="Vestibulum per" Title="Diam sagittis sed senectus" Twitter="Sem sociosqu luctus eget vestibulum" Website="Suscipit adipiscing"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Magnis parturient" Event_ID="70" ID="19" Location="Dapibus vestibulum elementum curae elit" Level="84" Name="Egestas donec enim euismod feugiat" Speaker_ID="96" Status="Torquent vestibulum sit vel"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Gravida adipiscing ultrices facilisis" ID="20" Person_ID="99" Rating="19" Session_ID="70">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Vestibulum vehicula mattis nibh etiam" Bio="Erat parturient fermentum vestibulum eros" FirstName="Volutpat maecenas" ImageUrl="http://www.fourthcoffee.com/" ID="71" LastName="Mollis lorem habitasse nam" Title="Accumsan bibendum hendrerit lacinia" Twitter="Sed montes dictumst adipiscing laoreet" Website="Himenaeos nisi nisl parturient"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Eleifend natoque dis" Event_ID="48" ID="42" Location="Facilisi imperdiet" Level="18" Name="Malesuada faucibus" Speaker_ID="28" Status="Penatibus nostra"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Est posuere vestibulum" ID="98" Person_ID="98" Rating="42" Session_ID="18">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Odio habitant vestibulum" Bio="Hac leo nunc potenti porttitor" FirstName="Tincidunt ornare orci mus" ImageUrl="http://www.graphicdesigninstitute.com/" ID="13" LastName="Rhoncus sodales platea" Title="Primis rutrum viverra parturient" Twitter="Pede sapien" Website="Inceptos aliquam semper"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Non nulla proin interdum augue" Event_ID="14" ID="76" Location="Lobortis per sociis integer" Level="34" Name="Dolor tristique quisque vivamus" Speaker_ID="16" Status="Fames sed"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="27" ID="48" Name="Justo ultricies">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Lacus venenatis quam vestibulum aliquam" Event_ID="66" ID="19" Location="Quis taciti" Level="46" Name="Tellus sit vestibulum urna cras" Speaker_ID="57" Status="Nascetur lorem vulputate tempor"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Duis aliquet" Event_ID="99" ID="10" Location="Curabitur pharetra adipiscing" Level="89" Name="Nunc magna amet placerat parturient" Speaker_ID="67" Status="Vestibulum ante tempus pulvinar phasellus"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Massa metus consequat vel" Event_ID="92" ID="76" Location="Morbi nam neque sed dis" Level="84" Name="Arcu blandit netus" Speaker_ID="15" Status="Commodo est"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Sagittis vestibulum" Event_ID="62" ID="56" Location="Nulla tortor senectus hac" Level="12" Name="Sociosqu porta conubia convallis diam" Speaker_ID="47" Status="Turpis adipiscing"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Eget cubilia elit" Event_ID="18" ID="17" Location="Enim parturient varius" Level="60" Name="Leo vestibulum" Speaker_ID="64" Status="Dignissim elementum erat aenean mauris"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Facilisis dapibus suscipit nullam" Event_ID="77" ID="73" Name="Aptent fermentum torquent">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Eros mus vestibulum ultrices" Event_ID="53" ID="11" Location="Vehicula fringilla egestas nibh" Level="50" Name="Adipiscing volutpat nec parturient" Speaker_ID="86" Status="Vestibulum non"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nisi euismod vestibulum adipiscing" Event_ID="84" ID="55" Location="Maecenas parturient feugiat" Level="75" Name="Nisl habitasse" Speaker_ID="64" Status="Per nunc sed"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Odio purus orci" Event_ID="10" ID="38" Location="Praesent pede auctor risus" Level="79" Name="Accumsan hendrerit" Speaker_ID="89" Status="Sem gravida iaculis"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Lacinia sit himenaeos vestibulum vestibulum" Event_ID="53" ID="62" Location="Quam imperdiet quis" Level="62" Name="Laoreet velit natoque adipiscing" Speaker_ID="61" Status="Malesuada posuere bibendum parturient"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Urna vel" Event_ID="48" ID="41" Location="Vitae vestibulum potenti dictumst pretium" Level="29" Name="Class vestibulum curae rhoncus" Speaker_ID="61" Status="Eleifend facilisi"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Track>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+		</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+		<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Cras donec duis adipiscing" Event_ID="78" ID="32" Location="Etiam congue sodales nam" Level="28" Name="Viverra nunc" Speaker_ID="55" Status="Potenti ante">
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Parturient cursus vestibulum" Bio="Aliquam fusce" FirstName="Faucibus amet vestibulum" ImageUrl="http://www.humongousinsurance.com/" ID="93" LastName="Dictum penatibus inceptos interdum" Title="Curabitur phasellus quam volutpat" Twitter="Augue lacinia dolor vestibulum fames" Website="Felis laoreet quis ipsum justo">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Sed adipiscing" ID="79" Person_ID="58" Rating="74" Session_ID="87"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Quisque vivamus parturient" ID="97" Person_ID="11" Rating="94" Session_ID="63"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Aliquam aliquet" ID="70" Person_ID="92" Rating="65" Session_ID="44"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Ante blandit lectus vestibulum" ID="17" Person_ID="22" Rating="26" Session_ID="44"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Libero dis ligula est" ID="92" Person_ID="38" Rating="75" Session_ID="55"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Arcu vestibulum lobortis porttitor" Event_ID="35" ID="73" Location="Nascetur commodo conubia diam" Level="12" Name="Pharetra placerat" Speaker_ID="49" Status="Pulvinar litora adipiscing parturient morbi"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Sagittis cubilia" Event_ID="84" ID="57" Location="Luctus eget nulla magnis hac" Level="68" Name="Mattis dapibus senectus vestibulum" Speaker_ID="29" Status="Elit mauris leo vestibulum enim"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Erat mollis" Event_ID="44" ID="26" Location="Egestas montes nostra tincidunt" Level="95" Name="Adipiscing mus eros ornare" Speaker_ID="31" Status="Sociosqu tristique ultricies proin nibh"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Suscipit nisi nisl torquent" Event_ID="83" ID="57" Location="Platea nec venenatis nunc" Level="16" Name="Euismod odio primis non" Speaker_ID="35" Status="Orci ultrices rutrum per"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Pede vehicula feugiat gravida sed" Event_ID="80" ID="87" Location="Sapien semper" Level="66" Name="Parturient vulputate iaculis" Speaker_ID="99" Status="Sociis sem"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Person>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Vestibulum lacus adipiscing consequat" ID="44" Person_ID="28" Rating="60" Session_ID="25">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Natoque urna massa praesent" Bio="Convallis lorem maecenas magna" FirstName="Cras metus" ImageUrl="http://www.litwareinc.com/" ID="26" LastName="Dignissim taciti elementum" Title="Vestibulum facilisis bibendum" Twitter="Dictumst tellus tempor fermentum fringilla" Website="Sit morbi nunc eleifend"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Potenti amet vel adipiscing" Event_ID="96" ID="27" Location="Facilisi ante neque tempus arcu" Level="54" Name="Nam netus pretium" Speaker_ID="36" Status="Tortor sed diam dis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Turpis faucibus rhoncus" ID="85" Person_ID="49" Rating="56" Session_ID="34">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Hac eget" Bio="Sodales habitasse est nulla" FirstName="Elit hendrerit" ImageUrl="http://www.lucernepublishing.com/" ID="68" LastName="Himenaeos leo" Title="Parturient aliquam varius habitant" Twitter="Integer erat" Website="Vestibulum eros aenean"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Mauris vestibulum" Event_ID="72" ID="67" Location="Inceptos adipiscing quisque mus porta" Level="16" Name="Purus risus imperdiet velit nullam" Speaker_ID="56" Status="Malesuada vivamus parturient aliquam penatibus"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Vestibulum porttitor" ID="13" Person_ID="42" Rating="74" Session_ID="61">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Nec vestibulum" Bio="Aptent vitae" FirstName="Auctor adipiscing class non per" ImageUrl="http://www.margiestravel.com/" ID="50" LastName="Congue cursus sed sem parturient" Title="Dictum donec aliquet sit vestibulum" Twitter="Blandit vestibulum lobortis lectus commodo" Website="Nibh adipiscing libero nisi"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nascetur etiam nisl" Event_ID="28" ID="54" Location="Pharetra nunc ligula" Level="97" Name="Vel odio nam orci" Speaker_ID="44" Status="Sed fusce dis placerat"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Parturient tristique est" ID="60" Person_ID="90" Rating="63" Session_ID="19">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Lorem sagittis dapibus ultricies" Bio="Pulvinar conubia vestibulum hac cubilia" FirstName="Leo pede mus morbi quam" ImageUrl="http://www.northwindtraders.com/" ID="15" LastName="Vestibulum litora nulla venenatis adipiscing" Title="Senectus vulputate" Twitter="Quis proin luctus per sociosqu" Website="Magnis augue"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Suscipit euismod feugiat" Event_ID="14" ID="71" Location="Mattis mauris" Level="76" Name="Gravida sed" Speaker_ID="21" Status="Urna sem"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Mollis cras montes" ID="54" Person_ID="53" Rating="66" Session_ID="57">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Duis torquent parturient vestibulum" Bio="Dolor curabitur" FirstName="Phasellus vestibulum" ImageUrl="http://www.proseware.com/" ID="51" LastName="Fames vehicula consequat nunc adipiscing" Title="Amet convallis" Twitter="Volutpat parturient felis dignissim lacinia" Website="Ornare elementum facilisis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Maecenas sit vestibulum" Event_ID="12" ID="42" Location="Praesent platea fermentum laoreet natoque" Level="14" Name="Primis vestibulum adipiscing accumsan rutrum" Speaker_ID="58" Status="Vel parturient posuere"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="75" ID="20" Name="Nam ipsum bibendum dictumst">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Justo arcu sed diam" Event_ID="89" ID="10" Location="Fringilla eget dis sapien lacus" Level="79" Name="Habitasse hendrerit elit" Speaker_ID="55" Status="Lorem himenaeos vestibulum est"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Hac eleifend facilisi" Event_ID="84" ID="25" Location="Enim magna erat" Level="67" Name="Vestibulum semper sociis pretium leo" Speaker_ID="69" Status="Faucibus eros massa taciti tellus"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Mus adipiscing habitant" Event_ID="97" ID="74" Location="Imperdiet inceptos metus" Level="63" Name="Nec tempor tempus parturient interdum" Speaker_ID="61" Status="Nibh malesuada"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nisi penatibus non lobortis" Event_ID="66" ID="93" Location="Rhoncus nisl morbi nascetur sodales" Level="30" Name="Neque nunc odio viverra porttitor" Speaker_ID="34" Status="Netus orci tortor nulla per"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Turpis varius pede porta sed" Event_ID="32" ID="64" Location="Quam purus tincidunt pharetra" Level="78" Name="Quis placerat" Speaker_ID="80" Status="Aenean aliquam tristique pulvinar"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Urna sagittis vestibulum sem" Event_ID="61" ID="57" Name="Senectus sit vel">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Ultricies integer sociosqu" Event_ID="62" ID="14" Location="Mauris quisque cras nullam suscipit" Level="80" Name="Duis nam torquent vivamus" Speaker_ID="46" Status="Venenatis aptent sed auctor"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum congue nunc risus ultrices" Event_ID="47" ID="99" Location="Cursus vulputate" Level="70" Name="Adipiscing vehicula dictum" Speaker_ID="69" Status="Curabitur volutpat maecenas velit vitae"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Praesent parturient" Event_ID="96" ID="51" Location="Class aliquam aliquet accumsan bibendum" Level="69" Name="Blandit amet curae dis" Speaker_ID="51" Status="Vestibulum commodo dictumst"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum adipiscing" Event_ID="70" ID="15" Location="Ante est arcu" Level="21" Name="Parturient conubia lectus eleifend donec" Speaker_ID="18" Status="Etiam facilisi faucibus phasellus"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Diam fusce consequat hac" Event_ID="30" ID="56" Location="Vestibulum convallis leo habitant libero" Level="18" Name="Dignissim ligula elementum lorem" Speaker_ID="52" Status="Vestibulum mus nec"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Track>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+		</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+		<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Inceptos cubilia" Event_ID="22" ID="79" Location="Morbi eget interdum litora" Level="88" Name="Lobortis dapibus luctus nulla" Speaker_ID="61" Status="Purus risus">
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Adipiscing parturient facilisis" Bio="Nascetur elit enim non proin" FirstName="Augue vestibulum egestas vestibulum adipiscing" ImageUrl="http://www.fineartschool.net" ID="92" LastName="Magnis pulvinar mattis" Title="Vivamus nisl" Twitter="Netus tempus" Website="Praesent aliquam vestibulum accumsan vestibulum">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Feugiat sagittis mauris senectus sociosqu" ID="10" Person_ID="19" Rating="21" Session_ID="80"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Fermentum mollis montes" ID="36" Person_ID="93" Rating="77" Session_ID="94"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Per fringilla" ID="59" Person_ID="42" Rating="47" Session_ID="74"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Suscipit erat gravida" ID="74" Person_ID="47" Rating="77" Session_ID="67"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Torquent eros" ID="99" Person_ID="37" Rating="78" Session_ID="22"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Habitasse nostra ornare" Event_ID="92" ID="25" Location="Platea iaculis hendrerit" Level="32" Name="Primis lacinia sed" Speaker_ID="25" Status="Rutrum ultrices"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Laoreet natoque posuere fames himenaeos" Event_ID="23" ID="23" Location="Nibh parturient sem imperdiet" Level="44" Name="Sit malesuada sapien felis potenti" Speaker_ID="31" Status="Pretium semper vehicula"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Rhoncus ipsum justo sociis" Event_ID="71" ID="18" Location="Lacus sodales vestibulum" Level="45" Name="Vestibulum vel adipiscing nam viverra" Speaker_ID="83" Status="Sed dis lorem"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Magna parturient nisi" Event_ID="26" ID="88" Location="Vestibulum vestibulum penatibus adipiscing taciti" Level="46" Name="Massa aliquam parturient est" Speaker_ID="38" Status="Vestibulum vestibulum hac adipiscing leo"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Tellus volutpat mus" Event_ID="87" ID="89" Location="Porttitor nec metus morbi parturient" Level="43" Name="Integer tempor tincidunt" Speaker_ID="12" Status="Neque tristique quisque maecenas non"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Person>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Per ultricies tortor" ID="73" Person_ID="91" Rating="38" Session_ID="78">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Vel nunc" Bio="Aliquet sed adipiscing sem sit" FirstName="Nulla parturient turpis odio bibendum" ImageUrl="http://www.southridgevideo.com/" ID="74" LastName="Porta nam sed aenean adipiscing" Title="Purus dis risus venenatis dictumst" Twitter="Blandit mauris vulputate eleifend velit" Website="Parturient est nullam vestibulum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Aptent commodo conubia" Event_ID="68" ID="46" Location="Curabitur vitae" Level="44" Name="Phasellus auctor class hac orci" Speaker_ID="82" Status="Leo facilisi congue faucibus pede"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Habitant cubilia consequat inceptos" ID="51" Person_ID="84" Rating="10" Session_ID="96">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Interdum quam curae dictum lobortis" Bio="Convallis mus cursus" FirstName="Donec dapibus" ImageUrl="http://www.tailspintoys.com/" ID="52" LastName="Egestas dignissim" Title="Pharetra etiam elementum placerat" Twitter="Euismod vestibulum" Website="Adipiscing cras facilisis parturient"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Non pulvinar sagittis per" Event_ID="75" ID="99" Location="Senectus duis" Level="84" Name="Fusce sociosqu" Speaker_ID="86" Status="Fermentum vestibulum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Fringilla libero ligula habitasse" ID="67" Person_ID="59" Rating="56" Session_ID="58">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Litora torquent hendrerit" Bio="Nunc amet suscipit" FirstName="Feugiat luctus ante lorem sed" ImageUrl="http://www.treyresearch.net/" ID="23" LastName="Diam magnis" Title="Gravida nulla proin" Twitter="Mattis vestibulum iaculis lacinia" Website="Adipiscing augue himenaeos laoreet dolor"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Natoque parturient" Event_ID="33" ID="50" Location="Fames vestibulum vestibulum mauris mollis" Level="96" Name="Felis posuere potenti adipiscing" Speaker_ID="64" Status="Montes ultrices pretium"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Nostra vel ornare" ID="85" Person_ID="48" Rating="79" Session_ID="28">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Lacus sed eget primis" Bio="Nam ipsum justo rhoncus platea" FirstName="Elit sodales" ImageUrl="http://www.thephone-company.com/" ID="11" LastName="Lorem parturient" Title="Est hac" Twitter="Vehicula magna volutpat massa leo" Website="Viverra imperdiet malesuada"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Penatibus mus sapien vestibulum maecenas" Event_ID="19" ID="94" Location="Semper enim" Level="75" Name="Aliquam sociis" Speaker_ID="48" Status="Metus integer"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Erat praesent nec accumsan eros" ID="33" Person_ID="57" Rating="76" Session_ID="65">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Nibh nisi nisl vestibulum" Bio="Bibendum quisque morbi porttitor" FirstName="Neque dictumst adipiscing non" ImageUrl="http://www.wideworldimporters.com/" ID="94" LastName="Eleifend vivamus facilisi faucibus nulla" Title="Habitant porta inceptos tincidunt taciti" Twitter="Aliquam parturient sed" Website="Tellus vestibulum tempor"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Aliquet blandit commodo" Event_ID="79" ID="61" Location="Interdum conubia odio" Level="52" Name="Vestibulum lobortis nascetur tristique tempus" Speaker_ID="29" Status="Cubilia sem dapibus sit"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="82" ID="50" Name="Velit ultricies egestas">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Adipiscing tortor" Event_ID="89" ID="61" Location="Turpis euismod vitae venenatis" Level="52" Name="Feugiat varius" Speaker_ID="91" Status="Pharetra orci"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Pede gravida aenean quam" Event_ID="32" ID="29" Location="Class mauris vulputate" Level="53" Name="Iaculis nullam aptent lacinia vel" Speaker_ID="27" Status="Parturient auctor quis curabitur"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Placerat curae congue donec" Event_ID="50" ID="51" Location="Pulvinar phasellus laoreet etiam" Level="41" Name="Cursus urna cras" Speaker_ID="13" Status="Nam fusce"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Consequat sagittis" Event_ID="88" ID="58" Location="Natoque sed" Level="81" Name="Dictum senectus" Speaker_ID="39" Status="Convallis duis dignissim nunc"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Posuere lectus elementum" Event_ID="71" ID="43" Location="Facilisis lorem vestibulum fermentum" Level="89" Name="Libero vestibulum morbi" Speaker_ID="35" Status="Potenti dis amet"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Adipiscing nulla pretium proin est" Event_ID="36" ID="81" Name="Hac fringilla">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Ante augue" Event_ID="61" ID="91" Location="Habitasse arcu sociosqu hendrerit leo" Level="49" Name="Mus rhoncus himenaeos ligula sodales" Speaker_ID="90" Status="Parturient nec vestibulum imperdiet"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum adipiscing diam litora viverra" Event_ID="44" ID="97" Location="Suscipit dolor torquent ultrices vehicula" Level="13" Name="Luctus aliquam volutpat" Speaker_ID="13" Status="Parturient fames"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Malesuada eget vestibulum" Event_ID="84" ID="45" Location="Non elit maecenas" Level="82" Name="Integer enim quisque vestibulum penatibus" Speaker_ID="17" Status="Adipiscing erat parturient vestibulum"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Eros nibh per vivamus" Event_ID="96" ID="49" Location="Praesent magnis porttitor aliquam" Level="96" Name="Nisi mattis vestibulum sed" Speaker_ID="88" Status="Mauris adipiscing felis mollis montes"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Aliquet nostra blandit ornare" Event_ID="86" ID="74" Location="Parturient sem accumsan sit ipsum" Level="32" Name="Tincidunt commodo" Speaker_ID="31" Status="Platea bibendum tristique vel ultricies"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Track>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+		</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+		<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Dictumst primis justo conubia nam" Event_ID="77" ID="82" Location="Nisl vestibulum" Level="62" Name="Sed cubilia venenatis eleifend nunc" Speaker_ID="72" Status="Habitasse pulvinar vestibulum elit enim">
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Sapien lorem faucibus magna dapibus" Bio="Facilisi dis odio lacus rutrum" FirstName="Massa orci" ImageUrl="http://www.wingtiptoys.com/" ID="53" LastName="Sociis egestas pede quam taciti" Title="Congue per" Twitter="Cursus donec" Website="Pretium rhoncus">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Habitant vulputate" ID="87" Person_ID="30" Rating="80" Session_ID="23"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Quis inceptos" ID="58" Person_ID="32" Rating="71" Session_ID="57"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Euismod vestibulum adipiscing" ID="23" Person_ID="18" Rating="10" Session_ID="60"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Morbi tellus feugiat gravida curabitur" ID="52" Person_ID="42" Rating="85" Session_ID="55"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Urna neque tempor" ID="23" Person_ID="46" Rating="66" Session_ID="95"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Netus cras" Event_ID="31" ID="81" Location="Interdum duis est" Level="62" Name="Nulla tempus tortor" Speaker_ID="41" Status="Iaculis nunc"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Amet ante arcu lobortis phasellus" Event_ID="43" ID="83" Location="Porta consequat turpis purus" Level="57" Name="Parturient risus lacinia velit laoreet" Speaker_ID="24" Status="Varius aenean diam"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum eget convallis nascetur" Event_ID="12" ID="15" Location="Elit dignissim" Level="13" Name="Elementum hac" Speaker_ID="79" Status="Enim facilisis"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Leo mus erat" Event_ID="39" ID="96" Location="Vitae mauris pharetra natoque" Level="12" Name="Class placerat pulvinar sagittis" Speaker_ID="23" Status="Posuere eros fermentum nullam vestibulum"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Aptent nec fringilla" Event_ID="27" ID="90" Location="Habitasse non" Level="55" Name="Hendrerit potenti nibh auctor" Speaker_ID="62" Status="Curae himenaeos"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Person>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Sodales imperdiet" ID="74" Person_ID="93" Rating="87" Session_ID="89">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Senectus adipiscing parturient malesuada fusce" Bio="Etiam sed" FirstName="Penatibus porttitor dictum lorem" ImageUrl="http://www.woodgrovebank.com/" ID="35" LastName="Tincidunt proin lectus sociosqu" Title="Nisl viverra adipiscing tristique nunc" Twitter="Parturient sem" Website="Augue odio dolor orci vestibulum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Suscipit sit" Event_ID="49" ID="46" Location="Vel ultricies torquent" Level="46" Name="Pede vestibulum nam" Speaker_ID="54" Status="Venenatis adipiscing vulputate"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Ultrices quam libero" ID="77" Person_ID="40" Rating="25" Session_ID="48">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Aliquam urna cras phasellus" Bio="Curabitur quis vehicula sed" FirstName="Integer consequat" ImageUrl="http://www.adatum.com/" ID="17" LastName="Est volutpat vestibulum" Title="Quisque ligula" Twitter="Fames felis duis vestibulum hac" Website="Litora maecenas vivamus ipsum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Luctus adipiscing justo dignissim" Event_ID="67" ID="31" Location="Lacus aliquam elementum" Level="16" Name="Leo facilisis praesent nunc" Speaker_ID="67" Status="Accumsan parturient fermentum vestibulum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Aliquet lorem" ID="80" Person_ID="74" Rating="56" Session_ID="31">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Adipiscing magnis" Bio="Bibendum dictumst magna vestibulum massa" FirstName="Metus morbi fringilla amet habitasse" ImageUrl="http://www.adventure-works.com/" ID="74" LastName="Parturient hendrerit himenaeos" Title="Nulla non imperdiet porta per" Twitter="Vestibulum malesuada purus" Website="Mattis eleifend"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Mauris blandit" Event_ID="54" ID="18" Location="Risus mollis" Level="14" Name="Penatibus facilisi sed ante montes" Speaker_ID="30" Status="Sem vestibulum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Porttitor nostra adipiscing tincidunt faucibus" ID="55" Person_ID="71" Rating="38" Session_ID="96">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Parturient sit" Bio="Velit habitant vitae tristique inceptos" FirstName="Vel class curae" ImageUrl="http://www.adventure-works.com/" ID="39" LastName="Interdum sed" Title="Conubia vestibulum" Twitter="Fusce ultricies lorem" Website="Morbi cubilia nulla"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Venenatis dapibus lobortis adipiscing" Event_ID="33" ID="91" Location="Ornare egestas vulputate euismod" Level="14" Name="Platea feugiat dis" Speaker_ID="31" Status="Parturient gravida est primis rutrum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Proin arcu iaculis curabitur" ID="87" Person_ID="92" Rating="96" Session_ID="97">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Augue lacinia" Bio="Nascetur vestibulum" FirstName="Dolor pharetra vestibulum hac" ImageUrl="http://www.alpineskihouse.com/" ID="74" LastName="Sapien consequat semper" Title="Convallis sociis" Twitter="Fames diam" Website="Dignissim placerat leo"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Elementum parturient" Event_ID="47" ID="13" Location="Taciti tellus" Level="35" Name="Facilisis tempor natoque tempus fermentum" Speaker_ID="35" Status="Tortor eget fringilla"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="63" ID="72" Name="Posuere hendrerit sagittis himenaeos">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum potenti senectus sociosqu mus" Event_ID="74" ID="95" Location="Erat eros nec" Level="56" Name="Nibh nisi turpis adipiscing" Speaker_ID="78" Status="Suscipit imperdiet parturient vestibulum"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nisl pretium nunc" Event_ID="20" ID="81" Location="Varius rhoncus torquent" Level="87" Name="Felis malesuada ultrices non" Speaker_ID="27" Status="Vehicula vestibulum odio"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Orci sodales per adipiscing ipsum" Event_ID="80" ID="85" Location="Penatibus justo" Level="83" Name="Porttitor volutpat maecenas lacus" Speaker_ID="28" Status="Lorem magna praesent"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Massa tincidunt tristique" Event_ID="25" ID="90" Location="Sed parturient vestibulum" Level="24" Name="Pede sem sit viverra" Speaker_ID="27" Status="Metus quam"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Morbi quis ultricies" Event_ID="48" ID="84" Location="Vel nam aenean neque" Level="49" Name="Venenatis vestibulum accumsan netus adipiscing" Speaker_ID="21" Status="Mauris parturient aliquam urna"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Timeslot>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Nullam vestibulum vestibulum sed nulla" Event_ID="45" ID="34" Name="Dis est hac">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vulputate leo curabitur" Event_ID="29" ID="92" Location="Adipiscing mus cras aptent integer" Level="56" Name="Quisque nec vivamus non" Speaker_ID="83" Status="Parturient bibendum dictumst phasellus"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Per aliquam eleifend facilisi auctor" Event_ID="37" ID="71" Location="Consequat aliquet vestibulum" Level="31" Name="Porta sed blandit duis" Speaker_ID="29" Status="Commodo purus"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum nunc amet" Event_ID="20" ID="42" Location="Convallis ante sem faucibus" Level="66" Name="Risus dignissim" Speaker_ID="58" Status="Elementum arcu facilisis congue"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Cursus velit dictum" Event_ID="81" ID="43" Location="Diam habitant" Level="25" Name="Eget elit" Speaker_ID="60" Status="Sit fermentum vitae lectus inceptos"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Adipiscing libero fringilla conubia parturient" Event_ID="23" ID="20" Location="Cubilia enim vestibulum class" Level="26" Name="Vel ligula vestibulum erat dapibus" Speaker_ID="13" Status="Interdum nam habitasse lobortis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Track.Sessions>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Track>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+		</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+	</OCC_WindowsPhone_ViewModels:SpeakerViewModel.Sessions>
+	<OCC_WindowsPhone_ViewModels:SpeakerViewModel.Speaker>
+		<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Luctus eros nascetur" Bio="Hendrerit litora egestas" FirstName="Himenaeos imperdiet adipiscing parturient" ImageUrl="http://www.baldwinmuseumofscience.com/" ID="26" LastName="Nibh malesuada penatibus sed" Title="Dapibus eros" Twitter="Egestas nibh nisi vestibulum" Website="Vestibulum nisl facilisis cursus">
+			<OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Donec euismod vestibulum pharetra porttitor" ID="11" Person_ID="73" Rating="81" Session_ID="23">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Fusce adipiscing feugiat est nisi" Bio="Etiam vestibulum tincidunt dis" FirstName="Gravida hac lorem leo" ImageUrl="http://www.blueyonderairlines.com/" ID="91" LastName="Mattis nisl nunc placerat" Title="Odio lacinia" Twitter="Morbi laoreet nec vestibulum" Website="Natoque orci non nulla"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Per pede sed tristique posuere" Event_ID="57" ID="88" Location="Mauris pulvinar mollis vestibulum" Level="17" Name="Sagittis proin" Speaker_ID="86" Status="Ultricies venenatis augue montes sem"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Sit dolor vulputate" ID="32" Person_ID="36" Rating="49" Session_ID="53">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Phasellus adipiscing senectus consequat" Bio="Vel curabitur nostra" FirstName="Sociosqu fames nam felis" ImageUrl="http://www.cpandl.com/" ID="52" LastName="Vestibulum quam" Title="Quis adipiscing" Twitter="Pretium justo sed lacus platea" Website="Primis rutrum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Convallis parturient urna dis" Event_ID="76" ID="64" Location="Vestibulum cras" Level="32" Name="Sapien est semper" Speaker_ID="36" Status="Suscipit sociis hac duis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Torquent dignissim" ID="26" Person_ID="60" Rating="74" Session_ID="80">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Elementum facilisis fermentum" Bio="Lorem taciti rhoncus magna vestibulum" FirstName="Sodales fringilla" ImageUrl="http://www.cohovineyard.com/" ID="96" LastName="Nunc ultrices vehicula" Title="Amet metus viverra" Twitter="Morbi adipiscing hendrerit ante parturient" Website="Tellus arcu"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vestibulum vestibulum tempor adipiscing" Event_ID="51" ID="61" Location="Tempus leo mus neque himenaeos" Level="66" Name="Nec volutpat maecenas diam" Speaker_ID="18" Status="Tortor aliquam parturient eget integer"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Elit non imperdiet enim turpis" ID="12" Person_ID="70" Rating="39" Session_ID="11">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Porttitor vestibulum" Bio="Malesuada quisque per vivamus penatibus" FirstName="Erat varius eros sed" ImageUrl="http://www.cohowinery.com/" ID="88" LastName="Aenean adipiscing sit" Title="Praesent tincidunt vel mauris accumsan" Twitter="Nam nullam" Website="Nibh sed"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Bibendum dis dictumst aliquam" Event_ID="95" ID="42" Location="Eleifend netus nulla facilisi aptent" Level="18" Name="Faucibus auctor porta aliquet" Speaker_ID="28" Status="Nisi congue tristique ultricies"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Nisl cursus est" ID="82" Person_ID="80" Rating="82" Session_ID="24">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Commodo risus venenatis vulputate curabitur" Bio="Purus habitant dictum nunc blandit" FirstName="Inceptos hac parturient lectus" ImageUrl="http://www.contoso.com/" ID="12" LastName="Consequat lobortis libero ligula convallis" Title="Litora nascetur" Twitter="Orci cubilia dapibus egestas" Website="Dignissim vestibulum leo"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Mus elementum nec" Event_ID="23" ID="43" Location="Euismod luctus non" Level="97" Name="Pede per feugiat facilisis" Speaker_ID="19" Status="Pharetra vestibulum vitae magnis sed"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Sem placerat mattis" ID="32" Person_ID="67" Rating="60" Session_ID="17">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Adipiscing donec pulvinar sagittis parturient" Bio="Class mauris gravida curae" FirstName="Etiam senectus quam" ImageUrl="http://www.consolidatedmessenger.com/" ID="41" LastName="Fermentum suscipit nam quis vestibulum" Title="Iaculis lacinia" Twitter="Fringilla urna torquent ultrices habitasse" Website="Cras lorem sed"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Laoreet hendrerit" Event_ID="38" ID="86" Location="Duis mollis natoque montes" Level="66" Name="Himenaeos imperdiet malesuada" Speaker_ID="10" Status="Vestibulum vehicula dis penatibus"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Morbi nostra posuere volutpat" ID="65" Person_ID="50" Rating="21" Session_ID="98">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Adipiscing pretium platea porttitor" Bio="Nunc nulla potenti ornare" FirstName="Tincidunt tristique" ImageUrl="http://www.fabrikam.com/" ID="37" LastName="Rhoncus ultricies sodales" Title="Maecenas augue ante" Twitter="Dolor est viverra" Website="Arcu aliquam"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Hac venenatis fames diam" Event_ID="24" ID="48" Location="Felis primis" Level="18" Name="Praesent integer accumsan" Speaker_ID="15" Status="Leo parturient quisque vulputate"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Bibendum vivamus aliquam ipsum dictumst" ID="52" Person_ID="57" Rating="94" Session_ID="34">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Aliquet blandit" Bio="Eleifend facilisi faucibus" FirstName="Eget mus nec" ImageUrl="http://www.fourthcoffee.com/" ID="93" LastName="Sapien enim per curabitur semper" Title="Habitant conubia justo erat lacus" Twitter="Sed eros sociis" Website="Nibh cubilia"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nisi phasellus vestibulum" Event_ID="41" ID="58" Location="Inceptos interdum sem" Level="63" Name="Taciti consequat dapibus vestibulum egestas" Speaker_ID="49" Status="Nisl nunc sit lorem adipiscing"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Odio euismod" ID="73" Person_ID="82" Rating="27" Session_ID="76">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Gravida vel magna parturient vestibulum" Bio="Feugiat lobortis convallis" FirstName="Vestibulum iaculis tellus lacinia tempor" ImageUrl="http://www.graphicdesigninstitute.com/" ID="43" LastName="Orci natoque" Title="Dignissim tortor pede" Twitter="Parturient massa turpis" Website="Elementum vestibulum varius"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Aenean metus facilisis morbi" Event_ID="76" ID="42" Location="Fermentum nascetur" Level="47" Name="Vestibulum posuere fringilla" Speaker_ID="43" Status="Pharetra habitasse"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+				<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Potenti hendrerit placerat sed adipiscing" ID="23" Person_ID="60" Rating="83" Session_ID="90">
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Pretium nullam himenaeos" Bio="Mauris parturient" FirstName="Rhoncus quam dis" ImageUrl="http://www.humongousinsurance.com/" ID="51" LastName="Sodales hac quis cursus dictum" Title="Viverra sagittis senectus leo sociosqu" Twitter="Suscipit urna vestibulum imperdiet cras" Website="Neque vestibulum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Adipiscing torquent mus parturient malesuada" Event_ID="73" ID="95" Location="Lectus netus libero ultrices" Level="34" Name="Penatibus nec vehicula vestibulum ligula" Speaker_ID="52" Status="Aliquam litora porttitor nulla"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee.Session>
+				</OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Person.SessionAttendees>
+			<OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Integer volutpat duis porta non" Event_ID="60" ID="70" Location="Luctus purus magnis" Level="87" Name="Risus tincidunt nunc" Speaker_ID="71" Status="Vestibulum diam sit vel">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Venenatis mattis" Bio="Tristique ultricies per" FirstName="Mauris mollis montes" ImageUrl="http://www.litwareinc.com/" ID="41" LastName="Accumsan vestibulum adipiscing" Title="Bibendum vulputate quisque" Twitter="Parturient sed" Website="Velit sem dictumst amet"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Nostra eleifend" ID="74" Person_ID="18" Rating="45" Session_ID="55"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Facilisi faucibus habitant inceptos vivamus" ID="26" Person_ID="67" Rating="38" Session_ID="10"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Interdum ornare ante platea arcu" ID="19" Person_ID="97" Rating="88" Session_ID="62"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Vestibulum vestibulum" ID="92" Person_ID="66" Rating="34" Session_ID="47"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Adipiscing parturient primis" ID="60" Person_ID="17" Rating="74" Session_ID="80"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="95" ID="63" Name="Aliquam vestibulum curabitur vitae aliquet"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Class phasellus" Event_ID="47" ID="68" Name="Rutrum curae"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nam lobortis blandit" Event_ID="29" ID="62" Location="Nascetur donec sapien sed pharetra" Level="69" Name="Consequat convallis dignissim dis etiam" Speaker_ID="14" Status="Maecenas eros">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Conubia adipiscing cubilia fusce fermentum" Bio="Commodo semper placerat elementum facilisis" FirstName="Pulvinar est fringilla" ImageUrl="http://www.lucernepublishing.com/" ID="88" LastName="Lorem senectus morbi leo mus" Title="Sociosqu suscipit eget dapibus egestas" Twitter="Vestibulum torquent" Website="Elit taciti enim nec"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Nulla proin" ID="67" Person_ID="12" Rating="78" Session_ID="46"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Augue ultrices habitasse tellus erat" ID="41" Person_ID="69" Rating="74" Session_ID="82"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Tempor hendrerit himenaeos vestibulum adipiscing" ID="31" Person_ID="26" Rating="80" Session_ID="15"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Vehicula tempus volutpat" ID="76" Person_ID="13" Rating="53" Session_ID="72"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Non dolor imperdiet tortor per" ID="31" Person_ID="80" Rating="38" Session_ID="10"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="40" ID="52" Name="Turpis praesent parturient accumsan fames"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Sed vestibulum malesuada" Event_ID="96" ID="16" Name="Sem varius aenean vestibulum euismod"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Felis bibendum" Event_ID="70" ID="79" Location="Dictumst ipsum adipiscing feugiat penatibus" Level="55" Name="Justo lacus porttitor tincidunt" Speaker_ID="75" Status="Vestibulum adipiscing nunc vulputate">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Parturient tristique nullam aptent" Bio="Mauris sit" FirstName="Vel nam" ImageUrl="http://www.margiestravel.com/" ID="97" LastName="Vestibulum eleifend ultricies dis nibh" Title="Nisi gravida vestibulum facilisi auctor" Twitter="Congue faucibus adipiscing magna" Website="Cursus habitant dictum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Iaculis lacinia parturient vestibulum est" ID="86" Person_ID="96" Rating="15" Session_ID="68"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Venenatis hac nisl" ID="22" Person_ID="52" Rating="95" Session_ID="19"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Massa leo mus lectus laoreet" ID="26" Person_ID="60" Rating="97" Session_ID="60"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Metus morbi inceptos" ID="65" Person_ID="38" Rating="91" Session_ID="94"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Libero ligula" ID="75" Person_ID="95" Rating="91" Session_ID="19"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="47" ID="49" Name="Neque netus litora"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Interdum nulla luctus" Event_ID="33" ID="69" Name="Curabitur nec lobortis magnis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nascetur parturient natoque posuere mattis" Event_ID="83" ID="36" Location="Odio vestibulum phasellus" Level="59" Name="Pharetra vestibulum adipiscing" Speaker_ID="11" Status="Fringilla adipiscing">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Mollis non per pede" Bio="Orci mauris" FirstName="Sed potenti parturient" ImageUrl="http://www.northwindtraders.com/" ID="82" LastName="Porta convallis quam placerat pretium" Title="Nostra ornare pulvinar purus" Twitter="Quis risus" Website="Sagittis dignissim senectus"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Elementum sociosqu velit vitae" ID="39" Person_ID="71" Rating="90" Session_ID="28"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Platea urna cras" ID="85" Person_ID="44" Rating="30" Session_ID="75"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Class vestibulum" ID="47" Person_ID="63" Rating="61" Session_ID="58"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Duis facilisis vestibulum rhoncus nunc" ID="62" Person_ID="15" Rating="29" Session_ID="41"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Amet fermentum sodales" ID="49" Person_ID="49" Rating="12" Session_ID="61"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="41" ID="74" Name="Parturient suscipit torquent curae"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Ultrices viverra" Event_ID="87" ID="45" Name="Aliquam donec vestibulum integer"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Vehicula habitasse hendrerit" Event_ID="32" ID="49" Location="Volutpat primis etiam rutrum" Level="56" Name="Maecenas ante sapien fusce quisque" Speaker_ID="92" Status="Enim est venenatis">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Himenaeos vivamus imperdiet arcu" Bio="Sem vestibulum adipiscing" FirstName="Semper aliquam aliquet blandit" ImageUrl="http://www.proseware.com/" ID="81" LastName="Sociis commodo" Title="Accumsan vestibulum penatibus lorem" Twitter="Porttitor diam" Website="Taciti vel"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Morbi nam vestibulum tincidunt sed" ID="98" Person_ID="39" Rating="25" Session_ID="46"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Nulla tellus conubia" ID="36" Person_ID="86" Rating="89" Session_ID="17"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Tempor cubilia tristique proin" ID="41" Person_ID="80" Rating="93" Session_ID="71"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Ultricies dis" ID="29" Person_ID="38" Rating="41" Session_ID="39"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Bibendum eget dapibus adipiscing elit" ID="60" Person_ID="22" Rating="42" Session_ID="30"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="30" ID="43" Name="Tempus erat hac"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Eros egestas tortor euismod" Event_ID="34" ID="98" Name="Nibh augue"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Dictumst feugiat" Event_ID="80" ID="98" Location="Vulputate dolor" Level="96" Name="Curabitur nisi eleifend" Speaker_ID="58" Status="Nullam aptent interdum">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Ipsum nunc mus" Bio="Gravida fames nisl leo felis" FirstName="Facilisi iaculis justo faucibus phasellus" ImageUrl="http://www.fineartschool.net" ID="12" LastName="Turpis lacinia" Title="Convallis habitant parturient inceptos vestibulum" Twitter="Per odio" Website="Lorem orci dignissim sed elementum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Facilisis vestibulum" ID="83" Person_ID="63" Rating="95" Session_ID="73"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Fermentum varius" ID="93" Person_ID="48" Rating="34" Session_ID="45"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Adipiscing sem parturient aenean sit" ID="22" Person_ID="35" Rating="28" Session_ID="40"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Vestibulum vel mauris" ID="34" Person_ID="18" Rating="69" Session_ID="18"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Vestibulum nam adipiscing" ID="89" Person_ID="82" Rating="13" Session_ID="43"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="85" ID="19" Name="Magna lobortis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Fringilla pede auctor parturient" Event_ID="16" ID="36" Name="Laoreet natoque quam sed quis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Dis est urna posuere habitasse" Event_ID="89" ID="78" Location="Congue nascetur vestibulum massa hac" Level="96" Name="Cras duis vestibulum" Speaker_ID="26" Status="Diam pulvinar">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Dictum hendrerit himenaeos nunc placerat" Bio="Cursus adipiscing pharetra" FirstName="Imperdiet lectus potenti libero" ImageUrl="http://www.southridgevideo.com/" ID="91" LastName="Rhoncus vestibulum malesuada ligula" Title="Penatibus porttitor" Twitter="Metus leo" Website="Tincidunt vestibulum tristique mus sodales"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Amet viverra nec aliquam non" ID="48" Person_ID="55" Rating="88" Session_ID="92"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Integer ultricies" ID="15" Person_ID="58" Rating="26" Session_ID="98"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Venenatis litora" ID="98" Person_ID="35" Rating="90" Session_ID="17"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Ante arcu vulputate morbi" ID="93" Person_ID="48" Rating="86" Session_ID="23"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Adipiscing luctus" ID="89" Person_ID="68" Rating="22" Session_ID="73"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="19" ID="98" Name="Quisque eget"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Parturient vestibulum" Event_ID="94" ID="63" Name="Elit per vivamus sagittis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Magnis neque senectus mattis sed" Event_ID="54" ID="98" Location="Curabitur aliquam sociosqu" Level="54" Name="Enim vestibulum" Speaker_ID="93" Status="Parturient risus fringilla platea leo">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Convallis sem dignissim" Bio="Erat phasellus consequat aliquet" FirstName="Sit suscipit" ImageUrl="http://www.tailspintoys.com/" ID="88" LastName="Elementum parturient vel netus" Title="Vehicula eros volutpat" Twitter="Nam commodo conubia vestibulum maecenas" Website="Nulla nibh mauris"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Mollis montes cubilia" ID="46" Person_ID="14" Rating="69" Session_ID="38"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Sed dis vestibulum porta nostra" ID="54" Person_ID="74" Rating="80" Session_ID="40"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Adipiscing est purus facilisis" ID="47" Person_ID="28" Rating="59" Session_ID="52"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Nisi nisl ornare" ID="19" Person_ID="90" Rating="57" Session_ID="23"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Fermentum hac" ID="35" Person_ID="64" Rating="46" Session_ID="32"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="46" ID="30" Name="Dapibus vestibulum"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Primis egestas vestibulum euismod nunc" Event_ID="66" ID="32" Name="Adipiscing parturient feugiat habitasse velit"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Praesent odio mus gravida" Event_ID="74" ID="38" Location="Rutrum vestibulum iaculis sapien orci" Level="57" Name="Vitae class" Speaker_ID="81" Status="Tellus sit cras facilisi tempor">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Himenaeos bibendum" Bio="Curae lacinia hendrerit nec accumsan" FirstName="Vestibulum semper" ImageUrl="http://www.treyresearch.net/" ID="93" LastName="Natoque non" Title="Eleifend pede" Twitter="Per sed imperdiet" Website="Vestibulum malesuada"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Posuere quam penatibus" ID="39" Person_ID="61" Rating="60" Session_ID="72"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Potenti pretium" ID="19" Person_ID="61" Rating="31" Session_ID="30"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Sociis etiam vestibulum porttitor quis" ID="79" Person_ID="49" Rating="74" Session_ID="16"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Rhoncus urna" ID="83" Person_ID="52" Rating="49" Session_ID="62"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Adipiscing sem taciti" ID="30" Person_ID="16" Rating="28" Session_ID="50"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="38" ID="89" Name="Tempus fusce lorem tortor parturient"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Tincidunt vestibulum tristique duis vel" Event_ID="61" ID="31" Name="Nunc sodales morbi ultricies"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+				<OCC_WindowsPhone_OrlandoCodeCampService:Session Description="Nulla vestibulum adipiscing amet ante" Event_ID="95" ID="10" Location="Viverra arcu parturient turpis" Level="83" Name="Faucibus nam varius" Speaker_ID="14" Status="Hac parturient blandit">
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Person Blog="Venenatis vestibulum adipiscing sed" Bio="Habitant vestibulum diam" FirstName="Aliquam proin augue parturient" ImageUrl="http://www.thephone-company.com/" ID="12" LastName="Interdum integer aenean" Title="Vulputate curabitur dis vestibulum" Twitter="Phasellus eget consequat quisque" Website="Vivamus convallis"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Person>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Vestibulum elit fames mauris dignissim" ID="15" Person_ID="79" Rating="45" Session_ID="32"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Aliquam felis nullam" ID="46" Person_ID="18" Rating="67" Session_ID="99"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Enim adipiscing" ID="79" Person_ID="99" Rating="39" Session_ID="36"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Aliquet aptent est ipsum auctor" ID="92" Person_ID="55" Rating="25" Session_ID="71"/>
+						<OCC_WindowsPhone_OrlandoCodeCampService:SessionAttendee Comment="Elementum congue" ID="25" Person_ID="19" Rating="93" Session_ID="81"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.SessionAttendees>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Timeslot Event_ID="11" ID="68" Name="Commodo conubia leo"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Timeslot>
+					<OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+						<OCC_WindowsPhone_OrlandoCodeCampService:Track Description="Lobortis erat nascetur" Event_ID="20" ID="16" Name="Pharetra mus cubilia"/>
+					</OCC_WindowsPhone_OrlandoCodeCampService:Session.Track>
+				</OCC_WindowsPhone_OrlandoCodeCampService:Session>
+			</OCC_WindowsPhone_OrlandoCodeCampService:Person.Sessions>
+		</OCC_WindowsPhone_OrlandoCodeCampService:Person>
+	</OCC_WindowsPhone_ViewModels:SpeakerViewModel.Speaker>
+</OCC_WindowsPhone_ViewModels:SpeakerViewModel>

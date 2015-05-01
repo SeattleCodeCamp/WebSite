@@ -1,0 +1,114 @@
+﻿@import url("../../Content/css/reset.css");
+
+@import url("../../Content/css/text.css");
+
+@import url("../../Content/css/960_12_col.css");
+
+@import url("../../Content/css/Tiles.css");
+
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+.scheduleContainer {
+    width: 100%;
+    max-width: 1780px;
+    min-width: 960px;
+    margin: 0 auto;
+    overflow-y: scroll;
+    padding-left: 10px; 
+}
+
+.siteContainer {
+    background-color: rgb(31, 31, 31);
+    min-height: 100%;
+    padding-bottom: 30px;
+}
+
+#header {
+    margin-bottom: 1.0em;
+    margin-top: 1.5em;
+    position: relative;
+}
+
+#header, h1 {
+    float: left;
+}
+
+#header #dateAndVenue {
+    float: left;
+    margin-top: -5px;
+    white-space: nowrap;
+}
+
+.onetugTree {
+    clear: right;
+    padding: 5px 10px 0px 10px;
+}
+
+#tilesColumnRight {
+    display: inline;
+    float: right;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: .75em;
+    width: 300px;
+}
+
+.userProfileOuterContainer {
+    clear: right;
+    color: rgb(217, 105, 55);
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.userProfileOuterContainer a {
+    width: inherit;
+    height: inherit;
+    display: block;
+}
+
+.userProfileOuterContainer a:hover {
+    text-decoration: none;
+}
+
+.userProfileMiddleContainer {
+    margin-right: 0px;
+    position: relative;
+}
+
+.userProfileMiddleContainer p {
+    text-align: right;
+}
+
+.userProfileMiddleContainer p a:hover {
+    text-decoration: underline;
+    color: rgb(217, 105, 55);
+}
+
+.userDisplayName {
+    position: absolute;
+    right: 65px;
+    
+}
+
+.userDisplayName h3 {
+    line-height: 1.0em;
+    text-align: right;    
+}
+
+.userDisplayName h2 {
+    line-height: 1.0em;
+    text-align: right;
+}
+
+.avatarImage {
+    height: 60px;
+    margin-left: 5px;
+    text-align: right;
+}
+
+.loginDisplayArea {
+    text-align: right;
+}

@@ -1,0 +1,80 @@
+﻿@using System.Globalization
+@model OCC.UI.Webhost.Models.VolunteerTask
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div>
+            @Html.DisplayTextFor(model => model.Event.Name)
+        </div>
+        <br/>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+        <br/>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Capacity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Capacity)
+            @Html.ValidationMessageFor(model => model.Capacity)
+        </div>
+        <br/>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartTime)
+            @Html.ValidationMessageFor(model => model.StartTime)
+        </div>
+        <br/>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EndTime)
+            @Html.ValidationMessageFor(model => model.EndTime)
+        </div>
+        <br/>
+
+        <div>
+            @using (Html.BeginForm("Delete", "Volunteer", FormMethod.Post, new { id = "disableForm"}))
+            {
+                <div id="disable">
+                    <div id="disablebtn">
+                        <button type="submit" id="disableSubmit" name="btnSubmit" value="disable" disabled="disabled">disable</button>
+                    </div>
+                    <div id="taskIdParameter">
+                        @Html.Hidden("taskId", Model.Id.ToString(CultureInfo.InvariantCulture))
+                    </div>
+                </div>            
+            }
+        </div>
+
+        <br/>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
