@@ -63,23 +63,23 @@ namespace OCC.Data
                 ID = 1, 
                 FirstName = "NETDA", 
                 LastName = "Admin", 
-                Email = "core@onetug.org" 
+                Email = "core@dotnetda.org" 
             };
 
             Person p2 = new Person() 
             { 
                 ID = 2, 
                 FirstName = "John", 
-                LastName = "Smith", 
-                Email = "john@onetug.org" 
+                LastName = "Smith",
+                Email = "john@dotnetda.org" 
             };
 
             Person p3 = new Person() 
             { 
                 ID = 3, 
                 FirstName = "Brian", 
-                LastName = "Hall", 
-                Email = "brian@onetug.org" 
+                LastName = "Hall",
+                Email = "brian@dotnetda.org" 
             };
 
             Person p4 = new Person() 
@@ -94,14 +94,14 @@ namespace OCC.Data
             { 
                 ID = 5, 
                 FirstName = "Esteban", 
-                LastName = "Garcia", 
-                Email = "esteban@onetug.org" 
+                LastName = "Garcia",
+                Email = "esteban@dotnetda.org" 
             };
 
             Event occ2011 = new Event() 
             { 
                 ID = 1, 
-                Name = "Orlando Code Camp 2011", 
+                Name = "Seattle Code Camp 2011", 
                 StartTime = new DateTime(2011, 03, 21), 
                 EndTime = new DateTime(2011, 02, 21),
                 Address1 = "Seminole State College",
@@ -114,7 +114,7 @@ namespace OCC.Data
             Event occ2012 = new Event()
             { 
                 ID = 2, 
-                Name = "Orlando Code Camp 2012", 
+                Name = "Seattle Code Camp 2012", 
                 StartTime = new DateTime(2012, 03, 25), 
                 EndTime = new DateTime(2012, 03, 25),
                 Address1 = "Seminole State College",

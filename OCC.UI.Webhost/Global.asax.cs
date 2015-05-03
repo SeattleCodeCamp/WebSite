@@ -25,10 +25,10 @@ namespace OCC.UI.Webhost
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // 1. onetug.org -> goes to the current event
-            // 2. onetug.org/sessions
-            // 2. onetug.org/occ2012
-            // 3. onetug.org/occ2012/sessions
+            // 1. dotnetda.org -> goes to the current event
+            // 2. dotnetda.org/sessions
+            // 2. dotnetda.org/occ2012
+            // 3. dotnetda.org/occ2012/sessions
 
             int id;
             using (var service = new CodeCampServiceClient())
