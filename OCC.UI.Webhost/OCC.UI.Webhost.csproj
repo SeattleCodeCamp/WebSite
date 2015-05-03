@@ -396,6 +396,7 @@
     <Content Include="Content\themes\Metro\MetroIcons\QSpeaker.png" />
     <Content Include="Content\themes\Metro\MetroIcons\QVolunteer.png" />
     <Content Include="Content\themes\Metro\MetroIcons\Speaker.png" />
+    <Content Include="Content\themes\Metro\Images\SCCLogo.png" />
     <Content Include="Content\themes\Metro\Transparent Tile Background.OnHover.png" />
     <Content Include="Content\themes\Metro\Transparent Tile Background.png" />
     <Content Include="Content\themes\Metro\WhiteIcons\48x48\add.png" />
