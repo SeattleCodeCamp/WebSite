@@ -121,6 +121,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\Azure.pubxml" />
+    <None Include="Properties\PublishProfiles\SeattleCCApi.pubxml" />
     <None Include="Properties\PublishProfiles\Service.pubxml" />
     <None Include="Properties\PublishProfiles\ServiceDeploy.pubxml" />
   </ItemGroup>
