@@ -61,7 +61,7 @@ namespace OCC.Data
             Person p1 = new Person() 
             { 
                 ID = 1, 
-                FirstName = "ONETUG", 
+                FirstName = "NETDA", 
                 LastName = "Admin", 
                 Email = "core@onetug.org" 
             };

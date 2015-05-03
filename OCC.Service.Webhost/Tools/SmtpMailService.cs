@@ -38,7 +38,7 @@ namespace OCC.Service.Webhost.Services
         {
             var message = new MailMessage
                               {
-                                  From = new MailAddress("CodeCamp@onetug.org", subject), //enter email address here
+                                  From = new MailAddress("slobo@dotnetda.org", subject), //enter email address here
                                   IsBodyHtml = true,
                                   Subject = subject,
                                   Body = mailMessage,

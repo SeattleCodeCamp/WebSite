@@ -301,10 +301,10 @@ namespace OCC.UI.Webhost.Controllers
         {
             var twitterTileViewModel = new TwitterMetroTileViewModel {
                     TileBackgroundCssClass = "blueTile", //  "doubleTileBlueImage",
-                    TileDisplayName = "#OrlandoCC"
+                    TileDisplayName = "#SeattleCC"
             };
 
-            //insert some logic to go get tweets with the #OrlandoCC hashtag or tweets mentioning @ONETUG or tweets that @ONETUG puts out
+            //insert some logic to go get tweets with the #SeattleCC hashtag or tweets mentioning @ONETUG or tweets that @ONETUG puts out
 
             //If no data is returned from the twitter stream create two default tweets
             if(twitterTileViewModel.Tweets.Count < 1)

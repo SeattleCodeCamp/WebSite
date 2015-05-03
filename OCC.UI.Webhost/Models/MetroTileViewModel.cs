@@ -61,10 +61,10 @@ namespace OCC.UI.Webhost.Models
         {
             ProfilePhoto = new MetroTileImage("../../Content/themes/Metro/Images/twitter_newbird_white.png")
                            {
-                               AltText = "Follow us on Twitter @ONETUG",
-                               Title = "Follow us on Twitter @ONETUG"
+                               AltText = "Follow us on Twitter @SeattleCodeCamp",
+                               Title = "Follow us on Twitter @SeattleCodeCamp"
                            };
-            TweetContent = "Test tweet for #OrlandoCC with consumption of all 146 characters.  This is for the new Orlando Code Camp site that we are currently working.";/*"Follow us on Twitter @ONETUG or use the hashtag #OrlandoCC";*/
+            TweetContent = "Test tweet for #SeattleCC with consumption of all 146 characters.  This is for the new Seattle Code Camp site that we are currently working.";/*"Follow us on Twitter @SeattleCodeCamp or use the hashtag #SeattleCC";*/
             ProfileName = "Hallmanac";
             ActiveCssClass = "tweetVisible";
         }
