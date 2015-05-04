@@ -384,6 +384,9 @@
     <Content Include="Content\themes\Metro\Images\OnetugTree.113x132.AlphaBackground.png" />
     <Content Include="Content\themes\Metro\Images\OnetugTree.Black.43x51.AlphaBackground.png" />
     <Content Include="Content\themes\Metro\Images\OnetugTree.White.43x51.AlphaBackground.png" />
+    <Content Include="Content\themes\Metro\Images\SeattleLogo.png" />
+    <Content Include="Content\themes\Metro\Images\SeattleLogoTransparent.png" />
+    <Content Include="Content\themes\Metro\Images\Sponsor.png" />
     <Content Include="Content\themes\Metro\Images\twitter_newbird_white.png" />
     <Content Include="Content\themes\Metro\Key Sample.png" />
     <Content Include="Content\themes\Metro\metro icon pack.png" />

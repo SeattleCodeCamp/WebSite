@@ -100,7 +100,7 @@ namespace OCC.UI.Webhost.Controllers
                     TileLinkActionName = "Sponsors",
                     TileLinkControllerName = "Home",
                     TileDisplayName = "Sponsors",
-                    TileBackgroundCssClass = "grayTile" // "singleTileGreenImage",
+                    TileBackgroundCssClass = "blueLightTile" // "singleTileGreenImage",
             };
 
             var defaultEvent = service.GetDefaultEvent();

@@ -8,10 +8,10 @@ namespace OCC.UI.Webhost.Models
         public MetroTileViewModel()
         {
             InitializeListProperties();
-            this.DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/Images/OnetugTree.113x132.AlphaBackground.png")
+            this.DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/Images/Sponsor.png")
                               {
-                                  AltText = "Orlando User Group Logo",
-                                  Title = "Orlando User Group"
+                                  AltText = ".NET Developers Association Logo",
+                                  Title = ".NET Developers Association"
                               };
         }
 

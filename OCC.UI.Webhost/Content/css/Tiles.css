@@ -23,6 +23,11 @@
     background-color: DeepSkyBlue;
 }
 
+.blueLightTile
+{
+    background-color: rgb(0, 168, 236);
+}
+
 .pinkTile
 {
     background-color: DarkMagenta;
