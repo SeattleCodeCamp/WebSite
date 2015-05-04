@@ -468,6 +468,7 @@
     <Content Include="Content\themes\Shared\16_col.gif" />
     <Content Include="Content\themes\Shared\BlankUser.png" />
     <Content Include="Content\themes\Shared\onetug.113x132.jpg" />
+    <Content Include="Content\themes\Shared\SpaceNeedle.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />

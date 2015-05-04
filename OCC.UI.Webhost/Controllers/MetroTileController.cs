@@ -84,7 +84,7 @@ namespace OCC.UI.Webhost.Controllers
             }
 
             metroTileViewModel.MetroTileIcons.Add(item: metroTileImage);
-            metroTileViewModel.MetroTileIcons.Add(new MetroTileImage("../../Content/themes/Shared/onetug.113x132.jpg")
+            metroTileViewModel.MetroTileIcons.Add(new MetroTileImage("../../Content/themes/Shared/SpaceNeedle.ico")
             {
                     AltText = "The only tug",
                     Title = "The only tug"
