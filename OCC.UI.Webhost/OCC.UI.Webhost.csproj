@@ -222,6 +222,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Avatar\2014.jpg" />
     <Content Include="Content\Avatar\brian.hall.jpg" />
     <Content Include="Content\Avatar\default_user_icon.jpg" />
     <Content Include="Content\Avatar\esteban.garcia.jpg" />

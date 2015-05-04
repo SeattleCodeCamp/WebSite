@@ -24,11 +24,11 @@ namespace OCC.UI.Webhost.Controllers
                 TileBackgroundCssClass = "greenTile"
             };
 
-            tileViewModel.MetroTileIcons.Add(new MetroTileImage("~/Content/Avatar/OCC13.jpg")
+            tileViewModel.MetroTileIcons.Add(new MetroTileImage("~/Content/Avatar/2014.jpg")
             {
                 AltText = "Codecamp 2014 Photos",
                 Title = "Codecamp 2014 Photos",
-                AnchorTagUri = "https://www.facebook.com/media/set/?set=oa.10152344594037028&type=1"
+                //AnchorTagUri = "https://www.facebook.com/media/set/?set=oa.10152344594037028&type=1"
             });
 
             return PartialView("_DoubleMetroTile", tileViewModel);
