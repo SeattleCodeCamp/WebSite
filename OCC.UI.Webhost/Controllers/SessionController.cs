@@ -81,7 +81,7 @@
         [Authorize]
         public ActionResult Create()
         {
-            var currentEvent = service.GetEvent(5);
+            var currentEvent = service.GetEvent(1);
 
             ViewBag.Event = currentEvent;
             var result = service.GetTags();
