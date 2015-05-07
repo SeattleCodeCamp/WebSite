@@ -1,4 +1,6 @@
 ﻿
+using OCC.Service.Webhost.Repositories;
+
 namespace OCC.Service.Webhost.Services
 {
     using System;
@@ -10,8 +12,14 @@ namespace OCC.Service.Webhost.Services
 
     public class CodeCampService : ICodeCampService
     {
+        private readonly PersonRepository _personRepository;
         private const string ApprovedSession = "APPROVED";
         private const string SubmittedSession = "SUBMITTED";
+
+        //public CodeCampService(PersonRepository personRepository)
+        //{
+        //    _personRepository = personRepository;
+        //}
 
         #region People
 
