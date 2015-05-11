@@ -801,30 +801,7 @@ namespace OCC.Service.Webhost.Services
 
         public void CreateRateSession(Rate rating)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                EventAttendee et = db.EventAttendees.Where(e => e.Event_ID == rating.EventID && e.Person_ID == rating.UserID).FirstOrDefault();
-                EventAttendeeRating ert = new EventAttendeeRating();
-                ert.Comments = rating.Comments;
-                ert.EventAttendee_ID = et.ID;
-                ert.ReferralSource = rating.ReferralSource;
-                ert.Refreshments = rating.RateFood;
-                ert.SignIn = rating.RateSignin;
-                ert.Swag = rating.RateSwag;
-                db.EventAttendeeRatings.Add(ert);
-                db.SaveChanges();
-                foreach (RateSession rateSession in rating.RatedSessions)
-                {
-                    EventAttendeeSessionRating erst = new EventAttendeeSessionRating();
-                    erst.EventAttendee_ID = et.ID;
-                    erst.Ranking = rateSession.Rating;
-                    erst.Session_ID = rateSession.SessionID;
-                    erst.Timeslot_ID = rateSession.TimeSlotID;
-
-                    db.EventAttendeeSessionRatings.Add(erst);
-                }
-                db.SaveChanges();
-            }
+            _sessionRepository.Value.CreateRateSession(rating);
         }
 
         public void CreateSession(Session session)
