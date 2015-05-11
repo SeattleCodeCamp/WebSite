@@ -12,14 +12,18 @@ namespace OCC.Service.Webhost.Services
 
     public class CodeCampService : ICodeCampService
     {
-        private readonly PersonRepository _personRepository;
+        private readonly Lazy<PersonRepository> _personRepository;
+        private readonly Lazy<SessionRepository> _sessionRepository;
         private const string ApprovedSession = "APPROVED";
         private const string SubmittedSession = "SUBMITTED";
 
-        //public CodeCampService(PersonRepository personRepository)
-        //{
-        //    _personRepository = personRepository;
-        //}
+        public CodeCampService(
+            Lazy<PersonRepository> personRepository,
+            Lazy<SessionRepository> sessionRepository)
+        {
+            _personRepository = personRepository;
+            _sessionRepository = sessionRepository;
+        }
 
         #region People
 
@@ -774,36 +778,12 @@ namespace OCC.Service.Webhost.Services
         public Session GetSession(int id)
         {
             // TODO: determine if there are any approved sessions and show only them, otherwise show all
-
-            using (OCCDB db = new OCCDB())
-            {
-                var s = (from x in db.Sessions.Include("Speaker").Include("Track").Include("Timeslot")
-                         where x.ID == id
-                         select x).FirstOrDefault();
-
-                if (s == null) throw new ArgumentException("Session not found");
-
-                return s.Map();
-            }
+            return _sessionRepository.Value.GetSession(id);
         }
 
         public IList<Session> GetSpeakerSessions(int eventId, int speakerId)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                return db.Sessions.Where(s => s.Speaker_ID == speakerId && s.Event_ID == eventId)
-                    .Select(s => new Session()
-                        {
-                            ID = s.ID,
-                            EventID = s.Event_ID,
-                            SpeakerID = s.Speaker_ID,
-                            Name = s.Name,
-                            Description = s.Description,
-                            Status = s.Status,
-                            Level = s.Level,
-                            Location = s.Location
-                        }).ToList();
-            }
+            return _sessionRepository.Value.GetSpeakerSessions(eventId, speakerId);
         }
 
         public bool HasSubmittedRating(int personid, int eventid)

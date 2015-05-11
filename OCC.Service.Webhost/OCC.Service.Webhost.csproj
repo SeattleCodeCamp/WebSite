@@ -98,6 +98,7 @@
   <ItemGroup>
     <Compile Include="NinjectCustomServiceHostFactory.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />
+    <Compile Include="Repositories\SessionRepository.cs" />
     <Compile Include="Services\Rate.cs" />
     <Compile Include="Services\Announcement.cs" />
     <Compile Include="Services\Attendee.cs" />
