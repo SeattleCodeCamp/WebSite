@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ninject;
+using Ninject.Extensions.Factory;
 using OCC.Data;
 using OCC.Service.Webhost.Services;
 
