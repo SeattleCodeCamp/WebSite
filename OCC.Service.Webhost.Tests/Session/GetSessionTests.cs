@@ -9,42 +9,121 @@ namespace OCC.Service.Webhost.Tests.Session
     [TestClass]
     public class GetSessionTests
     {
-        [TestMethod]
-        public void WhenGettingSessionPropertiesAreMappedCorrectly()
+        private Data.Session _expectedSession;
+        private Event _expectedEvent;
+        private Person _expectedSpeaker;
+
+        private Services.Session _actualSession;
+
+        [TestInitialize]
+        public void WhenGettingSessionPropertiesAreRetrievedCorrectly()
         {
             // Assemble
             var dbContext = new InMemoryOCCDB()
                 .WithEvent("Test Code Camp")
                 .WithPerson("Test", "Speaker");
 
-            var session = new Data.Session
+            _expectedEvent = dbContext.Events.First();
+            _expectedSpeaker = dbContext.People.First();
+
+            _expectedSession = new Data.Session
             {
                 Description = "This is the event",
-                Event_ID = dbContext.Events.First().ID,
+                Event_ID = _expectedEvent.ID,
                 Level = 300,
                 Location = "The really far building",
                 Name = "Best .NET Session",
-                Speaker_ID = dbContext.People.First().ID,
-                Status = "Still Happening"
+                Speaker_ID = _expectedSpeaker.ID,
+                Status = "Still Happening",
             };
 
-            dbContext.Sessions.Add(session);
+            dbContext.Sessions.Add(_expectedSession);
             dbContext.SaveChanges();
 
             var service = TestHelper.GetTestService(dbContext);
 
             // Act
-            var retrievedSession = service.GetSession(session.ID);
+            _actualSession = service.GetSession(_expectedSession.ID);
 
             // Assert
-            Assert.AreEqual(retrievedSession.Description,session.Description);
-            Assert.AreEqual(retrievedSession.EventID, session.Event_ID);
-            Assert.AreEqual(retrievedSession.ID, session.ID);
-            Assert.AreEqual(retrievedSession.Level, session.Level);
-            Assert.AreEqual(retrievedSession.Location, session.Location);
-            Assert.AreEqual(retrievedSession.Name, session.Name);
-            Assert.AreEqual(retrievedSession.SpeakerID, session.Speaker_ID);
-            Assert.AreEqual(retrievedSession.Status, session.Status);
+        }
+
+        [TestMethod]
+        public void Description_ProertyIsRetreived()
+        {
+            Assert.AreEqual(_actualSession.Description, _expectedSession.Description);
+        }
+
+        [TestMethod]
+        public void EventId_ProertyIsRetreived()
+        {
+            Assert.AreEqual(_actualSession.EventID, _expectedSession.Event_ID);
+        }
+
+        [TestMethod]
+        public void Event_Id_ProertyIsRetreived()
+        {
+            Assert.AreEqual(_actualSession.EventID, _expectedEvent.ID);
+        }
+
+        [TestMethod]
+        public void Id_ProertyIsRetreived()
+        {
+            Assert.AreEqual(_actualSession.ID, _expectedSession.ID);
+        }
+
+        [TestMethod]
+        public void Level_ProertyIsRetreived()
+        {
+            Assert.AreEqual(_actualSession.Level, _expectedSession.Level);
+        }
+
+        [TestMethod]
+        public void Location_ProertyIsRetreived()
+        {
+            Assert.AreEqual(_actualSession.Location, _expectedSession.Location);
+        }
+
+        [TestMethod]
+        public void Name_ProertyIsRetreived()
+        {
+            Assert.AreEqual(_actualSession.Name, _expectedSession.Name);
+        }
+
+        [TestMethod]
+        public void Speaker_ID_ProertyIsRetreived()
+        {
+            Assert.AreEqual(_actualSession.SpeakerID, _expectedSession.Speaker_ID);
+        }
+
+        [TestMethod]
+        public void Status_ProertyIsRetreived()
+        {
+            Assert.AreEqual(_actualSession.Status, _expectedSession.Status);
+        }
+
+        [TestMethod]
+        public void Speaker_ProertyIsRetreived()
+        {
+            Assert.IsNotNull(_actualSession.Speaker);
+        }
+
+        [TestMethod]
+        public void Speaker_Id_ProertyIsRetreived()
+        {
+            Assert.AreEqual(_expectedSpeaker.ID, _expectedSession.Speaker.ID);
+        }
+
+        [TestMethod]
+        public void Speaker_FirstName_ProertyIsRetreived()
+        {
+            Assert.AreEqual(_expectedSpeaker.FirstName, _expectedSession.Speaker.FirstName);
+        }
+
+        [TestMethod]
+        public void Speaker_LastName_ProertyIsRetreived()
+        {
+            Assert.AreEqual(_expectedSpeaker.LastName, _expectedSession.Speaker.LastName);
         }
     }
 }

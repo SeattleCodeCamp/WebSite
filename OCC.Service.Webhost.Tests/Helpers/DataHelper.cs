@@ -29,5 +29,16 @@ namespace OCC.Service.Webhost.Tests.Helpers
             context.People.Add(item);
             return item;
         }
+
+        public static Track InsertTrack(InMemoryOCCDB context, string name, string description)
+        {
+            var item = new Track
+            {
+                Name = name,
+                Description = description
+            };
+            context.Tracks.Add(item);
+            return item;
+        }
     }
 }

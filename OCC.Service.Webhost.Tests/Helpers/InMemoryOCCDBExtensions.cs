@@ -22,5 +22,12 @@ namespace OCC.Service.Webhost.Tests.Helpers
             context.SaveChanges();
             return context;
         }
+
+        public static InMemoryOCCDB WithTrack(this InMemoryOCCDB context, string name = "Test Track", string description = "Test Description")
+        {
+            DataHelper.InsertTrack(context, name, description);
+            context.SaveChanges();
+            return context;
+        }
     }
 }
