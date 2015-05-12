@@ -154,6 +154,19 @@ namespace OCC.Service.Webhost.Services
             throw new NotImplementedException();
         }
 
+        public bool HasSubmittedRating(int personid, int eventid)
+        {
+            bool flag = false;
+            using (OCCDB db = new OCCDB())
+            {
+                EventAttendee et = db.EventAttendees.Where(e => e.Event_ID == eventid && e.Person_ID == personid).FirstOrDefault();
+                if (et == null)
+                    return false;
+                flag = db.EventAttendeeRatings.Where(e => e.EventAttendee_ID == et.ID).Any();
+            }
+            return flag;
+        }
+
         public IList<Person> GetAdministrators()
         {
             List<Person> result = new List<Person>();
@@ -786,19 +799,6 @@ namespace OCC.Service.Webhost.Services
             return _sessionRepository.Value.GetSpeakerSessions(eventId, speakerId);
         }
 
-        public bool HasSubmittedRating(int personid, int eventid)
-        {
-            bool flag = false;
-            using (OCCDB db = new OCCDB())
-            {
-                EventAttendee et = db.EventAttendees.Where(e => e.Event_ID == eventid && e.Person_ID == personid).FirstOrDefault();
-                if (et == null)
-                    return false;
-                flag = db.EventAttendeeRatings.Where(e => e.EventAttendee_ID == et.ID).Any();
-            }
-            return flag;
-        }
-
         public void CreateRateSession(Rate rating)
         {
             _sessionRepository.Value.CreateRateSession(rating);
@@ -806,54 +806,17 @@ namespace OCC.Service.Webhost.Services
 
         public void CreateSession(Session session)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                Data.Session s = new Data.Session()
-                {
-                    Event_ID = session.EventID,
-                    Speaker_ID = session.SpeakerID,
-                    Name = session.Name,
-                    Description = session.Description,
-                    Level = session.Level,
-                    Location = session.Location,
-                    Status = session.Status,
-                    Tag_ID = session.TagID.Value
-                };
-
-                db.Sessions.Add(s);
-                db.SaveChanges();
-            }
+            _sessionRepository.Value.CreateSession(session);
         }
 
         public void UpdateSession(Session session)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                var s = db.Sessions.Find(session.ID);
-
-                s.Name = session.Name;
-                s.Description = session.Description;
-                s.Level = session.Level;
-                s.Location = session.Location;
-                s.Status = session.Status;
-                s.Tag_ID = session.TagID;
-                db.SaveChanges();
-            }
+            _sessionRepository.Value.UpdateSession(session);
         }
 
         public void DeleteSession(int id)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                Data.Session session = (from s in db.Sessions.Include("Attendees") where s.ID == id select s).FirstOrDefault();
-
-                if (session.Attendees.Count > 0)
-                    throw new Exception("Can't delete a session that contains attendees!");
-
-                db.Sessions.Remove(session);
-
-                db.SaveChanges();
-            }
+            _sessionRepository.Value.DeleteSession(id);
         }
 
         #endregion

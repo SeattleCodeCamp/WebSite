@@ -69,5 +69,48 @@ namespace OCC.Service.Webhost.Repositories
             }
             _dbContext.SaveChanges();
         }
+
+        public void CreateSession(Session session)
+        {
+            Data.Session s = new Data.Session()
+            {
+                Event_ID = session.EventID,
+                Speaker_ID = session.SpeakerID,
+                Name = session.Name,
+                Description = session.Description,
+                Level = session.Level,
+                Location = session.Location,
+                Status = session.Status,
+                Tag_ID = session.TagID.Value
+            };
+
+            _dbContext.Sessions.Add(s);
+            _dbContext.SaveChanges();
+        }
+
+        public void UpdateSession(Session session)
+        {
+            var s = _dbContext.Sessions.Find(session.ID);
+
+            s.Name = session.Name;
+            s.Description = session.Description;
+            s.Level = session.Level;
+            s.Location = session.Location;
+            s.Status = session.Status;
+            s.Tag_ID = session.TagID;
+            _dbContext.SaveChanges();
+        }
+
+        public void DeleteSession(int id)
+        {
+            Data.Session session = (from s in _dbContext.Sessions.Include("Attendees") where s.ID == id select s).FirstOrDefault();
+
+            if (session.Attendees.Count > 0)
+                throw new Exception("Can't delete a session that contains attendees!");
+
+            _dbContext.Sessions.Remove(session);
+
+            _dbContext.SaveChanges();
+        }
     }
 }
