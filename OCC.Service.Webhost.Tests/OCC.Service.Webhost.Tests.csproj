@@ -77,7 +77,7 @@
     <Compile Include="Helpers\InMemoryOCCDBExtensions.cs" />
     <Compile Include="Helpers\InMemoryOCCDB.cs" />
     <Compile Include="Helpers\TestHelper.cs" />
-    <Compile Include="Session\UnitTest1.cs" />
+    <Compile Include="Session\GetSessionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
