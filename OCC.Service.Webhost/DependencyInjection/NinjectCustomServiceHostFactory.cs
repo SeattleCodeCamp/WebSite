@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Web;
+﻿using System.ServiceModel;
 using Ninject;
 using Ninject.Extensions.Wcf;
+using Ninject.Web.Common;
+using OCC.Data;
 
-namespace OCC.Service.Webhost
+namespace OCC.Service.Webhost.DependencyInjection
 {
     public class NinjectCustomServiceHostFactory : NinjectServiceHostFactory
     {
         public NinjectCustomServiceHostFactory()
         {
             var kernel = new StandardKernel();
-            kernel.Bind<ServiceHost>().To<NinjectServiceHost>();
+            Bootstrapper.Configure(kernel);
             SetKernel(kernel);
         }
     }

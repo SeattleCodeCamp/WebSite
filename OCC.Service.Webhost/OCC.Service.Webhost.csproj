@@ -102,7 +102,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NinjectCustomServiceHostFactory.cs" />
+    <Compile Include="DependencyInjection\Bootstrapper.cs" />
+    <Compile Include="DependencyInjection\ConfigurationModule.cs" />
+    <Compile Include="DependencyInjection\NinjectCustomServiceHostFactory.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="Repositories\SessionRepository.cs" />
     <Compile Include="Services\Rate.cs" />

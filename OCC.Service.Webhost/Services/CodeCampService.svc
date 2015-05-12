@@ -3,4 +3,4 @@ Language="C#"
 Debug="true" 
 Service="OCC.Service.Webhost.Services.CodeCampService" 
 CodeBehind="CodeCampService.svc.cs" 
-Factory="OCC.Service.Webhost.NinjectCustomServiceHostFactory"%>
+Factory="OCC.Service.Webhost.DependencyInjection.NinjectCustomServiceHostFactory"%>
