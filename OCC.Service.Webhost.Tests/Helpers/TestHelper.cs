@@ -11,9 +11,10 @@ namespace OCC.Service.Webhost.Tests.Helpers
 {
     public static class TestHelper
     {
-        public static CodeCampService GetTestService()
+        public static CodeCampService GetTestService(OCCDB dbContext)
         {
             var kernel = new StandardKernel();
+            kernel.Rebind<OCCDB>().ToConstant(dbContext);
             return kernel.Get<CodeCampService>();
         }
     }

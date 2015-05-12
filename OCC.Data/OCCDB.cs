@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Common;
 
 namespace OCC.Data
 {
@@ -10,6 +11,11 @@ namespace OCC.Data
         public OCCDB() : base("OCC2012") 
         { 
         
+        }
+
+        protected OCCDB(DbConnection existingConnection, bool contextOwnsConnection) : base(existingConnection, contextOwnsConnection)
+        {
+
         }
 
         public DbSet<Tag> Tags { get; set; }
