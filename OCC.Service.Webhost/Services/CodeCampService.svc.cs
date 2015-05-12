@@ -1,4 +1,6 @@
 ﻿
+using OCC.Service.Webhost.Repositories;
+
 namespace OCC.Service.Webhost.Services
 {
     using System;
@@ -10,136 +12,68 @@ namespace OCC.Service.Webhost.Services
 
     public class CodeCampService : ICodeCampService
     {
+        private readonly Lazy<PersonRepository> _personRepository;
+        private readonly Lazy<SessionRepository> _sessionRepository;
         private const string ApprovedSession = "APPROVED";
         private const string SubmittedSession = "SUBMITTED";
+
+        public CodeCampService(
+            Lazy<PersonRepository> personRepository,
+            Lazy<SessionRepository> sessionRepository)
+        {
+            _personRepository = personRepository;
+            _sessionRepository = sessionRepository;
+        }
 
         #region People
 
         public int RegisterPerson(Person person)
         {
-            using (var db = new OCCDB())
-            {
-                var p = new OCC.Data.Person();
-                Mapper.CopyProperties(person, p);
-
-                db.People.Add(p);
-                db.SaveChanges();
-
-                return p.ID;
-            }
+            return _personRepository.Value.RegisterPerson(person);
         }
 
         public Person Login(Person person)
         {
-            Person dcAttendee = default(Person);
-
-            using (var db = new OCCDB())
-            {
-                var bcAttendee =
-                    db.People
-                      .SingleOrDefault(p =>
-                                       p.Email == person.Email &&
-                                       p.PasswordHash == person.PasswordHash);
-
-                if (bcAttendee != null)
-                {
-                    dcAttendee = new Person();
-                    Mapper.CopyProperties(bcAttendee, dcAttendee);
-                }
-            }
-            return dcAttendee;
+            return _personRepository.Value.Login(person);
         }
 
         public Person FindPersonByEmail(string email)
         {
-            Person dcAttendee = default(Person);
-
-            using (var db = new OCCDB())
-            {
-                var bcAttendee = db.People.Where(p => p.Email == email)
-                    .SingleOrDefault();
-
-                if (bcAttendee != null)
-                {
-                    dcAttendee = new Person();
-                    Mapper.CopyProperties(bcAttendee, dcAttendee);
-                }
-            }
-            return dcAttendee;
+            return _personRepository.Value.FindPersonByEmail(email);
         }
 
 
         public void ResetPassword(string emailAddress, string temporaryPassword, string temporaryPasswordHash)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                if (String.IsNullOrEmpty(emailAddress))
-                {
-                    throw new ArgumentNullException(emailAddress, "email address must be provided.");
-                }
-
-                var bcAttendee =
-                    db.People.SingleOrDefault(p => p.Email == emailAddress);
-
-                if (bcAttendee == null)
-                {
-                    throw new ArgumentOutOfRangeException(emailAddress, "attendee was not found.");
-                }
-
-                if (!String.IsNullOrEmpty(temporaryPasswordHash))
-                {
-                    bcAttendee.PasswordHash = temporaryPasswordHash;
-                }
-                db.SaveChanges();
-
-                IMailService svc = new SmtpMailService();
-                svc.SendPasswordResetMail(emailAddress, temporaryPassword);
-            }
+            _personRepository.Value.ResetPassword(emailAddress, temporaryPassword, temporaryPasswordHash);
         }
 
         public void ChangePassword(int id, string oldPasswordHash, string newPasswordHash)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                var p = db.People.Find(id);
-
-                if (String.IsNullOrEmpty(p.PasswordHash))
-                {
-                    throw new ArgumentNullException(oldPasswordHash);
-                }
-                if (p.PasswordHash == oldPasswordHash)
-                {
-                    p.PasswordHash = newPasswordHash;
-                }
-                db.SaveChanges();
-
-                IMailService svc = new SmtpMailService();
-                svc.SendPasswordChangeMail(p.Email);
-            }
+            _personRepository.Value.ChangePassword(id, oldPasswordHash, newPasswordHash);
         }
 
         public void UpdatePerson(Person person)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                var p = db.People.Find(person.ID);
-
-                p.FirstName = person.FirstName;
-                p.LastName = person.LastName;
-                p.Title = person.Title;
-                p.Bio = person.Bio;
-                p.Website = person.Website;
-                p.Blog = person.Blog;
-                p.Twitter = person.Twitter;
-                p.ImageUrl = person.ImageUrl;
-                p.Location = person.Location;
-                db.SaveChanges();
-            }
+            _personRepository.Value.UpdatePerson(person);
         }
 
         public void DeletePerson(int personId)
         {
             throw new NotImplementedException();
+        }
+
+        public bool HasSubmittedRating(int personid, int eventid)
+        {
+            bool flag = false;
+            using (OCCDB db = new OCCDB())
+            {
+                EventAttendee et = db.EventAttendees.Where(e => e.Event_ID == eventid && e.Person_ID == personid).FirstOrDefault();
+                if (et == null)
+                    return false;
+                flag = db.EventAttendeeRatings.Where(e => e.EventAttendee_ID == et.ID).Any();
+            }
+            return flag;
         }
 
         public IList<Person> GetAdministrators()
@@ -766,129 +700,32 @@ namespace OCC.Service.Webhost.Services
         public Session GetSession(int id)
         {
             // TODO: determine if there are any approved sessions and show only them, otherwise show all
-
-            using (OCCDB db = new OCCDB())
-            {
-                var s = (from x in db.Sessions.Include("Speaker").Include("Track").Include("Timeslot")
-                         where x.ID == id
-                         select x).FirstOrDefault();
-
-                if (s == null) throw new ArgumentException("Session not found");
-
-                return s.Map();
-            }
+            return _sessionRepository.Value.GetSession(id);
         }
 
         public IList<Session> GetSpeakerSessions(int eventId, int speakerId)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                return db.Sessions.Where(s => s.Speaker_ID == speakerId && s.Event_ID == eventId)
-                    .Select(s => new Session()
-                        {
-                            ID = s.ID,
-                            EventID = s.Event_ID,
-                            SpeakerID = s.Speaker_ID,
-                            Name = s.Name,
-                            Description = s.Description,
-                            Status = s.Status,
-                            Level = s.Level,
-                            Location = s.Location
-                        }).ToList();
-            }
-        }
-
-        public bool HasSubmittedRating(int personid, int eventid)
-        {
-            bool flag = false;
-            using (OCCDB db = new OCCDB())
-            {
-                EventAttendee et = db.EventAttendees.Where(e => e.Event_ID == eventid && e.Person_ID == personid).FirstOrDefault();
-                if (et == null)
-                    return false;
-                flag = db.EventAttendeeRatings.Where(e => e.EventAttendee_ID == et.ID).Any();
-            }
-            return flag;
+            return _sessionRepository.Value.GetSpeakerSessions(eventId, speakerId);
         }
 
         public void CreateRateSession(Rate rating)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                EventAttendee et = db.EventAttendees.Where(e => e.Event_ID == rating.EventID && e.Person_ID == rating.UserID).FirstOrDefault();
-                EventAttendeeRating ert = new EventAttendeeRating();
-                ert.Comments = rating.Comments;
-                ert.EventAttendee_ID = et.ID;
-                ert.ReferralSource = rating.ReferralSource;
-                ert.Refreshments = rating.RateFood;
-                ert.SignIn = rating.RateSignin;
-                ert.Swag = rating.RateSwag;
-                db.EventAttendeeRatings.Add(ert);
-                db.SaveChanges();
-                foreach (RateSession rateSession in rating.RatedSessions)
-                {
-                    EventAttendeeSessionRating erst = new EventAttendeeSessionRating();
-                    erst.EventAttendee_ID = et.ID;
-                    erst.Ranking = rateSession.Rating;
-                    erst.Session_ID = rateSession.SessionID;
-                    erst.Timeslot_ID = rateSession.TimeSlotID;
-
-                    db.EventAttendeeSessionRatings.Add(erst);
-                }
-                db.SaveChanges();
-            }
+            _sessionRepository.Value.CreateRateSession(rating);
         }
 
         public void CreateSession(Session session)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                Data.Session s = new Data.Session()
-                {
-                    Event_ID = session.EventID,
-                    Speaker_ID = session.SpeakerID,
-                    Name = session.Name,
-                    Description = session.Description,
-                    Level = session.Level,
-                    Location = session.Location,
-                    Status = session.Status,
-                    Tag_ID = session.TagID.Value
-                };
-
-                db.Sessions.Add(s);
-                db.SaveChanges();
-            }
+            _sessionRepository.Value.CreateSession(session);
         }
 
         public void UpdateSession(Session session)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                var s = db.Sessions.Find(session.ID);
-
-                s.Name = session.Name;
-                s.Description = session.Description;
-                s.Level = session.Level;
-                s.Location = session.Location;
-                s.Status = session.Status;
-                s.Tag_ID = session.TagID;
-                db.SaveChanges();
-            }
+            _sessionRepository.Value.UpdateSession(session);
         }
 
         public void DeleteSession(int id)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                Data.Session session = (from s in db.Sessions.Include("Attendees") where s.ID == id select s).FirstOrDefault();
-
-                if (session.Attendees.Count > 0)
-                    throw new Exception("Can't delete a session that contains attendees!");
-
-                db.Sessions.Remove(session);
-
-                db.SaveChanges();
-            }
+            _sessionRepository.Value.DeleteSession(id);
         }
 
         #endregion
