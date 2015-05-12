@@ -29,124 +29,33 @@ namespace OCC.Service.Webhost.Services
 
         public int RegisterPerson(Person person)
         {
-            using (var db = new OCCDB())
-            {
-                var p = new OCC.Data.Person();
-                Mapper.CopyProperties(person, p);
-
-                db.People.Add(p);
-                db.SaveChanges();
-
-                return p.ID;
-            }
+            return _personRepository.Value.RegisterPerson(person);
         }
 
         public Person Login(Person person)
         {
-            Person dcAttendee = default(Person);
-
-            using (var db = new OCCDB())
-            {
-                var bcAttendee =
-                    db.People
-                      .SingleOrDefault(p =>
-                                       p.Email == person.Email &&
-                                       p.PasswordHash == person.PasswordHash);
-
-                if (bcAttendee != null)
-                {
-                    dcAttendee = new Person();
-                    Mapper.CopyProperties(bcAttendee, dcAttendee);
-                }
-            }
-            return dcAttendee;
+            return _personRepository.Value.Login(person);
         }
 
         public Person FindPersonByEmail(string email)
         {
-            Person dcAttendee = default(Person);
-
-            using (var db = new OCCDB())
-            {
-                var bcAttendee = db.People.Where(p => p.Email == email)
-                    .SingleOrDefault();
-
-                if (bcAttendee != null)
-                {
-                    dcAttendee = new Person();
-                    Mapper.CopyProperties(bcAttendee, dcAttendee);
-                }
-            }
-            return dcAttendee;
+            return _personRepository.Value.FindPersonByEmail(email);
         }
 
 
         public void ResetPassword(string emailAddress, string temporaryPassword, string temporaryPasswordHash)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                if (String.IsNullOrEmpty(emailAddress))
-                {
-                    throw new ArgumentNullException(emailAddress, "email address must be provided.");
-                }
-
-                var bcAttendee =
-                    db.People.SingleOrDefault(p => p.Email == emailAddress);
-
-                if (bcAttendee == null)
-                {
-                    throw new ArgumentOutOfRangeException(emailAddress, "attendee was not found.");
-                }
-
-                if (!String.IsNullOrEmpty(temporaryPasswordHash))
-                {
-                    bcAttendee.PasswordHash = temporaryPasswordHash;
-                }
-                db.SaveChanges();
-
-                IMailService svc = new SmtpMailService();
-                svc.SendPasswordResetMail(emailAddress, temporaryPassword);
-            }
+            _personRepository.Value.ResetPassword(emailAddress, temporaryPassword, temporaryPasswordHash);
         }
 
         public void ChangePassword(int id, string oldPasswordHash, string newPasswordHash)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                var p = db.People.Find(id);
-
-                if (String.IsNullOrEmpty(p.PasswordHash))
-                {
-                    throw new ArgumentNullException(oldPasswordHash);
-                }
-                if (p.PasswordHash == oldPasswordHash)
-                {
-                    p.PasswordHash = newPasswordHash;
-                }
-                db.SaveChanges();
-
-                IMailService svc = new SmtpMailService();
-                svc.SendPasswordChangeMail(p.Email);
-            }
+            _personRepository.Value.ChangePassword(id, oldPasswordHash, newPasswordHash);
         }
 
         public void UpdatePerson(Person person)
         {
-            using (OCCDB db = new OCCDB())
-            {
-                var p = db.People.Find(person.ID);
-
-                p.FirstName = person.FirstName;
-                p.LastName = person.LastName;
-                p.Title = person.Title;
-                p.Bio = person.Bio;
-                p.Website = person.Website;
-                p.Blog = person.Blog;
-                p.Twitter = person.Twitter;
-                p.ImageUrl = person.ImageUrl;
-                p.Location = person.Location;
-                db.SaveChanges();
-            }
+            _personRepository.Value.UpdatePerson(person);
         }
 
         public void DeletePerson(int personId)
