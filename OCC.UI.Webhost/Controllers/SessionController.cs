@@ -79,9 +79,9 @@
         // GET: /Session/Create
 
         [Authorize]
-        public ActionResult Create()
+        public ActionResult Create(int eventid)
         {
-            var currentEvent = service.GetEvent(5);
+            var currentEvent = service.GetEvent(eventid);
 
             ViewBag.Event = currentEvent;
             var result = service.GetTags();
