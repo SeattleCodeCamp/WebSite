@@ -3,17 +3,20 @@ using System.Data.Common;
 
 namespace OCC.Data
 {
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.ModelConfiguration.Conventions;
 
     public class OCCDB : DbContext
     {
-        public OCCDB() : base("OCC2012") 
-        { 
-        
+        public OCCDB()
+            : base("OCC2012")
+        {
+
         }
 
-        protected OCCDB(DbConnection existingConnection, bool contextOwnsConnection) : base(existingConnection, contextOwnsConnection)
+        protected OCCDB(DbConnection existingConnection, bool contextOwnsConnection)
+            : base(existingConnection, contextOwnsConnection)
         {
 
         }
@@ -46,6 +49,8 @@ namespace OCC.Data
 
         public DbSet<Task> Tasks { get; set; }
 
+        public DbSet<KeyValuePair> KeyValuePairs { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
@@ -55,8 +60,8 @@ namespace OCC.Data
             //    .WithMany(e => e.Announcements)
             //    .HasForeignKey(a => a.FK_Event);
 
-            // DEV ONLY !!! 
-            // Database.SetInitializer<OCCDB>(new OCCDBInitializer());
+            //DEV ONLY !!! 
+            //Database.SetInitializer<OCCDB>(new OCCDBInitializer());
         }
     }
 
@@ -64,51 +69,51 @@ namespace OCC.Data
     {
         protected override void Seed(OCCDB context)
         {
-            Person p1 = new Person() 
-            { 
-                ID = 1, 
-                FirstName = "NETDA", 
-                LastName = "Admin", 
-                Email = "core@dotnetda.org" 
+            Person p1 = new Person()
+            {
+                ID = 1,
+                FirstName = "NETDA",
+                LastName = "Admin",
+                Email = "core@dotnetda.org"
             };
 
-            Person p2 = new Person() 
-            { 
-                ID = 2, 
-                FirstName = "John", 
+            Person p2 = new Person()
+            {
+                ID = 2,
+                FirstName = "John",
                 LastName = "Smith",
-                Email = "john@dotnetda.org" 
+                Email = "john@dotnetda.org"
             };
 
-            Person p3 = new Person() 
-            { 
-                ID = 3, 
-                FirstName = "Brian", 
+            Person p3 = new Person()
+            {
+                ID = 3,
+                FirstName = "Brian",
                 LastName = "Hall",
-                Email = "brian@dotnetda.org" 
+                Email = "brian@dotnetda.org"
             };
 
-            Person p4 = new Person() 
-            { 
-                ID = 4, 
-                FirstName = "Zdravko", 
-                LastName = "Danev", 
-                Email = "z@onetug.org" 
+            Person p4 = new Person()
+            {
+                ID = 4,
+                FirstName = "Zdravko",
+                LastName = "Danev",
+                Email = "z@onetug.org"
             };
 
-            Person p5 = new Person() 
-            { 
-                ID = 5, 
-                FirstName = "Esteban", 
+            Person p5 = new Person()
+            {
+                ID = 5,
+                FirstName = "Esteban",
                 LastName = "Garcia",
-                Email = "esteban@dotnetda.org" 
+                Email = "esteban@dotnetda.org"
             };
 
-            Event occ2011 = new Event() 
-            { 
-                ID = 1, 
-                Name = "Seattle Code Camp 2011", 
-                StartTime = new DateTime(2011, 03, 21), 
+            Event occ2011 = new Event()
+            {
+                ID = 1,
+                Name = "Seattle Code Camp 2011",
+                StartTime = new DateTime(2011, 03, 21),
                 EndTime = new DateTime(2011, 02, 21),
                 Address1 = "Seminole State College",
                 Address2 = "100 College Dr",
@@ -118,10 +123,10 @@ namespace OCC.Data
             };
 
             Event occ2012 = new Event()
-            { 
-                ID = 2, 
-                Name = "Seattle Code Camp 2012", 
-                StartTime = new DateTime(2012, 03, 25), 
+            {
+                ID = 2,
+                Name = "Seattle Code Camp 2012",
+                StartTime = new DateTime(2012, 03, 25),
                 EndTime = new DateTime(2012, 03, 25),
                 Address1 = "Seminole State College",
                 Address2 = "100 College Str",
@@ -158,6 +163,12 @@ namespace OCC.Data
 
             context.Events.Add(occ2011);
             context.Events.Add(occ2012);
+
+            context.KeyValuePairs.Add(new KeyValuePair()
+            {
+                Id = "tshirtSizes",
+                Value = "[{\"Item1\":1,\"Item2\":\"one\"},{\"Item1\":2,\"Item2\":\"two\"}]"
+            });
 
             context.SaveChanges();
         }

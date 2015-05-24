@@ -1,8 +1,5 @@
-﻿using System.ServiceModel;
-using Ninject;
+﻿using Ninject;
 using Ninject.Extensions.Wcf;
-using Ninject.Web.Common;
-using OCC.Data;
 
 namespace OCC.Service.Webhost.DependencyInjection
 {

@@ -83,7 +83,15 @@
         @Html.TextBoxFor(m => m.Location)
         @Html.ValidationMessageFor(m => m.Location)
     </div>
-           
+
+    <div class="field-name">
+        @Html.LabelFor(m => m.TShirtSizeId)
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(m => m.TShirtSizeId, (IEnumerable<SelectListItem>)ViewBag.TShirtSizes)
+        @Html.ValidationMessageFor(m => m.TShirtSizeId)
+    </div>
+
     <div class="field-name">
         @Html.LabelFor(m => m.Twitter)
     </div>

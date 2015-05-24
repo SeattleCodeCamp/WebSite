@@ -1,21 +1,32 @@
-﻿using System.Text;
-using System.Linq;
+﻿using System;
+using System.Text;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Security;
+using OCC.UI.Webhost.CodeCampService;
+using OCC.UI.Webhost.Infrastructure;
+using OCC.UI.Webhost.Models;
+using HashProvider = OCC.UI.Webhost.Infrastructure.UserNamePasswordHashProvider;
+using uiModel = OCC.UI.Webhost.Models;
 
 namespace OCC.UI.Webhost.Controllers
 {
-    using System;
-    using System.Web;
-    using System.Web.Mvc;
-    using System.Web.Security;
-    using Infrastructure;
-    using Models;
-    using HashProvider = Infrastructure.UserNamePasswordHashProvider;
-    using uiModel = OCC.UI.Webhost.Models;
-    using LinqToTwitter;
-    using System.Web.UI;
+
 
     public class AccountController : BaseController
     {
+
+        public AccountController()
+        {
+
+        }
+
+        public AccountController(ICodeCampService service, ICodeCampServiceRepository repo)
+            : base(service, repo)
+        {
+
+        }
+
         private string localImageUrl = @"/Content/Avatar/default_user_icon.jpg";
         public PartialViewResult UserDisplayProfile()
         {
@@ -33,14 +44,14 @@ namespace OCC.UI.Webhost.Controllers
                     }
                     else
                     {
-                        try 
+                        try
                         {
                             //userDisplay.Avatar = new WebImageOCC(CurrentUser.ImageUrl);
                             //userDisplay.Avatar.Alt = CurrentUser.FirstName + " avatar image.";
                             //userDisplay.Avatar.Title = "User Profile Settings";
                             userDisplay.Avatar = CurrentUser.ImageUrl;
                         }
-                        catch 
+                        catch
                         {
                         }
                     }
@@ -122,6 +133,8 @@ namespace OCC.UI.Webhost.Controllers
         // GET: /Account/Register
         public ActionResult Register()
         {
+            ViewBag.TShirtSizes = repo.GetTShirtSizes();
+
             return View();
         }
 
@@ -132,6 +145,8 @@ namespace OCC.UI.Webhost.Controllers
         {
             if (ModelState.IsValid)
             {
+                ViewBag.TShirtSizes = repo.GetTShirtSizes();
+                
                 if (IsDuplicateRegistration(model.Email))
                 {
                     ModelState.AddModelError("Email", "The user at this email address is already registered.");
@@ -154,7 +169,8 @@ namespace OCC.UI.Webhost.Controllers
                     Twitter = model.Twitter,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    Location = model.Location
+                    Location = model.Location,
+                    TShirtSize = model.TShirtSizeId
                 };
 
                 bool useTwitter = frm["cbTwitter"] == "on";
@@ -246,10 +262,18 @@ namespace OCC.UI.Webhost.Controllers
         // GET: /Account/UpdateProfile
         public ActionResult UpdateProfile()
         {
+            if (this.CurrentUser == null)
+            {
+                return RedirectToAction("LogOn", "Account");
+            }
+
             if (string.IsNullOrEmpty(this.CurrentUser.Location))
             {
                 ViewBag.Message = "Please update your location";
             }
+
+            ViewBag.TShirtSizes = repo.GetTShirtSizes();
+
             return View(this.CurrentUser);
         }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Web;
+﻿using System.ServiceModel;
 using Ninject.Extensions.Wcf;
 using Ninject.Modules;
 using Ninject.Web.Common;

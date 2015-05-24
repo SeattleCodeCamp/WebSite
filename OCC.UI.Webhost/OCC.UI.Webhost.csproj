@@ -102,6 +102,10 @@
     <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ServiceStack.Text">
       <HintPath>..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
@@ -200,6 +204,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Announcement.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\ICodeCampServiceRepository.cs" />
     <Compile Include="Models\LayoutViewModel.cs" />
     <Compile Include="Models\MetroTileViewModel.cs" />
     <Compile Include="Models\OCC\UI\WebhostContext.cs" />
@@ -207,6 +212,7 @@
     <Compile Include="Models\PersonTask.cs" />
     <Compile Include="Models\Rate.cs" />
     <Compile Include="Models\RateSessions.cs" />
+    <Compile Include="Models\CodeCampServiceRepository.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\Speaker.cs" />
@@ -486,10 +492,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <None Include="Content\Documents\Orlando Code Camp 2012 Contributor Information.pdf" />
-    <Content Include="Content\Documents\Orlando Code Camp 2015 Contributor Information.pdf" />
-    <None Include="Content\Documents\OrlandoCodeCamp2012Agenda.pdf" />
     <Content Include="Content\Javascript\Rate\jquery.rateit.min.js.map" />
+    <Content Include="Content\Documents\Seattle Code Camp 2015 Contributor Information.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Content\themes\Metro\Double Tile Background.pdn" />
     <None Include="Content\themes\Metro\MetroIcons\MetroIcons.ai" />
     <None Include="Content\themes\Metro\SingleTile Background.pdn" />

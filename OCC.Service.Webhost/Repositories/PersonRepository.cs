@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using OCC.Data;
 using OCC.Service.Webhost.Services;
 using OCC.Service.Webhost.Tools;
@@ -9,13 +7,11 @@ using Person = OCC.Service.Webhost.Services.Person;
 
 namespace OCC.Service.Webhost.Repositories
 {
-    public class PersonRepository
+    public class PersonRepository : RepositoryBase
     {
-        private readonly OCCDB _dbContext;
-
         public PersonRepository(OCCDB dbContext)
+            : base(dbContext)
         {
-            _dbContext = dbContext;
         }
 
         public int RegisterPerson(Person person)
@@ -119,6 +115,8 @@ namespace OCC.Service.Webhost.Repositories
             p.Twitter = person.Twitter;
             p.ImageUrl = person.ImageUrl;
             p.Location = person.Location;
+            p.TShirtSize = person.TShirtSize;
+
             _dbContext.SaveChanges();
         }
     }

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using OCC.UI.Webhost.Models;
+using Model = OCC.UI.Webhost.Models;
+using Service = OCC.UI.Webhost.CodeCampService;
 
 namespace OCC.UI.Webhost.Infrastructure
 {
-    using Model = OCC.UI.Webhost.Models;
-    using Service = OCC.UI.Webhost.CodeCampService;
-
     public static class ModelExtensions
     {
         /// <summary>
@@ -31,7 +30,8 @@ namespace OCC.UI.Webhost.Infrastructure
                 FirstName = person.FirstName,
                 LastName = person.LastName,
                 IsAdmin = person.IsAdmin,
-                Location = person.Location
+                Location = person.Location,
+                TShirtSizeId = person.TShirtSize
             };
             return p;
         }
@@ -56,7 +56,8 @@ namespace OCC.UI.Webhost.Infrastructure
                 FirstName = person.FirstName, 
                 LastName = person.LastName,
                 IsAdmin = person.IsAdmin,
-                Location = person.Location
+                Location = person.Location,
+                TShirtSize = person.TShirtSizeId
             };
         }
 

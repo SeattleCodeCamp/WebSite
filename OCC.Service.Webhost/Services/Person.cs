@@ -44,5 +44,8 @@
 
         [DataMember]
         public string Location { get; set; }
+
+        [DataMember]
+        public int TShirtSize { get; set; }
     }
 }

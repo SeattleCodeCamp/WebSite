@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using OCC.Data;
 using OCC.Service.Webhost.Services;
 using OCC.Service.Webhost.Tools;
@@ -9,20 +8,18 @@ using Session = OCC.Service.Webhost.Services.Session;
 
 namespace OCC.Service.Webhost.Repositories
 {
-    public class SessionRepository
+    public class SessionRepository : RepositoryBase
     {
-        private readonly OCCDB _dbContext;
-
         public SessionRepository(OCCDB dbContext)
+            : base(dbContext)
         {
-            _dbContext = dbContext;
         }
 
         public Session GetSession(int id)
         {
             var s = (from x in _dbContext.Sessions.Include("Speaker").Include("Track").Include("Timeslot")
-                        where x.ID == id
-                        select x).FirstOrDefault();
+                     where x.ID == id
+                     select x).FirstOrDefault();
 
             if (s == null) throw new ArgumentException("Session not found");
 

@@ -54,6 +54,7 @@
     <Compile Include="Event.cs" />
     <Compile Include="EventAttendeeRating.cs" />
     <Compile Include="EventAttendeeSessionRating.cs" />
+    <Compile Include="KeyValueStore.cs" />
     <Compile Include="OCCDB.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonTask.cs" />

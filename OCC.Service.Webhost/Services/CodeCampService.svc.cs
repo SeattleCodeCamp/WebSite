@@ -1,28 +1,28 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using OCC.Data;
 using OCC.Service.Webhost.Repositories;
+using OCC.Service.Webhost.Tools;
 
 namespace OCC.Service.Webhost.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
-    using OCC.Data;
-    using OCC.Service.Webhost.Tools;
-
     public class CodeCampService : ICodeCampService
     {
         private readonly Lazy<PersonRepository> _personRepository;
         private readonly Lazy<SessionRepository> _sessionRepository;
+        private readonly Lazy<MetadataRepository> _metadataRepository;
         private const string ApprovedSession = "APPROVED";
         private const string SubmittedSession = "SUBMITTED";
 
         public CodeCampService(
             Lazy<PersonRepository> personRepository,
-            Lazy<SessionRepository> sessionRepository)
+            Lazy<SessionRepository> sessionRepository,
+            Lazy<MetadataRepository> metadataRepository)
         {
             _personRepository = personRepository;
             _sessionRepository = sessionRepository;
+            _metadataRepository = metadataRepository;
         }
 
         #region People
@@ -147,7 +147,7 @@ namespace OCC.Service.Webhost.Services
                 //var sessions = db.Sessions;
                 //var tags = db.Tags.OrderBy(t => t.TagName);
                 var sessionsTags = from t in db.Tags
-                                   select new { t.ID, t.TagName, SessionsCount = db.Sessions.Where(s=>s.Tag_ID == t.ID).Count() };
+                                   select new { t.ID, t.TagName, SessionsCount = db.Sessions.Where(s => s.Tag_ID == t.ID).Count() };
                 foreach (var tag in sessionsTags)
                 {
                     Data.Tag tg = new Data.Tag() { ID = tag.ID, TagName = tag.TagName };
@@ -310,7 +310,7 @@ namespace OCC.Service.Webhost.Services
                 // results.Add(new Sponsor { ID = 1, Name = "Microsoft" });
                 // results.Add(new Sponsor { ID = 2, Name = "DevExpress" });
 
-                foreach (var s in e.Sponsors.OrderBy(sp=>Guid.NewGuid()))
+                foreach (var s in e.Sponsors.OrderBy(sp => Guid.NewGuid()))
                 {
                     Sponsor sponsor = new Sponsor();
 
@@ -773,7 +773,7 @@ namespace OCC.Service.Webhost.Services
 
                 var speakers = sessions.Select(s => s.Speaker)
                         .Distinct()
-                        .OrderBy(s=>Guid.NewGuid())
+                        .OrderBy(s => Guid.NewGuid())
 
                         //.OrderBy(s => s.FirstName + " " + s.LastName)
                         .ToList();
@@ -803,11 +803,11 @@ namespace OCC.Service.Webhost.Services
                     Email = s.Email,
                     FirstName = s.FirstName,
                     LastName = s.LastName,
-                    Title = string.IsNullOrEmpty(s.Title)?string.Empty:s.Title,
-                    Bio = string.IsNullOrEmpty(s.Bio)?string.Empty:s.Bio,
-                    Website = string.IsNullOrEmpty(s.Website)?string.Empty:s.Website,
-                    Blog = string.IsNullOrEmpty(s.Blog)?string.Empty:s.Blog,
-                    Twitter = string.IsNullOrEmpty(s.Twitter)?string.Empty:s.Twitter,
+                    Title = string.IsNullOrEmpty(s.Title) ? string.Empty : s.Title,
+                    Bio = string.IsNullOrEmpty(s.Bio) ? string.Empty : s.Bio,
+                    Website = string.IsNullOrEmpty(s.Website) ? string.Empty : s.Website,
+                    Blog = string.IsNullOrEmpty(s.Blog) ? string.Empty : s.Blog,
+                    Twitter = string.IsNullOrEmpty(s.Twitter) ? string.Empty : s.Twitter,
                     ImageUrl = s.ImageUrl
                 };
 
@@ -921,7 +921,7 @@ namespace OCC.Service.Webhost.Services
                 //OCC.Data.Task bcTask = e.Map();
 
                 //task.Volunteers.Add()
-                
+
                 //List<Track> result = new List<Track>();
                 //foreach (var track in e.Tracks)
                 //    result.Add(track.Map());
@@ -929,7 +929,7 @@ namespace OCC.Service.Webhost.Services
                 //result
             }
         }
-        
+
         public void AssignTaskToPerson(Task task)
         {
             if (task == null || task.Assignees.Count == 0)
@@ -948,7 +948,7 @@ namespace OCC.Service.Webhost.Services
             Data.Person assignedPerson;
             using (OCCDB db = new OCCDB())
             {
-                var t = new Data.PersonTask {Person_ID = task.Assignees[0].ID, Task_ID = task.Id};
+                var t = new Data.PersonTask { Person_ID = task.Assignees[0].ID, Task_ID = task.Id };
                 db.PersonTasks.Add(t);
                 db.SaveChanges();
 
@@ -968,14 +968,14 @@ namespace OCC.Service.Webhost.Services
             }
 
             //enter email address here
-            const string boardEmailAddress = ""; 
+            const string boardEmailAddress = "";
 
             using (OCCDB db = new OCCDB())
             {
                 int personId = task.Assignees[0].ID;
                 int taskId = task.Id;
                 var pt = db.PersonTasks.FirstOrDefault(x => x.Person_ID == personId && x.Task_ID == taskId);
-                
+
                 if (pt == null)
                 {
                     return;
@@ -1025,7 +1025,7 @@ namespace OCC.Service.Webhost.Services
 
         public void DisableTask(int existingTaskId)
         {
-            if(existingTaskId == 0)
+            if (existingTaskId == 0)
             {
                 throw new ArgumentOutOfRangeException("existingTaskId", "task Id must be within a valid range.");
             }
@@ -1119,7 +1119,7 @@ namespace OCC.Service.Webhost.Services
                 session.Track_ID = trackId == 0 ? (int?)null : trackId;
                 session.Timeslot_ID = timeslotId == 0 ? (int?)null : timeslotId;
                 session.Status = trackId == 0 ? SubmittedSession : ApprovedSession;
-                
+
 
                 db.SaveChanges();
             }
@@ -1199,8 +1199,8 @@ namespace OCC.Service.Webhost.Services
                 if (newSession == null) throw new Exception("Session not found");
 
                 var oldSession = (from sa in db.SessionAttendees.Include("Session.Timeslot")
-                         where sa.Person_ID == personId && sa.Session.ID == sessionId
-                         select sa).SingleOrDefault();
+                                  where sa.Person_ID == personId && sa.Session.ID == sessionId
+                                  select sa).SingleOrDefault();
 
                 //if (oldSession != null)
                 //    db.SessionAttendees.Remove(oldSession);
@@ -1256,7 +1256,7 @@ namespace OCC.Service.Webhost.Services
             using (OCCDB db = new OCCDB())
             {
                 var sessions = (from session in db.Sessions.Include("Speakers")
-                                where session.Event_ID == eventId && 
+                                where session.Event_ID == eventId &&
                                 ((!eventInfo.IsSpeakerRegistrationOpen && session.Status == ApprovedSession)
                                 || (eventInfo.IsSpeakerRegistrationOpen))
                                 select session);
@@ -1283,5 +1283,10 @@ namespace OCC.Service.Webhost.Services
         }
 
         #endregion
+
+        public string GetValueForKey(string key)
+        {
+            return _metadataRepository.Value.GetValueForKey(key);
+        }
     }
 }

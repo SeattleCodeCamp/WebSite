@@ -44,6 +44,8 @@
 
         public List<Session> Sessions { get; set; }
 
+        public int TShirtSize { get; set; }
+
         public Person()
         {
             Sessions = new List<Session>();

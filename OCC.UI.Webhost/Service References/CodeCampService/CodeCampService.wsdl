@@ -643,6 +643,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetValueForKey">
+      <soap:operation soapAction="http://onetug.org/2012/CodeCampService/ICodeCampService/GetValueForKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="CodeCampService">
     <wsdl:port name="BasicHttpBinding_ICodeCampService" binding="tns:BasicHttpBinding_ICodeCampService">

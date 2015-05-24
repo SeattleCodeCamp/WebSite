@@ -54,6 +54,9 @@ namespace OCC.UI.Webhost.CodeCampService {
         private string PasswordHashField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TShirtSizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -198,6 +201,19 @@ namespace OCC.UI.Webhost.CodeCampService {
                 if ((object.ReferenceEquals(this.PasswordHashField, value) != true)) {
                     this.PasswordHashField = value;
                     this.RaisePropertyChanged("PasswordHash");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TShirtSize {
+            get {
+                return this.TShirtSizeField;
+            }
+            set {
+                if ((this.TShirtSizeField.Equals(value) != true)) {
+                    this.TShirtSizeField = value;
+                    this.RaisePropertyChanged("TShirtSize");
                 }
             }
         }
@@ -2233,6 +2249,9 @@ namespace OCC.UI.Webhost.CodeCampService {
         [System.ServiceModel.OperationContractAttribute(Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAttendeesCount", ReplyAction="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAttendeesCountResponse" +
             "")]
         int GetAttendeesCount(int eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetValueForKey", ReplyAction="http://onetug.org/2012/CodeCampService/ICodeCampService/GetValueForKeyResponse")]
+        string GetValueForKey(string key);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2544,6 +2563,10 @@ namespace OCC.UI.Webhost.CodeCampService {
         
         public int GetAttendeesCount(int eventId) {
             return base.Channel.GetAttendeesCount(eventId);
+        }
+        
+        public string GetValueForKey(string key) {
+            return base.Channel.GetValueForKey(key);
         }
     }
 }
