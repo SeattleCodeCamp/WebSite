@@ -1,10 +1,10 @@
-﻿namespace OCC.UI.Webhost.Models
-{
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Security.Principal;
-    using System.Web;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Security.Principal;
+using System.Web;
 
+namespace OCC.UI.Webhost.Models
+{
     public class Person : IPrincipal
     {
         public Person()
@@ -12,6 +12,7 @@
             // Plan for three roles: admin, speaker, volunteer
             this.Roles = new List<string>(3);
         }
+
         public int ID { get; set; }
 
         [Required]
@@ -48,6 +49,10 @@
         [Display(Name = "city, state")]
         public string Location { get; set; }
 
+        [Required]
+        [Display(Name = "t-shirt size")]
+        public int TShirtSizeId { get; set; }
+
         public string ImageUrl { get; set; }
 
         public bool IsAdmin { get; set; }
@@ -70,7 +75,7 @@
             if (string.IsNullOrEmpty(role))
             {
                 return false;
-            }           
+            }
             return this.Roles.Contains(role);
         }
     }

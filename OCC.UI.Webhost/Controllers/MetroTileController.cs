@@ -304,7 +304,7 @@ namespace OCC.UI.Webhost.Controllers
                     TileDisplayName = "#SeattleCC"
             };
 
-            //insert some logic to go get tweets with the #SeattleCC hashtag or tweets mentioning @SeattleCodeCamp or tweets that @NETDA puts out
+            //insert some logic to go get tweets with the #SeattleCC hashtag or tweets mentioning @netda or tweets that @NETDA puts out
 
             //If no data is returned from the twitter stream create two default tweets
             if(twitterTileViewModel.Tweets.Count < 1)

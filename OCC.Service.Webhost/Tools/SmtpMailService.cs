@@ -15,10 +15,10 @@ namespace OCC.Service.Webhost.Services
             }
 
             string registrationMessage =
-                string.Format("{0}, Thank you for registering for Orlando Code Camp!",
+                string.Format("{0}, Thank you for registering for Seattle Code Camp!",
                               firstName);
 
-            const string registrationSubject = "Orlando Code Camp Registration";
+            const string registrationSubject = "Seattle Code Camp Registration";
             string addressee = string.Format("{0}", emailAddress);
 
             SendMail(registrationMessage, addressee, registrationSubject);
@@ -26,7 +26,7 @@ namespace OCC.Service.Webhost.Services
 
         public void SendPasswordChangeMail(string emailAddress)
         {
-            const string passwordChangeSubject = "Orlando Code Camp Password Reset";
+            const string passwordChangeSubject = "Seattle Code Camp Password Reset";
             const string mailMessage = "Your password has been changed. If you did not initiate a password reset, please contact us.";
             SendMail(mailMessage, emailAddress, passwordChangeSubject);
         }
@@ -59,7 +59,7 @@ namespace OCC.Service.Webhost.Services
         /// <param name="temporaryPassword">New password hash that's set prior to the email send.</param>
         public void SendPasswordResetMail(string emailAddress, string temporaryPassword)
         {
-            const string passwordResetSubject = "Orlando Code Camp Password Reset";
+            const string passwordResetSubject = "Seattle Code Camp Password Reset";
             var messageBody =
                 string.Format("Your password has been reset to the following temporary password: {0}" + "\n\n" +
                               "\nIf you did not initiate a password reset, please contact us.", temporaryPassword);
@@ -73,7 +73,7 @@ namespace OCC.Service.Webhost.Services
         /// <param name="emailAddress">The assignee</param>
         public void SendTaskRegistrationMail(Data.Task task, string emailAddress)
         {
-            string taskAssignmentSubject = string.Format("Orlando Code Camp Volunteer Task Assignment: {0}", task.Description);
+            string taskAssignmentSubject = string.Format("Seattle Code Camp Volunteer Task Assignment: {0}", task.Description);
 
             var mailMessage = new StringBuilder();
             mailMessage.Append("Thanks for volunteering for our event!.  ");
@@ -82,7 +82,7 @@ namespace OCC.Service.Webhost.Services
             mailMessage.AppendFormat("<b>and ends at {0} </b>. ", task.EndTime.ToShortTimeString());
 
             mailMessage.Append("If you did not register for this task, please contact us immediately. </br>");
-            mailMessage.Append("Thank you again for supporting Orlando Code Camp!");
+            mailMessage.Append("Thank you again for supporting Seattle Code Camp!");
 
             SendMail(mailMessage.ToString(), emailAddress, taskAssignmentSubject);
         }

@@ -2,7 +2,6 @@
 using System.Web;
 using System.Web.Mvc;
 using DataAnnotationsExtensions;
-using OCC.UI.Webhost.Infrastructure;
 
 namespace OCC.UI.Webhost.Models
 {
@@ -85,6 +84,10 @@ namespace OCC.UI.Webhost.Models
         [Required]
         [Display(Name = "city, state")]
         public string Location { get; set; }
+
+        [Required]
+        [Display(Name = "t-shirt size")]
+        public int TShirtSizeId { get; set; }
 
         public string ImageUrl { get; set; }
     }

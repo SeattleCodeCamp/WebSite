@@ -1,35 +1,37 @@
-﻿using System.Linq;
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Helpers;
+using System.Web.Mvc;
+using LinqToTwitter;
+using OCC.UI.Webhost.CodeCampService;
+using OCC.UI.Webhost.Models;
+using UiModel = OCC.UI.Webhost.Models;
 
 namespace OCC.UI.Webhost.Controllers
 {
-    using System;
-    using System.Web.Mvc;
-    using UiModel = OCC.UI.Webhost.Models;
-    using OCC.UI.Webhost.CodeCampService;
-    using System.Web;
-    using System.Web.Helpers;
-    using System.IO;
-    using LinqToTwitter;
-    
     public abstract class BaseController : Controller
     {
         protected ICodeCampService service;
+        protected ICodeCampServiceRepository repo;
 
-        public BaseController(ICodeCampService service)
+        public BaseController(ICodeCampService service, ICodeCampServiceRepository repo)
         {
             this.service = service;
+            this.repo = repo;
         }
 
         public BaseController()
-            : this(new CodeCampServiceClient())
+            : this(new CodeCampServiceClient(), new CodeCampServiceRepository(new CodeCampServiceClient()))
         {
         }
 
         public UiModel.Person CurrentUser
         {
-            get 
+            get
             {
-               return HttpContext.Session["person"] as UiModel.Person;
+                return HttpContext.Session["person"] as UiModel.Person;
             }
             set
             {
@@ -98,12 +100,12 @@ namespace OCC.UI.Webhost.Controllers
         {
             byte[] imageArray = new byte[uploadedFile.ContentLength];
             uploadedFile.InputStream.Read(imageArray, 0, uploadedFile.ContentLength);
-                string[] fName = uploadedFile.FileName.Split('\\');
+            string[] fName = uploadedFile.FileName.Split('\\');
             var img = new WebImage(imageArray)
             {
                 FileName = string.Format("{0}.{1}",
                                   DateTime.UtcNow.Ticks,
-                                  fName[fName.Length-1])
+                                  fName[fName.Length - 1])
             };
             return img;
         }

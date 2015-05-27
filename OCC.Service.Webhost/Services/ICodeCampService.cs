@@ -271,5 +271,8 @@
         int GetAttendeesCount(int eventId);
 
         #endregion
+
+        [OperationContract]
+        string GetValueForKey(string key);
     }
 }

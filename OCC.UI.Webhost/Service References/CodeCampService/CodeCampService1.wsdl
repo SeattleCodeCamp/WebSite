@@ -433,6 +433,12 @@
   <wsdl:message name="ICodeCampService_GetAttendeesCount_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAttendeesCountResponse" />
   </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetValueForKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetValueForKey" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetValueForKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetValueForKeyResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICodeCampService">
     <wsdl:operation name="RegisterPerson">
       <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/RegisterPerson" message="tns:ICodeCampService_RegisterPerson_InputMessage" />
@@ -717,6 +723,10 @@
     <wsdl:operation name="GetAttendeesCount">
       <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAttendeesCount" message="tns:ICodeCampService_GetAttendeesCount_InputMessage" />
       <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAttendeesCountResponse" message="tns:ICodeCampService_GetAttendeesCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetValueForKey">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetValueForKey" message="tns:ICodeCampService_GetValueForKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetValueForKeyResponse" message="tns:ICodeCampService_GetValueForKey_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>
