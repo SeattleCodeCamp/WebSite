@@ -18,11 +18,11 @@
                     }
                 </a>
             </div>
-            <p><a href="@Url.Action("LogOff", "Account")">@Model.LoginOrLogout</a>&nbsp;<a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")">F.A.Q.</a></p>
+            <p><a href="@Url.Action("LogOff", "Account")">Logout</a>&nbsp;<a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")">F.A.Q.</a></p>
         </div>
     }
     else
     {
-        <h6 class="userProfileMiddleContainer"><a class="loginDisplayArea" href="@Url.Action("LogOn", "Account")">@Model.LoginOrLogout</a>&nbsp;<a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")">F.A.Q.</a></h6>
+        <div class="userProfileMiddleContainer"><h6><a class="loginDisplayArea" href="@Url.Action("LogOn", "Account")">Login</a> / <a class="loginDisplayArea" href="@Url.Action("Register", "Account")">Register</a><br/><a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")">F.A.Q.</a></h6></div>
     }
 </div>

@@ -10,7 +10,6 @@ namespace OCC.UI.Webhost.Models
         public string DisplayFirstName { get; set; }
         public string DisplayLastName { get; set; }
         public string Avatar { get; set; }
-        public string LoginOrLogout { get; set; }
         public bool IsLoggedIn { get; set; }
     }
 
