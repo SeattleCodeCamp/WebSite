@@ -97,6 +97,7 @@
     <Compile Include="Session\GetSessionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session\GetSpeakerSessionsTests.cs" />
+    <Compile Include="Task\UpdateTaskTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OCC.Data\OCC.Data.csproj">

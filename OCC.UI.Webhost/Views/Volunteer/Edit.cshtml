@@ -41,7 +41,7 @@
             @Html.LabelFor(model => model.StartTime)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.StartTime)
+            @Html.TextBoxFor(model => model.StartTime, new { type = "datetime-local", @Value = Model.StartTime.ToString("yyyy-MM-ddTHH:mm:ss") })
             @Html.ValidationMessageFor(model => model.StartTime)
         </div>
         <br/>
@@ -49,7 +49,7 @@
             @Html.LabelFor(model => model.EndTime)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.EndTime)
+            @Html.TextBoxFor(model => model.EndTime, new { type = "datetime-local", @Value = Model.EndTime.ToString("yyyy-MM-ddTHH:mm:ss") })
             @Html.ValidationMessageFor(model => model.EndTime)
         </div>
         <br/>
