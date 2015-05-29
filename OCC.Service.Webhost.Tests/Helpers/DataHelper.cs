@@ -40,5 +40,17 @@ namespace OCC.Service.Webhost.Tests.Helpers
             context.Tracks.Add(item);
             return item;
         }
+
+        public static Data.Task InsertTask(InMemoryOCCDB context, string description)
+        {
+            var @event = context.Events.First();
+            var task = new Data.Task
+            {
+                Description = description,
+                Event_ID = @event.ID
+            };
+            context.Tasks.Add(task);
+            return task;
+        }
     }
 }

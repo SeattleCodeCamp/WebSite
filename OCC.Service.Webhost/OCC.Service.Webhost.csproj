@@ -109,6 +109,7 @@
     <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\SessionRepository.cs" />
+    <Compile Include="Repositories\TaskRepository.cs" />
     <Compile Include="Services\Rate.cs" />
     <Compile Include="Services\Announcement.cs" />
     <Compile Include="Services\Attendee.cs" />

@@ -115,13 +115,23 @@ namespace OCC.UI.Webhost.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Edit(VolunteerTask volunteerTask)
         {
             try
             {
+                var task = service.GetTaskById(volunteerTask.Id);
+                task.Name = volunteerTask.Name;
+                task.Description = volunteerTask.Description;
+                task.Capacity = volunteerTask.Capacity;
+                task.StartTime = volunteerTask.StartTime;
+                task.EndTime = volunteerTask.EndTime;
+                task.EndTime = volunteerTask.EndTime;
+                task.EventID = volunteerTask.EventId;
+                service.UpdateTask(task);
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }

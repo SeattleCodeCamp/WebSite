@@ -12,17 +12,20 @@ namespace OCC.Service.Webhost.Services
         private readonly Lazy<PersonRepository> _personRepository;
         private readonly Lazy<SessionRepository> _sessionRepository;
         private readonly Lazy<MetadataRepository> _metadataRepository;
+        private readonly Lazy<TaskRepository> _taskRepository;
         private const string ApprovedSession = "APPROVED";
         private const string SubmittedSession = "SUBMITTED";
 
         public CodeCampService(
             Lazy<PersonRepository> personRepository,
             Lazy<SessionRepository> sessionRepository,
-            Lazy<MetadataRepository> metadataRepository)
+            Lazy<MetadataRepository> metadataRepository,
+            Lazy<TaskRepository> taskRepository)
         {
             _personRepository = personRepository;
             _sessionRepository = sessionRepository;
             _metadataRepository = metadataRepository;
+            _taskRepository = taskRepository;
         }
 
         #region People
@@ -842,225 +845,52 @@ namespace OCC.Service.Webhost.Services
 
         public IList<Person> GetTaskAssignees(int taskId)
         {
-            var people = new List<Person>();
-
-            using (var db = new OCCDB())
-            {
-                var assignedTasks = (db.PersonTasks
-                                       .Include("Person")
-                                       .Where(s => s.Task_ID == taskId))
-                                       .ToList();
-
-                people.AddRange(assignedTasks.Select(assignedTask => assignedTask.Person.Map()));
-            }
-            return people;
+            return _taskRepository.Value.GetTaskAssignees(taskId);
         }
 
         public IList<Task> GetAllCurrentEventTasks(int eventId)
         {
-            var tasks = new List<Task>();
-            using (var db = new OCCDB())
-            {
-                var currentEventTasks = (db.Tasks
-                    .Include("PersonTasks.Person")
-                    .Where(t => t.Event_ID == eventId && t.Disabled == false))
-                    .ToList();
-
-                MapAllCurrentEventTasks(tasks, currentEventTasks);
-            }
-            return tasks;
-        }
-
-        private static void MapAllCurrentEventTasks(ICollection<Task> tasks, IEnumerable<Data.Task> currentEventTasks)
-        {
-            foreach (var currentEventTask in currentEventTasks)
-            {
-                var eventTask = new Task
-                                    {
-                                        Id = currentEventTask.ID,
-                                        EventID = currentEventTask.Event_ID,
-                                        Capacity = currentEventTask.Capacity,
-                                        Description = currentEventTask.Description,
-                                        StartTime = currentEventTask.StartTime,
-                                        EndTime = currentEventTask.EndTime
-                                    };
-
-                foreach (var personTask in currentEventTask.PersonTasks)
-                {
-                    eventTask.Assignees.Add(personTask.Person.Map());
-                }
-                tasks.Add(eventTask);
-            }
+            return _taskRepository.Value.GetAllCurrentEventTasks(eventId);
         }
 
         public IList<Task> GetTasksForAssignee(int eventId, int personId)
         {
-            //using (var db = new OCCDB())
-            //{
-            //    var tasks = (from s in db.VolunteerTasks.Include("Volunteers")
-            //                 where s.Event_ID == eventId
-            //                 orderby s.Capacity
-            //                 select s).ToList() as IList<Data.VolunteerTask>;
-
-            //    return tasks.Select(task => task.Map()).ToList();
-            //}
-            return new List<Task>();
+            return _taskRepository.Value.GetTasksForAssignee(eventId, personId);
         }
 
         public void AssignVolunteerTaskToPerson(Task task, Person person)
         {
-            using (var db = new OCCDB())
-            {
-                var e = db.Tasks.Find(task.Id);
-
-                if (e == null)
-                {
-                    throw new ArgumentException("Task not found");
-                }
-
-                //OCC.Data.Task bcTask = e.Map();
-
-                //task.Volunteers.Add()
-
-                //List<Track> result = new List<Track>();
-                //foreach (var track in e.Tracks)
-                //    result.Add(track.Map());
-
-                //result
-            }
+            _taskRepository.Value.AssignVolunteerTaskToPerson(task, person);
         }
 
         public void AssignTaskToPerson(Task task)
         {
-            if (task == null || task.Assignees.Count == 0)
-            {
-                return;
-            }
-
-            if (task.Id == 0 || task.Assignees[0].ID == 0)
-            {
-                return;
-            }
-
-            var personId = task.Assignees[0].ID;
-
-            Data.Task assignedTask;
-            Data.Person assignedPerson;
-            using (OCCDB db = new OCCDB())
-            {
-                var t = new Data.PersonTask { Person_ID = task.Assignees[0].ID, Task_ID = task.Id };
-                db.PersonTasks.Add(t);
-                db.SaveChanges();
-
-                assignedTask = db.Tasks.FirstOrDefault(at => at.ID == task.Id);
-                assignedPerson = db.People.FirstOrDefault(ap => ap.ID == personId);
-
-                IMailService mailService = new SmtpMailService();
-                mailService.SendTaskRegistrationMail(assignedTask, assignedPerson.Email);
-            }
+            _taskRepository.Value.AssignTaskToPerson(task);
         }
 
         public void RemoveTaskFromPerson(Task task)
         {
-            if (task == null || task.Assignees.Count == 0)
-            {
-                return;
-            }
-
-            //enter email address here
-            const string boardEmailAddress = "";
-
-            using (OCCDB db = new OCCDB())
-            {
-                int personId = task.Assignees[0].ID;
-                int taskId = task.Id;
-                var pt = db.PersonTasks.FirstOrDefault(x => x.Person_ID == personId && x.Task_ID == taskId);
-
-                if (pt == null)
-                {
-                    return;
-                }
-                db.PersonTasks.Remove(pt);
-                db.SaveChanges();
-
-                var unAssignedTask = db.Tasks.FirstOrDefault(t => t.ID == taskId);
-
-                IMailService mailService = new SmtpMailService();
-                mailService.SendTaskRevokeMail(unAssignedTask, boardEmailAddress);
-            }
+            _taskRepository.Value.RemoveTaskFromPerson(task);
         }
 
         public Task GetTaskById(int taskId)
         {
-            var dcTask = new Task();
-
-            using (var db = new OCCDB())
-            {
-                var task = (db.Tasks
-                    .Include("Event")
-                    .Where(s => s.ID == taskId)).SingleOrDefault();
-
-                if (task != null)
-                {
-                    dcTask = task.Map();
-                }
-            }
-            return dcTask;
+            return _taskRepository.Value.GetTaskById(taskId);
         }
 
         public void AddTaskToEvent(Task newTask)
         {
-            if (newTask == null)
-            {
-                throw new ArgumentNullException("newTask", "task cannot be null");
-            }
-
-            var task = newTask.Map();
-            using (var db = new OCCDB())
-            {
-                db.Tasks.Add(task);
-                db.SaveChanges();
-            }
+            _taskRepository.Value.AddTaskToEvent(newTask);
         }
 
         public void DisableTask(int existingTaskId)
         {
-            if (existingTaskId == 0)
-            {
-                throw new ArgumentOutOfRangeException("existingTaskId", "task Id must be within a valid range.");
-            }
-
-            using (var db = new OCCDB())
-            {
-                var existingTask = db.Tasks.FirstOrDefault(t => t.ID == existingTaskId);
-                if (existingTask != null)
-                {
-                    existingTask.Disabled = true;
-                    db.SaveChanges();
-                }
-            }
+            _taskRepository.Value.DisableTask(existingTaskId);
         }
 
         public void UpdateTask(Task existingTask)
         {
-            if (existingTask == null)
-            {
-                throw new ArgumentNullException("existingTask", "task cannot be null");
-            }
-
-            using (var db = new OCCDB())
-            {
-                var task = db.Tasks.FirstOrDefault(t => t.ID == existingTask.Id);
-                if (task != null)
-                {
-                    task.StartTime = existingTask.StartTime;
-                    task.EndTime = existingTask.EndTime;
-                    task.Description = existingTask.Description;
-                    task.Capacity = existingTask.Capacity;
-                    task.Event_ID = existingTask.EventID;
-                    db.SaveChanges();
-                }
-            }
+            _taskRepository.Value.UpdateTask(existingTask);
         }
 
         #endregion

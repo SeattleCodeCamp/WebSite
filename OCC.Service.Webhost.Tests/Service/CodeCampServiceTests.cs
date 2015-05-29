@@ -5,6 +5,7 @@ using OCC.Service.Webhost.Services;
 using Moq;
 using System;
 using OCC.Data;
+using OCC.Service.Webhost.Tests.Helpers;
 using OCC.Service.Webhost.Tests.Repositories;
 
 namespace OCC.Service.Webhost.Tests.Service
@@ -32,8 +33,11 @@ namespace OCC.Service.Webhost.Tests.Service
         {
             // Arrange
             var mockRepo = new Mock<MetadataRepository>(null);
-            var lazyMock = new Lazy<MetadataRepository>(() => mockRepo.Object);
-            var cut = new CodeCampService(null, null, lazyMock);
+
+            var cut = TestHelper.GetTestService(dbContext, kernel =>
+            {
+                kernel.Rebind<MetadataRepository>().ToConstant(mockRepo.Object);
+            });
 
             // Act
             string actual = cut.GetValueForKey(null);
@@ -47,8 +51,11 @@ namespace OCC.Service.Webhost.Tests.Service
         {
             // Arrange
             var mockRepo = new Mock<MetadataRepository>(dbContext);
-            var lazyMock = new Lazy<MetadataRepository>(() => mockRepo.Object);
-            var cut = new CodeCampService(null, null, lazyMock);
+
+            var cut = TestHelper.GetTestService(dbContext, kernel =>
+            {
+                kernel.Rebind<MetadataRepository>().ToConstant(mockRepo.Object);
+            });
 
             // Act
             string actual = cut.GetValueForKey(Key);
