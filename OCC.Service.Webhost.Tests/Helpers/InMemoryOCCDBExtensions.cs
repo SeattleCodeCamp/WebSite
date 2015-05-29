@@ -23,5 +23,12 @@ namespace OCC.Service.Webhost.Tests.Helpers
             context.SaveChanges();
             return context;
         }
+
+        public static InMemoryOCCDB WithTask(this InMemoryOCCDB context, string description = "Test Description")
+        {
+            DataHelper.InsertTask(context, description);
+            context.SaveChanges();
+            return context;
+        }
     }
 }
