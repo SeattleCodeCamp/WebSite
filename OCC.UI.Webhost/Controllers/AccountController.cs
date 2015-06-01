@@ -57,14 +57,12 @@ namespace OCC.UI.Webhost.Controllers
                     }
 
                     userDisplay.IsLoggedIn = true;
-                    userDisplay.LoginOrLogout = "Logout";
                 }
             }
 
             else
             {
                 userDisplay.IsLoggedIn = false;
-                userDisplay.LoginOrLogout = "Login / Register";
             }
 
             return PartialView("_UserDisplayProfile", userDisplay);
