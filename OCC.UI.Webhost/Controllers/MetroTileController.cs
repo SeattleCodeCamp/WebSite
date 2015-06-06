@@ -113,7 +113,7 @@ namespace OCC.UI.Webhost.Controllers
                     tileViewModel.MetroTileIcons.Add(new MetroTileImage(sponsor.ImageUrl)
                     {
                             AltText = sponsor.Name,
-                            Title = string.Format("{0} ({1} sponsor)", sponsor.Name, sponsor.SponsorshipLevel.Replace("sponsor",String.Empty)) ,
+                            Title = string.Format("{0} ({1} sponsor)", sponsor.Name, sponsor.SponsorshipLevel.Replace("sponsor", String.Empty)) ,
                             AnchorTagUri = sponsor.WebsiteUrl
                     });
                 }

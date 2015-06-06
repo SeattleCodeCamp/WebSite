@@ -1,44 +1,44 @@
 ﻿@using OCC.UI.Webhost.Models
 @model OCC.UI.Webhost.Models.MetroTileViewModel
 
-<div class="singleTile @Model.TileBackgroundCssClass">
-    @if(!string.IsNullOrEmpty(Model.TileLinkActionName) && Model.TileDisplayName != "Sponsors")
+@{
+    string hrefVal;
+    if (!string.IsNullOrEmpty(Model.TileLinkActionName) && Model.TileDisplayName != "Sponsors")
     {
-        <a href="@Url.Action(Model.TileLinkActionName, Model.TileLinkControllerName)" > </a>
+        hrefVal = Url.Action(Model.TileLinkActionName, Model.TileLinkControllerName);
     }
     else
     {
-       <a href="@Model.MetroTileIcons[0].AnchorTagUri"></a> 
+        hrefVal = Model.MetroTileIcons[0].AnchorTagUri;
     }
-    <div id="outerTileContent" class="outerSingleTileContent">
+}
+
+<a href="@(hrefVal)">
+    <div class="tile singleTile @Model.TileBackgroundCssClass">
+
+        <div id="outerTileContent" class="outerSingleTileContent">
 
             <div class="badge">@Model.TileNotificationMessage</div>
-    
+
             <div id="middleTileContent" class="middleSingleTileContent">
 
-            <div id="innerTileContent" class="innerSingleTileContent">
-                @{ IList<MetroTileImage> iconList = Model.MetroTileIcons; }
-                @foreach(MetroTileImage t in iconList)
-                {
-                    if(t == iconList[0])
+                <div id="innerTileContent" class="innerSingleTileContent">
+                    @{ IList<MetroTileImage> iconList = Model.MetroTileIcons; }
+                    @foreach (MetroTileImage t in iconList)
                     {
-                        <a href="@t.AnchorTagUri" target="_blank">@Html.TileImageTag(t, "imageVisible")</a>
+                        @(t == iconList[0] ? Html.TileImageTag(t, "imageVisible") : Html.TileImageTag(t, "imageHidden"))
                     }
-                    else
+                    @if (iconList.Count < 1)
                     {
-                        <a href="@t.AnchorTagUri" target="_blank">@Html.TileImageTag(t, "imageHidden")</a>
+                        @Html.TileImageTag(Model.DefaultTileImage, "imageVisible")
                     }
-                }
-                @if(iconList.Count < 1)
-                {
-                    <a href="@Url.Action(Model.TileLinkActionName, Model.TileLinkControllerName)">@Html.TileImageTag(Model.DefaultTileImage, "imageVisible")</a>
-                }
-            </div>
+                </div>
 
+            </div>
         </div>
+        <div class="tileFooter">
+            <div class="labelLowerLeft" style="font-family: Verdana; font-size: 14px;">@Model.TileDisplayName</div>
+        </div>
+
     </div>
-    <div class="tileFooter">
-        <div class="labelLowerLeft" style="font-family: Verdana; font-size: 14px;"><a href="@Url.Action(Model.TileLinkActionName, Model.TileLinkControllerName)" style="color: White">@Model.TileDisplayName</a></div>
-    </div>
-    
-</div>
+</a>
