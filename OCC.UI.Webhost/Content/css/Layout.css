@@ -113,3 +113,8 @@ body {
     display: inline;
     text-align: right;
 }
+
+.loginDisplayContainer {
+    float:right;
+    margin-right: 10px;
+}
