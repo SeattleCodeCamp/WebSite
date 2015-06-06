@@ -505,6 +505,7 @@
     <None Include="Service References\CodeCampService\CodeCampService.disco" />
     <None Include="Service References\CodeCampService\configuration91.svcinfo" />
     <None Include="Service References\CodeCampService\configuration.svcinfo" />
+    <Content Include="Scripts\tiles.js" />
     <Content Include="Service References\CodeCampService\OCC.UI.Webhost.CodeCampService.Announcement.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>

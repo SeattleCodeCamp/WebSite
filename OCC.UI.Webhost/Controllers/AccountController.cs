@@ -16,6 +16,8 @@ namespace OCC.UI.Webhost.Controllers
     public class AccountController : BaseController
     {
 
+        private const string LocalImageUrl = @"/Content/Avatar/default_user_icon.jpg";
+
         public AccountController()
         {
 
@@ -27,7 +29,6 @@ namespace OCC.UI.Webhost.Controllers
 
         }
 
-        private string localImageUrl = @"/Content/Avatar/default_user_icon.jpg";
         public PartialViewResult UserDisplayProfile()
         {
             var userDisplay = new UserDisplayProfileModel();
@@ -178,11 +179,11 @@ namespace OCC.UI.Webhost.Controllers
                 }
                 else if (useTwitter)
                 {
-                    newPerson.ImageUrl = GetImageInfo(model.Twitter, localImageUrl);
+                    newPerson.ImageUrl = GetImageInfo(model.Twitter, LocalImageUrl);
                 }
                 else
                 {
-                    newPerson.ImageUrl = localImageUrl;
+                    newPerson.ImageUrl = LocalImageUrl;
                 }
 
                 // service.RegisterPerson(newPerson);
@@ -285,11 +286,11 @@ namespace OCC.UI.Webhost.Controllers
             }
             else if (useTwitter)
             {
-                person.ImageUrl = GetImageInfo(person.Twitter, localImageUrl);
+                person.ImageUrl = GetImageInfo(person.Twitter, LocalImageUrl);
             }
             else
             {
-                person.ImageUrl = localImageUrl;
+                person.ImageUrl = LocalImageUrl;
             }
 
             //string txtAvatarURL = frm["txtAvatarURL"];
