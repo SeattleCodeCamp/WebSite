@@ -427,3 +427,4 @@ ALTER TABLE [dbo].[Sponsors] CHECK CONSTRAINT [Sponsor_Event]
 GO
 
 INSERT INTO Events (Name, StartTime, EndTime, IsDefault, IsSpeakerRegistrationOpen, IsSponsorRegistrationOpen, IsAttendeeRegistrationOpen, IsVolunteerRegistrationOpen) VALUES ('Dummy Event', GETDATE(), DATEADD(year,10,GETDATE()),1,1,1,1,1)
+INSERT INTO KeyValuePairs (Id, Value) VALUES ('tshirtsizes','[{"Item1":1,"Item2":"Don''t want one"},{"Item1":2,"Item2":"Small"},{"Item1":3,"Item2":"Medium"},{"Item1":4,"Item2":"Large"},{"Item1":5,"Item2":"X-Large"},{"Item1":6,"Item2":"XX-Large"}]')

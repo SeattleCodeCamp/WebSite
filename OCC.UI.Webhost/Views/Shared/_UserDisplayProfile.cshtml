@@ -1,28 +1,45 @@
 ﻿@model OCC.UI.Webhost.Models.UserDisplayProfileModel
-           
+
 <div class="userProfileOuterContainer">
-    @if(Model.IsLoggedIn)
+    @if (Model.IsLoggedIn)
     {
         <div class="userProfileMiddleContainer">
             <div class="userDisplayName">
-                
-                    <h2><a href="@Url.Action("UpdateProfile", "Account")">@Model.DisplayFirstName</a></h2>
-                
-                        <h3><a href="@Url.Action("UpdateProfile", "Account")">@Model.DisplayLastName</a></h3>
+
+                <h2><a href="@Url.Action("UpdateProfile", "Account")">@Model.DisplayFirstName</a></h2>
+
+                <h3><a href="@Url.Action("UpdateProfile", "Account")">@Model.DisplayLastName</a></h3>
             </div>
             <div class="avatarImage">
                 <a href="@Url.Action("UpdateProfile", "Account")">
                     @if (Model.Avatar != null)
                     {
-                        @Html.ImageTag(Model.Avatar, string.Format("{0} {1}",Model.DisplayFirstName,Model.DisplayLastName),48,48)
+                        @Html.ImageTag(Model.Avatar, string.Format("{0} {1}", Model.DisplayFirstName, Model.DisplayLastName), 48, 48)
                     }
                 </a>
             </div>
-            <p><a href="@Url.Action("LogOff", "Account")">@Model.LoginOrLogout</a>&nbsp;<a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")">F.A.Q.</a></p>
+            <p><a href="@Url.Action("LogOff", "Account")">Logout</a><br><a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")">F.A.Q.</a></p>
         </div>
     }
     else
     {
-        <h6 class="userProfileMiddleContainer"><a class="loginDisplayArea" href="@Url.Action("LogOn", "Account")">@Model.LoginOrLogout</a>&nbsp;<a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")">F.A.Q.</a></h6>
+        <div class="userProfileMiddleContainer">
+            @*<h6>
+                    <div style="float:right"><a class="loginDisplayArea" href="/Account/LogOn">Login</a></div>
+                    <div style="float:right;margin-right: 10px"> | </div>
+                    <div style="float:right; margin-right: 10px"><a class="loginDisplayArea" href="/Account/Register">Register</a></div>
+                    <div>
+                        <br><a class="loginDisplayArea" href="/Home/FAQ">F.A.Q.</a>
+                    </div>
+                </h6>*@
+            <div class="loginDisplayContainer">
+                <a class="loginDisplayArea" href="@Url.Action("LogOn", "Account")"><h6>Login</h6></a>
+            </div>
+            <div class="loginDisplayContainer">|</div>
+            <div class="loginDisplayContainer">
+                <a class="loginDisplayArea" href="@Url.Action("Register", "Account")"><h6>Register</h6></a>
+            </div><br/>
+            <a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")"><h6>F.A.Q.</h6></a>
+        </div>
     }
 </div>
