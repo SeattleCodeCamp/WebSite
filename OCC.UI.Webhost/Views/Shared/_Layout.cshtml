@@ -39,7 +39,7 @@
     <div id="header" class="grid_8">
         <a href="@Url.Action("Index", "Home")">@Html.ImageTag("../../Content/themes/Metro/Images/SCCLogo.png", "Seattle Code Camp", title: "Seattle Code Camp")</a>
     </div>
-    <div id="tilesColumnRight">
+    <div id="tilesColumnRight" class="tilesArea">
         @Html.Action("UserDisplayProfile", "Account")
 
         @if (IsSectionDefined("TilesOnRightSide"))

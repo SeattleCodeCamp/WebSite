@@ -4,7 +4,7 @@
 
 @import url("../../Content/css/960_12_col.css");
 
-@import url("../../Content/css/Tiles.css");
+@import url("../../Content/css/Tiles.min.css");
 
 body {
     background-color: rgb(0, 0, 0);

@@ -251,7 +251,12 @@
       <DependentUpon>Tags.css</DependentUpon>
     </Content>
     <Content Include="Content\css\text.css" />
-    <Content Include="Content\css\Tiles.css" />
+    <Content Include="Content\css\Tiles.css">
+      <DependentUpon>Tiles.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\Tiles.min.css">
+      <DependentUpon>Tiles.css</DependentUpon>
+    </Content>
     <Content Include="Content\css\dark-hive\images\ui-bg_flat_30_cccccc_40x100.png" />
     <Content Include="Content\css\dark-hive\images\ui-bg_flat_50_5c5c5c_40x100.png" />
     <Content Include="Content\css\dark-hive\images\ui-bg_glass_40_ffc73d_1x400.png" />
@@ -507,6 +512,10 @@
     <Content Include="Content\css\Tags.less" />
     <Content Include="Content\css\Tags.css.map">
       <DependentUpon>Tags.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\Tiles.less" />
+    <Content Include="Content\css\Tiles.css.map">
+      <DependentUpon>Tiles.css</DependentUpon>
     </Content>
     <None Include="Content\themes\Metro\Double Tile Background.pdn" />
     <None Include="Content\themes\Metro\MetroIcons\MetroIcons.ai" />
