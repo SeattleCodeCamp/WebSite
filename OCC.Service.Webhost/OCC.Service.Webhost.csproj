@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OCC.Data\OCC.Data.csproj">
@@ -145,12 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\PublishProfiles\Azure.pubxml" />
-    <None Include="Properties\PublishProfiles\SeattleCCApi.pubxml" />
-    <None Include="Properties\PublishProfiles\Service.pubxml" />
-    <None Include="Properties\PublishProfiles\ServiceDeploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
