@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:62257/Services/CodeCampService.svc?xsd=xsd0" namespace="http://onetug.org/2012/CodeCampService" />
       <xsd:import schemaLocation="http://localhost:62257/Services/CodeCampService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:62257/Services/CodeCampService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" />
+      <xsd:import schemaLocation="http://localhost:62257/Services/CodeCampService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ICodeCampService_RegisterPerson_InputMessage">
@@ -247,12 +248,6 @@
   <wsdl:message name="ICodeCampService_CreateRateSession_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateRateSessionResponse" />
   </wsdl:message>
-  <wsdl:message name="ICodeCampService_GetTags_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTags" />
-  </wsdl:message>
-  <wsdl:message name="ICodeCampService_GetTags_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTagsResponse" />
-  </wsdl:message>
   <wsdl:message name="ICodeCampService_GetTagsByEvent_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTagsByEvent" />
   </wsdl:message>
@@ -433,6 +428,30 @@
   <wsdl:message name="ICodeCampService_GetAttendeesCount_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAttendeesCountResponse" />
   </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTags_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTags" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_GetTags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_AddTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTag" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_AddTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTag" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_EditTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditTag" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_EditTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditTagResponse" />
+  </wsdl:message>
   <wsdl:message name="ICodeCampService_GetValueForKey_InputMessage">
     <wsdl:part name="parameters" element="tns:GetValueForKey" />
   </wsdl:message>
@@ -600,10 +619,6 @@
       <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateRateSession" message="tns:ICodeCampService_CreateRateSession_InputMessage" />
       <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/CreateRateSessionResponse" message="tns:ICodeCampService_CreateRateSession_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetTags">
-      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTags" message="tns:ICodeCampService_GetTags_InputMessage" />
-      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTagsResponse" message="tns:ICodeCampService_GetTags_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetTagsByEvent">
       <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTagsByEvent" message="tns:ICodeCampService_GetTagsByEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTagsByEventResponse" message="tns:ICodeCampService_GetTagsByEvent_OutputMessage" />
@@ -723,6 +738,22 @@
     <wsdl:operation name="GetAttendeesCount">
       <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAttendeesCount" message="tns:ICodeCampService_GetAttendeesCount_InputMessage" />
       <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAttendeesCountResponse" message="tns:ICodeCampService_GetAttendeesCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTags">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTags" message="tns:ICodeCampService_GetTags_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTagsResponse" message="tns:ICodeCampService_GetTags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTag">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/AddTag" message="tns:ICodeCampService_AddTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/AddTagResponse" message="tns:ICodeCampService_AddTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTag">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteTag" message="tns:ICodeCampService_DeleteTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteTagResponse" message="tns:ICodeCampService_DeleteTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditTag">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/EditTag" message="tns:ICodeCampService_EditTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/EditTagResponse" message="tns:ICodeCampService_EditTag_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetValueForKey">
       <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetValueForKey" message="tns:ICodeCampService_GetValueForKey_InputMessage" />

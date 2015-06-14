@@ -22,6 +22,7 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="CodeCampService.xsd" MetadataType="Schema" ID="137a530a-a308-48fc-803e-41d12e8457f1" SourceId="1" SourceUrl="http://localhost:62257/Services/CodeCampService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CodeCampService3.xsd" MetadataType="Schema" ID="d7d83535-7dbd-4b96-a50e-2a533331ae26" SourceId="1" SourceUrl="http://localhost:62257/Services/CodeCampService.svc?xsd=xsd3" />
     <MetadataFile FileName="CodeCampService.disco" MetadataType="Disco" ID="80bf1b59-a72b-4fa6-93ab-4b9c847da48d" SourceId="1" SourceUrl="http://localhost:62257/Services/CodeCampService.svc?disco" />
     <MetadataFile FileName="CodeCampService.wsdl" MetadataType="Wsdl" ID="4b0c6978-c46e-42db-bf11-a3a042d72676" SourceId="1" SourceUrl="http://localhost:62257/Services/CodeCampService.svc?wsdl" />
     <MetadataFile FileName="CodeCampService1.wsdl" MetadataType="Wsdl" ID="738dae14-4ab3-406f-aadd-af1645b5221e" SourceId="1" SourceUrl="http://localhost:62257/Services/CodeCampService.svc?wsdl=wsdl0" />

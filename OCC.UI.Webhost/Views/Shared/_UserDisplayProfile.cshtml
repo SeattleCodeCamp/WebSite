@@ -18,7 +18,14 @@
                     }
                 </a>
             </div>
-            <p><a href="@Url.Action("LogOff", "Account")">Logout</a><br><a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")">F.A.Q.</a></p>
+            @* <p><a href="@Url.Action("LogOff", "Account")">Logout</a> / <a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")">F.A.Q.</a></p>*@
+            <div class="loginDisplayContainer">
+                <a class="loginDisplayArea" href="@Url.Action("LogOff", "Account")"><h6>Logout</h6></a>
+            </div>
+            <div class="loginDisplayContainer">|</div>
+            <div class="loginDisplayContainer">
+                <a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")"><h6>F.A.Q.</h6></a>
+            </div><br />
         </div>
     }
     else
@@ -38,7 +45,7 @@
             <div class="loginDisplayContainer">|</div>
             <div class="loginDisplayContainer">
                 <a class="loginDisplayArea" href="@Url.Action("Register", "Account")"><h6>Register</h6></a>
-            </div><br/>
+            </div><br />
             <a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")"><h6>F.A.Q.</h6></a>
         </div>
     }

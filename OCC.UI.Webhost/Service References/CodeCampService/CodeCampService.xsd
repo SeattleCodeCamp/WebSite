@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://onetug.org/2012/CodeCampService" elementFormDefault="qualified" targetNamespace="http://onetug.org/2012/CodeCampService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:62257/Services/CodeCampService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" />
+  <xs:import schemaLocation="http://localhost:62257/Services/CodeCampService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
   <xs:element name="RegisterPerson">
     <xs:complexType>
       <xs:sequence>
@@ -519,18 +520,6 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetTags">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetTagsResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTagsResult" nillable="true" type="q32:ArrayOfTag" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetTagsByEvent">
     <xs:complexType>
       <xs:sequence>
@@ -541,7 +530,7 @@
   <xs:element name="GetTagsByEventResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTagsByEventResult" nillable="true" type="q33:ArrayOfTag" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTagsByEventResult" nillable="true" type="q32:ArrayOfTag" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -555,7 +544,7 @@
   <xs:element name="GetSessionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSessionsResult" nillable="true" type="q34:ArrayOfSession" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSessionsResult" nillable="true" type="q33:ArrayOfSession" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -569,7 +558,7 @@
   <xs:element name="GetApprovedSessionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetApprovedSessionsResult" nillable="true" type="q35:ArrayOfSession" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetApprovedSessionsResult" nillable="true" type="q34:ArrayOfSession" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -583,7 +572,7 @@
   <xs:element name="GetSessionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSessionResult" nillable="true" type="q36:Session" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSessionResult" nillable="true" type="q35:Session" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -598,14 +587,14 @@
   <xs:element name="GetSpeakerSessionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSpeakerSessionsResult" nillable="true" type="q37:ArrayOfSession" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSpeakerSessionsResult" nillable="true" type="q36:ArrayOfSession" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateSession">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="session" nillable="true" type="q38:Session" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="session" nillable="true" type="q37:Session" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -617,7 +606,7 @@
   <xs:element name="UpdateSession">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="session" nillable="true" type="q39:Session" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="session" nillable="true" type="q38:Session" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -648,7 +637,7 @@
   <xs:element name="GetSpeakersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSpeakersResult" nillable="true" type="q40:ArrayOfSpeaker" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSpeakersResult" nillable="true" type="q39:ArrayOfSpeaker" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -663,7 +652,7 @@
   <xs:element name="GetSpeakerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSpeakerResult" nillable="true" type="q41:Speaker" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetSpeakerResult" nillable="true" type="q40:Speaker" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -677,7 +666,7 @@
   <xs:element name="GetTaskAssigneesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTaskAssigneesResult" nillable="true" type="q42:ArrayOfPerson" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTaskAssigneesResult" nillable="true" type="q41:ArrayOfPerson" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -691,14 +680,14 @@
   <xs:element name="GetAllCurrentEventTasksResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetAllCurrentEventTasksResult" nillable="true" type="q43:ArrayOfTask" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetAllCurrentEventTasksResult" nillable="true" type="q42:ArrayOfTask" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AssignTaskToPerson">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="task" nillable="true" type="q44:Task" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="task" nillable="true" type="q43:Task" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -710,7 +699,7 @@
   <xs:element name="RemoveTaskFromPerson">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="task" nillable="true" type="q45:Task" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="task" nillable="true" type="q44:Task" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -729,14 +718,14 @@
   <xs:element name="GetTaskByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTaskByIdResult" nillable="true" type="q46:Task" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTaskByIdResult" nillable="true" type="q45:Task" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddTaskToEvent">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="newTask" nillable="true" type="q47:Task" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="newTask" nillable="true" type="q46:Task" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -760,7 +749,7 @@
   <xs:element name="UpdateTask">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="existingTask" nillable="true" type="q48:Task" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="existingTask" nillable="true" type="q47:Task" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -822,7 +811,7 @@
   <xs:element name="GetAgendaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetAgendaResult" nillable="true" type="q49:ArrayOfTrack" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetAgendaResult" nillable="true" type="q48:ArrayOfTrack" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -837,14 +826,14 @@
   <xs:element name="GetMyAgendaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetMyAgendaResult" nillable="true" type="q50:ArrayOfSession" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetMyAgendaResult" nillable="true" type="q49:ArrayOfSession" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RateSession">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="s" nillable="true" type="q51:SessionAttendee" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="s" nillable="true" type="q50:SessionAttendee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -864,7 +853,7 @@
   <xs:element name="GetAttendedSessionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetAttendedSessionsResult" nillable="true" type="q52:ArrayOfSessionAttendee" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetAttendedSessionsResult" nillable="true" type="q51:ArrayOfSessionAttendee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -935,6 +924,56 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="GetAttendeesCountResult" type="xs:int" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTags">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="GetTagsResult" nillable="true" type="q52:ArrayOfTag" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="tag" nillable="true" type="q53:Tag" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTagResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tagId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTagResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="DeleteTagResult" nillable="true" type="q54:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditTag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/OCC.Service.Webhost.Services" minOccurs="0" name="tag" nillable="true" type="q55:Tag" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditTagResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="GetValueForKey">

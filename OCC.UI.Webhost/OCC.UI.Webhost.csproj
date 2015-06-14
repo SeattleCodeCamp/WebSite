@@ -189,6 +189,7 @@
     <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Controllers\SpeakerController.cs" />
     <Compile Include="Controllers\SponsorController.cs" />
+    <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Controllers\TimeslotController.cs" />
     <Compile Include="Controllers\TrackController.cs" />
     <Compile Include="Controllers\VolunteerController.cs" />
@@ -217,6 +218,7 @@
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\Speaker.cs" />
     <Compile Include="Models\Sponsor.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\Timeslot.cs" />
     <Compile Include="Models\Track.cs" />
     <Compile Include="Models\Volunteer.cs" />
@@ -242,8 +244,19 @@
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\css\Tags.css">
+      <DependentUpon>Tags.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\Tags.min.css">
+      <DependentUpon>Tags.css</DependentUpon>
+    </Content>
     <Content Include="Content\css\text.css" />
-    <Content Include="Content\css\Tiles.css" />
+    <Content Include="Content\css\Tiles.css">
+      <DependentUpon>Tiles.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\Tiles.min.css">
+      <DependentUpon>Tiles.css</DependentUpon>
+    </Content>
     <Content Include="Content\css\dark-hive\images\ui-bg_flat_30_cccccc_40x100.png" />
     <Content Include="Content\css\dark-hive\images\ui-bg_flat_50_5c5c5c_40x100.png" />
     <Content Include="Content\css\dark-hive\images\ui-bg_glass_40_ffc73d_1x400.png" />
@@ -496,6 +509,14 @@
     <Content Include="Content\Documents\Seattle Code Camp 2015 Contributor Information.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\css\Tags.less" />
+    <Content Include="Content\css\Tags.css.map">
+      <DependentUpon>Tags.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\Tiles.less" />
+    <Content Include="Content\css\Tiles.css.map">
+      <DependentUpon>Tiles.css</DependentUpon>
+    </Content>
     <None Include="Content\themes\Metro\Double Tile Background.pdn" />
     <None Include="Content\themes\Metro\MetroIcons\MetroIcons.ai" />
     <None Include="Content\themes\Metro\SingleTile Background.pdn" />
@@ -503,6 +524,12 @@
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\seattlecc.pubxml" />
     <None Include="Service References\CodeCampService\CodeCampService.disco" />
+    <None Include="Service References\CodeCampService\CodeCampService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CodeCampService\CodeCampService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\CodeCampService\configuration91.svcinfo" />
     <None Include="Service References\CodeCampService\configuration.svcinfo" />
     <Content Include="Scripts\tiles.js" />
@@ -631,6 +658,8 @@
     <Content Include="Views\Home\Rate.cshtml" />
     <Content Include="Views\Home\FAQ.cshtml" />
     <Content Include="Views\MailingList\Index.cshtml" />
+    <Content Include="Views\Tag\Index.cshtml" />
+    <Content Include="Views\Tag\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

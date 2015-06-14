@@ -1,0 +1,41 @@
+﻿@using OCC.UI.Webhost.Models
+@model IEnumerable<Tag>
+
+@{
+    ViewBag.Title = "Tags";
+}
+
+@section AddToHead{
+    <link href="@Url.Content("~/Content/css/tags.min.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="title">tags | @Html.ActionLink("new", "Add") | @Html.ActionLink("back", "Admin", "Home")</div>
+
+<div class="tagsArea tagTable">
+
+    <div class="heading">
+        <span class="cell">delete</span>
+        <span class="cell">tag name</span>
+        <span class="cell">sessions</span>
+    </div>
+
+
+    @foreach (var tag in Model)
+    {
+        <div class="row">
+            @if (tag.SessionsCount > 0)
+            {
+                <span class="cell">[&nbsp;&nbsp;]</span>
+            }
+            else
+            {
+                <span class="cell">@Html.ActionLink("[x]", "Delete", new { tagId = tag.Id })</span>
+            }
+
+            <span class="cell">@tag.TagName</span>
+            <span class="cell tagCount">@tag.SessionsCount</span>
+        </div>
+    }
+
+</div>
+

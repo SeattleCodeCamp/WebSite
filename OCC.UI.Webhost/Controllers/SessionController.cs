@@ -95,6 +95,8 @@
         [HttpPost]
         public ActionResult Create(int eventid, Session session)
         {
+            ViewBag.Event = service.GetEvent(eventid);
+
             try
             {
                 service.CreateSession(new CodeCampService.Session()
@@ -111,7 +113,7 @@
 
                 return RedirectToAction("SpeakerSessions");
             }
-            catch
+            catch(Exception ex)
             {
                 return View(session);
             }

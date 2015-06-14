@@ -364,15 +364,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTags">
-      <soap:operation soapAction="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTags" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetTagsByEvent">
       <soap:operation soapAction="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTagsByEvent" style="document" />
       <wsdl:input>
@@ -636,6 +627,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetAttendeesCount">
       <soap:operation soapAction="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAttendeesCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTags">
+      <soap:operation soapAction="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTag">
+      <soap:operation soapAction="http://onetug.org/2012/CodeCampService/ICodeCampService/AddTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTag">
+      <soap:operation soapAction="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditTag">
+      <soap:operation soapAction="http://onetug.org/2012/CodeCampService/ICodeCampService/EditTag" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

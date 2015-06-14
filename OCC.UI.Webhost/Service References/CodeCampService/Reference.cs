@@ -2150,9 +2150,6 @@ namespace OCC.UI.Webhost.CodeCampService {
             "")]
         void CreateRateSession(OCC.UI.Webhost.CodeCampService.Rate rating);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTags", ReplyAction="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTagsResponse")]
-        OCC.UI.Webhost.CodeCampService.Tag[] GetTags();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTagsByEvent", ReplyAction="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTagsByEventResponse")]
         OCC.UI.Webhost.CodeCampService.Tag[] GetTagsByEvent(int eventId);
         
@@ -2249,6 +2246,18 @@ namespace OCC.UI.Webhost.CodeCampService {
         [System.ServiceModel.OperationContractAttribute(Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAttendeesCount", ReplyAction="http://onetug.org/2012/CodeCampService/ICodeCampService/GetAttendeesCountResponse" +
             "")]
         int GetAttendeesCount(int eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTags", ReplyAction="http://onetug.org/2012/CodeCampService/ICodeCampService/GetTagsResponse")]
+        OCC.UI.Webhost.CodeCampService.Tag[] GetTags();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://onetug.org/2012/CodeCampService/ICodeCampService/AddTag", ReplyAction="http://onetug.org/2012/CodeCampService/ICodeCampService/AddTagResponse")]
+        void AddTag(OCC.UI.Webhost.CodeCampService.Tag tag);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteTag", ReplyAction="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteTagResponse")]
+        System.Tuple<bool, string> DeleteTag(int tagId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://onetug.org/2012/CodeCampService/ICodeCampService/EditTag", ReplyAction="http://onetug.org/2012/CodeCampService/ICodeCampService/EditTagResponse")]
+        void EditTag(OCC.UI.Webhost.CodeCampService.Tag tag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetValueForKey", ReplyAction="http://onetug.org/2012/CodeCampService/ICodeCampService/GetValueForKeyResponse")]
         string GetValueForKey(string key);
@@ -2441,10 +2450,6 @@ namespace OCC.UI.Webhost.CodeCampService {
             base.Channel.CreateRateSession(rating);
         }
         
-        public OCC.UI.Webhost.CodeCampService.Tag[] GetTags() {
-            return base.Channel.GetTags();
-        }
-        
         public OCC.UI.Webhost.CodeCampService.Tag[] GetTagsByEvent(int eventId) {
             return base.Channel.GetTagsByEvent(eventId);
         }
@@ -2563,6 +2568,22 @@ namespace OCC.UI.Webhost.CodeCampService {
         
         public int GetAttendeesCount(int eventId) {
             return base.Channel.GetAttendeesCount(eventId);
+        }
+        
+        public OCC.UI.Webhost.CodeCampService.Tag[] GetTags() {
+            return base.Channel.GetTags();
+        }
+        
+        public void AddTag(OCC.UI.Webhost.CodeCampService.Tag tag) {
+            base.Channel.AddTag(tag);
+        }
+        
+        public System.Tuple<bool, string> DeleteTag(int tagId) {
+            return base.Channel.DeleteTag(tagId);
+        }
+        
+        public void EditTag(OCC.UI.Webhost.CodeCampService.Tag tag) {
+            base.Channel.EditTag(tag);
         }
         
         public string GetValueForKey(string key) {

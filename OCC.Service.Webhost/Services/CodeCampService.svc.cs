@@ -13,6 +13,7 @@ namespace OCC.Service.Webhost.Services
         private readonly Lazy<SessionRepository> _sessionRepository;
         private readonly Lazy<MetadataRepository> _metadataRepository;
         private readonly Lazy<TaskRepository> _taskRepository;
+        private readonly Lazy<TagRepository> _tagRepository; 
         private const string ApprovedSession = "APPROVED";
         private const string SubmittedSession = "SUBMITTED";
 
@@ -20,12 +21,14 @@ namespace OCC.Service.Webhost.Services
             Lazy<PersonRepository> personRepository,
             Lazy<SessionRepository> sessionRepository,
             Lazy<MetadataRepository> metadataRepository,
-            Lazy<TaskRepository> taskRepository)
+            Lazy<TaskRepository> taskRepository,
+            Lazy<TagRepository> tagRepository )
         {
             _personRepository = personRepository;
             _sessionRepository = sessionRepository;
             _metadataRepository = metadataRepository;
             _taskRepository = taskRepository;
+            _tagRepository = tagRepository;
         }
 
         #region People
@@ -142,26 +145,27 @@ namespace OCC.Service.Webhost.Services
             }
         }
 
-        public IList<Tag> GetTags()
-        {
-            using (OCCDB db = new OCCDB())
-            {
-                List<Tag> result = new List<Tag>();
-                //var sessions = db.Sessions;
-                //var tags = db.Tags.OrderBy(t => t.TagName);
-                var sessionsTags = from t in db.Tags
-                                   select new { t.ID, t.TagName, SessionsCount = db.Sessions.Where(s => s.Tag_ID == t.ID).Count() };
-                foreach (var tag in sessionsTags)
-                {
-                    Data.Tag tg = new Data.Tag() { ID = tag.ID, TagName = tag.TagName };
-                    int count = tag.SessionsCount;
-                    result.Add(tg.Map(count));
-                }
+        // Refactored into TagRepository
+        //public IList<Tag> GetTags()
+        //{
+        //    using (OCCDB db = new OCCDB())
+        //    {
+        //        List<Tag> result = new List<Tag>();
+        //        //var sessions = db.Sessions;
+        //        //var tags = db.Tags.OrderBy(t => t.TagName);
+        //        var sessionsTags = from t in db.Tags
+        //                           select new { t.ID, t.TagName, SessionsCount = db.Sessions.Where(s => s.Tag_ID == t.ID).Count() };
+        //        foreach (var tag in sessionsTags)
+        //        {
+        //            Data.Tag tg = new Data.Tag() { ID = tag.ID, TagName = tag.TagName };
+        //            int count = tag.SessionsCount;
+        //            result.Add(tg.Map(count));
+        //        }
 
-                return result;
-            }
+        //        return result;
+        //    }
 
-        }
+        //}
 
         public IList<Tag> GetTagsByEvent(int eventid)
         {
@@ -1110,6 +1114,30 @@ namespace OCC.Service.Webhost.Services
 
                 return attendees.Count();
             }
+        }
+
+        #endregion
+
+        #region Tags
+
+        public IList<Tag> GetTags()
+        {
+            return _tagRepository.Value.GetTags();
+        }
+
+        public void AddTag(Tag tag)
+        {
+            _tagRepository.Value.CreateTag(tag);
+        }
+
+        public Tuple<bool, string> DeleteTag(int tagId)
+        {
+            return _tagRepository.Value.DeleteTag(tagId);
+        }
+
+        public void EditTag(Tag tag)
+        {
+            _tagRepository.Value.UpdateTag(tag);
         }
 
         #endregion

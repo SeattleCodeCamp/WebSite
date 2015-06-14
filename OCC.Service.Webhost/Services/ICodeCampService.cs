@@ -154,9 +154,6 @@
         void CreateRateSession(Rate rating);
 
         [OperationContract]
-        IList<Tag> GetTags();
-
-        [OperationContract]
         IList<Tag> GetTagsByEvent(int eventId);
 
         [OperationContract]
@@ -269,6 +266,22 @@
 
         [OperationContract]
         int GetAttendeesCount(int eventId);
+
+        #endregion
+
+        #region Tags
+
+        [OperationContract]
+        IList<Tag> GetTags();
+
+        [OperationContract]
+        void AddTag(Tag tag);
+
+        [OperationContract]
+        Tuple<bool, string> DeleteTag(int tagId);
+
+        [OperationContract]
+        void EditTag(Tag tag);
 
         #endregion
 
