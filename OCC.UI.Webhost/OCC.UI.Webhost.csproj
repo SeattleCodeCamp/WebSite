@@ -520,9 +520,6 @@
     <None Include="Content\themes\Metro\Double Tile Background.pdn" />
     <None Include="Content\themes\Metro\MetroIcons\MetroIcons.ai" />
     <None Include="Content\themes\Metro\SingleTile Background.pdn" />
-    <None Include="Properties\PublishProfiles\Azure.pubxml" />
-    <None Include="Properties\PublishProfiles\Local.pubxml" />
-    <None Include="Properties\PublishProfiles\seattlecc.pubxml" />
     <None Include="Service References\CodeCampService\CodeCampService.disco" />
     <None Include="Service References\CodeCampService\CodeCampService.xsd">
       <SubType>Designer</SubType>
@@ -665,6 +662,7 @@
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Content\themes\base\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
