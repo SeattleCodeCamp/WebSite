@@ -1,0 +1,18 @@
+﻿@model DateTime?
+
+@Html.TextBox("", (Model.HasValue ? Model.Value.ToString("yyyy/MM/dd HH:mm") : DateTime.Now.ToString("yyyy/MM/dd HH:mm")), new { @class = "dateTimePicker" })
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('.dateTimePicker').datetimepicker({
+            dayOfWeekStart: 0,
+            lang: 'en',
+            step: 30,
+            startDate: $('.dateTimePicker').val()
+        });
+
+     });
+
+</script>

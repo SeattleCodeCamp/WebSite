@@ -27,11 +27,11 @@
         public int Capacity { get; set; }
 
         [Display(Name = "start time")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-ddThh:mm:ssZ}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/ddThh:mmZ}")]
         public DateTime StartTime { get; set; }
 
         [Display(Name = "end time")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-ddThh:mm:ssZ}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/ddThh:mmZ}")]
         public DateTime EndTime { get; set; }
 
         public Event Event { get; set; }

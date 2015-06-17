@@ -281,6 +281,7 @@
     <Content Include="Content\Javascript\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\Javascript\jquery-1.7.1.min.js" />
     <Content Include="Content\Javascript\jquery-ui-1.8.17.custom.min.js" />
+    <Content Include="Content\Javascript\jquery.datetimepicker.css" />
     <Content Include="Content\Javascript\jquery.ui.accordion.css" />
     <Content Include="Content\Javascript\jquery.ui.all.css" />
     <Content Include="Content\Javascript\jquery.ui.autocomplete.css" />
@@ -500,6 +501,7 @@
     <Content Include="Scripts\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
     <Content Include="Scripts\jquery.animate-shadow-min.js" />
+    <Content Include="Scripts\jquery.datetimepicker.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -567,6 +569,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

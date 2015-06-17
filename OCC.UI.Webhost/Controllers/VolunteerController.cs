@@ -50,7 +50,17 @@ namespace OCC.UI.Webhost.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create(int eventId)
         {
-            VolunteerTask task = new VolunteerTask() { EventId = eventId };
+            var eventForTask = service.GetEvent(eventId);
+            var taskStart = DateTime.Now;
+            var taskEnd = DateTime.Now;
+            
+            if (eventForTask != null)
+            {
+                taskStart = eventForTask.StartTime;
+                taskEnd = eventForTask.EndTime;
+            }
+
+            VolunteerTask task = new VolunteerTask() { EventId = eventId, StartTime = taskStart, EndTime = taskEnd };
             return View(task);
         } 
 
