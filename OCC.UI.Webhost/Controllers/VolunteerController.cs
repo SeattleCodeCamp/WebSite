@@ -60,7 +60,7 @@ namespace OCC.UI.Webhost.Controllers
                 taskEnd = eventForTask.EndTime;
             }
 
-            VolunteerTask task = new VolunteerTask() { EventId = eventId, StartTime = taskStart, EndTime = taskEnd };
+            VolunteerTask task = new VolunteerTask { EventId = eventId, StartTime = taskStart, EndTime = taskEnd };
             return View(task);
         } 
 

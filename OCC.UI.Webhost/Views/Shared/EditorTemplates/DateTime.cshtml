@@ -1,6 +1,6 @@
 ﻿@model DateTime?
 
-@Html.TextBox("", (Model.HasValue ? Model.Value.ToString("yyyy/MM/dd HH:mm") : DateTime.Now.ToString("yyyy/MM/dd HH:mm")), new { @class = "dateTimePicker" })
+@Html.TextBox("", (Model.HasValue ? Model.Value.ToString("MM/dd/yyyy HH:mm") : DateTime.Now.ToString("MM/dd/yyyy HH:mm")), new { @class = "dateTimePicker" })
 
 <script type="text/javascript">
 
