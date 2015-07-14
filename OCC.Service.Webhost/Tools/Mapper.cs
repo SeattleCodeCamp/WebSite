@@ -251,7 +251,8 @@
                 Description = s.Description,
                 WebsiteUrl = s.WebsiteUrl,
                 SponsorshipLevel = s.SponsorshipLevel,
-                ImageUrl = s.ImageUrl
+                ImageUrl = s.ImageUrl,
+                Image = s.Image
             };
 
             return sponsor;

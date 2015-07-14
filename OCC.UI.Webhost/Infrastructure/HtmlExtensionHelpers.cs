@@ -55,15 +55,27 @@ namespace OCC.UI.Webhost.Infrastructure
 
         public static MvcHtmlString SponsorImageTag(this HtmlHelper html, MetroTileImage image, string cssClass = null)
         {
+            bool webimage = false;
             var maxWidth = 278;
             var maxHeight = 109;
 
             if (string.IsNullOrWhiteSpace(image.PathUri))
-                return null;
+            {
+                webimage = true;
+            }
+
             var url = new UrlHelper(html.ViewContext.RequestContext);
 
             var imageTagBuilder = new TagBuilder("img");
-            imageTagBuilder.MergeAttribute("src", url.Content(image.PathUri));
+            if (webimage)
+            {
+                imageTagBuilder.MergeAttribute("src", "data:image;base64,"+Convert.ToBase64String(image.Logo.GetBytes()));                
+            }
+            else
+            {
+                imageTagBuilder.MergeAttribute("src", url.Content(image.PathUri));
+            }
+
             imageTagBuilder.MergeAttribute("alt", image.AltText);
 
             if (image.Height > maxHeight || image.Width > maxWidth)

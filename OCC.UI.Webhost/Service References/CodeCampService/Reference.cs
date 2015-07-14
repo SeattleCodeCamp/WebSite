@@ -1068,6 +1068,9 @@ namespace OCC.UI.Webhost.CodeCampService {
         private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ImageUrlField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1124,6 +1127,19 @@ namespace OCC.UI.Webhost.CodeCampService {
                 if ((this.IDField.Equals(value) != true)) {
                     this.IDField = value;
                     this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
                 }
             }
         }

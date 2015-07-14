@@ -25,5 +25,8 @@
 
         [DataMember]
         public string WebsiteUrl { get; set; }
+
+        [DataMember]
+        public byte[] Image { get; set; }
     }
 }

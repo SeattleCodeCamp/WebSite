@@ -15,7 +15,7 @@ namespace OCC.UI.Webhost.Controllers
         [ChildActionOnly]
         public PartialViewResult DoubleMetroTileForCCPhotos()
         {
-            
+
             var tileViewModel = new MetroTileViewModel
             {
                 TileLinkActionName = "Index",
@@ -41,53 +41,58 @@ namespace OCC.UI.Webhost.Controllers
             MetroTileImage metroTileImage = null;
             MetroTileViewModel metroTileViewModel = null;
 
-            if(CurrentUser != null)
+            if (CurrentUser != null)
             {
-                metroTileViewModel = new MetroTileViewModel {
-                        TileLinkActionName = "UpdateProfile",
-                        TileLinkControllerName = "Account",
-                        TileDisplayName = "Update Profile",
-                        TileBackgroundCssClass = "singleTileGreenImage"
+                metroTileViewModel = new MetroTileViewModel
+                {
+                    TileLinkActionName = "UpdateProfile",
+                    TileLinkControllerName = "Account",
+                    TileDisplayName = "Update Profile",
+                    TileBackgroundCssClass = "singleTileGreenImage"
                 };
 
                 Person user = CurrentUser;
 
-                if(!String.IsNullOrEmpty(user.ImageUrl))
+                if (!String.IsNullOrEmpty(user.ImageUrl))
                 {
-                    metroTileImage = new MetroTileImage(user.ImageUrl) {
-                            AltText = user.FullName,
-                            Title = string.Format("Welcome, {0}", user.FirstName)
+                    metroTileImage = new MetroTileImage(user.ImageUrl)
+                    {
+                        AltText = user.FullName,
+                        Title = string.Format("Welcome, {0}", user.FirstName)
                     };
                 }
             }
             else
             {
-                metroTileViewModel = new MetroTileViewModel {
-                        TileLinkActionName = "LogOn",
-                        TileLinkControllerName = "Account",
-                        TileDisplayName = "Login / Register",
-                        TileBackgroundCssClass = "singleTileGreenImage"
+                metroTileViewModel = new MetroTileViewModel
+                {
+                    TileLinkActionName = "LogOn",
+                    TileLinkControllerName = "Account",
+                    TileDisplayName = "Login / Register",
+                    TileBackgroundCssClass = "singleTileGreenImage"
                 };
 
-                metroTileImage = new MetroTileImage("../../Content/themes/Shared/BlankUser.png") {
-                        AltText = "Login or Register",
-                        Title = "Login or Register"
+                metroTileImage = new MetroTileImage("../../Content/themes/Shared/BlankUser.png")
+                {
+                    AltText = "Login or Register",
+                    Title = "Login or Register"
                 };
             }
 
-            if(metroTileImage == null)
+            if (metroTileImage == null)
             {
-                metroTileImage = new MetroTileImage("../../Content/themes/Shared/BlankUser.png") {
-                        AltText = "Login or Register",
-                        Title = "Login or Register"
+                metroTileImage = new MetroTileImage("../../Content/themes/Shared/BlankUser.png")
+                {
+                    AltText = "Login or Register",
+                    Title = "Login or Register"
                 };
             }
 
             metroTileViewModel.MetroTileIcons.Add(item: metroTileImage);
             metroTileViewModel.MetroTileIcons.Add(new MetroTileImage("../../Content/themes/Shared/SpaceNeedle.ico")
             {
-                    AltText = "The only tug",
-                    Title = "The only tug"
+                AltText = "The only tug",
+                Title = "The only tug"
             });
 
             return PartialView("_SingleMetroTile", metroTileViewModel);
@@ -96,25 +101,26 @@ namespace OCC.UI.Webhost.Controllers
         [ChildActionOnly]
         public PartialViewResult DoubleMetroTileForSponsors()
         {
-            var tileViewModel = new MetroTileViewModel {
-                    TileLinkActionName = "Sponsors",
-                    TileLinkControllerName = "Home",
-                    TileDisplayName = "Sponsors",
-                    TileBackgroundCssClass = "blueLightTile" // "singleTileGreenImage",
+            var tileViewModel = new MetroTileViewModel
+            {
+                TileLinkActionName = "Sponsors",
+                TileLinkControllerName = "Home",
+                TileDisplayName = "Sponsors",
+                TileBackgroundCssClass = "blueLightTile" // "singleTileGreenImage",
             };
 
             var defaultEvent = service.GetDefaultEvent();
             var sponsors = new List<Sponsor>(service.GetSponsors(defaultEvent.ID));
 
-            foreach(Sponsor sponsor in sponsors)
+            foreach (Sponsor sponsor in sponsors)
             {
-                if(!string.IsNullOrEmpty(sponsor.Name) && !string.IsNullOrEmpty(sponsor.ImageUrl))
+                if (!string.IsNullOrEmpty(sponsor.Name) && sponsor.Image != null)
                 {
-                    tileViewModel.MetroTileIcons.Add(new MetroTileImage(sponsor.ImageUrl)
+                    tileViewModel.MetroTileIcons.Add(new MetroTileImage(new Infrastructure.WebImageOCC(sponsor.Image))
                     {
-                            AltText = sponsor.Name,
-                            Title = string.Format("{0} ({1} sponsor)", sponsor.Name, sponsor.SponsorshipLevel.Replace("sponsor", String.Empty)) ,
-                            AnchorTagUri = sponsor.WebsiteUrl
+                        AltText = sponsor.Name,
+                        Title = string.Format("{0} ({1} sponsor)", sponsor.Name, sponsor.SponsorshipLevel.Replace("sponsor", String.Empty)),
+                        AnchorTagUri = sponsor.WebsiteUrl
                     });
                 }
             }
@@ -126,16 +132,17 @@ namespace OCC.UI.Webhost.Controllers
         [ChildActionOnly]
         public PartialViewResult SingleMetroTileForAgenda()
         {
-            var tileViewModel = new MetroTileViewModel {
-                    TileLinkActionName = "Agenda",
-                    TileLinkControllerName = "Home",
-                    TileDisplayName = "Agenda",
-                    TileBackgroundCssClass = "greenTile",
-                    DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/MetroIcons/QAgenda.png")
-                    {
-                        AltText = "Agenda",
-                        Title = "Agenda"
-                    }
+            var tileViewModel = new MetroTileViewModel
+            {
+                TileLinkActionName = "Agenda",
+                TileLinkControllerName = "Home",
+                TileDisplayName = "Agenda",
+                TileBackgroundCssClass = "greenTile",
+                DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/MetroIcons/QAgenda.png")
+                {
+                    AltText = "Agenda",
+                    Title = "Agenda"
+                }
             };
 
             return PartialView("_SingleMetroTile", tileViewModel);
@@ -144,16 +151,17 @@ namespace OCC.UI.Webhost.Controllers
         [ChildActionOnly]
         public PartialViewResult SingleMetroTileForAdmin()
         {
-            var tileViewModel = new MetroTileViewModel {
-                    TileLinkActionName = "Admin",
-                    TileLinkControllerName = "Home",
-                    TileDisplayName = "Admin",
-                    TileBackgroundCssClass = "blueTile",
-                    DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/MetroIcons/QAdmin.png")
-                    {
-                        AltText = "Admin",
-                        Title = "Admin"
-                    }
+            var tileViewModel = new MetroTileViewModel
+            {
+                TileLinkActionName = "Admin",
+                TileLinkControllerName = "Home",
+                TileDisplayName = "Admin",
+                TileBackgroundCssClass = "blueTile",
+                DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/MetroIcons/QAdmin.png")
+                {
+                    AltText = "Admin",
+                    Title = "Admin"
+                }
             };
 
             return PartialView("_SingleMetroTile", tileViewModel);
@@ -162,16 +170,17 @@ namespace OCC.UI.Webhost.Controllers
         [ChildActionOnly]
         public PartialViewResult SingleMetroTileForVenue()
         {
-            var tileViewModel = new MetroTileViewModel {
-                    TileLinkActionName = "Venue",
-                    TileLinkControllerName = "Home",
-                    TileDisplayName = "Venue",
-                    TileBackgroundCssClass = "singleTileMapImage",
-                    DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/MetroIcons/BlankImage-1x1.png")
-                    {
-                            AltText = "Venue",
-                            Title = "Venue"
-                    }
+            var tileViewModel = new MetroTileViewModel
+            {
+                TileLinkActionName = "Venue",
+                TileLinkControllerName = "Home",
+                TileDisplayName = "Venue",
+                TileBackgroundCssClass = "singleTileMapImage",
+                DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/MetroIcons/BlankImage-1x1.png")
+                {
+                    AltText = "Venue",
+                    Title = "Venue"
+                }
             };
 
             return PartialView("_SingleMetroTile", tileViewModel);
@@ -183,17 +192,18 @@ namespace OCC.UI.Webhost.Controllers
             var defaultEvent = service.GetDefaultEvent();
             int speakersCount = service.GetSpeakersCount(defaultEvent.ID);
 
-            var tileViewModel = new MetroTileViewModel {
-                    TileLinkActionName = "Speakers",
-                    TileLinkControllerName = "Home",
-                    TileDisplayName = "Speakers",
-                    TileBackgroundCssClass = "redTile",
-                    DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/MetroIcons/QSpeaker.png")
-                    {
-                        AltText = "Speakers",
-                        Title = "Speakers"
-                    },
-                    TileNotificationMessage = speakersCount.ToString()
+            var tileViewModel = new MetroTileViewModel
+            {
+                TileLinkActionName = "Speakers",
+                TileLinkControllerName = "Home",
+                TileDisplayName = "Speakers",
+                TileBackgroundCssClass = "redTile",
+                DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/MetroIcons/QSpeaker.png")
+                {
+                    AltText = "Speakers",
+                    Title = "Speakers"
+                },
+                TileNotificationMessage = speakersCount.ToString()
             };
 
             return PartialView("_SingleMetroTile", tileViewModel);
@@ -205,17 +215,18 @@ namespace OCC.UI.Webhost.Controllers
             var defaultEvent = service.GetDefaultEvent();
             int sessionsCount = service.GetSessionsCount(defaultEvent.ID);
 
-            var tileViewModel = new MetroTileViewModel {
-                    TileLinkActionName = "Sessions",
-                    TileLinkControllerName = "Home",
-                    TileDisplayName = "Sessions",
-                    TileBackgroundCssClass = "orangeTile",
-                    DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/MetroIcons/QSession.png")
-                    {
-                        AltText = "Sessions",
-                        Title = "Sessions"
-                    },
-                    TileNotificationMessage = sessionsCount.ToString()
+            var tileViewModel = new MetroTileViewModel
+            {
+                TileLinkActionName = "Sessions",
+                TileLinkControllerName = "Home",
+                TileDisplayName = "Sessions",
+                TileBackgroundCssClass = "orangeTile",
+                DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/MetroIcons/QSession.png")
+                {
+                    AltText = "Sessions",
+                    Title = "Sessions"
+                },
+                TileNotificationMessage = sessionsCount.ToString()
             };
 
             return PartialView("_SingleMetroTile", tileViewModel);
@@ -224,16 +235,17 @@ namespace OCC.UI.Webhost.Controllers
         [ChildActionOnly]
         public PartialViewResult SingleMetroTileForVolunteers()
         {
-            var tileViewModel = new MetroTileViewModel {
-                    TileLinkActionName = "Volunteers",
-                    TileLinkControllerName = "Home",
-                    TileDisplayName = "Volunteers",
-                    DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/MetroIcons/QVolunteer.png")
-                    {
-                        AltText = "Volunteers",
-                        Title = "Volunteers"
-                    },
-                    TileBackgroundCssClass = "limeTile"
+            var tileViewModel = new MetroTileViewModel
+            {
+                TileLinkActionName = "Volunteers",
+                TileLinkControllerName = "Home",
+                TileDisplayName = "Volunteers",
+                DefaultTileImage = new MetroTileImage("../../Content/themes/Metro/MetroIcons/QVolunteer.png")
+                {
+                    AltText = "Volunteers",
+                    Title = "Volunteers"
+                },
+                TileBackgroundCssClass = "limeTile"
             };
 
             return PartialView("_SingleMetroTile", tileViewModel);
@@ -299,15 +311,16 @@ namespace OCC.UI.Webhost.Controllers
         [ChildActionOnly]
         public PartialViewResult DoubleMetroTileForTwitter()
         {
-            var twitterTileViewModel = new TwitterMetroTileViewModel {
-                    TileBackgroundCssClass = "blueTile", //  "doubleTileBlueImage",
-                    TileDisplayName = "#SeattleCC"
+            var twitterTileViewModel = new TwitterMetroTileViewModel
+            {
+                TileBackgroundCssClass = "blueTile", //  "doubleTileBlueImage",
+                TileDisplayName = "#SeattleCC"
             };
 
             //insert some logic to go get tweets with the #SeattleCC hashtag or tweets mentioning @netda or tweets that @NETDA puts out
 
             //If no data is returned from the twitter stream create two default tweets
-            if(twitterTileViewModel.Tweets.Count < 1)
+            if (twitterTileViewModel.Tweets.Count < 1)
             {
                 twitterTileViewModel.Tweets.Add(new TweetViewModel());
                 twitterTileViewModel.Tweets.Add(new TweetViewModel());

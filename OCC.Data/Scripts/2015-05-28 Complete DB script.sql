@@ -327,8 +327,8 @@ CREATE TABLE [dbo].[Sponsors](
 	[Name] [nvarchar](100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	[Description] [nvarchar](2000) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	[SponsorshipLevel] [nvarchar](100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	[ImageUrl] [nvarchar](100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	[WebsiteUrl] [nvarchar](100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [Image] [VARBINARY] (MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
  CONSTRAINT [PK__Sponsors__3214EC271CBC4616] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC

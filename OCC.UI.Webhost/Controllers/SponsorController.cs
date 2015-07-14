@@ -1,8 +1,10 @@
 ﻿namespace OCC.UI.Webhost.Controllers
 {
+    using System;
     using System.Collections.Generic;
+    using System.IO;
+    using System.Web;
     using System.Web.Mvc;
-
     using OCC.UI.Webhost.Models;
 
     public class SponsorController : BaseController
@@ -25,7 +27,8 @@
                     Description = sponsor.Description,
                     SponsorshipLevel = sponsor.SponsorshipLevel,
                     WebsiteUrl = sponsor.WebsiteUrl,
-                    ImageUrl = sponsor.ImageUrl
+                    ImageUrl = sponsor.ImageUrl,
+                    Logo = sponsor.Image == null ? null : new Infrastructure.WebImageOCC(sponsor.Image),
                 });
 
             return View(model);
@@ -61,7 +64,7 @@
             Sponsor model = new Sponsor() { EventID = eventid };
 
             return View(model);
-        } 
+        }
 
         //
         // POST: /Sponsor/Create
@@ -71,10 +74,6 @@
         {
             try
             {
-                if (sponsor.Logo != null)
-                    sponsor.ImageUrl = GetImageInfo(sponsor.Logo, "/Content/Sponsor");
-          
-
                 service.CreateSponsor(new CodeCampService.Sponsor()
                 {
                     EventID = sponsor.EventID,
@@ -82,17 +81,17 @@
                     Description = sponsor.Description,
                     SponsorshipLevel = sponsor.SponsorshipLevel,
                     WebsiteUrl = sponsor.WebsiteUrl,
-                    ImageUrl = sponsor.ImageUrl
+                    Image = ConvertToByes(Request.Files["Logo"])
                 });
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View(sponsor);
             }
         }
-        
+
         //
         // GET: /Sponsor/Edit/5
 
@@ -109,7 +108,7 @@
                 Description = sponsor.Description,
                 SponsorshipLevel = sponsor.SponsorshipLevel,
                 WebsiteUrl = sponsor.WebsiteUrl,
-                ImageUrl = sponsor.ImageUrl
+                Logo = sponsor.Image == null ? null : new Infrastructure.WebImageOCC(sponsor.Image),
             };
 
             return View(model);
@@ -123,9 +122,6 @@
         {
             try
             {
-                if (sponsor.Logo != null)
-                    sponsor.ImageUrl = GetImageInfo(sponsor.Logo, "/Content/Sponsor");
-
                 service.UpdateSponsor(new CodeCampService.Sponsor()
                 {
                     ID = sponsor.ID,
@@ -134,9 +130,9 @@
                     Description = sponsor.Description,
                     SponsorshipLevel = sponsor.SponsorshipLevel,
                     WebsiteUrl = sponsor.WebsiteUrl,
-                    ImageUrl = sponsor.ImageUrl
+                    Image = ConvertToByes(Request.Files["Logo"])
                 });
- 
+
                 return RedirectToAction("Index");
             }
             catch
@@ -155,7 +151,7 @@
             try
             {
                 service.DeleteSponsor(id);
- 
+
                 return RedirectToAction("Index");
             }
             catch
@@ -175,6 +171,14 @@
 
                 return View("Details", model);
             }
+        }
+
+        private byte[] ConvertToByes(HttpPostedFileBase image)
+        {
+            byte[] imageBytes = null;
+            BinaryReader reader = new BinaryReader(image.InputStream);
+            imageBytes = reader.ReadBytes((int)image.ContentLength);
+            return imageBytes;
         }
     }
 }

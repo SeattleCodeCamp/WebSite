@@ -5,7 +5,7 @@ namespace OCC.UI.Webhost.Infrastructure
 {
     public class WebImageOCC : WebImage
     {
-        public WebImageOCC(byte[] content)
+            public WebImageOCC(byte[] content)
             : base(content) { }
 
         public WebImageOCC(string filePath)

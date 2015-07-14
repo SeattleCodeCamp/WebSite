@@ -8,7 +8,7 @@ namespace OCC.UI.Webhost.Controllers
     using System.Web.Mvc;
 
     using OCC.UI.Webhost.Models;
-using System.Web.UI;
+    using System.Web.UI;
 
     public class HomeController : BaseController
     {
@@ -103,7 +103,7 @@ using System.Web.UI;
             return View(model);
         }
 
-        [OutputCache(Duration = 600, Location=OutputCacheLocation.Client, VaryByParam = "id")]
+        [OutputCache(Duration = 600, Location = OutputCacheLocation.Client, VaryByParam = "id")]
         public ActionResult Sessions(int? id)
         {
             var defaultEvent = service.GetDefaultEvent();
@@ -135,7 +135,7 @@ using System.Web.UI;
             return View(model);
         }
 
-        [OutputCache(Duration = 600, Location=OutputCacheLocation.Client, VaryByParam = "eventid")]
+        [OutputCache(Duration = 600, Location = OutputCacheLocation.Client, VaryByParam = "eventid")]
         public ActionResult Agenda(int eventid)
         {
             var tracks = service.GetAgenda(eventid);
@@ -176,8 +176,8 @@ using System.Web.UI;
             ViewBag.Sessions = sessions;
             ViewBag.TimeSlots = timeSlots;
             Rate model = new Rate();
-            List<int> timeSlotIDs = new List<int>{ 22, 23, 24, 26, 27, 28, 29 };
-            foreach (var timeSlot in timeSlots.Where(ts=>timeSlotIDs.Contains(ts.ID)).Select(ts=>ts))
+            List<int> timeSlotIDs = new List<int> { 22, 23, 24, 26, 27, 28, 29 };
+            foreach (var timeSlot in timeSlots.Where(ts => timeSlotIDs.Contains(ts.ID)).Select(ts => ts))
             {
                 RateSession rs = new RateSession();
                 rs.TimeSlotID = timeSlot.ID;
@@ -259,7 +259,8 @@ using System.Web.UI;
                                   Description = sponsor.Description,
                                   ImageUrl = sponsor.ImageUrl,
                                   SponsorshipLevel = sponsor.SponsorshipLevel,
-                                  WebsiteUrl = sponsor.WebsiteUrl
+                                  WebsiteUrl = sponsor.WebsiteUrl,
+                                  Logo = sponsor.Image == null ? null : new Infrastructure.WebImageOCC(sponsor.Image)
                               });
 
             return View(model);

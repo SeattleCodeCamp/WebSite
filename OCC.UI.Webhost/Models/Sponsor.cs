@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.Web;
+    using OCC.UI.Webhost.Infrastructure;
 
     public class Sponsor
     {
@@ -29,8 +30,7 @@
         [Display(Name = "image url")]
         public string ImageUrl { get; set; }
 
-        //[DataType(DataType.ImageUrl)]
         [Display(Name = "Logo")]
-        public HttpPostedFileBase Logo { get; set; }
+        public WebImageOCC Logo { get; set; }
     }
 }

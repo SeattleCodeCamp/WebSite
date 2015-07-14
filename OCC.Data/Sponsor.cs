@@ -25,5 +25,7 @@
 
         [StringLength(100)]
         public string WebsiteUrl { get; set; }
+
+        public byte[] Image { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Helpers;
+using OCC.UI.Webhost.Infrastructure;
 
 namespace OCC.UI.Webhost.Models
 {
@@ -80,6 +81,7 @@ namespace OCC.UI.Webhost.Models
         // private readonly int maxHeight;
         // private readonly int maxWidth;
         private WebImage image;
+        public WebImageOCC Logo { get; set; }
 
         public MetroTileImage(string src)
         {
@@ -89,6 +91,20 @@ namespace OCC.UI.Webhost.Models
                 PathUri = src;
                 Height = this.image.Height;
                 Width = this.image.Width;
+            }
+            catch
+            {
+                // ???
+            }
+        }
+
+        public MetroTileImage(WebImageOCC webImage)
+        {
+            try
+            {
+                this.Logo = webImage;
+                Height = this.Logo.Height;
+                Width = this.Logo.Width;
             }
             catch
             {
