@@ -113,7 +113,7 @@
 
                 return RedirectToAction("SpeakerSessions");
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return View(session);
             }
