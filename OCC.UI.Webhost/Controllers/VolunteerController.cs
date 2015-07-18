@@ -141,7 +141,7 @@ namespace OCC.UI.Webhost.Controllers
                 service.UpdateTask(task);
                 return RedirectToAction("Index");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return View();
             }

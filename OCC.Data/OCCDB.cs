@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Data.Common;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using OCC.Data.Migrations;
 
 namespace OCC.Data
 {
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Data.Entity.ModelConfiguration.Conventions;
-
+    
     public class OCCDB : DbContext
     {
         public OCCDB()
             : base("OCC2012")
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<OCCDB, Configuration>());
 
+            //DEV ONLY, will drop and recreate database !!! 
+            //Database.SetInitializer<OCCDB>(new OCCDBInitializer());
         }
 
         protected OCCDB(DbConnection existingConnection, bool contextOwnsConnection)
@@ -132,7 +135,8 @@ namespace OCC.Data
                 Address2 = "100 College Str",
                 City = "Sanford",
                 State = "FL",
-                Zip = "32746"
+                Zip = "32746",
+                IsDefault = true
             };
 
             occ2011.Announcements.Add(new Announcement() { ID = 1, Title = "call for speakers", Content = "This is the first announcement.", PublishDate = new DateTime(2012, 1, 1) });
