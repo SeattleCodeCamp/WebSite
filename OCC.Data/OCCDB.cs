@@ -2,6 +2,7 @@
 using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using OCC.Data.Migrations;
 
 namespace OCC.Data
 {
@@ -11,7 +12,10 @@ namespace OCC.Data
         public OCCDB()
             : base("OCC2012")
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<OCCDB, Configuration>());
 
+            //DEV ONLY, will drop and recreate database !!! 
+            //Database.SetInitializer<OCCDB>(new OCCDBInitializer());
         }
 
         protected OCCDB(DbConnection existingConnection, bool contextOwnsConnection)
