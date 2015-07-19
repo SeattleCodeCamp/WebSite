@@ -13,9 +13,6 @@ namespace OCC.Data
             : base("OCC2012")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<OCCDB, Configuration>());
-
-            //DEV ONLY, will drop and recreate database !!! 
-            //Database.SetInitializer<OCCDB>(new OCCDBInitializer());
         }
 
         protected OCCDB(DbConnection existingConnection, bool contextOwnsConnection)
@@ -57,11 +54,6 @@ namespace OCC.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-
-            //modelBuilder.Entity<Announcement>()
-            //    .HasRequired(a => a.Event)
-            //    .WithMany(e => e.Announcements)
-            //    .HasForeignKey(a => a.FK_Event);
 
             //DEV ONLY !!! 
             //Database.SetInitializer<OCCDB>(new OCCDBInitializer());
@@ -150,14 +142,18 @@ namespace OCC.Data
             Track t2 = new Track { ID = 12, Name = "Windows 8", Description = "Windows 8 development" };
             Track t3 = new Track { ID = 13, Name = "Architecture", Description = "Architecture, P and P" };
 
-            t1.Sessions.Add(new Session() { ID = 1, Event_ID = 2, Name = "Silverlight for WP7", Description = "Introduction in Silverlight programming with windows phone 7", Speaker = p2 });
-            t1.Sessions.Add(new Session() { ID = 2, Event_ID = 2, Name = "XNA for WP7", Description = "Introduction in XNA programming with windows phone 7", Speaker = p3 });
-            t2.Sessions.Add(new Session() { ID = 3, Event_ID = 2, Name = "Intro in Win 8", Description = "Introduction in Windows 8", Speaker = p4 });
-            t3.Sessions.Add(new Session() { ID = 4, Event_ID = 2, Name = "P & P", Description = "Patterns and practices", Speaker = p5 });
+            Timeslot tslot1 = new Timeslot {ID = 1, Event_ID = 2, StartTime = occ2012.StartTime, EndTime = occ2012.StartTime};
+
+            t1.Sessions.Add(new Session() { ID = 1, Event_ID = 2, Timeslot_ID = 1, Name = "Silverlight for WP7", Description = "Introduction in Silverlight programming with windows phone 7", Speaker = p2 });
+            t1.Sessions.Add(new Session() { ID = 2, Event_ID = 2, Timeslot_ID = 1, Name = "XNA for WP7", Description = "Introduction in XNA programming with windows phone 7", Speaker = p3 });
+            t2.Sessions.Add(new Session() { ID = 3, Event_ID = 2, Timeslot_ID = 1, Name = "Intro in Win 8", Description = "Introduction in Windows 8", Speaker = p4 });
+            t3.Sessions.Add(new Session() { ID = 4, Event_ID = 2, Timeslot_ID = 1, Name = "P & P", Description = "Patterns and practices", Speaker = p5 });
 
             occ2012.Tracks.Add(t1);
             occ2012.Tracks.Add(t2);
             occ2012.Tracks.Add(t3);
+
+            occ2012.Timeslots.Add(tslot1);
 
             context.People.Add(p1);
             context.People.Add(p2);
@@ -168,10 +164,23 @@ namespace OCC.Data
             context.Events.Add(occ2011);
             context.Events.Add(occ2012);
 
+            context.Tags.Add(new Tag { TagName = "Architecture"});
+            context.Tags.Add(new Tag { TagName = "Career" });
+            context.Tags.Add(new Tag { TagName = "Cloud" });
+            context.Tags.Add(new Tag { TagName = "Data" });
+            context.Tags.Add(new Tag { TagName = "Game/VR" });
+            context.Tags.Add(new Tag { TagName = "Mobile" });
+            context.Tags.Add(new Tag { TagName = "Testing" });
+            context.Tags.Add(new Tag { TagName = "User Experience" });
+            context.Tags.Add(new Tag { TagName = "Web" });
+            context.Tags.Add(new Tag { TagName = "Other" });
+            context.Tags.Add(new Tag { TagName = "IoT" });
+            context.Tags.Add(new Tag { TagName = "Hardware" });
+
             context.KeyValuePairs.Add(new KeyValuePair()
             {
                 Id = "tshirtSizes",
-                Value = "[{\"Item1\":1,\"Item2\":\"one\"},{\"Item1\":2,\"Item2\":\"two\"}]"
+                Value = "[{\"Item1\":1,\"Item2\":\"Don't want one\"},{\"Item1\":2,\"Item2\":\"Small\"},{\"Item1\":2,\"Item2\":\"Medium\"},{\"Item1\":2,\"Item2\":\"Large\"},{\"Item1\":2,\"Item2\":\"X-Large\"},{\"Item1\":2,\"Item2\":\"XX-Large\"}]"
             });
 
             context.SaveChanges();
