@@ -1,4 +1,5 @@
-﻿using OCC.UI.Webhost.CodeCampService;
+﻿using LitJson;
+using OCC.UI.Webhost.CodeCampService;
 
 namespace OCC.UI.Webhost.Controllers
 {
@@ -15,6 +16,16 @@ namespace OCC.UI.Webhost.Controllers
         // Magic Strings
         private const string CONST_TASK_PARAMETER_ID = "taskId";
         private const string CONST_DEFAULT_ICON_URL = "/Content/Avatar/default_user_icon.jpg";
+
+        public HomeController()
+        {
+        }
+
+        //Test helper
+        public HomeController(ICodeCampService service, ICodeCampServiceRepository repo)
+            : base(service, repo)
+        {
+        }
 
         public ActionResult Index(int eventid)
         {
@@ -272,14 +283,26 @@ namespace OCC.UI.Webhost.Controllers
         }
 
         /// <summary>
-        /// This is the default view for the Volunteers View accordian control
+        /// This is the default view for the Volunteers View accordion control
         /// </summary>
         /// <param name="eventid">eventId</param>
         /// <returns>/Views/Home/Volunteers.cshtml</returns>
         public ActionResult Volunteers(int eventid)
         {
             var eventTasks = service.GetAllCurrentEventTasks(eventid);
-            return View(FormatEventTasks(eventTasks).ToList());
+
+            List<VolunteerTask> model;
+
+            if (eventTasks.Any() && eventTasks[0].Event.IsVolunteerRegistrationOpen)
+            {
+                model = FormatEventTasks(eventTasks).ToList();
+            }
+            else
+            {
+                model = new List<VolunteerTask>();
+            }
+                
+            return View(model);
         }
 
         /// <summary>
@@ -360,7 +383,7 @@ namespace OCC.UI.Webhost.Controllers
         private IEnumerable<VolunteerTask> FormatEventTasks(ICollection<Task> eventTasks)
         {
             var tasks = new List<VolunteerTask>(eventTasks.Count);
-
+            
             VolunteerTask vt;
             foreach (var eventTask in eventTasks)
             {

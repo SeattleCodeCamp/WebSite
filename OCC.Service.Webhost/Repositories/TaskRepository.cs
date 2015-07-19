@@ -36,6 +36,7 @@ namespace OCC.Service.Webhost.Repositories
 
             var currentEventTasks = _dbContext.Tasks
                 .Include("PersonTasks.Person")
+                .Include("Event")
                 .Where(t => t.Event_ID == eventId && t.Disabled == false)
                 .ToList();
 
@@ -47,15 +48,17 @@ namespace OCC.Service.Webhost.Repositories
         {
             foreach (var currentEventTask in currentEventTasks)
             {
-                var eventTask = new Task
-                {
-                    Id = currentEventTask.ID,
-                    EventID = currentEventTask.Event_ID,
-                    Capacity = currentEventTask.Capacity,
-                    Description = currentEventTask.Description,
-                    StartTime = currentEventTask.StartTime,
-                    EndTime = currentEventTask.EndTime
-                };
+                //var eventTask = new Task
+                //{
+                //    Id = currentEventTask.ID,
+                //    EventID = currentEventTask.Event_ID,
+                //    Capacity = currentEventTask.Capacity,
+                //    Description = currentEventTask.Description,
+                //    StartTime = currentEventTask.StartTime,
+                //    EndTime = currentEventTask.EndTime
+                //};
+                var eventTask = currentEventTask.Map();
+
 
                 foreach (var personTask in currentEventTask.PersonTasks)
                 {
