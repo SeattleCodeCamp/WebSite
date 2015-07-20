@@ -1,10 +1,11 @@
-﻿namespace OCC.UI.Webhost.Controllers
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using OCC.UI.Webhost.Models;
+using System;
+using System.Web.UI;
+
+namespace OCC.UI.Webhost.Controllers
 {
-    using System.Collections.Generic;
-    using System.Web.Mvc;
-    using OCC.UI.Webhost.Models;
-    using System;
-    using System.Web.UI;
 
     public class SessionController : BaseController
     {
@@ -20,7 +21,6 @@
         // GET: //SpeakerSessions/
 
         [Authorize]
-        [OutputCache(Duration = 600, Location = OutputCacheLocation.Client, VaryByParam = "eventid")]
         public ActionResult SpeakerSessions(int eventid)
         {
             var sessions = service.GetSpeakerSessions(eventid, this.CurrentUser.ID);
@@ -43,7 +43,6 @@
         //
         // GET: /Session/Details/5
 
-        [OutputCache(Duration = 600, Location = OutputCacheLocation.Client, VaryByParam = "id")]
         public ActionResult Details(int id)
         {
             var session = service.GetSession(id);
@@ -113,7 +112,7 @@
 
                 return RedirectToAction("SpeakerSessions");
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return View(session);
             }
@@ -177,46 +176,15 @@
 
         }
 
-        //
-        // GET: /Session/Delete/5
-
-        //[Authorize]
-        //public ActionResult Delete(int id)
-        //{
-        //    var session = service.GetSession(id);
-
-        //    if (session.SpeakerID == CurrentUser.ID)
-        //    {
-        //        Session model = new Session()
-        //        {
-        //            ID = session.ID,
-        //            EventID = session.EventID,
-        //            SpeakerID = session.SpeakerID,
-        //            Name = session.Name,
-        //            Description = session.Description,
-        //            Level = session.Level.ToString(),
-        //            Speaker = session.Speaker,
-        //            Status = session.Status
-        //        };
-
-        //        return View(model);
-        //    }
-        //    else
-        //    {
-        //        return RedirectToAction("SpeakerSessions");
-        //    }
-        //}
 
         //
         // POST: /Session/Delete/5
 
-        // [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
                 service.DeleteSession(id);
-
                 return RedirectToAction("SpeakerSessions");
             }
             catch
