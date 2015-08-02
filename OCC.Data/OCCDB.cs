@@ -11,7 +11,7 @@ namespace OCC.Data
         public OCCDB()
             : base("OCC2012")
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<OCCDB, Configuration>());
+            Database.SetInitializer<OCCDB>(null);
         }
 
         protected OCCDB(DbConnection existingConnection, bool contextOwnsConnection)
@@ -55,7 +55,7 @@ namespace OCC.Data
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             //DEV ONLY !!! 
-            Database.SetInitializer<OCCDB>(new OCCDBInitializer());
+            //Database.SetInitializer<OCCDB>(new OCCDBInitializer());
         }
     }
 
