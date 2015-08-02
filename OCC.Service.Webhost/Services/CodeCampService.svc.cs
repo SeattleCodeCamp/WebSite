@@ -364,7 +364,7 @@ namespace OCC.Service.Webhost.Services
                 s.Description = sponsor.Description;
                 s.WebsiteUrl = sponsor.WebsiteUrl;
                 s.SponsorshipLevel = sponsor.SponsorshipLevel;
-                s.ImageUrl = sponsor.ImageUrl;
+                //s.ImageUrl = sponsor.ImageUrl;
                 s.Image = sponsor.Image;
 
                 db.SaveChanges();

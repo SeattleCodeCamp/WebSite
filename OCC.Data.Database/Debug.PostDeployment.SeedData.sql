@@ -22,13 +22,14 @@ From People
 Where 1 = 2
 
 Insert Into #People
-(FirstName, LastName, Email, IsAdmin)
+(FirstName, LastName, Email, IsAdmin, TShirtSize)
 Values
-('NETDA', 'Admin', 'core@dotnetda.org', 0),
-('John', 'Smith', 'john@dotnetda.org', 0),
-('Brian', 'Hall', 'brian@dotnetda.org', 0),
-('Zdravko', 'Danev', 'z@onetug.org', 0),
-('Esteban', 'Garcia', 'esteban@dotnetda.org', 0)
+('NETDA', 'Admin', 'core@dotnetda.org', 0, 0),
+('John', 'Smith', 'john@dotnetda.org', 0, 0),
+('Brian', 'Hall', 'brian@dotnetda.org', 0, 0),
+('Zdravko', 'Danev', 'z@onetug.org', 0, 0),
+('Esteban', 'Garcia', 'esteban@dotnetda.org', 0, 0),
+('Esteban2', 'Garcia2', 'esteban2@dotnetda.org', 0, 0)
 
 Insert into People
 (Email, FirstName, LastName, Title, Bio, Website, Blog, Twitter, PasswordHash, ImageUrl, IsAdmin, Location, TShirtSize)
@@ -180,7 +181,7 @@ Where 1 = 2
 
 Insert Into #KeyValuePair
 Values
-('tshirtSizes', '[{\"Item1\":1,\"Item2\":\"Don''t want one\"},{\"Item1\":2,\"Item2\":\"Small\"},{\"Item1\":2,\"Item2\":\"Medium\"},{\"Item1\":2,\"Item2\":\"Large\"},{\"Item1\":2,\"Item2\":\"X-Large\"},{\"Item1\":2,\"Item2\":\"XX-Large\"}]')
+('tshirtSizes', '[{"Item1":1,"Item2":"Don''t want one"},{"Item1":2,"Item2":"Small"},{"Item1":2,"Item2":"Medium"},{"Item1":2,"Item2":"Large"},{"Item1":2,"Item2":"X-Large"},{"Item1":2,"Item2":"XX-Large"}]')
 
 
 Insert Into KeyValuePairs
