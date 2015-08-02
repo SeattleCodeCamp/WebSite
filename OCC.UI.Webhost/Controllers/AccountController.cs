@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Mvc;
 using System.Web.Security;
 using OCC.UI.Webhost.CodeCampService;
@@ -63,6 +64,13 @@ namespace OCC.UI.Webhost.Controllers
 
             else
             {
+                HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+                if (authCookie != null)
+                {
+                    authCookie.Expires = DateTime.Now.AddDays(-1);
+                    Response.Cookies.Add(authCookie);
+                }
+
                 userDisplay.IsLoggedIn = false;
             }
 

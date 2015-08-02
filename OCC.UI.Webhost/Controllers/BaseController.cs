@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -43,32 +44,36 @@ namespace OCC.UI.Webhost.Controllers
         {
             if (twitterName == null)
                 return defaultURL;
-            string twitterURL = defaultURL;
-            var auth = new MvcAuthorizer();
-            SessionStateCredentials s = new SessionStateCredentials();
-            s.ConsumerKey = "fUpi8KuU3hMWsCHueZIww";
-            s.ConsumerSecret = "4gCFXwi5zW5CYIoGSNgydL9dmqVM9T9BUS9ElrMI";
-            auth.Credentials = s;
-            var twitterCtx = new TwitterContext(auth);
+
+            var twitterUrl = defaultURL;
+
+            var auth = new MvcAuthorizer
+            {
+                CredentialStore = new SessionStateCredentialStore
+                {
+                    ConsumerKey = "fUpi8KuU3hMWsCHueZIww",
+                    ConsumerSecret = "4gCFXwi5zW5CYIoGSNgydL9dmqVM9T9BUS9ElrMI"
+                }
+            };
+
+
+            var twitterCtx = new TwitterContext(auth) {ReadWriteTimeout = 300};
             try
             {
                 var userResponse =
                      (from user in twitterCtx.User
-                      where user.Type == UserType.Lookup &&
+                      where user.Type == UserType.Show &&
                             user.ScreenName == twitterName.Replace("@", "")
-                      select user).ToList();
+                      select user).ToArray();
 
-                if (userResponse == null)
-                {
-                    return defaultURL;
-                }
-                twitterURL = userResponse.FirstOrDefault().ProfileImageUrl;
+                var firstOrDefault = userResponse.FirstOrDefault();
+                if (firstOrDefault != null) twitterUrl = firstOrDefault.ProfileImageUrl;
             }
-            catch
+            catch(Exception ex)
             {
                 return defaultURL;
             }
-            return twitterURL;
+            return twitterUrl;
         }
 
         //"../../Content/avatar"

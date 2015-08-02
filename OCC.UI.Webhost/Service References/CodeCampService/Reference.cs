@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Threading.Tasks;
+
 namespace OCC.UI.Webhost.CodeCampService {
     using System.Runtime.Serialization;
     using System;

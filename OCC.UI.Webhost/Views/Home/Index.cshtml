@@ -80,7 +80,7 @@
         if ((DateTime.Now > ViewBag.Event.EndTime))
         {
             <div>
-                @if ((ViewBag.HasSubmittedRating))
+                @if (ViewBag.HasSubmittedRating != null && ViewBag.HasSubmittedRating)
                 {
                     <text>Thanks for your feedback</text>
                 }

@@ -28,7 +28,7 @@ namespace OCC.UI.Webhost.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -68,7 +68,7 @@ namespace OCC.UI.Webhost.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
         [DataType(DataType.Text)]
