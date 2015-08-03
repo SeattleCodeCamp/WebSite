@@ -16,10 +16,22 @@ Begin Tran
 
 
 /*  Seed People */
-Select *
-Into #People
-From People
-Where 1 = 2
+Create Table #People(
+    [ID]           INT             IDENTITY (1, 1) NOT NULL,
+    [Email]        NVARCHAR (100)  NULL,
+    [FirstName]    NVARCHAR (100)  NULL,
+    [LastName]     NVARCHAR (100)  NULL,
+    [Title]        NVARCHAR (100)  NULL,
+    [Bio]          NVARCHAR (2000) NULL,
+    [Website]      NVARCHAR (100)  NULL,
+    [Blog]         NVARCHAR (100)  NULL,
+    [Twitter]      NVARCHAR (100)  NULL,
+    [PasswordHash] NVARCHAR (100)  NULL,
+    [ImageUrl]     NVARCHAR (500)  NULL,
+    [IsAdmin]      BIT             NOT NULL,
+    [Location]     NVARCHAR (100)  NULL,
+    [TShirtSize]   INT             NULL
+	)
 
 Insert Into #People
 (FirstName, LastName, Email, IsAdmin, TShirtSize)
@@ -42,12 +54,28 @@ Where p.Email Not In (Select Email From People)
 Declare @personId Int; Select @personId = (Select Min(Id) From People)
 
 /*  Seed Event */
-Select *
-Into #Event
-From Events
-Where 1 = 2
+Create Table #Events
+(
+[ID]                          INT             IDENTITY (1, 1) NOT NULL,
+    [Name]                        NVARCHAR (100)  NULL,
+    [Description]                 NVARCHAR (2000) NULL,
+    [TwitterHashTag]              NVARCHAR (100)  NULL,
+    [StartTime]                   DATETIME        NOT NULL,
+    [EndTime]                     DATETIME        NOT NULL,
+    [Location]                    NVARCHAR (100)  NULL,
+    [Address1]                    NVARCHAR (100)  NULL,
+    [Address2]                    NVARCHAR (100)  NULL,
+    [City]                        NVARCHAR (100)  NULL,
+    [State]                       NVARCHAR (2)    NULL,
+    [Zip]                         NVARCHAR (5)    NULL,
+    [IsDefault]                   BIT             CONSTRAINT [DF_Events_IsDefault] DEFAULT ((0)) NOT NULL,
+    [IsSponsorRegistrationOpen]   BIT             CONSTRAINT [DF_Events_IsSponsorRegistrationOpen] DEFAULT ((0)) NOT NULL,
+    [IsSpeakerRegistrationOpen]   BIT             CONSTRAINT [DF_Events_IsSpeakerRegistrationOpen] DEFAULT ((0)) NOT NULL,
+    [IsAttendeeRegistrationOpen]  BIT             CONSTRAINT [DF_Events_IsAttendeeRegistrationOpen] DEFAULT ((0)) NOT NULL,
+    [IsVolunteerRegistrationOpen] BIT             CONSTRAINT [DF_Events_IsVolunteerRegistrationOpen] DEFAULT ((0)) NOT NULL,
+	)
 
-Insert Into #Event
+Insert Into #Events
 (Name, StartTime, EndTime, Address1, Address2, City, State, Zip, IsDefault, IsSponsorRegistrationOpen, IsSpeakerRegistrationOpen, IsAttendeeRegistrationOpen, IsVolunteerRegistrationOpen)
 Values
 ('Seattle Code Camp 2011', '03/21/2011', '03/21/2011', 'Seminole State College', '100 College Dr', 'Sanford', 'FL', '32746', 0, 0, 0, 0, 0),
@@ -56,14 +84,16 @@ Values
 Insert Into Events
 (Name, Description, TwitterHashTag, StartTime, EndTime, Location, Address1, Address2, City, State, Zip, IsDefault, IsSponsorRegistrationOpen, IsSpeakerRegistrationOpen, IsAttendeeRegistrationOpen, IsVolunteerRegistrationOpen)
 Select Name, Description, TwitterHashTag, StartTime, EndTime, Location, Address1, Address2, City, State, Zip, IsDefault, IsSponsorRegistrationOpen, IsSpeakerRegistrationOpen, IsAttendeeRegistrationOpen, IsVolunteerRegistrationOpen
-From #Event e
+From #Events e
 Where e.Name Not In (Select Name From Events)
 
 /*  Seed Annoncements */
-Select *
-Into #Announcements
-From Announcements
-Where 1 = 2
+CREATE TABLE #Announcements (
+    [ID]          INT             IDENTITY (1, 1) NOT NULL,
+    [Event_ID]    INT             NOT NULL,
+    [Title]       NVARCHAR (100)  NULL,
+    [Content]     NVARCHAR (2000) NULL,
+    [PublishDate] DATETIME        NOT NULL)
 
 Declare @Event1_Id Int; Select @Event1_Id = (Select Id From Events Where name = 'Seattle Code Camp 2011')
 Declare @Event2_Id Int; Select @Event2_Id = (Select Id From Events Where name = 'Seattle Code Camp 2012')
@@ -86,10 +116,14 @@ From Announcements t
 Where t.Title = a.Title and t.PublishDate = a.PublishDate)
 
 /*  Seed TimeSlots */
-Select *
-Into #Timeslots
-From Timeslots
-Where 1 = 2
+Create Table #Timeslots
+(
+    [ID]        INT            IDENTITY (1, 1) NOT NULL,
+    [Event_ID]  INT            NOT NULL,
+    [Name]      NVARCHAR (100) NULL,
+    [StartTime] DATETIME       NULL,
+    [EndTime]   DATETIME       NULL
+	)
 
 Insert Into #Timeslots
 (Event_ID, Name, StartTime, EndTime)
@@ -104,10 +138,13 @@ Where Name not in (Select Name From Timeslots)
 Declare @TimeslotId Int; Select @TimeslotId = (Select Min(ID) From Timeslots)
 
 /*  Seed Tracks */
-Select *
-Into #Tracks
-From Tracks
-Where 1 = 2
+Create Table #Tracks
+(
+    [ID]          INT             IDENTITY (1, 1) NOT NULL,
+    [Event_ID]    INT             NOT NULL,
+    [Name]        NVARCHAR (100)  NULL,
+    [Description] NVARCHAR (2000) NULL
+	)
 
 Insert Into #Tracks
 (Event_ID, Name, Description)
@@ -124,10 +161,19 @@ Where Name Not In (Select Name From Tracks)
 
 
 /*  Seed Sessions */
-Select *
-Into #Sessions
-From Sessions
-Where 1 = 2
+Create Table #Sessions (
+[ID]          INT             IDENTITY (1, 1) NOT NULL,
+    [Event_ID]    INT             NOT NULL,
+    [Speaker_ID]  INT             NOT NULL,
+    [Track_ID]    INT             NULL,
+    [Timeslot_ID] INT             NULL,
+    [Name]        NVARCHAR (100)  NULL,
+    [Description] NVARCHAR (2000) NULL,
+    [Status]      NVARCHAR (100)  NULL,
+    [Level]       INT             NOT NULL,
+    [Location]    NVARCHAR (100)  NULL,
+    [Tag_ID]      INT             NULL
+	)
 
 Insert Into #Sessions
 (Event_ID, Speaker_ID, Track_ID, Timeslot_ID, Name, Description, Status, Level)
@@ -145,10 +191,11 @@ Where Name Not In (Select Name From Sessions)
 
 
 /*  Seed Tags */
-Select *
-Into #Tags
-From Tags
-Where 1 = 2
+Create Table #Tags
+(
+    [ID]      INT           IDENTITY (1, 1) NOT NULL,
+    [TagName] NVARCHAR (50) NOT NULL
+	)
 
 Insert Into #Tags
 (TagName)
@@ -174,10 +221,11 @@ Where TagName Not In (Select TagName From #Tags)
 
 
 /*  Seed KeyValuePair */
-Select *
-Into #KeyValuePair
-From KeyValuePairs
-Where 1 = 2
+Create Table #KeyValuePair
+(
+    [Id]    NVARCHAR (100)  NULL,
+    [Value] NVARCHAR (2000) NULL
+	)
 
 Insert Into #KeyValuePair
 Values
