@@ -3,3 +3,5 @@ This is the offical Seattle Code Camp website maintained by the community for th
 Go ahead, submit a pull request.
 
 Live site at http://seattle.codecamp.us
+
+[![Build status](https://ci.appveyor.com/api/projects/status/wyjtn671jrhw4t2k?svg=true)](https://ci.appveyor.com/project/cfranciscodev/website)
