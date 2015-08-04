@@ -830,6 +830,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DeleteMyAgendaItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionid" type="xs:int" />
+        <xs:element minOccurs="0" name="currentUserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMyAgendaItemResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RateSession">
     <xs:complexType>
       <xs:sequence>

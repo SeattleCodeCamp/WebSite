@@ -267,6 +267,14 @@ namespace OCC.UI.Webhost.Controllers
             return View(model);
         }
 
+        //[HttpPost]
+        [Authorize]
+        public ActionResult RemoveFromMyAgenda(int id)
+        {
+            service.DeleteMyAgendaItem(id, CurrentUser.ID);
+            return RedirectToAction("MyAgenda", "Home");
+        }
+
         public ActionResult Sponsors(int eventid)
         {
             ViewBag.Event = service.GetEvent(eventid);

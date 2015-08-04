@@ -983,6 +983,29 @@ namespace OCC.Service.Webhost.Services
             }
         }
 
+        public void DeleteMyAgendaItem(int sessionid, int currentUserId)
+        {
+            try
+            {
+                using (var db = new OCCDB())
+                {
+                    var sessionAttendee =
+                        db.SessionAttendees.First(sa => sa.Session_ID == sessionid && sa.Person_ID == currentUserId);
+                    if (sessionAttendee == null)
+                    {
+                        throw new ArgumentException("Agenda item not found");
+                    }
+                    db.SessionAttendees.Remove(sessionAttendee);
+                    db.SaveChanges();
+
+                }
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("Agenda item not found");
+            }
+        }
+
         public void RateSession(SessionAttendee s)
         {
 
