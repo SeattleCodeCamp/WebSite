@@ -127,7 +127,13 @@ Create Table #Timeslots
 
 Insert Into #Timeslots
 (Event_ID, Name, StartTime, EndTime)
-Values (@Event2_Id, 'Morning Session 1' ,'3/1/2012', '3/1/2012')
+Values  (@Event2_Id, 'Morning Session 1' ,'3/1/2012 9:00:00.000', '3/1/2012 9:50:00.000'),
+		(@Event2_Id, 'Morning Session 2' ,'3/1/2012 10:00:00.000', '3/1/2012 10:50:00.000'),
+		(@Event2_Id, 'Morning Session 3' ,'3/1/2012 11:00:00.000', '3/1/2012 11:50:00.000'),
+		(@Event2_Id, 'Afternoon Session 1' ,'3/1/2012 13:00:00.000', '3/1/2012 13:50:00.000'),
+		(@Event2_Id, 'Afternoon Session 2' ,'3/1/2012 14:00:00.000', '3/1/2012 14:50:00.000'),
+		(@Event2_Id, 'Afternoon Session 3' ,'3/1/2012 15:00:00.000', '3/1/2012 15:50:00.000'),
+		(@Event2_Id, 'Afternoon Session 4' ,'3/1/2012 16:00:00.000', '3/1/2012 16:50:00.000')
 
 Insert Into Timeslots
 (Event_ID, Name, StartTime, EndTime)

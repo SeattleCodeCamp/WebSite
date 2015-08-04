@@ -122,14 +122,14 @@ namespace OCC.UI.Webhost.Controllers
             ViewBag.Event = service.GetEvent(eventid);
 
             var sessions = service.GetSessions(eventid);
+            var timeSlots = service.GetTimeslots(eventid);
 
-
-            var model = new List<Session>();
+            var viewModel = new SessionsViewModel();
 
             foreach (var session in sessions)
                 if ((id == null) || (id == -1) || (session.TimeslotID == id))
                 {
-                    model.Add(new Session()
+                    viewModel.Sessions.Add(new Session()
                                   {
                                       ID = session.ID,
                                       Name = session.Name,
@@ -143,7 +143,20 @@ namespace OCC.UI.Webhost.Controllers
                                       Location = string.IsNullOrEmpty(session.Location) ? string.Empty : session.Location
                                   });
                 }
-            return View(model);
+
+            foreach (var time in timeSlots)
+            {
+                viewModel.Timeslots.Add(new Timeslot()
+                {
+                    ID = time.ID,
+                    EventID = time.EventID,
+                    StartTime = time.StartTime,
+                    EndTime = time.EndTime,
+                    Name = time.Name
+                });
+            }
+
+            return View(viewModel);
         }
 
         [OutputCache(Duration = 600, Location = OutputCacheLocation.Client, VaryByParam = "eventid")]

@@ -230,6 +230,7 @@
     <Compile Include="Models\CodeCampServiceRepository.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\SessionsViewModel.cs" />
     <Compile Include="Models\Speaker.cs" />
     <Compile Include="Models\Sponsor.cs" />
     <Compile Include="Models\Tag.cs" />
