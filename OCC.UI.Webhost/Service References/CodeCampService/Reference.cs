@@ -1591,6 +1591,9 @@ namespace OCC.UI.Webhost.CodeCampService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CommentsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int RatingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1606,6 +1609,19 @@ namespace OCC.UI.Webhost.CodeCampService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Comments {
+            get {
+                return this.CommentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CommentsField, value) != true)) {
+                    this.CommentsField = value;
+                    this.RaisePropertyChanged("Comments");
+                }
             }
         }
         

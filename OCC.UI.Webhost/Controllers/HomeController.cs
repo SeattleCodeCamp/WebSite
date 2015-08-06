@@ -192,19 +192,21 @@ namespace OCC.UI.Webhost.Controllers
         [Authorize]
         public ActionResult Rate(int eventid)
         {
-            int currentId = CurrentUser.ID;
-            var agenda = service.GetMyAgenda(eventid, currentId);// CurrentUser.ID);
+            //int currentId = CurrentUser.ID;
+            //var agenda = service.GetMyAgenda(eventid, currentId);// CurrentUser.ID);
             var sessions = service.GetSessions(eventid);
             var timeSlots = service.GetTimeslots(eventid);
-            ViewBag.Agenda = agenda;
+            //ViewBag.Agenda = agenda;
             ViewBag.Sessions = sessions;
             ViewBag.TimeSlots = timeSlots;
             Rate model = new Rate();
-            List<int> timeSlotIDs = new List<int> { 22, 23, 24, 26, 27, 28, 29 };
-            foreach (var timeSlot in timeSlots.Where(ts => timeSlotIDs.Contains(ts.ID)).Select(ts => ts))
+            //List<int> timeSlotIDs = new List<int> { 22, 23, 24, 26, 27, 28, 29 };
+            foreach (var timeSlot in timeSlots)
             {
-                RateSession rs = new RateSession();
-                rs.TimeSlotID = timeSlot.ID;
+                RateSession rs = new RateSession
+                {
+                    TimeSlotID = timeSlot.ID
+                };
                 model.RateSessions.Add(rs);
             }
 
@@ -226,15 +228,21 @@ namespace OCC.UI.Webhost.Controllers
             List<CodeCampService.RateSession> rateSessions = new List<CodeCampService.RateSession>();
             for (int i = 0; i < 7; i++)
             {
-                int timeslotID = int.Parse(frm[string.Format("Timeslot_{0}", i)]);
+                if (frm[string.Format("SessionID_{0}", i)] == null)
+                    continue;
+
                 int sessionID = int.Parse(frm[string.Format("SessionID_{0}", i)]);
+
+                int timeslotID = int.Parse(frm[string.Format("Timeslot_{0}", i)]);
                 int rankSession = int.Parse(frm[string.Format("RateSession_{0}", i)]);
+                string comments = frm[string.Format("Comments_{0}", i)];
                 if (rankSession > 0)
                 {
                     CodeCampService.RateSession rateSession = new CodeCampService.RateSession();
                     rateSession.Rating = rankSession;
                     rateSession.SessionID = sessionID;
                     rateSession.TimeSlotID = timeslotID;
+                    rateSession.Comments = comments;
                     rateSessions.Add(rateSession);
                 }
             }

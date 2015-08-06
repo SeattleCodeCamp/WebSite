@@ -61,6 +61,7 @@ namespace OCC.Service.Webhost.Repositories
                 erst.Ranking = rateSession.Rating;
                 erst.Session_ID = rateSession.SessionID;
                 erst.Timeslot_ID = rateSession.TimeSlotID;
+                erst.Comments = rateSession.Comments;
 
                 _dbContext.EventAttendeeSessionRatings.Add(erst);
             }

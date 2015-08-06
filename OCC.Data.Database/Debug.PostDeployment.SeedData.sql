@@ -187,7 +187,12 @@ Values
 (@Event2_Id, @personId, 1, 1, 'Silverlight for WP7', 'Introduction in Silverlight programming with windows phone 7', 'Approved', 100),
 (@Event2_Id, @personId, 1, 1, 'XNA for WP7', 'Introduction in XNA programming with windows phone 7', 'Approved', 100),
 (@Event2_Id, @personId, 1, 1, 'Intro in Win 8', 'Introduction in Windows 8', 'Approved', 100),
-(@Event2_Id, @personId, 1, 1, 'P & P', 'Patterns and practices', 'Approved', 100)
+(@Event2_Id, @personId, 1, 1, 'P & P', 'Patterns and practices', 'Approved', 100),
+(@Event2_Id, @personId, 1, 1, 'Regular Expressions Boot Camp', 'Regular Expressions Boot Camp', 'Approved', 100),
+(@Event2_Id, @personId, 1, 1, 'Running ASP.NET without IIS', 'Running ASP.NET without IIS', 'Approved', 100),
+(@Event2_Id, @personId, 1, 1, 'Git in the enterprise environment', 'Git in the enterprise environment', 'Approved', 100),
+(@Event2_Id, @personId, 1, 1, 'Refactoring Workshop', 'Refactoring Workshop', 'Approved', 100),
+(@Event2_Id, @personId, 1, 1, 'Mocking without Fear', 'Mocking without Fear', 'Approved', 100)
 
 Insert Into Sessions
 (Event_ID, Speaker_ID, Track_ID, Timeslot_ID, Name, Description, Status, Level)

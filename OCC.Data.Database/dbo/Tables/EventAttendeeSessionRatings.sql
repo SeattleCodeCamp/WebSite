@@ -4,6 +4,7 @@
     [Session_ID]       INT NOT NULL,
     [Ranking]          INT CONSTRAINT [DF_EventAttendeeSessionRating_Ranking] DEFAULT ((-1)) NOT NULL,
     [Timeslot_ID]      INT NOT NULL,
+	[Comments]         NTEXT NULL,
     CONSTRAINT [PK_EventAttendeeSessionRating] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_EventAttendeeSessionRating_EventAttendees] FOREIGN KEY ([EventAttendee_ID]) REFERENCES [dbo].[EventAttendees] ([ID])
 );

@@ -172,6 +172,7 @@
   <xs:element name="ArrayOfRateSession" nillable="true" type="tns:ArrayOfRateSession" />
   <xs:complexType name="RateSession">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Rating" type="xs:int" />
       <xs:element minOccurs="0" name="SessionID" type="xs:int" />
       <xs:element minOccurs="0" name="TimeSlotID" type="xs:int" />
