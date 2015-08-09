@@ -22,6 +22,8 @@ namespace OCC.Data
         [ForeignKey("Timeslot")]
         public int Timeslot_ID { get; set; }
 
+        public string Comments { get; set; }
+
         public EventAttendee EventAttendee { get; set; }
         public Session Session { get; set; }
         public Timeslot Timeslot { get; set; }

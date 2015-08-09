@@ -1,6 +1,6 @@
 ﻿@using OCC.UI.Webhost.Models;
 
-@model List<Session>
+@model SessionsViewModel
 
 @{
     ViewBag.Title = "Sessions";
@@ -24,20 +24,15 @@ else
 { 
 <div>
     <span>Timeslots:</span><br />
-    @Html.ActionLink("All", "sessions", "home", new { id = -1 }, null)<span>&nbsp;</span>
-    @Html.ActionLink("9:00-9:50", "sessions", "home", new { id = 32 }, null)<span>&nbsp;</span>
-    @Html.ActionLink("10:00-10:50", "sessions", "home", new { id = 33 }, null)<span>&nbsp;</span>
-    @Html.ActionLink("11:00-11:50", "sessions", "home", new { id = 34 }, null)<span>&nbsp;</span>
-    @Html.ActionLink("1:00-1:50", "sessions", "home", new { id = 36 }, null)<span>&nbsp;</span>
-    @Html.ActionLink("2:00-2:50", "sessions", "home", new { id = 37 }, null)<span>&nbsp;</span>
-    @Html.ActionLink("3:00-3:50", "sessions", "home", new { id = 38 }, null)<span>&nbsp;</span>
-    @Html.ActionLink("4:00-4:50", "sessions", "home", new { id = 39 }, null)<span>&nbsp;</span>
+    @Html.ActionLink("All", "sessions", "home", new {id = -1}, null)<span>&nbsp;</span>
+    @foreach (var slot in ViewData.Model.Timeslots.OrderBy(t => t.StartTime))
+    {
+        @Html.ActionLink(slot.StartTime.ToString("h:mm tt") +"-"+ slot.EndTime.ToString("h:mm tt"), "sessions", "home", new { id = slot.ID }, null)<span>&nbsp;</span>
+    }
 </div>
 }
-@foreach (var session in ViewData.Model)
+@foreach (var session in ViewData.Model.Sessions)
 {
-    //if (count % 2 == 0)
-    //{
     <div style="clear: both"></div>
     <div>&nbsp;</div>
     <div style="clear: both"></div>

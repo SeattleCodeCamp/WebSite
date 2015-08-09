@@ -571,6 +571,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteMyAgendaItem">
+      <soap:operation soapAction="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteMyAgendaItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RateSession">
       <soap:operation soapAction="http://onetug.org/2012/CodeCampService/ICodeCampService/RateSession" style="document" />
       <wsdl:input>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCC.UI.Webhost", "OCC.UI.Webhost\OCC.UI.Webhost.csproj", "{13F0296A-F062-4CBA-9A5A-E15D3EB07499}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -17,6 +17,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCC.Service.Webhost.Tests", "OCC.Service.Webhost.Tests\OCC.Service.Webhost.Tests.csproj", "{53013EB9-A478-440D-83C9-84C1E84CF0F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCC.UI.Webhost.Tests", "OCC.UI.Webhost.Tests\OCC.UI.Webhost.Tests.csproj", "{BF141D0E-4EF0-4E97-B55C-B8A98BEB97AE}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "OCC.Data.Database", "OCC.Data.Database\OCC.Data.Database.sqlproj", "{5B417F86-94CE-43DB-ACEA-DE59FA7ECD16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,12 @@ Global
 		{BF141D0E-4EF0-4E97-B55C-B8A98BEB97AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF141D0E-4EF0-4E97-B55C-B8A98BEB97AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF141D0E-4EF0-4E97-B55C-B8A98BEB97AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B417F86-94CE-43DB-ACEA-DE59FA7ECD16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B417F86-94CE-43DB-ACEA-DE59FA7ECD16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B417F86-94CE-43DB-ACEA-DE59FA7ECD16}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5B417F86-94CE-43DB-ACEA-DE59FA7ECD16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B417F86-94CE-43DB-ACEA-DE59FA7ECD16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B417F86-94CE-43DB-ACEA-DE59FA7ECD16}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

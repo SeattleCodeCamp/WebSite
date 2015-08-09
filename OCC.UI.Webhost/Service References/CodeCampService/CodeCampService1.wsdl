@@ -386,6 +386,12 @@
   <wsdl:message name="ICodeCampService_GetMyAgenda_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMyAgendaResponse" />
   </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteMyAgendaItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMyAgendaItem" />
+  </wsdl:message>
+  <wsdl:message name="ICodeCampService_DeleteMyAgendaItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMyAgendaItemResponse" />
+  </wsdl:message>
   <wsdl:message name="ICodeCampService_RateSession_InputMessage">
     <wsdl:part name="parameters" element="tns:RateSession" />
   </wsdl:message>
@@ -710,6 +716,10 @@
     <wsdl:operation name="GetMyAgenda">
       <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetMyAgenda" message="tns:ICodeCampService_GetMyAgenda_InputMessage" />
       <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/GetMyAgendaResponse" message="tns:ICodeCampService_GetMyAgenda_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMyAgendaItem">
+      <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteMyAgendaItem" message="tns:ICodeCampService_DeleteMyAgendaItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/DeleteMyAgendaItemResponse" message="tns:ICodeCampService_DeleteMyAgendaItem_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RateSession">
       <wsdl:input wsaw:Action="http://onetug.org/2012/CodeCampService/ICodeCampService/RateSession" message="tns:ICodeCampService_RateSession_InputMessage" />

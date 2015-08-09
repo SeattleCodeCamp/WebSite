@@ -11,24 +11,47 @@
 <p><strong>Note:&nbsp;</strong>Print this page out for your own convenience</p>
 <p><strong>Note:&nbsp;</strong>You can now add multiple sessions to one timeslot so you can have backups</p>
 
-<table>
+<br/>
+<br/>
 
-@foreach (var session in ViewData.Model)
+@if (ViewData.Model.Count > 0)
 {
+    
+<table>
     <tr>
-        <td nowrap="nowrap">
-            <div style="font-size:small">@session.StartTime - @session.EndTime</div>
-        </td>
+        <td>Time</td>
         <td>&nbsp;&nbsp;&nbsp;</td>
-        <td>
-            @Html.ActionLink(session.Name, "Details", "Session", new { id = session.ID }, null)  
-            - 
-            @Html.ActionLink(session.Speaker, "Details", "Speaker", new { id = session.SpeakerID }, null)  
-        </td>
+        <td>Session</td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>Speaker</td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>Remove</td>
     </tr>
-}
+
+    @foreach (var session in ViewData.Model)
+    {
+        <tr>
+            <td nowrap="nowrap">
+                <div style="font-size: small">@session.StartTime - @session.EndTime</div>
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                @Html.ActionLink(session.Name, "Details", "Session", new {id = session.ID}, null)
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                @Html.ActionLink(session.Speaker, "Details", "Speaker", new {id = session.SpeakerID}, null)
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                @Html.ActionLink("X", "RemoveFromMyAgenda", "Home", new { id = session.ID }, null)
+            </td>
+        </tr>
+    }
 
 </table>
+
+}
 
 <br />
 
