@@ -5,3 +5,4 @@ Go ahead, submit a pull request.
 Live site at http://seattle.codecamp.us
 
 [![Build status](https://ci.appveyor.com/api/projects/status/g0ffenjhd7denito?svg=true)](https://ci.appveyor.com/project/cfranciscodev/codecampwebsite)
+
