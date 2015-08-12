@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 
@@ -25,47 +26,47 @@ namespace OCC.UI.Webhost
             }
         }
 
-        public static void RegisterRoutes(RouteCollection routes)
-        {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+        //public static void RegisterRoutes(RouteCollection routes)
+        //{
+        //    routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // 1. dotnetda.org -> goes to the current event
-            // 2. dotnetda.org/sessions
-            // 2. dotnetda.org/occ2012
-            // 3. dotnetda.org/occ2012/sessions
+        //    // 1. dotnetda.org -> goes to the current event
+        //    // 2. dotnetda.org/sessions
+        //    // 2. dotnetda.org/occ2012
+        //    // 3. dotnetda.org/occ2012/sessions
 
-            int id;
-            using (var service = new CodeCampServiceClient())
-            {
-                var defaultEvent = service.GetDefaultEvent();
-                id = defaultEvent.ID;
-            }
+        //    int id;
+        //    using (var service = new CodeCampServiceClient())
+        //    {
+        //        var defaultEvent = service.GetDefaultEvent();
+        //        id = defaultEvent.ID;
+        //    }
 
-            routes.MapRoute(
-                "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
-                new { eventid = id, controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-            );
+        //    routes.MapRoute(
+        //        "Default", // Route name
+        //        "{controller}/{action}/{id}", // URL with parameters
+        //        new { eventid = id, controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+        //    );
 
-            routes.MapRoute(
-                "Archive", // Route name
-                "Archive/{eventid}/{controller}/{action}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-            );
+        //    routes.MapRoute(
+        //        "Archive", // Route name
+        //        "Archive/{eventid}/{controller}/{action}", // URL with parameters
+        //        new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+        //    );
 
-            //routes.MapRoute(
-            //    "Default", // Route name
-            //    "{controller}/{action}/{id}", // URL with parameters
-            //    new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-            //);
-        }
+        //    //routes.MapRoute(
+        //    //    "Default", // Route name
+        //    //    "{controller}/{action}/{id}", // URL with parameters
+        //    //    new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+        //    //);
+        //}
 
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
             RegisterGlobalFilters(GlobalFilters.Filters);
-            RegisterRoutes(RouteTable.Routes);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)

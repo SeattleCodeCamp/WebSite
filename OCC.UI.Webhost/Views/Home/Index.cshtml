@@ -46,7 +46,7 @@
 {
     <div class="title">rate sessions</div>
     <div>
-        View (@Html.ActionLink("rate sessions", "index", "rate")).
+        View (@Html.ActionLink("rate sessions", "rate")).
     </div>
 }
 @if (ViewBag.Event.IsSpeakerRegistrationOpen)
@@ -80,7 +80,7 @@
         if ((DateTime.Now > ViewBag.Event.EndTime))
         {
             <div>
-                @if ((ViewBag.HasSubmittedRating))
+                @if (ViewBag.HasSubmittedRating != null && ViewBag.HasSubmittedRating)
                 {
                     <text>Thanks for your feedback</text>
                 }

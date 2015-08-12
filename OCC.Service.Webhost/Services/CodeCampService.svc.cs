@@ -364,7 +364,7 @@ namespace OCC.Service.Webhost.Services
                 s.Description = sponsor.Description;
                 s.WebsiteUrl = sponsor.WebsiteUrl;
                 s.SponsorshipLevel = sponsor.SponsorshipLevel;
-                s.ImageUrl = sponsor.ImageUrl;
+                //s.ImageUrl = sponsor.ImageUrl;
                 s.Image = sponsor.Image;
 
                 db.SaveChanges();
@@ -980,6 +980,29 @@ namespace OCC.Service.Webhost.Services
                     result.Add(track.AsTrackWithSessions());
 
                 return result;
+            }
+        }
+
+        public void DeleteMyAgendaItem(int sessionid, int currentUserId)
+        {
+            try
+            {
+                using (var db = new OCCDB())
+                {
+                    var sessionAttendee =
+                        db.SessionAttendees.First(sa => sa.Session_ID == sessionid && sa.Person_ID == currentUserId);
+                    if (sessionAttendee == null)
+                    {
+                        throw new ArgumentException("Agenda item not found");
+                    }
+                    db.SessionAttendees.Remove(sessionAttendee);
+                    db.SaveChanges();
+
+                }
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("Agenda item not found");
             }
         }
 

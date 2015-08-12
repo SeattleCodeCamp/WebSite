@@ -41,6 +41,8 @@ namespace OCC.Service.Webhost.Services
         public int SessionID { get; set; }
         [DataMember]
         public int Rating { get; set; }
+        [DataMember]
+        public string Comments { get; set; }
 
         public RateSession()
         {

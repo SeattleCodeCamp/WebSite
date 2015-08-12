@@ -243,6 +243,9 @@
         IList<Session> GetMyAgenda(int eventId, int personId);
 
         [OperationContract]
+        void DeleteMyAgendaItem(int sessionid, int currentUserId);
+
+        [OperationContract]
         void RateSession(SessionAttendee s);
 
         [OperationContract]

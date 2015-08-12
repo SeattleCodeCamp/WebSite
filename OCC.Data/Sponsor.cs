@@ -22,8 +22,8 @@ namespace OCC.Data
         [StringLength(100)]
         public string SponsorshipLevel { get; set; }
 
-        [StringLength(100)]
-        public string ImageUrl { get; set; }
+        //[StringLength(100)]
+        //public string ImageUrl { get; set; }
 
         [StringLength(100)]
         public string WebsiteUrl { get; set; }

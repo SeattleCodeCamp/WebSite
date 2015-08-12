@@ -25,6 +25,7 @@ namespace OCC.UI.Webhost.Models
         public int TimeSlotID { get; set; }
         public int SessionID { get; set; }
         public int Rating { get; set; }
+        public string Comments { get; set; }
 
         public RateSession()
         {
