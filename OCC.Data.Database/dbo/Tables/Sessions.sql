@@ -9,7 +9,7 @@
     [Status]      NVARCHAR (100)  NULL,
     [Level]       INT             NOT NULL,
     [Location]    NVARCHAR (100)  NULL,
-    [Tag_ID]      INT             NULL,
+    [Tag_ID]      INT             CONSTRAINT [DF_Sessions_Tag_ID] DEFAULT ((1)) NULL,
     CONSTRAINT [PK__Sessions__3214EC2714C5D8F8] PRIMARY KEY CLUSTERED ([ID] ASC),
     CONSTRAINT [Session_Event] FOREIGN KEY ([Event_ID]) REFERENCES [dbo].[Events] ([ID]),
     CONSTRAINT [Session_Speaker] FOREIGN KEY ([Speaker_ID]) REFERENCES [dbo].[People] ([ID]),
@@ -17,4 +17,6 @@
     CONSTRAINT [Session_Timeslot] FOREIGN KEY ([Timeslot_ID]) REFERENCES [dbo].[Timeslots] ([ID]),
     CONSTRAINT [Session_Track] FOREIGN KEY ([Track_ID]) REFERENCES [dbo].[Tracks] ([ID])
 );
+
+
 

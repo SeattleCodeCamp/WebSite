@@ -247,12 +247,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Avatar\2014.jpg" />
-    <Content Include="Content\Avatar\brian.hall.jpg" />
     <Content Include="Content\Avatar\default_user_icon.jpg" />
-    <Content Include="Content\Avatar\esteban.garcia.jpg" />
-    <Content Include="Content\Avatar\634629989634096955.yammer.profile.png" />
     <Content Include="Content\Avatar\OCC13.jpg" />
-    <Content Include="Content\Avatar\zd.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\960_12_col.css" />
