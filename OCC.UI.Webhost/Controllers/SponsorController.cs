@@ -27,7 +27,6 @@
                     Description = sponsor.Description,
                     SponsorshipLevel = sponsor.SponsorshipLevel,
                     WebsiteUrl = sponsor.WebsiteUrl,
-                    ImageUrl = sponsor.ImageUrl,
                     Logo = sponsor.Image == null ? null : new Infrastructure.WebImageOCC(sponsor.Image),
                 });
 
@@ -49,7 +48,6 @@
                 Description = sponsor.Description,
                 SponsorshipLevel = sponsor.SponsorshipLevel,
                 WebsiteUrl = sponsor.WebsiteUrl,
-                ImageUrl = sponsor.ImageUrl
             };
 
             return View(model);
@@ -166,7 +164,6 @@
                     Description = sponsor.Description,
                     SponsorshipLevel = sponsor.SponsorshipLevel,
                     WebsiteUrl = sponsor.WebsiteUrl,
-                    ImageUrl = sponsor.ImageUrl
                 };
 
                 return View("Details", model);
