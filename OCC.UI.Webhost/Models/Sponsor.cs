@@ -27,9 +27,6 @@
         [Display(Name = "sponsorship level")]
         public string SponsorshipLevel { get; set; }
 
-        [Display(Name = "image url")]
-        public string ImageUrl { get; set; }
-
         [Display(Name = "Logo")]
         public WebImageOCC Logo { get; set; }
     }
