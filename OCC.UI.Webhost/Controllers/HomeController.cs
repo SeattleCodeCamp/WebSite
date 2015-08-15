@@ -297,7 +297,6 @@ namespace OCC.UI.Webhost.Controllers
                                   ID = sponsor.ID,
                                   Name = sponsor.Name,
                                   Description = sponsor.Description,
-                                  ImageUrl = sponsor.ImageUrl,
                                   SponsorshipLevel = sponsor.SponsorshipLevel,
                                   WebsiteUrl = sponsor.WebsiteUrl,
                                   Logo = sponsor.Image == null ? null : new Infrastructure.WebImageOCC(sponsor.Image)
