@@ -277,6 +277,7 @@
     <Content Include="Content\css\dark-hive\images\ui-bg_highlight-soft_44_444444_1x100.png" />
     <Content Include="Content\css\dark-hive\images\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
     <Content Include="Content\css\dark-hive\images\ui-bg_loop_25_000000_21x21.png" />
+    <Content Include="Content\Documents\Seattle Code Camp 2015 Contributor Information.pdf" />
     <Content Include="Content\Javascript\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\Javascript\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\Javascript\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -515,9 +516,6 @@
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Content\Javascript\Rate\jquery.rateit.min.js.map" />
-    <Content Include="Content\Documents\Seattle Code Camp 2015 Contributor Information.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\css\Tags.less" />
     <Content Include="Content\css\Tags.css.map">
       <DependentUpon>Tags.css</DependentUpon>
