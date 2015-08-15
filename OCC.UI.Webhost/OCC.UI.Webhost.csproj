@@ -523,6 +523,7 @@
     <Content Include="Content\themes\Shared\SpaceNeedle.ico" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
+    <Content Include="Content\Documents\Flyer.pdf" />
     <None Include="Properties\PublishProfiles\seatlecc - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\seatlecc - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
