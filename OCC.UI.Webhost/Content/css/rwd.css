@@ -1,0 +1,103 @@
+﻿/* Adding some basic responsive CSS and overrides */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  min-width: inherit;
+}
+.rwd {
+  /* added class 'rwd' for specificity */
+}
+.rwd .siteContainer {
+  padding: 0 10px;
+  margin: 0 auto;
+  max-width: 1060px;
+  width: 100%;
+}
+.rwd .siteContainer .left-col {
+  width: 100%;
+}
+@media screen and (min-width: 1020px) {
+  .rwd .siteContainer .left-col {
+    float: left;
+    width: 70%;
+  }
+}
+.rwd .siteContainer .left-col #header {
+  float: none;
+}
+@media screen and (min-width: 1020px) {
+  .rwd .siteContainer .left-col #header .userProfileOuterContainer {
+    display: none;
+  }
+}
+.rwd .siteContainer .left-col .title {
+  font-size: 30px;
+}
+@media screen and (min-width: 600px) {
+  .rwd .siteContainer .left-col .title {
+    font-size: 36px;
+  }
+}
+.rwd .siteContainer .left-col .userProfileOuterContainer {
+  max-width: 510px;
+  margin: 0;
+}
+.rwd .siteContainer .right-col {
+  width: 100%;
+  margin: 60px 0 0 0;
+}
+@media screen and (min-width: 1020px) {
+  .rwd .siteContainer .right-col {
+    margin-top: 20px;
+    float: right;
+    width: 30%;
+  }
+}
+.rwd .siteContainer .right-col .userProfileOuterContainer {
+  display: none;
+}
+@media screen and (min-width: 1020px) {
+  .rwd .siteContainer .right-col .userProfileOuterContainer {
+    display: block;
+  }
+}
+.rwd .siteContainer #header a {
+  display: inline-block;
+}
+.rwd .siteContainer #header img {
+  max-width: 100%;
+}
+.rwd .main-content {
+  padding-right: 20px;
+}
+.rwd table {
+  margin-bottom: 1.11111rem;
+  table-layout: auto;
+  width: 100%;
+}
+.rwd table tr:nth-child(2n+0) {
+  background-color: #333;
+}
+.rwd table td {
+  display: block;
+  padding: 0 10px;
+}
+@media screen and (min-width: 600px) {
+  .rwd table td {
+    display: table-cell;
+    padding: 12px 10px;
+  }
+}
+.rwd table td:first-child {
+  white-space: nowrap;
+  font-size: .85em;
+  padding-left: 10px;
+  padding-top: 12px;
+}
+.rwd table td:last-child {
+  padding-bottom: 12px;
+}
+/*# sourceMappingURL=rwd.css.map */
