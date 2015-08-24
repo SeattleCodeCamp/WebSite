@@ -254,6 +254,8 @@
     <Content Include="Content\css\dark-hive\jquery-ui-1.8.17.custom.css" />
     <Content Include="Content\css\Layout.css" />
     <Content Include="Content\css\reset.css" />
+    <Content Include="Content\css\rwd.css" />
+    <Content Include="Content\css\rwd.min.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\css\Tags.css">
       <DependentUpon>Tags.less</DependentUpon>
@@ -500,6 +502,8 @@
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="Content\Documents\Flyer.pdf" />
+    <Content Include="Content\css\rwd.css.map" />
+    <Content Include="Content\css\rwd.less" />
     <None Include="Properties\PublishProfiles\seatlecc - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\seatlecc - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
@@ -675,6 +679,7 @@
     <Content Include="Views\MailingList\Index.cshtml" />
     <Content Include="Views\Tag\Index.cshtml" />
     <Content Include="Views\Tag\Add.cshtml" />
+    <Content Include="Views\Shared\_Layout.Responsive.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
