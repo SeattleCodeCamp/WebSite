@@ -195,8 +195,8 @@ Values
 (@Event2_Id, @personId, 1, 1, 'Mocking without Fear', 'Mocking without Fear', 'Approved', 100)
 
 Insert Into Sessions
-(Event_ID, Speaker_ID, Track_ID, Timeslot_ID, Name, Description, Status, Level)
-Select Event_ID, Speaker_ID, (Select Min(Id) From Tracks), @TimeslotId, Name, Description, Status, Level
+(Event_ID, Speaker_ID, Track_ID, Timeslot_ID, Name, Description, Status, Level, Tag_ID)
+Select Event_ID, Speaker_ID, (Select Min(Id) From Tracks), @TimeslotId, Name, Description, Status, Level, null
 From #Sessions
 Where Name Not In (Select Name From Sessions)
 
