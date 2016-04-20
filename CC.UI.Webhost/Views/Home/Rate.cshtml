@@ -1,0 +1,103 @@
+﻿@using CC.UI.Webhost.Models;
+@model Rate
+
+@{
+    ViewBag.Title = "Rate";
+    int i = 0;
+}
+@*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>*@
+
+<script src="/Content/Javascript/Rate/jquery.rateit.min.js" type="text/javascript"></script>
+<link href="/Content/Javascript/Rate/rateit.css" rel="stylesheet" type="text/css">
+@using (Html.BeginForm()) 
+{
+<div class="title">Rate Event</div>
+<div>
+    Sign-in
+    <input type="range" min="0" max="5" value="0" step="1" name="RateSignin" id="RateSignin">
+    <div class="rateit" data-rateit-backingfld="#RateSignin"></div>
+</div>
+<div>
+    T-shirt/swag
+    <input type="range" min="0" max="5" value="0" step="1" name="RateSwag" id="RateSwag">
+    <div class="rateit" data-rateit-backingfld="#RateSwag"></div>
+</div>
+<div>
+    Food & Refreshments
+    <input type="range" min="0" max="5" value="0" step="1" name="RateFood" id="RateFood">
+    <div class="rateit" data-rateit-backingfld="#RateFood"></div>
+</div>
+    <div>
+        Where did you hear about #SeattleCC?
+        <select id="RefSource" name="RefSource">
+            <option selected="selected" value="1">Meetup</option>
+            <option value="2">LinkedIn</option>
+            <option value="3">Facebook</option>
+            <option value="4">Twitter</option>
+            <option value="5">NETDA emails</option>
+            <option value="6">Friends/coworkers</option>
+            <option value="7">Other tech groups</option>
+            <option value="8">Tech websites</option>
+            <option value="9">Online search</option>
+        </select>
+    </div>
+
+    <div>
+        General comments about code camp:
+    </div>
+    <div>
+        <textarea spellcheck="true" id="Comments" name="Comments" cols="50" rows="5"></textarea>
+    </div>
+
+    <br/>
+    <br/>
+
+<div class="title">Rate Sessions</div>
+<div>Note: If you did not attend a particular timeslot, just skip rating it</div>
+foreach (RateSession rs in Model.RateSessions)
+{
+    <div>
+        @(((CC.Service.Webhost.Services.Timeslot[])ViewBag.TimeSlots).ToList<CC.Service.Webhost.Services.Timeslot>().Where(ts => ts.ID == rs.TimeSlotID).FirstOrDefault().Name)
+        <input type="hidden" id="Timeslot_@i" name="Timeslot_@i" value="@(((CC.Service.Webhost.Services.Timeslot[])ViewBag.TimeSlots).ToList<CC.Service.Webhost.Services.Timeslot>().Where(ts => ts.ID == rs.TimeSlotID).FirstOrDefault().ID)" />
+    </div>
+    <div>
+        <select name="SessionID_@i" id="SessionID_@i">
+            @foreach (var session in ((CC.Service.Webhost.Services.Session[])ViewBag.Sessions).Where(s => s.TimeslotID == rs.TimeSlotID).Select(s => s))
+            {
+                <option value="@session.ID">@string.Format("{0}....", session.Name.Substring(0, Math.Min(session.Name.Length, 50)))</option>
+
+                @*
+                var tsSession = ((CC.UI.Webhost.CodeCampService.Session[])ViewBag.Agenda).Where(s => s.TimeslotID == rs.TimeSlotID).Select(s => s).FirstOrDefault();
+                if (tsSession == null)
+                {
+                <option value="@session.ID">@string.Format("{0}....", session.Name.Substring(0, Math.Min(session.Name.Length, 50)))</option>
+                }
+                else if (tsSession.ID == session.ID)
+                { 
+                <option selected="selected" value="@session.ID">@string.Format("{0}....", session.Name.Substring(0, Math.Min(session.Name.Length, 50)))</option>
+                }
+                else
+                { 
+                <option value="@session.ID">@string.Format("{0}....", session.Name.Substring(0, Math.Min(session.Name.Length, 50)))</option>
+                }
+                 *@
+            }
+        </select>
+    </div>
+    <div>
+    <input type="range" min="0" max="5" value="0" step="1" name="RateSession_@i" id="RateSession_@i">
+    <div class="rateit" data-rateit-backingfld="#RateSession_@i"></div>
+
+    <div>
+        Session Comments:
+    </div>
+    <div>
+        <textarea spellcheck="true" id="Comments_@i" name="Comments_@i" cols="50" rows="5"></textarea>
+    </div>
+
+    </div>
+    i++;
+}
+
+    <button type="submit">Submit Feedback</button>
+}

@@ -1,0 +1,62 @@
+﻿@using CC.UI.Webhost.Models;
+
+@model SessionsViewModel
+
+@{
+    ViewBag.Title = "Sessions";
+    var count = 0;
+}
+
+<div class="title">sessions</div>
+
+
+
+@if (ViewBag.Event.IsSpeakerRegistrationOpen)
+{
+    <div>
+        The following sessions have been submitted, but not yet approved.
+    </div>
+    <div style="clear: both"></div>
+    <div>&nbsp;</div>
+    <div style="clear: both"></div>
+}
+else
+{ 
+<div>
+    <span>Timeslots:</span><br />
+    @Html.ActionLink("All", "sessions", "home", new {id = -1}, null)<span>&nbsp;</span>
+    @foreach (var slot in ViewData.Model.Timeslots.OrderBy(t => t.StartTime))
+    {
+        @Html.ActionLink(slot.StartTime.ToString("h:mm tt") +"-"+ slot.EndTime.ToString("h:mm tt"), "sessions", "home", new { id = slot.ID }, null)<span>&nbsp;</span>
+    }
+</div>
+}
+@foreach (var session in ViewData.Model.Sessions)
+{
+    <div style="clear: both"></div>
+    <div>&nbsp;</div>
+    <div style="clear: both"></div>
+    @*}*@
+    <div style="float:left;width: 95%">
+        <div style="float: left; width: 48px">
+            <a href="@Url.Action("Details", "Speaker", new { id = session.SpeakerID })">
+                <div>
+                    @Html.ImageTag(session.ImageUrl, session.Speaker, 48, 48, session.Speaker)
+                    <div style="position: relative; top: 0px; left: 0px;"><small>@session.Speaker</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div style="float: left; padding-left: 20px; width: 80%">
+            @Html.ActionLink(session.Name, "Details", "Session", new { id = session.ID }, null)&nbsp;@(string.IsNullOrEmpty(session.Location)?string.Empty:string.Format("(Room: {0})",session.Location))<br />
+            <text>@session.Description.Substring(0,Math.Min(200,session.Description.Length))...</text>
+            @if (session.Status == "APPROVED")
+            {
+                <small>@Html.ActionLink("Add to My Agenda", "Attend", "Session", new { id = (int)session.ID }, null) </small>
+            }
+        </div>
+
+    </div>
+    count = count + 1;
+}

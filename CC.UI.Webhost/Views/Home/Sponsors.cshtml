@@ -1,0 +1,44 @@
+﻿@using CC.UI.Webhost.Models;
+
+@model List<Sponsor>
+
+@{
+    ViewBag.Title = "Sponsors";
+    var counter = 0;
+}
+
+<div class="title">sponsors</div>
+
+@if (ViewBag.Event.IsSponsorRegistrationOpen)
+{
+    <div>
+        Interested in sponsoring our event?  <a href="@Url.Content("~/Content/Documents/Seattle Code Camp 2015 Contributor Information.pdf")">Click here </a> to view our sponsor package.
+    </div>
+}
+<div>&nbsp;</div>
+
+
+@foreach (var sponsor in ViewData.Model)
+{
+    counter++;
+    <div style="float:left;width:275px;padding-right:20px">
+        <div class="field-value"><strong>@sponsor.Name</strong></div>
+        <div class="field-value">@sponsor.SponsorshipLevel</div>
+        <div class="field-value">
+            <div style="width: 250px">
+                @if (sponsor.Logo != null)
+                {
+                    <a href="@sponsor.WebsiteUrl" target="_blank">
+                        <img style="max-width: 100%;" src="data:image;base64,@System.Convert.ToBase64String(sponsor.Logo.GetBytes())" alt="@sponsor.Name" />
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+    if ((counter % 2) == 0)
+    {
+        <div style="clear:both"></div>
+        <div>&nbsp;</div>
+        <div style="clear:both"></div>
+    }
+}

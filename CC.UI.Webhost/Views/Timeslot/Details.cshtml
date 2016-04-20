@@ -1,0 +1,26 @@
+﻿@using CC.UI.Webhost.Models;
+
+@model Timeslot
+
+@{
+    ViewBag.Title = "Timeslot";
+}
+
+<div class="title">timeslot</div>
+
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.ID }) |
+    @Html.ActionLink("Back", "Index")
+</div>
+
+<div class="error-message">@ViewBag.ErrorMessage</div>
+
+<div class="field-name">name</div>
+<div class="field-value">@Html.DisplayFor(model => model.Name)</div>
+
+<div class="field-name">start time</div>
+<div class="field-value">@Html.DisplayFor(model => model.StartTime)</div>
+
+<div class="field-name">end time</div>
+<div class="field-value">@Html.DisplayFor(model => model.EndTime)</div>
