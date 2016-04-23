@@ -137,15 +137,18 @@ namespace CC.Data
             occ2012.Announcements.Add(new Announcement() { ID = 6, Title = "call for attendees", Content = "This is the third announcement.", PublishDate = new DateTime(2012, 3, 1) });
 
             Track t1 = new Track { ID = 11, Name = "Windows Phone 7", Description = "Windows Phone 7 development" };
-            Track t2 = new Track { ID = 12, Name = "Windows 8", Description = "Windows 8 development" };
+            Track t2 = new Track { ID = 12, Name = "Windows 10", Description = "Windows 10 development" };
             Track t3 = new Track { ID = 13, Name = "Architecture", Description = "Architecture, P and P" };
 
-            Timeslot tslot1 = new Timeslot {ID = 1, Event_ID = 2, StartTime = occ2012.StartTime, EndTime = occ2012.StartTime};
+            Timeslot tslot1 = new Timeslot { ID = 1, Event_ID = 2, StartTime = occ2012.StartTime, EndTime = occ2012.StartTime.AddMinutes(50) };
+            Timeslot tslot2 = new Timeslot { ID = 2, Event_ID = 2, StartTime = occ2012.StartTime.AddHours(1), EndTime = occ2012.StartTime.AddHours(1).AddMinutes(50) };
+            Timeslot tslot3 = new Timeslot { ID = 3, Event_ID = 2, StartTime = occ2012.StartTime.AddHours(2), EndTime = occ2012.StartTime.AddHours(2).AddMinutes(50) };
+            Timeslot tslot4 = new Timeslot { ID = 4, Event_ID = 2, StartTime = occ2012.StartTime.AddHours(3), EndTime = occ2012.StartTime.AddHours(3).AddMinutes(50) };
 
-            t1.Sessions.Add(new Session() { ID = 1, Event_ID = 2, Timeslot_ID = 1, Name = "Silverlight for WP7", Description = "Introduction in Silverlight programming with windows phone 7", Speaker = p2 });
-            t1.Sessions.Add(new Session() { ID = 2, Event_ID = 2, Timeslot_ID = 1, Name = "XNA for WP7", Description = "Introduction in XNA programming with windows phone 7", Speaker = p3 });
-            t2.Sessions.Add(new Session() { ID = 3, Event_ID = 2, Timeslot_ID = 1, Name = "Intro in Win 8", Description = "Introduction in Windows 8", Speaker = p4 });
-            t3.Sessions.Add(new Session() { ID = 4, Event_ID = 2, Timeslot_ID = 1, Name = "P & P", Description = "Patterns and practices", Speaker = p5 });
+            t1.Sessions.Add(new Session() { ID = 1, Event_ID = 2, Timeslot_ID = 3, Name = "Silverlight for WP7", Description = "Introduction to Silverlight programming with windows phone 7", Speaker = p2, Status= "APPROVED" });
+            t1.Sessions.Add(new Session() { ID = 2, Event_ID = 2, Timeslot_ID = 1, Name = "XNA for WP7", Description = "Introduction to XNA programming with windows phone 7", Speaker = p3, Status = "APPROVED" });
+            t2.Sessions.Add(new Session() { ID = 3, Event_ID = 2, Timeslot_ID = 2, Name = "Intro to Windows 10", Description = "Introduction to Windows 10", Speaker = p4, Status = "APPROVED" });
+            t3.Sessions.Add(new Session() { ID = 4, Event_ID = 2, Timeslot_ID = 4, Name = "Patterns and Practices", Description = "Proven practices for predictable results", Speaker = p5, Status = "APPROVED" });
 
             occ2012.Tracks.Add(t1);
             occ2012.Tracks.Add(t2);

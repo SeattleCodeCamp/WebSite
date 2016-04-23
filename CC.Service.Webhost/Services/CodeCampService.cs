@@ -9,15 +9,36 @@ namespace CC.Service.Webhost.CodeCampSvc
 {
     public class CodeCampService : ICodeCampService
     {
-        private readonly Lazy<PersonRepository> _personRepository = new Lazy<PersonRepository>();
-        private readonly Lazy<SessionRepository> _sessionRepository = new Lazy<SessionRepository>();
-        private readonly Lazy<MetadataRepository> _metadataRepository = new Lazy<MetadataRepository>();
-        private readonly Lazy<TaskRepository> _taskRepository = new Lazy<TaskRepository>();
-        private readonly Lazy<TagRepository> _tagRepository = new Lazy<TagRepository>();
+        private readonly Lazy<PersonRepository> _personRepository;
+        private readonly Lazy<SessionRepository> _sessionRepository;
+        private readonly Lazy<MetadataRepository> _metadataRepository;
+        private readonly Lazy<TaskRepository> _taskRepository;
+        private readonly Lazy<TagRepository> _tagRepository;
         private const string ApprovedSession = "APPROVED";
         private const string SubmittedSession = "SUBMITTED";
 
-        public CodeCampService() { }
+        public CodeCampService(
+            Lazy<PersonRepository> personRepository,
+            Lazy<SessionRepository> sessionRepository,
+            Lazy<MetadataRepository> metadataRepository,
+            Lazy<TaskRepository> taskRepository,
+            Lazy<TagRepository> tagRepository)
+        {
+            _personRepository = personRepository;
+            _sessionRepository = sessionRepository;
+            _metadataRepository = metadataRepository;
+            _taskRepository = taskRepository;
+            _tagRepository = tagRepository;
+        }
+
+        public CodeCampService(): this(
+            new Lazy <PersonRepository>(),
+            new Lazy<SessionRepository>(),
+            new Lazy<MetadataRepository>(),
+            new Lazy<TaskRepository>(),
+            new Lazy<TagRepository>())
+        {
+        }
 
 
         #region People

@@ -18,7 +18,7 @@ namespace CC.UI.Webhost
 
             routes.MapRoute(
                 "Default", // Route name
-                "{action}/{id}", // URL with parameters
+                "{controller}/{action}/{id}", // URL with parameters
                 new { eventid = id, controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
