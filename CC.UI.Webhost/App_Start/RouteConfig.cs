@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 using CC.Service.Webhost.CodeCampSvc;
+using Ninject;
 
 namespace CC.UI.Webhost
 {
@@ -11,7 +12,8 @@ namespace CC.UI.Webhost
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             
             int id;
-            var service = new CodeCampService();
+            StandardKernel kernel = new StandardKernel();
+            var service = new CodeCampService(kernel);
 
             var defaultEvent = service.GetDefaultEvent();
             id = defaultEvent.ID;

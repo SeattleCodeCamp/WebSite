@@ -9,7 +9,7 @@ namespace CC.Data
     public class CCDB : DbContext
     {
         public CCDB()
-            : base("CodeCamp")
+            : base("DefaultConnection")
         {
             //Database.SetInitializer<CCDB>(new DropCreateDatabaseIfModelChanges<CCDB>());
             Database.SetInitializer<CCDB>(null);

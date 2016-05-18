@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using LinqToTwitter;
 using CC.Service.Webhost.CodeCampSvc;
 using CC.UI.Webhost.Models;
+using Ninject;
 using UiModel = CC.UI.Webhost.Models;
 
 namespace CC.UI.Webhost.Controllers
@@ -24,8 +25,10 @@ namespace CC.UI.Webhost.Controllers
         }
 
         public BaseController()
-            : this(new CodeCampService(), new CodeCampServiceRepository(new CodeCampService()))
         {
+            var kernel = new StandardKernel();
+            service = new CodeCampService(kernel);
+            repo = new CodeCampServiceRepository(service);
         }
 
         public UiModel.Person CurrentUser

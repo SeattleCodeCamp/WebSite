@@ -4,74 +4,60 @@ using System.Linq;
 using CC.Service.Webhost.Services;
 using CC.Service.Webhost.Repositories;
 using CC.Service.Webhost.Tools;
+using Ninject;
 
 namespace CC.Service.Webhost.CodeCampSvc
 {
     public class CodeCampService : ICodeCampService
     {
-        private readonly Lazy<PersonRepository> _personRepository;
-        private readonly Lazy<SessionRepository> _sessionRepository;
-        private readonly Lazy<MetadataRepository> _metadataRepository;
-        private readonly Lazy<TaskRepository> _taskRepository;
-        private readonly Lazy<TagRepository> _tagRepository;
+        private readonly PersonRepository _personRepository = new PersonRepository();
+        private readonly SessionRepository _sessionRepository = new SessionRepository();
+        private readonly MetadataRepository _metadataRepository = new MetadataRepository();
+        private readonly TaskRepository _taskRepository = new TaskRepository();
+        private readonly TagRepository _tagRepository = new TagRepository();
         private const string ApprovedSession = "APPROVED";
         private const string SubmittedSession = "SUBMITTED";
 
-        public CodeCampService(
-            Lazy<PersonRepository> personRepository,
-            Lazy<SessionRepository> sessionRepository,
-            Lazy<MetadataRepository> metadataRepository,
-            Lazy<TaskRepository> taskRepository,
-            Lazy<TagRepository> tagRepository)
+        public CodeCampService(StandardKernel kernel)
         {
-            _personRepository = personRepository;
-            _sessionRepository = sessionRepository;
-            _metadataRepository = metadataRepository;
-            _taskRepository = taskRepository;
-            _tagRepository = tagRepository;
+            _personRepository = kernel.Get<PersonRepository>();
+            _sessionRepository = kernel.Get<SessionRepository>();
+            _metadataRepository = kernel.Get<MetadataRepository>();
+            _taskRepository = kernel.Get<TaskRepository>();
+            _tagRepository = kernel.Get<TagRepository>();
         }
-
-        public CodeCampService(): this(
-            new Lazy <PersonRepository>(),
-            new Lazy<SessionRepository>(),
-            new Lazy<MetadataRepository>(),
-            new Lazy<TaskRepository>(),
-            new Lazy<TagRepository>())
-        {
-        }
-
 
         #region People
 
         public int RegisterPerson(Person person)
         {
-            return _personRepository.Value.RegisterPerson(person);
+            return _personRepository.RegisterPerson(person);
         }
 
         public Person Login(Person person)
         {
-            return _personRepository.Value.Login(person);
+            return _personRepository.Login(person);
         }
 
         public Person FindPersonByEmail(string email)
         {
-            return _personRepository.Value.FindPersonByEmail(email);
+            return _personRepository.FindPersonByEmail(email);
         }
 
 
         public void ResetPassword(string emailAddress, string temporaryPassword, string temporaryPasswordHash)
         {
-            _personRepository.Value.ResetPassword(emailAddress, temporaryPassword, temporaryPasswordHash);
+            _personRepository.ResetPassword(emailAddress, temporaryPassword, temporaryPasswordHash);
         }
 
         public void ChangePassword(int id, string oldPasswordHash, string newPasswordHash)
         {
-            _personRepository.Value.ChangePassword(id, oldPasswordHash, newPasswordHash);
+            _personRepository.ChangePassword(id, oldPasswordHash, newPasswordHash);
         }
 
         public void UpdatePerson(Person person)
         {
-            _personRepository.Value.UpdatePerson(person);
+            _personRepository.UpdatePerson(person);
         }
 
         public void DeletePerson(int personId)
@@ -718,32 +704,32 @@ namespace CC.Service.Webhost.CodeCampSvc
         public Session GetSession(int id)
         {
             // TODO: determine if there are any approved sessions and show only them, otherwise show all
-            return _sessionRepository.Value.GetSession(id);
+            return _sessionRepository.GetSession(id);
         }
 
         public IList<Session> GetSpeakerSessions(int eventId, int speakerId)
         {
-            return _sessionRepository.Value.GetSpeakerSessions(eventId, speakerId);
+            return _sessionRepository.GetSpeakerSessions(eventId, speakerId);
         }
 
         public void CreateRateSession(Rate rating)
         {
-            _sessionRepository.Value.CreateRateSession(rating);
+            _sessionRepository.CreateRateSession(rating);
         }
 
         public void CreateSession(Session session)
         {
-            _sessionRepository.Value.CreateSession(session);
+            _sessionRepository.CreateSession(session);
         }
 
         public void UpdateSession(Session session)
         {
-            _sessionRepository.Value.UpdateSession(session);
+            _sessionRepository.UpdateSession(session);
         }
 
         public void DeleteSession(int id)
         {
-            _sessionRepository.Value.DeleteSession(id);
+            _sessionRepository.DeleteSession(id);
         }
 
         #endregion
@@ -860,52 +846,52 @@ namespace CC.Service.Webhost.CodeCampSvc
 
         public IList<Person> GetTaskAssignees(int taskId)
         {
-            return _taskRepository.Value.GetTaskAssignees(taskId);
+            return _taskRepository.GetTaskAssignees(taskId);
         }
 
         public IList<Task> GetAllCurrentEventTasks(int eventId)
         {
-            return _taskRepository.Value.GetAllCurrentEventTasks(eventId);
+            return _taskRepository.GetAllCurrentEventTasks(eventId);
         }
 
         public IList<Task> GetTasksForAssignee(int eventId, int personId)
         {
-            return _taskRepository.Value.GetTasksForAssignee(eventId, personId);
+            return _taskRepository.GetTasksForAssignee(eventId, personId);
         }
 
         public void AssignVolunteerTaskToPerson(Task task, Person person)
         {
-            _taskRepository.Value.AssignVolunteerTaskToPerson(task, person);
+            _taskRepository.AssignVolunteerTaskToPerson(task, person);
         }
 
         public void AssignTaskToPerson(Task task)
         {
-            _taskRepository.Value.AssignTaskToPerson(task);
+            _taskRepository.AssignTaskToPerson(task);
         }
 
         public void RemoveTaskFromPerson(Task task)
         {
-            _taskRepository.Value.RemoveTaskFromPerson(task);
+            _taskRepository.RemoveTaskFromPerson(task);
         }
 
         public Task GetTaskById(int taskId)
         {
-            return _taskRepository.Value.GetTaskById(taskId);
+            return _taskRepository.GetTaskById(taskId);
         }
 
         public void AddTaskToEvent(Task newTask)
         {
-            _taskRepository.Value.AddTaskToEvent(newTask);
+            _taskRepository.AddTaskToEvent(newTask);
         }
 
         public void DisableTask(int existingTaskId)
         {
-            _taskRepository.Value.DisableTask(existingTaskId);
+            _taskRepository.DisableTask(existingTaskId);
         }
 
         public void UpdateTask(Task existingTask)
         {
-            _taskRepository.Value.UpdateTask(existingTask);
+            _taskRepository.UpdateTask(existingTask);
         }
 
         #endregion
@@ -1156,29 +1142,29 @@ namespace CC.Service.Webhost.CodeCampSvc
 
         public IList<Tag> GetTags()
         {
-            return _tagRepository.Value.GetTags();
+            return _tagRepository.GetTags();
         }
 
         public void AddTag(Tag tag)
         {
-            _tagRepository.Value.CreateTag(tag);
+            _tagRepository.CreateTag(tag);
         }
 
         public Tuple<bool, string> DeleteTag(int tagId)
         {
-            return _tagRepository.Value.DeleteTag(tagId);
+            return _tagRepository.DeleteTag(tagId);
         }
 
         public void EditTag(Tag tag)
         {
-            _tagRepository.Value.UpdateTag(tag);
+            _tagRepository.UpdateTag(tag);
         }
 
         #endregion
 
         public string GetValueForKey(string key)
         {
-            return _metadataRepository.Value.GetValueForKey(key);
+            return _metadataRepository.GetValueForKey(key);
         }
     }
 }

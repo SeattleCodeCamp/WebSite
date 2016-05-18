@@ -22,7 +22,8 @@ namespace CC.Service.Webhost.Tests.Helpers
             {
                 bindingDelegate.Invoke(kernel);
             }
-            return kernel.Get<CodeCampService>();
+            //return kernel.Get<CodeCampService>();
+            return new CodeCampService(kernel);
         }
     }
 }
