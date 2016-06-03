@@ -30,7 +30,7 @@
                               };
                 if (string.IsNullOrEmpty(speaker.ImageUrl)) 
                 {
-                    var person = service.FindPersonByEmail(sp.Email);
+                    var person = service.FindPersonByEmail(sp.Email, sp.LoginProvider);
                     person.ImageUrl = GetImageInfo(person.Twitter, localImageUrl);
                     service.UpdatePerson(person);
                 }

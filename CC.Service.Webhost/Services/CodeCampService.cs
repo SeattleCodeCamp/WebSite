@@ -39,11 +39,15 @@ namespace CC.Service.Webhost.CodeCampSvc
             return _personRepository.Login(person);
         }
 
+        public Person FindPersonByEmail(string email, string provider)
+        {
+            return _personRepository.FindPersonByEmail(email, provider);
+        }
+
         public Person FindPersonByEmail(string email)
         {
             return _personRepository.FindPersonByEmail(email);
         }
-
 
         public void ResetPassword(string emailAddress, string temporaryPassword, string temporaryPasswordHash)
         {

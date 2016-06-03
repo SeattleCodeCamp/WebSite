@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Principal;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -69,28 +71,34 @@ namespace CC.UI.Webhost
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
         {
-            HttpCookie authCookie = Context.Request.Cookies[FormsAuthentication.FormsCookieName];
-            if (authCookie == null || authCookie.Value == "")
-                return;
+            //HttpCookie authCookie = Context.Request.Cookies[FormsAuthentication.FormsCookieName];
+            //if (authCookie == null || authCookie.Value == "")
+            //    return;
 
-            FormsAuthenticationTicket authTicket;
-            try
-            {
-                authTicket = FormsAuthentication.Decrypt(authCookie.Value);
-            }
-            catch
-            {
-                return;
-            }
+            //FormsAuthenticationTicket authTicket;
+            //try
+            //{
+            //    authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+            //}
+            //catch
+            //{
+            //    return;
+            //}
+
+            // Cast the Thread.CurrentPrincipal
+            var identity = (ClaimsIdentity)User.Identity;
 
             // retrieve roles from UserData 
-            string[] roles = authTicket.UserData.Split(';');
-
-            if (Context.User != null)
+            var firstOrDefault = identity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role);
+            if (firstOrDefault != null)
             {
-                Context.User = new GenericPrincipal(Context.User.Identity, roles);
-            }
+                string[] roles = firstOrDefault.Value.Split(';');
 
+                if (Context.User != null)
+                {
+                    Context.User = new GenericPrincipal(Context.User.Identity, roles);
+                }
+            }
         }
     }
 }

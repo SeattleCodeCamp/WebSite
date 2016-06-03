@@ -47,5 +47,8 @@
 
         [DataMember]
         public int TShirtSize { get; set; }
+
+        [DataMember]
+        public string LoginProvider { get; set; }
     }
 }

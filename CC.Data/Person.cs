@@ -46,6 +46,9 @@
 
         public int TShirtSize { get; set; }
 
+        [StringLength(128)]
+        public string LoginProvider { get; set; }
+
         public Person()
         {
             Sessions = new List<Session>();

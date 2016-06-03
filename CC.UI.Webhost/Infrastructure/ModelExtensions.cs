@@ -31,7 +31,8 @@ namespace CC.UI.Webhost.Infrastructure
                 LastName = person.LastName,
                 IsAdmin = person.IsAdmin,
                 Location = person.Location,
-                TShirtSizeId = person.TShirtSize
+                TShirtSizeId = person.TShirtSize,
+                LoginProvider = person.LoginProvider,
             };
             return p;
         }
@@ -57,7 +58,8 @@ namespace CC.UI.Webhost.Infrastructure
                 LastName = person.LastName,
                 IsAdmin = person.IsAdmin,
                 Location = person.Location,
-                TShirtSize = person.TShirtSizeId
+                TShirtSize = person.TShirtSizeId,
+                LoginProvider = person.LoginProvider
             };
         }
 
@@ -76,7 +78,8 @@ namespace CC.UI.Webhost.Infrastructure
                 FirstName = person.FirstName,
                 LastName = person.LastName,
                 IsAdmin = person.IsAdmin,
-                Location = person.Location
+                Location = person.Location,
+                LoginProvider = person.LoginProvider
             };
         }
 
@@ -98,7 +101,8 @@ namespace CC.UI.Webhost.Infrastructure
                                        Title = speaker.Title,
                                        FirstName = speaker.FirstName,
                                        LastName = speaker.LastName,
-                                       IsAdmin = speaker.IsAdmin
+                                       IsAdmin = speaker.IsAdmin,
+                                       LoginProvider = speaker.LoginProvider
                                    };
 
             modelSpeaker.Sessions = (List<Model.Session>)speaker.Sessions.Map();

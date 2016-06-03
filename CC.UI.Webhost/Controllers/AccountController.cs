@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -10,6 +13,9 @@ using HashProvider = CC.UI.Webhost.Infrastructure.UserNamePasswordHashProvider;
 using uiModel = CC.UI.Webhost.Models;
 using Services = CC.Service.Webhost.Services;
 using CC.Service.Webhost.Tools;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 
 namespace CC.UI.Webhost.Controllers
 {
@@ -19,7 +25,7 @@ namespace CC.UI.Webhost.Controllers
     {
 
         private const string LocalImageUrl = @"/Content/Avatar/default_user_icon.jpg";
-
+        private const string internalUserPwProvider = "internal";
         public AccountController(ICodeCampService service, ICodeCampServiceRepository repo) : base(service, repo)
         {
         }
@@ -60,13 +66,14 @@ namespace CC.UI.Webhost.Controllers
 
             else
             {
-                HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-                if (authCookie != null)
-                {
-                    authCookie.Expires = DateTime.Now.AddDays(-1);
-                    Response.Cookies.Add(authCookie);
-                }
-
+                //HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+                //if (authCookie != null)
+                //{
+                //    authCookie.Expires = DateTime.Now.AddDays(-1);
+                //    Response.Cookies.Add(authCookie);
+                //}
+                AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie,
+                              DefaultAuthenticationTypes.ExternalCookie);
                 userDisplay.IsLoggedIn = false;
             }
 
@@ -88,7 +95,7 @@ namespace CC.UI.Webhost.Controllers
             if (ModelState.IsValid)
             {
                 Services.Person authenticatedPerson = null;
-                Services.Person person = service.FindPersonByEmail(model.Email);
+                Services.Person person = service.FindPersonByEmail(model.Email, internalUserPwProvider);
                 if (person == null)
                 {
                     ModelState.AddModelError("", "");
@@ -125,9 +132,12 @@ namespace CC.UI.Webhost.Controllers
         // GET: /Account/LogOff
         public ActionResult LogOff()
         {
-            FormsAuthentication.SignOut();
+            //FormsAuthentication.SignOut();
 
             HttpContext.Session.Abandon();
+
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie,
+                                DefaultAuthenticationTypes.ExternalCookie);
 
             return RedirectToAction("Index", "Home");
         }
@@ -146,6 +156,7 @@ namespace CC.UI.Webhost.Controllers
         [HttpPost]
         public ActionResult Register(int eventId, RegisterModel model, FormCollection frm)
         {
+
             if (ModelState.IsValid)
             {
                 ViewBag.TShirtSizes = repo.GetTShirtSizes();
@@ -173,7 +184,8 @@ namespace CC.UI.Webhost.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Location = model.Location,
-                    TShirtSize = model.TShirtSizeId
+                    TShirtSize = model.TShirtSizeId,
+                    LoginProvider = internalUserPwProvider
                 };
 
                 bool useTwitter = frm["cbTwitter"] == "on";
@@ -196,11 +208,28 @@ namespace CC.UI.Webhost.Controllers
 
                 service.Rsvp(eventId, newPerson.ID, "YES");
 
+                this.CurrentUser = new uiModel.Person
+                {
+                    ID = newPerson.ID,
+                    ImageUrl = newPerson.ImageUrl,
+                    Website = newPerson.Website,
+                    Email = newPerson.Email,
+                    Bio = newPerson.Bio,
+                    Twitter = newPerson.Twitter,
+                    Blog = newPerson.Blog,
+                    Title = newPerson.Title,
+                    FirstName = newPerson.FirstName,
+                    LastName = newPerson.LastName,
+                    IsAdmin = newPerson.IsAdmin,
+                    Location = newPerson.Location
+                };
                 HttpContext.User = this.CurrentUser;
 
                 HttpContext.Session.Add("auth", true);
                 //this.CurrentUser = newPerson.Map();
-                FormsAuthentication.SetAuthCookie(CurrentUser.Email, false); // ???
+                //FormsAuthentication.SetAuthCookie(CurrentUser.Email, false); // ???
+
+                CreateAuthTicket(false);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -331,7 +360,7 @@ namespace CC.UI.Webhost.Controllers
         {
             if (ModelState.IsValid)
             {
-                var attendee = service.FindPersonByEmail(model.Email);
+                var attendee = service.FindPersonByEmail(model.Email, internalUserPwProvider);
 
                 if (attendee == null)
                 {
@@ -383,7 +412,8 @@ namespace CC.UI.Webhost.Controllers
                 FirstName = authenticatedPerson.FirstName,
                 LastName = authenticatedPerson.LastName,
                 IsAdmin = authenticatedPerson.IsAdmin,
-                Location = authenticatedPerson.Location
+                Location = authenticatedPerson.Location,
+                LoginProvider = authenticatedPerson.LoginProvider
             };
 
             HttpContext.Session.Add("auth", true);
@@ -426,18 +456,284 @@ namespace CC.UI.Webhost.Controllers
                 }
             }
 
-            var authTicket = new FormsAuthenticationTicket(
-            1,                            // version                             
-            this.CurrentUser.Email,       // name        
-            DateTime.Now,                 // issueDate
-            DateTime.Now.AddDays(7),  // expirationDate
-            rememberMe,                        // persistent across sessions        
-            sb.ToString());               // string-based state bag I used for our roles.
+            var claims = new List<Claim>();
 
-            string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
-            var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
-            HttpContext.Response.AppendCookie(authCookie);
+            // create required claims
+            claims.Add(new Claim(ClaimTypes.NameIdentifier, this.CurrentUser.ID.ToString()));
+            claims.Add(new Claim(ClaimTypes.Name, this.CurrentUser.Email));
+
+            // custom - roles
+            claims.Add(new Claim(ClaimTypes.Role, sb.ToString()));
+
+            var identity = new ClaimsIdentity(claims, DefaultAuthenticationTypes.ApplicationCookie);
+
+            AuthenticationManager.SignIn(new AuthenticationProperties()
+            {
+                AllowRefresh = true,
+                IsPersistent = rememberMe,
+                ExpiresUtc = DateTime.UtcNow.AddDays(7)
+            }, identity);
+
+            //var authTicket = new FormsAuthenticationTicket(
+            //1,                            // version                             
+            //this.CurrentUser.Email,       // name        
+            //DateTime.Now,                 // issueDate
+            //DateTime.Now.AddDays(7),  // expirationDate
+            //rememberMe,                        // persistent across sessions        
+            //sb.ToString());               // string-based state bag I used for our roles.
+
+            //string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+            //var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+            //HttpContext.Response.AppendCookie(authCookie);
         }
+
+        //
+        // POST: /Account/ExternalLogin
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ExternalLogin(string provider, string returnUrl)
+        {
+            // Request a redirect to the external login provider
+            return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
+        }
+
+
+
+        //
+        // GET: /Account/ExternalLoginCallback
+        [AllowAnonymous]
+        public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
+        {
+            ExternalLoginInfo loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
+            if (loginInfo == null)
+            {
+                return RedirectToAction("LogOn");
+            }
+
+            Services.Person authenticatedPerson = null;
+            Services.Person person = service.FindPersonByEmail(loginInfo.Email);
+            if (person == null)
+            {
+                ViewBag.ReturnUrl = returnUrl;
+                ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
+                ViewBag.TShirtSizes = repo.GetTShirtSizes();
+                return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+            }
+            else
+            {
+                if (person.LoginProvider != loginInfo.Login.LoginProvider)
+                {
+                    person.LoginProvider = loginInfo.Login.LoginProvider;
+                    //service.ChangePassword(person.ID, person.PasswordHash, null);
+                    service.UpdatePerson(person);
+                }
+                authenticatedPerson = service.Login(person);
+            }
+
+            if (authenticatedPerson != null)
+            {
+                //bool rememberMe = frm["rememberMe"] == "on";
+                SetFormsAuth(authenticatedPerson, false);
+                if (string.IsNullOrEmpty(authenticatedPerson.Location))
+                {
+                    return RedirectToAction("UpdateProfile", "Account");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            }
+            return RedirectToAction("LogOn");
+
+        }
+
+        //
+        // POST: /Account/ExternalLoginConfirmation
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ExternalLoginConfirmation(int eventId, ExternalLoginConfirmationViewModel model, string returnUrl, FormCollection frm)
+        //public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (ModelState.IsValid)
+            {
+                // Get the information about the user from the external login provider
+                var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+                if (info == null)
+                {
+                    return View("ExternalLoginFailure");
+                }
+
+
+                ViewBag.TShirtSizes = repo.GetTShirtSizes();
+                Services.Person newPerson = new Services.Person();
+
+                if (IsDuplicateRegistration(model.Email))
+                {
+                    ModelState.AddModelError("Email", "The user at this email address is already registered.");
+                    return View(model);
+                }
+                else
+                {
+                    newPerson = new Services.Person()
+                    {
+                        Email = model.Email,
+                        //PasswordHash = UserNamePasswordHashProvider.ComputePasswordHash(model.Password),
+                        Twitter = model.Twitter,
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        Location = model.Location,
+                        TShirtSize = model.TShirtSizeId,
+                        LoginProvider = model.LoginProvider
+                    };
+                }
+                
+                if (!String.IsNullOrEmpty(model.Twitter))
+                {
+                    if (!model.Twitter.StartsWith("@"))
+                    {
+                        const string twitterPrefix = "@";
+                        model.Twitter = string.Format("{0}{1}", twitterPrefix, model.Twitter);
+                    }
+                }
+
+                bool useTwitter = frm["cbTwitter"] == "on";
+                //bool useTwitter = false;
+                if (model.Avatar != null)
+                {
+                    newPerson.ImageUrl = GetImageInfo(model.Avatar, "/Content/avatar");
+                }
+                else if (useTwitter)
+                {
+                    newPerson.ImageUrl = GetImageInfo(model.Twitter, LocalImageUrl);
+                }
+                else
+                {
+                    newPerson.ImageUrl = LocalImageUrl;
+                }
+
+                // service.RegisterPerson(newPerson);
+
+                newPerson.ID = service.RegisterPerson(newPerson); // service.FindPersonByEmail(newPerson.Email).ID;
+
+
+                //service.GetDefaultEvent().ID
+                service.Rsvp(eventId, newPerson.ID, "YES");
+                //service.Rsvp(service.GetDefaultEvent().ID, newPerson.ID, "YES");
+
+                this.CurrentUser = new uiModel.Person
+                {
+                    ID = newPerson.ID,
+                    ImageUrl = newPerson.ImageUrl,
+                    Website = newPerson.Website,
+                    Email = newPerson.Email,
+                    Bio = newPerson.Bio,
+                    Twitter = newPerson.Twitter,
+                    Blog = newPerson.Blog,
+                    Title = newPerson.Title,
+                    FirstName = newPerson.FirstName,
+                    LastName = newPerson.LastName,
+                    IsAdmin = newPerson.IsAdmin,
+                    Location = newPerson.Location,
+                    LoginProvider = newPerson.LoginProvider
+                };
+
+                HttpContext.User = this.CurrentUser;
+
+                HttpContext.Session.Add("auth", true);
+                //this.CurrentUser = newPerson.Map();
+                //FormsAuthentication.SetAuthCookie(CurrentUser.Email, false); // ???
+
+                CreateAuthTicket(false);
+
+                return RedirectToLocal(returnUrl);
+
+                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //var result = await UserManager.CreateAsync(user);
+                //if (result.Succeeded)
+                //{
+                //    result = await UserManager.AddLoginAsync(user.Id, info.Login);
+                //    if (result.Succeeded)
+                //    {
+                //        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                //        return RedirectToLocal(returnUrl);
+                //    }
+                //}
+                //AddErrors(result);
+            }
+
+            ViewBag.ReturnUrl = returnUrl;
+            return View(model);
+        }
+
+        #region Helpers
+        // Used for XSRF protection when adding external logins
+        private const string XsrfKey = "XsrfId";
+
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
+
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error);
+            }
+        }
+
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        internal class ChallengeResult : HttpUnauthorizedResult
+        {
+            public ChallengeResult(string provider, string redirectUri)
+                : this(provider, redirectUri, null)
+            {
+            }
+
+            public ChallengeResult(string provider, string redirectUri, string userId)
+            {
+                LoginProvider = provider;
+                RedirectUri = redirectUri;
+                UserId = userId;
+            }
+
+            public string LoginProvider { get; set; }
+            public string RedirectUri { get; set; }
+            public string UserId { get; set; }
+
+            public override void ExecuteResult(ControllerContext context)
+            {
+                var properties = new AuthenticationProperties { RedirectUri = RedirectUri };
+                if (UserId != null)
+                {
+                    properties.Dictionary[XsrfKey] = UserId;
+                }
+                context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
+            }
+        }
+        #endregion
 
         #region Status Codes
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)

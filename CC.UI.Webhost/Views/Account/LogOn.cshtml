@@ -1,4 +1,5 @@
-﻿@model CC.UI.Webhost.Models.LogOnModel
+﻿@using CC.UI.Webhost.Models
+@model CC.UI.Webhost.Models.LogOnModel
 
 @{
     ViewBag.Title = "Login";
@@ -50,6 +51,12 @@
         @Html.ActionLink("Reset your password", "ResetPassword") if you forgot it.
     </div>
 }
+
+    <div class="col-md-4">
+        <section id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel {ReturnUrl = ViewBag.ReturnUrl})
+        </section>
+    </div>
 
 <script type="text/javascript">
     $("input:text:visible:first").focus();

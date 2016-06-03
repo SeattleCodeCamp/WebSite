@@ -14,11 +14,15 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
 <div>
-@Html.ActionLink("Change password", "ChangePassword", "Account")
-    @if (ViewBag.Message != null)
+    @if (@Model.LoginProvider == null || @Model.LoginProvider == "internal")
     {
-        <h3 style="color:red">@ViewBag.Message</h3> 
+        @Html.ActionLink("Change password", "ChangePassword", "Account")
+        if (ViewBag.Message != null)
+        {
+            <h3 style="color: red">@ViewBag.Message</h3>
+        }
     }
+
 </div>
 
 @using (Html.BeginForm("UpdateProfile", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))

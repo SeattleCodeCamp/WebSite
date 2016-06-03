@@ -20,6 +20,8 @@ namespace CC.Service.Webhost.CodeCampSvc
 
         void DeletePerson(int personId);
 
+        Person FindPersonByEmail(string email, string provider);
+
         Person FindPersonByEmail(string email);
 
         IList<Person> GetAdministrators();

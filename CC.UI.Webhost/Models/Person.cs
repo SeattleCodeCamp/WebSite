@@ -53,6 +53,8 @@ namespace CC.UI.Webhost.Models
         [Display(Name = "t-shirt size")]
         public int TShirtSizeId { get; set; }
 
+        public string LoginProvider { get; set; }
+
         public string ImageUrl { get; set; }
 
         public bool IsAdmin { get; set; }

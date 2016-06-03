@@ -47,12 +47,25 @@ namespace CC.Service.Webhost.Repositories
             return dcAttendee;
         }
 
+        public Person FindPersonByEmail(string email, string provider)
+        {
+            Person dcAttendee = default(Person);
+
+            var bcAttendee = _dbContext.People.SingleOrDefault(p => p.Email == email & (p.LoginProvider == provider || p.LoginProvider == null));
+
+            if (bcAttendee != null)
+            {
+                dcAttendee = new Person();
+                Mapper.CopyProperties(bcAttendee, dcAttendee);
+            }
+            return dcAttendee;
+        }
+
         public Person FindPersonByEmail(string email)
         {
             Person dcAttendee = default(Person);
 
-            var bcAttendee = _dbContext.People.Where(p => p.Email == email)
-                .SingleOrDefault();
+            var bcAttendee = _dbContext.People.SingleOrDefault(p => p.Email == email);
 
             if (bcAttendee != null)
             {
@@ -119,6 +132,7 @@ namespace CC.Service.Webhost.Repositories
             p.ImageUrl = person.ImageUrl;
             p.Location = person.Location;
             p.TShirtSize = person.TShirtSize;
+            p.LoginProvider = person.LoginProvider;
 
             _dbContext.SaveChanges();
         }
