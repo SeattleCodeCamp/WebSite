@@ -65,7 +65,7 @@ namespace CC.UI.Webhost.Models
                                AltText = "Follow us on Twitter @netda",
                                Title = "Follow us on Twitter @netda"
                            };
-            TweetContent = "Test tweet for #SeattleCC with consumption of all 146 characters.  This is for the new Seattle Code Camp site that we are currently working.";/*"Follow us on Twitter @netda or use the hashtag #SeattleCC";*/
+            TweetContent = "Test tweet for #SeattleCodeCamp with consumption of all 146 characters.  This is for the new Seattle Code Camp site that we are currently working.";/*"Follow us on Twitter @netda or use the hashtag #SeattleCodeCamp";*/
             ProfileName = "Hallmanac";
             ActiveCssClass = "tweetVisible";
         }

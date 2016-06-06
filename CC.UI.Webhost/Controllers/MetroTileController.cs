@@ -311,7 +311,7 @@ namespace CC.UI.Webhost.Controllers
             var twitterTileViewModel = new TwitterMetroTileViewModel
             {
                 TileBackgroundCssClass = "blueTile", //  "doubleTileBlueImage",
-                TileDisplayName = "#SeattleCC"
+                TileDisplayName = "#SeattleCodeCamp"
             };
 
             //insert some logic to go get tweets with the #SeattleCC hashtag or tweets mentioning @netda or tweets that @NETDA puts out
