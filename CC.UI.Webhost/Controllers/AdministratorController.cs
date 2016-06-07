@@ -7,6 +7,8 @@
 
     public class AdministratorController : BaseController
     {
+        public AdministratorController(ICodeCampService service, ICodeCampServiceRepository repo) : base(service, repo) { }
+
         //
         // GET: /Administrator/
 

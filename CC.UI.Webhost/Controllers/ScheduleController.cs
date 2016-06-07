@@ -1,4 +1,6 @@
-﻿namespace CC.UI.Webhost.Controllers
+﻿using CC.Service.Webhost.CodeCampSvc;
+
+namespace CC.UI.Webhost.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -10,6 +12,9 @@
 
     public class ScheduleController : BaseController
     {
+        public ScheduleController(ICodeCampService service, ICodeCampServiceRepository repo) : base(service, repo) { }
+
+
         //
         // GET: /Schedule/
 

@@ -1,4 +1,6 @@
-﻿namespace CC.UI.Webhost.Controllers
+﻿using CC.Service.Webhost.CodeCampSvc;
+
+namespace CC.UI.Webhost.Controllers
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
@@ -7,6 +9,8 @@
 
     public class EventController : BaseController
     {
+        public EventController(ICodeCampService service, ICodeCampServiceRepository repo) : base(service, repo) { }
+
         //
         // GET: /Event/
 

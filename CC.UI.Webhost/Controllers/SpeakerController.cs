@@ -1,4 +1,6 @@
-﻿namespace CC.UI.Webhost.Controllers
+﻿using CC.Service.Webhost.CodeCampSvc;
+
+namespace CC.UI.Webhost.Controllers
 {
     using System.Web.Mvc;
 
@@ -7,6 +9,8 @@ using System.Web.UI;
 
     public class SpeakerController : BaseController
     {
+        public SpeakerController(ICodeCampService service, ICodeCampServiceRepository repo) : base(service, repo) { }
+
         //
         // GET: /Speaker/
 

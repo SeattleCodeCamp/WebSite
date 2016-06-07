@@ -1,4 +1,6 @@
-﻿namespace CC.UI.Webhost.Controllers
+﻿using CC.Service.Webhost.CodeCampSvc;
+
+namespace CC.UI.Webhost.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -9,6 +11,10 @@
 
     public class SponsorController : BaseController
     {
+
+        public SponsorController(ICodeCampService service, ICodeCampServiceRepository repo) : base(service, repo) { }
+
+
         //
         // GET: /Sponsor/
 

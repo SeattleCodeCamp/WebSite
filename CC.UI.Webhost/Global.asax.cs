@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
+using OCC.UI.Webhost.App_Start;
 
 namespace CC.UI.Webhost
 {

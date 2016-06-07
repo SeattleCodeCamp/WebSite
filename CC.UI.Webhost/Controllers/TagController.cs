@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CC.Service.Webhost.CodeCampSvc;
 using CC.UI.Webhost.Models;
 
 namespace CC.UI.Webhost.Controllers
 {
     public class TagController : BaseController
     {
+
+        public TagController(ICodeCampService service, ICodeCampServiceRepository repo) : base(service, repo) { }
+
 
         [Authorize(Roles = "Admin")]
         public ActionResult Index()

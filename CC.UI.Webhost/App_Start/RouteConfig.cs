@@ -12,8 +12,7 @@ namespace CC.UI.Webhost
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             
             int id;
-            StandardKernel kernel = new StandardKernel();
-            var service = new CodeCampService(kernel);
+            var service = new CodeCampService();
 
             var defaultEvent = service.GetDefaultEvent();
             id = defaultEvent.ID;

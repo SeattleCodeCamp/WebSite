@@ -18,13 +18,31 @@ namespace CC.Service.Webhost.CodeCampSvc
         private const string ApprovedSession = "APPROVED";
         private const string SubmittedSession = "SUBMITTED";
 
-        public CodeCampService(StandardKernel kernel)
+        //public CodeCampService(StandardKernel kernel)
+        //{
+        //    _personRepository = kernel.Get<PersonRepository>();
+        //    _sessionRepository = kernel.Get<SessionRepository>();
+        //    _metadataRepository = kernel.Get<MetadataRepository>();
+        //    _taskRepository = kernel.Get<TaskRepository>();
+        //    _tagRepository = kernel.Get<TagRepository>();
+        //}
+
+        public CodeCampService(PersonRepository personRepo, SessionRepository sessionRepo, MetadataRepository metaRepo, TaskRepository taskRepo, TagRepository tagRepo)
         {
-            _personRepository = kernel.Get<PersonRepository>();
-            _sessionRepository = kernel.Get<SessionRepository>();
-            _metadataRepository = kernel.Get<MetadataRepository>();
-            _taskRepository = kernel.Get<TaskRepository>();
-            _tagRepository = kernel.Get<TagRepository>();
+            _personRepository = personRepo;
+            _sessionRepository = sessionRepo;
+            _metadataRepository = metaRepo;
+            _taskRepository = taskRepo;
+            _tagRepository = tagRepo;
+        }
+
+        public CodeCampService()
+        {
+            _personRepository = new PersonRepository();
+            _sessionRepository = new SessionRepository();
+            _metadataRepository = new MetadataRepository();
+            _taskRepository = new TaskRepository();
+            _tagRepository = new TagRepository();
         }
 
         #region People

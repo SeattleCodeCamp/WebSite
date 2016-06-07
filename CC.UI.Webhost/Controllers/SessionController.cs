@@ -3,12 +3,15 @@ using System.Web.Mvc;
 using CC.UI.Webhost.Models;
 using System;
 using System.Web.UI;
+using CC.Service.Webhost.CodeCampSvc;
 
 namespace CC.UI.Webhost.Controllers
 {
 
     public class SessionController : BaseController
     {
+        public SessionController(ICodeCampService service, ICodeCampServiceRepository repo) : base(service, repo) { }
+
         //
         // GET: /Session/
 

@@ -8,6 +8,7 @@ using Ninject.Extensions.Factory;
 using CC.Data;
 using CC.Service.Webhost.DependencyInjection;
 using CC.Service.Webhost.CodeCampSvc;
+using CC.Service.Webhost.Repositories;
 
 namespace CC.Service.Webhost.Tests.Helpers
 {
@@ -23,7 +24,11 @@ namespace CC.Service.Webhost.Tests.Helpers
                 bindingDelegate.Invoke(kernel);
             }
             //return kernel.Get<CodeCampService>();
-            return new CodeCampService(kernel);
+            return new CodeCampService(kernel.Get<PersonRepository>(), 
+                kernel.Get<SessionRepository>(),
+                kernel.Get<MetadataRepository>(), 
+                kernel.Get<TaskRepository>(), 
+                kernel.Get<TagRepository>());
         }
     }
 }

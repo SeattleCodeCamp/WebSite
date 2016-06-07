@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using CC.Service.Webhost.CodeCampSvc;
 using CC.UI.Webhost.Infrastructure;
 using CC.UI.Webhost.Models;
 using CC.Service.Webhost.Services;
@@ -9,6 +10,8 @@ namespace CC.UI.Webhost.Controllers
 {
     public class MetroTileController : BaseController
     {
+        public MetroTileController(ICodeCampService service, ICodeCampServiceRepository repo) : base(service, repo) { }
+
         [ChildActionOnly]
         public PartialViewResult DoubleMetroTileForCCPhotos()
         {

@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CC.Service.Webhost.CodeCampSvc;
 using CC.UI.Webhost.Models;
 
 namespace CC.UI.Webhost.Controllers
 {
     public class TrackController : BaseController
     {
+        public TrackController(ICodeCampService service, ICodeCampServiceRepository repo) : base(service, repo) { }
+
         //
         // GET: /Track/
 

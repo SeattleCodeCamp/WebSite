@@ -30,7 +30,6 @@ namespace CC.UI.Webhost.Controllers
         {
         }
 
-        public AccountController() { }
 
         public PartialViewResult UserDisplayProfile()
         {

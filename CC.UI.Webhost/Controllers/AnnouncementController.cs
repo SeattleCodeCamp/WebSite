@@ -1,4 +1,6 @@
-﻿namespace CC.UI.Webhost.Controllers
+﻿using CC.Service.Webhost.CodeCampSvc;
+
+namespace CC.UI.Webhost.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -8,6 +10,9 @@
 
     public class AnnouncementController : BaseController
     {
+        public AnnouncementController(ICodeCampService service, ICodeCampServiceRepository repo) : base(service, repo) { }
+
+
         //
         // GET: /Announcement/
         public ActionResult Index(int eventid)

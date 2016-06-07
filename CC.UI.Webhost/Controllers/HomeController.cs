@@ -24,8 +24,6 @@ namespace CC.UI.Webhost.Controllers
         {
         }
 
-        public HomeController() { }
-
         public ActionResult Index(int eventid)
         {
             var currentEvent = service.GetEvent(eventid);

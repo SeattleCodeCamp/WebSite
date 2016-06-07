@@ -1,4 +1,5 @@
 ﻿using System;
+using CC.Service.Webhost.CodeCampSvc;
 
 namespace CC.UI.Webhost.Controllers
 {
@@ -10,6 +11,9 @@ namespace CC.UI.Webhost.Controllers
 
     public class VolunteerController : BaseController
     {
+        public VolunteerController(ICodeCampService service, ICodeCampServiceRepository repo) : base(service, repo) { }
+
+
         private const string CONST_TASK_PARAMETER_ID = "taskId";
 
         [Authorize(Roles = "Admin")]

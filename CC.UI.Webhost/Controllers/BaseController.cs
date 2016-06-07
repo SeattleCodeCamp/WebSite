@@ -24,12 +24,12 @@ namespace CC.UI.Webhost.Controllers
             this.repo = repo;
         }
 
-        public BaseController()
-        {
-            var kernel = new StandardKernel();
-            service = new CodeCampService(kernel);
-            repo = new CodeCampServiceRepository(service);
-        }
+        //public BaseController()
+        //{
+        //    var kernel = new StandardKernel();
+        //    service = new CodeCampService(kernel);
+        //    repo = new CodeCampServiceRepository(service);
+        //}
 
         public UiModel.Person CurrentUser
         {
