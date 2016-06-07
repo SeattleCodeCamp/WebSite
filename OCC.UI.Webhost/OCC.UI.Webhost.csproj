@@ -504,6 +504,7 @@
     <Content Include="Content\Documents\Flyer.pdf" />
     <Content Include="Content\css\rwd.css.map" />
     <Content Include="Content\css\rwd.less" />
+    <Content Include="Content\Documents\Seattle Code Camp 2016 Contributor Information.pdf" />
     <None Include="Properties\PublishProfiles\seatlecc - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\seatlecc - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
