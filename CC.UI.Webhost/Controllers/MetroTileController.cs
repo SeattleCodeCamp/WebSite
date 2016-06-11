@@ -20,15 +20,14 @@ namespace CC.UI.Webhost.Controllers
             {
                 TileLinkActionName = "Index",
                 TileLinkControllerName = "Home",
-                TileDisplayName = "Codecamp 2014 Photos",
+                TileDisplayName = "Codecamp Photos",
                 TileBackgroundCssClass = "greenTile"
             };
 
             tileViewModel.MetroTileIcons.Add(new MetroTileImage("~/Content/Avatar/2014.jpg")
             {
-                AltText = "Codecamp 2014 Photos",
-                Title = "Codecamp 2014 Photos",
-                //AnchorTagUri = "https://www.facebook.com/media/set/?set=oa.10152344594037028&type=1"
+                AltText = "Codecamp Photos",
+                Title = "Codecamp Photos",
             });
 
             return PartialView("_DoubleMetroTile", tileViewModel);
