@@ -517,7 +517,11 @@ namespace CC.UI.Webhost.Controllers
                 ViewBag.ReturnUrl = returnUrl;
                 ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
                 ViewBag.TShirtSizes = repo.GetTShirtSizes();
-                return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel
+                {
+                    Email = loginInfo.Email,
+                    LoginProvider = loginInfo.Login.LoginProvider
+                });
             }
             else
             {
@@ -567,11 +571,11 @@ namespace CC.UI.Webhost.Controllers
             if (ModelState.IsValid)
             {
                 // Get the information about the user from the external login provider
-                var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-                if (info == null)
-                {
-                    return View("ExternalLoginFailure");
-                }
+                //var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+                //if (info == null)
+                //{
+                //    return View("ExternalLoginFailure");
+                //}
 
 
                 ViewBag.TShirtSizes = repo.GetTShirtSizes();
