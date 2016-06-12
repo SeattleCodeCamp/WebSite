@@ -20,7 +20,7 @@ using Microsoft.Owin.Security;
 namespace CC.UI.Webhost.Controllers
 {
 
-
+    [RequireHttps]
     public class AccountController : BaseController
     {
 

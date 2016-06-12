@@ -12,6 +12,7 @@ namespace CC.UI.Webhost.Controllers
     using CC.UI.Webhost.Models;
     using System.Web.UI;
 
+    [RequireHttps]
     public class HomeController : BaseController
     {
         // Magic Strings

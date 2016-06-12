@@ -21,10 +21,13 @@ namespace CC.UI.Webhost
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
-            if (!HttpContext.Current.IsDebuggingEnabled)
-            {
-                filters.Add(new RequireHttpsAttribute());
-            }
+
+            //if (!HttpContext.Current.IsDebuggingEnabled)
+            //{
+            //    filters.Add(new RequireHttpsAttribute());
+            //}
+
+            filters.Add(new RequireHttpsAttribute());
         }
 
         //public static void RegisterRoutes(RouteCollection routes)
