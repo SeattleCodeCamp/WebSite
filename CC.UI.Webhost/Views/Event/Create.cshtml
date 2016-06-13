@@ -1,0 +1,146 @@
+﻿@model CC.UI.Webhost.Models.Event
+
+@{
+    ViewBag.Title = "New Event";
+}
+
+@*
+<div>
+    @Html.ActionLink("[back]", "Index")
+</div>
+*@
+
+<div class="title">new event | @Html.ActionLink("back", "Index")</div>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) 
+{
+    @Html.ValidationSummary(true)
+
+    <div class="field-name">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="field-name">
+        @Html.LabelFor(model => model.Description)
+    </div>
+    <div class="editor-multiline-field">
+        @Html.EditorFor(model => model.Description)
+        @Html.ValidationMessageFor(model => model.Description)
+    </div>
+
+    <div class="field-name">
+        @Html.LabelFor(model => model.TwitterHashTag)
+    </div>
+    <div class="editor-field-short">
+        @Html.EditorFor(model => model.TwitterHashTag)
+        @Html.ValidationMessageFor(model => model.TwitterHashTag)
+    </div>
+
+    <div class="field-name">
+        @Html.LabelFor(model => model.StartTime)
+    </div>
+    <div class="editor-field-short">
+        @Html.EditorFor(model => model.StartTime)
+        @Html.ValidationMessageFor(model => model.StartTime)
+    </div>
+
+    <div class="field-name">
+        @Html.LabelFor(model => model.EndTime)
+    </div>
+    <div class="editor-field-short">
+        @Html.EditorFor(model => model.EndTime)
+        @Html.ValidationMessageFor(model => model.EndTime)
+    </div>
+
+    <div class="field-name">
+        @Html.LabelFor(model => model.Location)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Location)
+        @Html.ValidationMessageFor(model => model.Location)
+    </div>
+
+    <div class="field-name">
+        @Html.LabelFor(model => model.Address1)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Address1)
+        @Html.ValidationMessageFor(model => model.Address1)
+    </div>
+
+    <div class="field-name">
+        @Html.LabelFor(model => model.Address2)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Address2)
+        @Html.ValidationMessageFor(model => model.Address2)
+    </div>
+
+    <div class="field-name">
+        @Html.LabelFor(model => model.City)
+    </div>
+    <div class="editor-field-short">
+        @Html.EditorFor(model => model.City)
+        @Html.ValidationMessageFor(model => model.City)
+    </div>
+
+    <div class="field-name">
+        @Html.LabelFor(model => model.State)
+    </div>
+    <div class="editor-field-short">
+        @Html.EditorFor(model => model.State)
+        @Html.ValidationMessageFor(model => model.State)
+    </div>
+
+    <div class="field-name">
+        @Html.LabelFor(model => model.Zip)
+    </div>
+    <div class="editor-field-short">
+        @Html.EditorFor(model => model.Zip)
+        @Html.ValidationMessageFor(model => model.Zip)
+    </div>
+    
+    <div class="field-name">
+        @Html.EditorFor(model => model.IsDefault)
+        @Html.LabelFor(model => model.IsDefault)
+    </div>
+    
+    <div class="field-name">
+        @Html.EditorFor(model => model.IsSponsorRegistrationOpen)
+        @Html.LabelFor(model => model.IsSponsorRegistrationOpen)
+    </div>
+    
+    <div class="field-name">
+        @Html.EditorFor(model => model.IsSpeakerRegistrationOpen)
+        @Html.LabelFor(model => model.IsSpeakerRegistrationOpen)
+    </div>
+
+    <div class="field-name">
+        @Html.EditorFor(model => model.IsAttendeeRegistrationOpen)
+        @Html.LabelFor(model => model.IsAttendeeRegistrationOpen)
+    </div>
+    
+    <div class="field-name">
+        @Html.EditorFor(model => model.IsVolunteerRegistrationOpen)
+        @Html.LabelFor(model => model.IsVolunteerRegistrationOpen)
+    </div>
+    
+    <br />
+    
+    <div>
+        <input type="submit" value="Create" class="action-button"/>
+    </div>
+    
+    <br />
+}
+
+<script type="text/javascript">
+    $("input:text:visible:first").focus();
+</script>

@@ -1,0 +1,118 @@
+﻿@using CC.UI.Webhost.Models;
+
+@model Schedule 
+
+@{
+    ViewBag.Title = "Schedule";
+    Layout = "~/Views/Shared/_Layout.WideScreen.cshtml";
+}
+
+<div class="title">schedule | @Html.ActionLink("back", "Admin", "Home")</div>
+
+<table>
+
+<!-- header -->
+
+<tr>
+    <td>
+    </td>
+
+@foreach (Track track in ViewData.Model.Tracks)
+{
+    <td class="colTitle trackHeader">
+        @track.Name
+    </td>
+}
+
+</tr>
+
+<!-- body -->
+
+
+@foreach (Timeslot timeslot in ViewData.Model.Timeslots)
+{
+    <tr>
+        <td class="colTitle timeSlotLabel" nowrap="nowrap">
+            @timeslot.Name
+        </td>
+
+    @foreach (Track track in ViewData.Model.Tracks)
+    {
+        <td>
+            <div id="@("t_" + timeslot.ID.ToString() + "_" + track.ID.ToString())" class="target" />
+        </td>
+    }
+
+    </tr>
+}
+
+</table>
+
+<div id="q" class="container">
+
+<div id="t_0_0" class="unschedule">
+    
+    <h4>@Html.Label("Drop here to unschedule a session") </h4>
+</div>
+
+@foreach (Session session in ViewData.Model.Sessions)
+{
+    <div id="@("s_" + session.ID.ToString())" class="session">
+        <b>@session.Speaker</b>
+        <hr />
+        @session.Name
+    </div>
+}
+
+</div>
+    
+<script type="text/javascript">
+
+    $(init);
+
+    function init() {
+        $(".target").droppable({
+            drop: handleDropEvent
+        });
+
+        $(".session").draggable({
+            cursor: 'move',
+            revert: true
+        });
+
+        $("#t_0_0").droppable({
+            drop: handleDropEvent
+        });
+    }
+
+    function handleDropEvent(event, ui) {
+
+        var draggable = ui.draggable;
+        var droppable = $(this);
+
+        if (droppable.attr('id') == 't_0_0')
+        {
+            $(draggable).detach().css({ top: 0, left: 0 }).appendTo($("#q"));
+        }
+        else
+        {
+            $(draggable).detach().css({ top: 0, left: 0 }).appendTo(droppable);
+        }
+
+        draggable.draggable('option', 'revert', false);
+
+        $.post("/Schedule/Schedule", { target: droppable.attr('id'), session: draggable.attr('id') });
+    }
+
+
+@foreach (Session session in ViewData.Model.Sessions)
+{ 
+    if (session.TimeslotID != null && session.TrackID != null) 
+    { 
+        <text>
+        $('#s_@(session.ID)').detach().css({ top: 0, left: 0 }).appendTo('#t_@(session.TimeslotID)_@(session.TrackID)');
+        </text>
+    }
+}
+
+</script>

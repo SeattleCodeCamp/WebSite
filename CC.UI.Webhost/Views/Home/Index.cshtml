@@ -1,0 +1,144 @@
+﻿@using CC.UI.Webhost.Models;
+
+@model List<Announcement>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@if (ViewBag.Event.IsAttendeeRegistrationOpen && ViewBag.Rsvp == "")
+{
+    <div class="title">
+        Are you attending? (@Html.ActionLink("yes", "RsvpYes") or @Html.ActionLink("no", "RsvpNo"))
+    </div>
+}
+
+@if (ViewBag.Event.IsAttendeeRegistrationOpen && ViewBag.Rsvp == "YES")
+{
+    <div class="title">
+        I'm attending (@Html.ActionLink("change r.s.v.p.", "RsvpChange"))
+    </div>
+    <div>
+        <a href="https://twitter.com/intent/tweet?button_hashtag=SeattleCodeCamp" class="twitter-hashtag-button hashtagButton" data-related="NETDA">Tweet #SeattleCodeCamp</a>
+        <script type="text/javascript">
+            !function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, "script", "twitter-wjs");
+        </script>
+    </div>
+    <div style="clear:both"></div>
+}
+
+@if (ViewBag.Event.IsAttendeeRegistrationOpen && (ViewBag.Rsvp == "NO" || ViewBag.Rsvp == "MAYBE"))
+{
+    <div class="title">
+        I'm not attending (@Html.ActionLink("change r.s.v.p.", "RsvpChange"))
+    </div>
+}
+
+@if (HttpContext.Current.User.Identity.IsAuthenticated && ViewBag.Event.EndTime.AddDays(-1) < DateTime.Now)
+{
+    <div class="title">rate sessions</div>
+    <div>
+        View (@Html.ActionLink("rate sessions", "rate")).
+    </div>
+}
+@if (ViewBag.Event.IsSpeakerRegistrationOpen)
+{
+    <div class="title">speaker registration</div>
+    <div>
+        Interested in speaking at Codecamp? <a href="https://www.papercall.io/seattle-codecamp-2016">Sign-up here</a>
+        @*@Html.ActionLink("Sign-up here", "SpeakerSessions", "Session").*@
+    </div>
+}
+
+@if (ViewBag.Event.IsAttendeeRegistrationOpen)
+{
+    <div class="title">quick links</div>
+    <div>
+        View (@Html.ActionLink("all sessions", "sessions", "home")).
+    </div>
+    <div>
+        Find (@Html.ActionLink("venue", "venue", "home")).
+    </div>
+    if (HttpContext.Current.User.Identity.IsAuthenticated)
+    {
+        if (!ViewBag.Event.IsAttendeeRegistrationOpen)
+        {
+            <div>
+                View (@Html.ActionLink("my agenda", "myagenda", "home")).
+            </div>
+        }
+        <div>
+            Volunteer (@Html.ActionLink("my time", "volunteers", "home")).
+        </div>
+        if ((DateTime.Now > ViewBag.Event.EndTime))
+        {
+            <div>
+                @if (ViewBag.HasSubmittedRating != null && ViewBag.HasSubmittedRating)
+                {
+                    <text>Thanks for your feedback</text>
+                }
+                else
+                {
+                    <text>Rate (</text>@Html.ActionLink("my Codecamp experience", "rate", "home")<text>)</text>
+                }
+            </div>
+        }
+    }
+}
+
+@foreach (var announcement in ViewData.Model)
+{
+    <div class="title">@announcement.Title</div>
+    <div>@MvcHtmlString.Create(@announcement.Content)</div>
+}
+
+<div style="clear:both"></div>
+
+<div style="clear:both"></div>
+<div class="title">#SeattleCodeCamp tweets</div>
+<div class="tileFooter">
+    <a href="https://twitter.com/intent/tweet?button_hashtag=SeattleCodeCamp" class="twitter-hashtag-button hashtagButton" data-related="NETDA">Tweet #SeattleCodeCamp</a>
+    <script type="text/javascript">
+        !function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, "script", "twitter-wjs");
+    </script>
+
+    <div class="followButton">
+        <a href="https://twitter.com/netda" class="twitter-follow-button" data-show-count="false">
+            Follow @@netda
+        </a>
+        <script type="text/javascript">
+            !function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, "script", "twitter-wjs");
+        </script>
+    </div>
+    <div class="tweetWrapper" style="margin-top:0px;margin-left:10px;height:100%">
+        <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/SeattleCodeCamp" data-widget-id="741831474370904064">#SeattleCodeCamp Tweets</a>
+        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+    </div>
+    <div style="clear:both"></div>
+</div>
+
+<div style="clear:both"></div>

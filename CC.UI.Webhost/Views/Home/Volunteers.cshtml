@@ -1,0 +1,83 @@
+﻿@using System.Globalization
+@using System.Linq
+@using CC.UI.Webhost.Models;
+
+@model List<VolunteerTask>
+
+@{
+    ViewBag.Title = "Volunteer";
+}
+
+<div class="title">volunteer registration</div>
+<br/>
+
+<script type="text/javascript">
+    $(function () {
+        $("#task-accordion").accordion({ header: "h3" });
+    });
+</script>
+
+@if (ViewData.Model.Count > 0)
+{ 
+<div id="volunteer-class-display">
+    <div id="task-accordion">
+  
+    @foreach (var task in ViewData.Model)
+    {
+        string registerVisibilityStyle = string.Empty;
+        string unregisterVisibilityStyle = string.Empty;
+
+        var remainingCapacity = task.Capacity - task.Volunteers.Count();
+        string registrationButtonIsDisabled = (remainingCapacity < 1 ? "disabled='disabled'" : "");
+        bool unregistrationButtonIsEnabled = task.Volunteers.Any(x => x.Email == HttpContext.Current.User.Identity.Name);
+        unregisterVisibilityStyle = (unregistrationButtonIsEnabled ? "visibility:visible" : "visibility:hidden");
+        registerVisibilityStyle = (unregistrationButtonIsEnabled ? "visibility:hidden" : "visibility:visible");
+        <h3 align="left"><a href="#">@remainingCapacity slots remaining for @task.Description @string.Format("{0} - {1}", task.StartTime.ToShortTimeString(), task.EndTime.ToShortTimeString())</a></h3>
+        <div>
+            <div>
+                @*@task.Description *@
+                @using (Html.BeginForm("Volunteers", "Home", FormMethod.Post, new { id = "registerForm", height = "50" }))
+                {
+                    <div id="register">
+                        <div id="registerbtn" style="@(registerVisibilityStyle)">
+                            <button type="submit" id="registerSubmit" name="btnSubmit" value="add"  @(registrationButtonIsDisabled)>register</button>
+                        </div>
+                        <div id="taskIdParameter">
+                            @Html.Hidden("taskId", @task.Id.ToString(CultureInfo.InvariantCulture))
+                        </div>
+                    </div>
+                        
+                    <div id="unregister" style="@(unregisterVisibilityStyle)">
+                        <div id="unregisterbtn">
+                            <button type="submit" id="unregisterSubmit" name="btnSubmit" value="remove">unregister</button>
+                        </div>
+                    </div>
+                }
+            </div>
+            <br/>
+            <h6>Current Volunteers</h6>
+            
+                @foreach (var volunteer in task.Volunteers)
+                {
+                    var defaultImgUri = "/Content/Avatar/default_user_icon.jpg";
+                    var imgUri = (String.IsNullOrEmpty(volunteer.ImageUrl) ? defaultImgUri : volunteer.ImageUrl);
+                    <ul>
+                        <li>@Html.ImageTag(imgUri, string.Empty, 50, 50) &nbsp; @volunteer.FirstName @volunteer.LastName</li>
+                    </ul>
+                }
+        </div>
+    }
+    </div>
+</div>
+}
+else
+{ 
+    <div>Volunteer tasks coming soon. Check back in a few days.</div>
+}
+
+<link type="text/css" href="/Content/css/dark-hive/jquery-ui-1.8.17.custom.css" rel="stylesheet" />	
+<script type="text/javascript" src="/Content/Javascript/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/Content/Javascript/jquery-ui-1.8.17.custom.min.js"></script>
+<style type="text/css">
+    
+</style>

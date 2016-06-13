@@ -1,0 +1,25 @@
+﻿@model CC.UI.Webhost.Models.Announcement
+
+@{
+    ViewBag.Title = "Announcement Details";
+}
+
+<h2>ViewPage1</h2>
+
+<fieldset>
+    <legend>Announcement</legend>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">Content</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Content)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
