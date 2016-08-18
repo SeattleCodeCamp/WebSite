@@ -29,6 +29,7 @@
     font-family: Segoe UI;
     margin: -4px 0px 0px 0px;
     font-size: 20px;
+    white-space: pre-line;
 }
 
 .error-message

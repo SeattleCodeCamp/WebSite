@@ -18,28 +18,41 @@
 <div class="field-name">name</div>
 <div class="field-value">@ViewData.Model.FullName</div>
 
-<div class="field-name">title</div>
-<div class="field-value">@ViewData.Model.Title</div>
+@if (!string.IsNullOrEmpty(@ViewData.Model.Title))
+{
+    <div class="field-name">title</div>
+    <div class="field-value">@ViewData.Model.Title</div>
+}
 
-@*
-<div class="field-name">e-mail</div>
-<div class="field-value">@ViewData.Model.Email</div>
-*@
+@if (!string.IsNullOrEmpty(@ViewData.Model.Bio))
+{
+    <div class="field-name">Bio</div>
+    <div class="field-value">@ViewData.Model.Bio</div>
+}
 
-<div class="field-name">twitter</div>
-<div class="field-value">
-    <a target="_blank" href="http://twitter.com/@ViewData.Model.Twitter.Replace("@",string.Empty)" target="newwindow">@ViewData.Model.Twitter.Replace("@",string.Empty)</a>
-</div>
+@if (!string.IsNullOrEmpty(@ViewData.Model.Twitter))
+{
+    <div class="field-name">twitter</div>
+    <div class="field-value">
+        <a target="_blank" href="http://twitter.com/@ViewData.Model.Twitter.Replace("@", string.Empty)" target="newwindow">@ViewData.Model.Twitter.Replace("@", string.Empty)</a>
+    </div>
+}
 
-<div class="field-name">website</div>
-<div class="field-value">
-    <a href="http://@ViewData.Model.Website.Replace("https","").Replace("http","").Replace(":","").Replace("//","")" target="newwindow">@ViewData.Model.Website</a>
-</div>
+@if (!string.IsNullOrEmpty(@ViewData.Model.Website))
+{
+    <div class="field-name">website</div>
+    <div class="field-value">
+        <a href="http://@ViewData.Model.Website.Replace("https", "").Replace("http", "").Replace(":", "").Replace("//", "")" target="newwindow">@ViewData.Model.Website</a>
+    </div>
+}
 
-<div class="field-name">blog</div>
-<div class="field-value">
-    <a href="http://@ViewData.Model.Blog.Replace("https","").Replace("http","").Replace(":","").Replace("//","")" target="newwindow">@ViewData.Model.Blog</a>
-</div>
+@if (!string.IsNullOrEmpty(@ViewData.Model.Blog))
+{
+    <div class="field-name">blog</div>
+    <div class="field-value">
+        <a href="http://@ViewData.Model.Blog.Replace("https", "").Replace("http", "").Replace(":", "").Replace("//", "")" target="newwindow">@ViewData.Model.Blog</a>
+    </div>
+}
 
 <div class="field-name">approved sessions</div>
 
