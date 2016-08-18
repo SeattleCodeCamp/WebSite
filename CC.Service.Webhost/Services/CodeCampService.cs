@@ -691,7 +691,7 @@ namespace CC.Service.Webhost.CodeCampSvc
                 {
                     var sessions = (from s in db.Sessions.Include("Speaker")
                                     where s.Event_ID == eventId
-                                    orderby Guid.NewGuid()
+                                    orderby s.Name
                                     select s).ToList();
 
                     var result = new List<Session>();
@@ -768,11 +768,6 @@ namespace CC.Service.Webhost.CodeCampSvc
                 foreach (var person in people)
                 {
                     result.Add(person.Map());
-                    //bool isSpeaker = db.Sessions.Where(s => s.Event_ID == eventId && s.Speaker_ID == person.ID).Any();
-                    //if (!isSpeaker)
-                    //{
-                    //    result.Add(person.Map());
-                    //}
                 }
             }
             return result;
@@ -799,9 +794,7 @@ namespace CC.Service.Webhost.CodeCampSvc
 
                 var speakers = sessions.Select(s => s.Speaker)
                         .Distinct()
-                        .OrderBy(s => Guid.NewGuid())
-
-                        //.OrderBy(s => s.FirstName + " " + s.LastName)
+                        .OrderBy(s => s.LastName + " " + s.FirstName)
                         .ToList();
 
                 foreach (var speaker in speakers)
