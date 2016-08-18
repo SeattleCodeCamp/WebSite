@@ -711,7 +711,7 @@ namespace CC.Service.Webhost.CodeCampSvc
                 var sessions = (from s in db.Sessions.Include("Speaker")
                                 where s.Event_ID == eventId
                                 && s.Status == ApprovedSession
-                                orderby Guid.NewGuid()
+                                orderby s.Name
                                 select s).ToList();
 
                 var result = new List<Session>();
