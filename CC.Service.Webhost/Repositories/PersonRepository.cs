@@ -89,7 +89,7 @@ namespace CC.Service.Webhost.Repositories
             {
                 throw new ArgumentOutOfRangeException(emailAddress, "attendee was not found.");
             }
-
+            bcAttendee.LoginProvider = "internal";
             if (!String.IsNullOrEmpty(temporaryPasswordHash))
             {
                 bcAttendee.PasswordHash = temporaryPasswordHash;

@@ -359,7 +359,7 @@ namespace CC.UI.Webhost.Controllers
         {
             if (ModelState.IsValid)
             {
-                var attendee = service.FindPersonByEmail(model.Email, internalUserPwProvider);
+                var attendee = service.FindPersonByEmail(model.Email);
 
                 if (attendee == null)
                 {
@@ -367,6 +367,11 @@ namespace CC.UI.Webhost.Controllers
                     return View();
                 }
 
+                if (!String.IsNullOrEmpty(attendee.LoginProvider) && attendee.LoginProvider != internalUserPwProvider)
+                {
+                    ModelState.AddModelError("", String.Format("This account is associated with a {0} account.  Please return to the login page and click the {0} button to log in.", attendee.LoginProvider));
+                    return View();
+                }
 
                 bool resetPasswordSucceeded = false;
                 try
@@ -378,7 +383,7 @@ namespace CC.UI.Webhost.Controllers
                     service.ResetPassword(model.Email, temporaryPassword, temporaryPasswordHash);
                     resetPasswordSucceeded = true;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     resetPasswordSucceeded = false;
                 }
