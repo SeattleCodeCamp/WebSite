@@ -141,7 +141,7 @@ namespace CC.Service.Webhost.Repositories
             }
 
             //enter email address here
-            const string boardEmailAddress = "";
+            const string boardEmailAddress = "chris@kinsman.net";
 
             int personId = task.Assignees[0].ID;
             int taskId = task.Id;

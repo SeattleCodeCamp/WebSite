@@ -357,7 +357,7 @@ namespace CC.UI.Webhost.Controllers
             if (currentUser != null)
             {
                 var task = new Services.Task { Id = taskId };
-                if (task.Assignees == null)
+                if (task.Assignees == null || task.Assignees.Count == 0)
                 {
                     task.Assignees = new Services.Person[1];
                 }
