@@ -1,0 +1,43 @@
+﻿@using CC.UI.Webhost.Models
+@model MetroTileViewModel
+
+@{
+    string hrefVal = string.Empty;
+    
+    if (!string.IsNullOrEmpty(Model.TileLinkActionName))
+    {
+        hrefVal = Url.Action(Model.TileLinkActionName, Model.TileLinkControllerName);
+    }
+    else if (@Model.MetroTileIcons.Count > 0)
+    {
+        hrefVal = Model.MetroTileIcons[0].AnchorTagUri;
+    }
+}
+
+<a href="@(hrefVal)">
+    <div class="tile doubleTile @Model.TileBackgroundCssClass">
+
+        <div id="outerTileContent" class="outerDoubleTileContent">
+            <div id="middleTileContent" class="middleDoubleTileContent">
+                <div id="innerTileContent" class="innerSingleTileContent">
+                    @{ IList<MetroTileImage> iconList = Model.MetroTileIcons; }
+                    @foreach (MetroTileImage t in iconList)
+                    {
+                        @(t == iconList[0] ? Html.SponsorImageTag(t, "sponsorImageVisible") : Html.SponsorImageTag(t, "imageHidden"))
+                    }
+                    @if (iconList.Count < 1)
+                    {
+                        @Html.ImageTag(Model.DefaultTileImage, "sponsorImageVisible")
+                    }
+                </div>
+                <h2>@Model.TileNotificationMessage</h2>
+            </div>
+        </div>
+        <div class="tileFooter">
+            <div class="labelLowerLeft" style="font-family: Verdana; font-size: 14px;">@Model.TileDisplayName</div>
+        </div>
+
+    </div>
+</a>
+
+

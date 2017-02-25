@@ -1,0 +1,48 @@
+﻿@using CC.UI.Webhost.Models;
+
+@model Session
+
+@{
+	ViewBag.Title = "Session";
+}
+
+<div class="title">session</div>
+@if(Model.Status == "APPROVED")
+{
+	<div class="field-name">attend</div>
+	<div class="field-value">Click @Html.ActionLink("here", "Attend", new { id = ViewData.Model.ID }) to add this session to your agenda.</div>
+}
+<div class="field-name">name</div>
+<div class="field-value">@ViewData.Model.Name</div>
+
+<div class="field-name">speaker</div>
+
+			<div class="field-value">
+				<a href="@Url.Action( "Details", "Speaker", new { id = ViewData.Model.SpeakerID })">
+					<div>
+						@Html.ImageTag(ViewData.Model.ImageUrl, ViewData.Model.Speaker, 60, 60, ViewData.Model.Speaker)
+						<div style="position:relative;top:0px;left:0px;">@ViewData.Model.Speaker
+						</div>
+					</div>
+				</a>
+			</div>
+@if (!string.IsNullOrEmpty(ViewData.Model.Location))
+{
+    <div class="field-name">room</div>
+    <div class="field-value">@ViewData.Model.Location</div>
+}
+
+<div class="field-name">level</div>
+<div class="field-value">@ViewData.Model.Level</div>
+
+<div class="field-name">time</div>
+<div class="field-value">@string.Format("{0}-{1}",ViewData.Model.StartTime,ViewData.Model.EndTime)</div>
+
+
+<div class="field-name">description</div>
+<div class="field-value">@ViewData.Model.Description</div>
+@if(Model.Status == "APPROVED")
+{
+	<div class="field-name">attend</div>
+	<div class="field-value">Click @Html.ActionLink("here", "Attend", new { id = ViewData.Model.ID }) to add this session to your agenda.</div>
+}

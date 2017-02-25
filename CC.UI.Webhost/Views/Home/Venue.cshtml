@@ -1,0 +1,27 @@
+﻿@using CC.UI.Webhost.Models;
+
+@model Event
+
+@{
+    ViewBag.Title = "Venue";
+}
+
+<div class="title">venue</div>
+
+@*
+    <div>TODO: fix bing map</div>
+*@
+
+<div id="mapviewer"><div><iframe width="500" height="400" frameborder="0" src="https://www.bing.com/maps/embed/viewer.aspx?v=3&cp=47.609601~-122.316972&lvl=18&w=500&h=400&sty=r&typ=d&pp=&ps=&dir=0&mkt=en-us&src=SHELL&form=BMEMJS"></iframe><div style="margin: 12px 0 0 0;"><a target="_blank" href="https://www.bing.com/maps/?cp=47.609601~-122.316972&sty=r&lvl=18&sp=&mm_embed=map">View Larger Map</a>&nbsp; |&nbsp; <a target="_blank" href="https://www.bing.com/maps/?cp=47.609601~-122.316972&sty=r&lvl=18&rtp=~pos.47.609601_-122.316972____&mm_embed=dir">Get Directions</a>&nbsp; |&nbsp; <a target="_blank" href="https://www.bing.com/maps/?cp=ry1f634t66td&sty=b&lvl=18&sp=&mm_embed=be">View Bird's Eye</a></div></div></div>
+
+<pre>
+@ViewData.Model.Location
+@ViewData.Model.Address1
+@ViewData.Model.Address2
+@ViewData.Model.City @ViewData.Model.State @ViewData.Model.Zip
+</pre>
+@*<h2>FREE parking</h2>*@
+@*<div>
+    The garages at Murphy, Broadway or the main visitor lots can be used. There will be parking attendants at Murphy and Broadway garages from 7-10 am. Attendees should say they are there with Seattle CodeCamp and will receive a permit. After 10 am all attendees need to go to main visitor lot at 12th and Marion to get a pass. You may park in P3, P4 or P5.
+    <a href="https://www.seattleu.edu/uploadedFiles/Transportation_and_Parking_Services/Content/Parking/SU-Campus-Map.pdf" target="_blank">See garage maps</a>
+</div>*@

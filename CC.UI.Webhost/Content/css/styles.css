@@ -1,0 +1,147 @@
+﻿.title
+{
+    font-family: Segoe UI;
+    font-size: 36px;
+}
+
+.titlePadding {
+    margin-left: 10px;
+}
+
+.subtitle
+{
+    font-family: Segoe UI;
+    font-size: 16px;
+    font-style: italic;
+    padding-left: 50;
+}
+
+.field-name
+{
+    padding: 12px 0px 0px 0px;
+    font-family: Segoe UI;
+    font-size: 16px;
+    color: Gray;
+}
+
+.field-value
+{
+    font-family: Segoe UI;
+    margin: -4px 0px 0px 0px;
+    font-size: 20px;
+    white-space: pre-line;
+}
+
+.error-message
+{
+    border: 1px solid red;
+}
+
+a, a:visited, a:active
+{
+    color: Yellow;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: Yellow;
+    text-decoration: underline;
+}
+
+.editor-multiline-field textarea { 
+    width: 500px; 
+    height: 200px; 
+}
+
+.editor-field input
+{
+    width: 250px;
+}
+
+.editor-field-short input
+{
+    width: 200px;
+}
+
+.action-button 
+{
+    width: 80px;
+}
+
+.colTitle
+{
+	text-align: center;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
+.timeSlotLabel {
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
+.trackHeader {
+    padding-bottom: 5px;
+}
+
+.target
+{
+	width: 131px;
+	height: 86px;
+	background: #AAAAAA;
+	border: 1px solid gray;
+	text-align: center;
+}
+
+.session
+{
+	width: 120px;
+	height: 75px;
+	background: #AAFFAA;
+    color: Black;
+	border: 1px solid gray;
+	float: left;
+	margin: 5px;
+	text-align: center;
+    font-size: x-small;
+}
+
+.unschedule
+{
+    background-color: rgb(56, 110, 181);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 800px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}

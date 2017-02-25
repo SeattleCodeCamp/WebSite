@@ -1,0 +1,23 @@
+﻿@using CC.UI.Webhost.Models;
+
+@model List<Announcement>
+
+@{
+    ViewBag.Title = "Announcements";
+}
+
+@*
+<div>
+    @Html.ActionLink("[back]", "Admin", "Home")
+    @Html.ActionLink("[new]", "Create")
+</div>
+*@
+
+<div class="title">announcements | @Html.ActionLink("new", "Create") | @Html.ActionLink("back", "Admin", "Home")</div>
+
+@foreach (Announcement announcement in Model)
+{
+    <div>
+        @Html.ActionLink(announcement.Title, "Edit", new { id = announcement.ID })
+    </div>
+}
