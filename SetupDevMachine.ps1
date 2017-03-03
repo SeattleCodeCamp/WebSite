@@ -1,6 +1,6 @@
 ﻿cls
 
-$localDBInstance = "MSSQLLocalDB23"
+$localDBInstance = "MSSQLLocalDB231"
 $dbname = "CodeCamp"
 
 function ExecuteQuery {
@@ -8,6 +8,7 @@ function ExecuteQuery {
     $conn = new-object ('System.Data.SqlClient.SqlConnection')
     $connString = "Server=$server;Integrated Security=SSPI;Database=$database"
     $conn.ConnectionString = $connString
+    Write-Host $conn.ConnectionString
     $conn.Open()
     $sqlCmd = New-Object System.Data.SqlClient.SqlCommand
     $sqlCmd.CommandText = $query
@@ -37,18 +38,30 @@ function QuerySQL {
 
 function CreateDb {
     ExecuteQuery $server "create database $dbname" "master" $false
+}
 
-    $path ="C:\Users\slobo\OneDrive\!Start\Dev stuff\SourceCode\SCC-latest\CC.Data.Database\dbo\Tables\"
-    $files = "Events.sql", "Announcements.sql","People.sql","EventAttendees.sql","EventAttendeeRatings.sql","EventAttendeeSessionRatings.sql","KeyValuePairs.sql","Tasks.sql","PersonTasks.sql","Tags.sql","Timeslots.sql","Tracks.sql","Sessions.sql","SessionAttendees.sql","Sponsors.sql"
+function CreateTables {
+#    $path ="CC.Data.Database\dbo\Tables\"
+    $path ="CC.Data.Database\"
+#    $files = "EventAttendees.sql","EventAttendeeRatings.sql","EventAttendeeSessionRatings.sql","Tasks.sql","PersonTasks.sql","SessionAttendees.sql","Sponsors.sql"
+    $files = "create.sql"
     foreach ($file in $files) {
+        Write-Host "Executing $file"
         $sql = Get-Content "$path$file"
         ExecuteQuery $server $sql $dbname $false
     }
 }
 
 function Seed {
-    $sql = "Insert Into Events(Name, StartTime, EndTime, Address1, Address2, City, State, Zip, IsDefault, IsSponsorRegistrationOpen, IsSpeakerRegistrationOpen, IsAttendeeRegistrationOpen, IsVolunteerRegistrationOpen) Values ('Seattle Code Camp 2011', '03/21/2011', '03/21/2011', 'Seminole State College', '100 College Dr', 'Sanford', 'FL', '32746', 1, 0, 0, 0, 0)"
+    $path ="CC.Data.Database\"
+    $file = "seed.sql"
+    Write-Host "Executing $file"
+    $sql = Get-Content "$path$file"
     ExecuteQuery $server $sql $dbname $false
+
+<#    $sql = "Insert Into Events(Name, StartTime, EndTime, Address1, Address2, City, State, Zip, IsDefault, IsSponsorRegistrationOpen, IsSpeakerRegistrationOpen, IsAttendeeRegistrationOpen, IsVolunteerRegistrationOpen) Values ('Seattle Code Camp 2011', '03/21/2011', '03/21/2011', 'Seminole State College', '100 College Dr', 'Sanford', 'FL', '32746', 1, 0, 0, 0, 0)"
+    ExecuteQuery $server $sql $dbname $false
+#>
 }
 
 function GetLocalInstance {
@@ -58,7 +71,7 @@ function GetLocalInstance {
 }
 
 function CreateLocalInstance {
-    $command = "SQLLocalDB create `"$($localDBInstance)`" -s"
+    $command = "SQLLocalDB create `"$($localDBInstance)`""
     $info = Invoke-Expression $command
     $info
 }
@@ -78,7 +91,7 @@ if($instanceInfo.Get(0) -like "*failed*"){
     CreateLocalInstance
 }
 
-#StartLocalInstance
+StartLocalInstance
 
 $pair = GetLocalInstance | where {$_ -like '*pipe*'} 
 $len = $pair.Length
@@ -97,6 +110,10 @@ if (-not $dbExists) {
     Write-Host "Creating $dbname"
     CreateDb
 
-    Write-Host "Seeding $dbname with a default event because it is necessary for site to run."
-    Seed
+    Write-Host "Creating tables that do not need to be seeded."
+    CreateTables
+
+    Write-Host "Seeding $dbname with a default sample values and a default Event because it is necessary for site to run."
+#    Seed
+
 }
