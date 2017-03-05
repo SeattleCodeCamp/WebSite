@@ -10,8 +10,13 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
+If '$(DeploySeedData)' = 'True'
+Begin
+Begin Tran
+
+
 /*  Seed People */
-Create Table People(
+Create Table #People(
     [ID]           INT             IDENTITY (1, 1) NOT NULL,
     [Email]        NVARCHAR (100)  NULL,
     [FirstName]    NVARCHAR (100)  NULL,
@@ -28,7 +33,7 @@ Create Table People(
     [TShirtSize]   INT             NULL
 	)
 
-Insert Into People
+Insert Into #People
 (FirstName, LastName, Email, IsAdmin, TShirtSize)
 Values
 ('NETDA', 'Admin', 'core@dotnetda.org', 0, 0),
@@ -42,14 +47,14 @@ Insert into People
 (Email, FirstName, LastName, Title, Bio, Website, Blog, Twitter, PasswordHash, ImageUrl, IsAdmin, Location, TShirtSize)
 Select
 Email, FirstName, LastName, Title, Bio, Website, Blog, Twitter, PasswordHash, ImageUrl, IsAdmin, Location, TShirtSize
-From People p
+From #People p
 Where p.Email Not In (Select Email From People)
 
 
 Declare @personId Int; Select @personId = (Select Min(Id) From People)
 
 /*  Seed Event */
-Create Table Events
+Create Table #Events
 (
 [ID]                          INT             IDENTITY (1, 1) NOT NULL,
     [Name]                        NVARCHAR (100)  NULL,
@@ -70,7 +75,7 @@ Create Table Events
     [IsVolunteerRegistrationOpen] BIT             CONSTRAINT [DF_Events_IsVolunteerRegistrationOpen] DEFAULT ((0)) NOT NULL,
 	)
 
-Insert Into Events
+Insert Into #Events
 (Name, StartTime, EndTime, Address1, Address2, City, State, Zip, IsDefault, IsSponsorRegistrationOpen, IsSpeakerRegistrationOpen, IsAttendeeRegistrationOpen, IsVolunteerRegistrationOpen)
 Values
 ('Seattle Code Camp 2011', '03/21/2011', '03/21/2011', 'Seminole State College', '100 College Dr', 'Sanford', 'FL', '32746', 0, 0, 0, 0, 0),
@@ -79,11 +84,11 @@ Values
 Insert Into Events
 (Name, Description, TwitterHashTag, StartTime, EndTime, Location, Address1, Address2, City, State, Zip, IsDefault, IsSponsorRegistrationOpen, IsSpeakerRegistrationOpen, IsAttendeeRegistrationOpen, IsVolunteerRegistrationOpen)
 Select Name, Description, TwitterHashTag, StartTime, EndTime, Location, Address1, Address2, City, State, Zip, IsDefault, IsSponsorRegistrationOpen, IsSpeakerRegistrationOpen, IsAttendeeRegistrationOpen, IsVolunteerRegistrationOpen
-From Events e
+From #Events e
 Where e.Name Not In (Select Name From Events)
 
 /*  Seed Annoncements */
-CREATE TABLE Announcements (
+CREATE TABLE #Announcements (
     [ID]          INT             IDENTITY (1, 1) NOT NULL,
     [Event_ID]    INT             NOT NULL,
     [Title]       NVARCHAR (100)  NULL,
@@ -92,7 +97,7 @@ CREATE TABLE Announcements (
 
 Declare @Event1_Id Int; Select @Event1_Id = (Select Id From Events Where name = 'Seattle Code Camp 2011')
 Declare @Event2_Id Int; Select @Event2_Id = (Select Id From Events Where name = 'Seattle Code Camp 2012')
-Insert Into Announcements
+Insert Into #Announcements
 (Event_ID, Title, Content, PublishDate)
 Values 
 (@Event1_Id, 'call for speakers', 'This is the first announcement.', '1/1/2012'),
@@ -104,14 +109,14 @@ Values
 
 Insert Into Announcements
 Select Event_ID, Title, Content, PublishDate
-From Announcements a
+From #Announcements a
 Where Not Exists 
 (Select *
 From Announcements t
 Where t.Title = a.Title and t.PublishDate = a.PublishDate)
 
 /*  Seed TimeSlots */
-Create Table Timeslots
+Create Table #Timeslots
 (
     [ID]        INT            IDENTITY (1, 1) NOT NULL,
     [Event_ID]  INT            NOT NULL,
@@ -120,7 +125,7 @@ Create Table Timeslots
     [EndTime]   DATETIME       NULL
 	)
 
-Insert Into Timeslots
+Insert Into #Timeslots
 (Event_ID, Name, StartTime, EndTime)
 Values  (@Event2_Id, 'Morning Session 1' ,'3/1/2012 9:00:00.000', '3/1/2012 9:50:00.000'),
 		(@Event2_Id, 'Morning Session 2' ,'3/1/2012 10:00:00.000', '3/1/2012 10:50:00.000'),
@@ -133,13 +138,13 @@ Values  (@Event2_Id, 'Morning Session 1' ,'3/1/2012 9:00:00.000', '3/1/2012 9:50
 Insert Into Timeslots
 (Event_ID, Name, StartTime, EndTime)
 Select Event_ID, Name, StartTime, EndTime
-From Timeslots
+From #Timeslots
 Where Name not in (Select Name From Timeslots)
 
 Declare @TimeslotId Int; Select @TimeslotId = (Select Min(ID) From Timeslots)
 
 /*  Seed Tracks */
-Create Table Tracks
+Create Table #Tracks
 (
     [ID]          INT             IDENTITY (1, 1) NOT NULL,
     [Event_ID]    INT             NOT NULL,
@@ -147,7 +152,7 @@ Create Table Tracks
     [Description] NVARCHAR (2000) NULL
 	)
 
-Insert Into Tracks
+Insert Into #Tracks
 (Event_ID, Name, Description)
 Values
 (@Event2_Id, '"Windows Phone 7', 'Windows Phone 7 development'),
@@ -156,13 +161,13 @@ Values
 
 Insert Into Tracks
 Select Event_ID, Name, Description
-From Tracks
+From #Tracks
 Where Name Not In (Select Name From Tracks)
 
 
 
 /*  Seed Sessions */
-Create Table Sessions (
+Create Table #Sessions (
 [ID]          INT             IDENTITY (1, 1) NOT NULL,
     [Event_ID]    INT             NOT NULL,
     [Speaker_ID]  INT             NOT NULL,
@@ -176,7 +181,7 @@ Create Table Sessions (
     [Tag_ID]      INT             NULL
 	)
 
-Insert Into Sessions
+Insert Into #Sessions
 (Event_ID, Speaker_ID, Track_ID, Timeslot_ID, Name, Description, Status, Level)
 Values
 (@Event2_Id, @personId, 1, 1, 'Silverlight for WP7', 'Introduction in Silverlight programming with windows phone 7', 'Approved', 100),
@@ -192,18 +197,18 @@ Values
 Insert Into Sessions
 (Event_ID, Speaker_ID, Track_ID, Timeslot_ID, Name, Description, Status, Level, Tag_ID)
 Select Event_ID, Speaker_ID, (Select Min(Id) From Tracks), @TimeslotId, Name, Description, Status, Level, null
-From Sessions
+From #Sessions
 Where Name Not In (Select Name From Sessions)
 
 
 /*  Seed Tags */
-Create Table Tags
+Create Table #Tags
 (
     [ID]      INT           IDENTITY (1, 1) NOT NULL,
     [TagName] NVARCHAR (50) NOT NULL
 	)
 
-Insert Into Tags
+Insert Into #Tags
 (TagName)
 Values 
 ('Architecture'),
@@ -222,23 +227,29 @@ Values
 Insert Into Tags
 (TagName)
 Select TagName
-From Tags
-Where TagName Not In (Select TagName From Tags)
+From #Tags
+Where TagName Not In (Select TagName From #Tags)
 
 
 /*  Seed KeyValuePair */
-Create Table KeyValuePairs
+Create Table #KeyValuePair
 (
     [Id]    NVARCHAR (100)  NULL,
     [Value] NVARCHAR (2000) NULL
 	)
 
-Insert Into KeyValuePairs
+Insert Into #KeyValuePair
 Values
 ('tshirtSizes', '[{"Item1":1,"Item2":"Don''t want one"},{"Item1":2,"Item2":"Small"},{"Item1":2,"Item2":"Medium"},{"Item1":2,"Item2":"Large"},{"Item1":2,"Item2":"X-Large"},{"Item1":2,"Item2":"XX-Large"}]')
 
 
 Insert Into KeyValuePairs
 Select *
-From KeyValuePairs
+From #KeyValuePair
 Where Id Not In (Select Id From KeyValuePairs)
+
+
+
+Commit Tran
+
+End
