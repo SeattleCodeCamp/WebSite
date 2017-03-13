@@ -51,13 +51,13 @@ function DbExists{
 		$exists = ExecuteScalar $conn "SELECT TOP 1 * FROM master.dbo.sysdatabases WHERE name = '$dbname'"
 		
 		# did we get Null?  If so, the database doesn't exist.
-		if(!$exists)
+		if($exists)
 		{
-			return $false
+			return $true
 		}
 		else
 		{
-			return $true	
+			return $false
 		}
 	}
 	catch 
