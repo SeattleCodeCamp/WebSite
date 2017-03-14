@@ -11,6 +11,7 @@ namespace CC.UI.Webhost.Controllers
 
     using CC.UI.Webhost.Models;
     using System.Web.UI;
+    using OCC.UI.Webhost.Utilities;
 
     [RequireHttps]
     public class HomeController : BaseController
@@ -298,7 +299,7 @@ namespace CC.UI.Webhost.Controllers
                                   Description = sponsor.Description,
                                   SponsorshipLevel = sponsor.SponsorshipLevel,
                                   WebsiteUrl = sponsor.WebsiteUrl,
-                                  Logo = sponsor.Image == null ? null : new Infrastructure.WebImageOCC(sponsor.Image)
+                                  Logo = ImageUtils.ImageFromBytes(sponsor.Image)
                               });
 
             return View(model);

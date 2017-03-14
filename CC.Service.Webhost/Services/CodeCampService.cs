@@ -382,8 +382,12 @@ namespace CC.Service.Webhost.CodeCampSvc
                 s.Description = sponsor.Description;
                 s.WebsiteUrl = sponsor.WebsiteUrl;
                 s.SponsorshipLevel = sponsor.SponsorshipLevel;
-                //s.ImageUrl = sponsor.ImageUrl;
-                s.Image = sponsor.Image;
+
+                // Don't update the image if one wasn't supplied.
+                if (sponsor.Image != null && sponsor.Image.Length > 0)
+                {
+                    s.Image = sponsor.Image;
+                }
 
                 db.SaveChanges();
             }
