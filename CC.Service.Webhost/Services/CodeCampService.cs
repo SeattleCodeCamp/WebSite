@@ -1,10 +1,15 @@
-﻿using System;
+﻿using Microsoft.Azure.KeyVault;
+using System.Web.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CC.Service.Webhost.Services;
 using CC.Service.Webhost.Repositories;
 using CC.Service.Webhost.Tools;
 using Ninject;
+using OCC.Service.Webhost.Tools;
+using System.Configuration;
+using Tasks = System.Threading.Tasks;
 
 namespace CC.Service.Webhost.CodeCampSvc
 {
@@ -255,6 +260,17 @@ namespace CC.Service.Webhost.CodeCampSvc
             }
         }
 
+        public async Tasks.Task Init()
+        {
+            if (string.IsNullOrWhiteSpace(AKV.EncryptSecret))
+            {
+                var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(AKV.GetToken));
+                var sec = await kv.GetSecretAsync(ConfigurationManager.AppSettings["SecretUri"]);
+
+                AKV.EncryptSecret = sec.Value;
+            }
+        }
+
         public Event GetEvent(int eventId)
         {
             using (var db = new CC.Data.CCDB())
@@ -263,8 +279,8 @@ namespace CC.Service.Webhost.CodeCampSvc
 
                 if (e == null)
                     throw new ArgumentException("Event not found");
-
-                return e.Map();
+                var result = e.Map();
+                return result;
             }
         }
 
@@ -1180,6 +1196,13 @@ namespace CC.Service.Webhost.CodeCampSvc
         public string GetValueForKey(string key)
         {
             return _metadataRepository.GetValueForKey(key);
+        }
+
+        public async Tasks.Task<string> GetKey()
+        {
+            await Init();
+            //return new Tasks.Task<string>(AKV.EncryptSecret);
+            return AKV.EncryptSecret;
         }
     }
 }

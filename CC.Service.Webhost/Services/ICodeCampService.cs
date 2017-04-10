@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CC.Service.Webhost.Services;
+using Tasks = System.Threading.Tasks;
 
 namespace CC.Service.Webhost.CodeCampSvc
 {
@@ -41,7 +42,9 @@ namespace CC.Service.Webhost.CodeCampSvc
         IList<Event> GetEventsByDate(DateTime fromDate, DateTime toDate);
 
         void CreateEvent(Event _event);
-        
+
+        Tasks.Task<string> GetKey(); 
+
         Event GetEvent(int idEvent);
 
         void UpdateEvent(Event _event);

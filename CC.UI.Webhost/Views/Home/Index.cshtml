@@ -3,8 +3,9 @@
 @model List<Announcement>
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = ViewBag.Message;
 }
+
 
 @if (ViewBag.Event.IsAttendeeRegistrationOpen && ViewBag.Rsvp == "")
 {
@@ -102,7 +103,8 @@
 <div style="clear:both"></div>
 
 <div style="clear:both"></div>
-<div class="title">#SeattleCodeCamp tweets</div>
+
+<div class="title"><h1>@ViewBag.Message</h1> #SeattleCodeCamp tweets </div>
 <div class="tileFooter">
     <a href="https://twitter.com/intent/tweet?button_hashtag=SeattleCodeCamp" class="twitter-hashtag-button hashtagButton" data-related="NETDA">Tweet #SeattleCodeCamp</a>
     <script type="text/javascript">
