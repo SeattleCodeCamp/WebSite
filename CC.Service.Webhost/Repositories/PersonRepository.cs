@@ -130,6 +130,7 @@ namespace CC.Service.Webhost.Repositories
             p.Blog = person.Blog;
             p.Twitter = person.Twitter;
             p.ImageUrl = person.ImageUrl;
+            p.Image = person.Image;
             p.Location = person.Location;
             p.TShirtSize = person.TShirtSize;
             p.LoginProvider = person.LoginProvider;

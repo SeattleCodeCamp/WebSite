@@ -16,6 +16,13 @@
                     {
                         @Html.ImageTag(Model.Avatar, string.Format("{0} {1}", Model.DisplayFirstName, Model.DisplayLastName), 48, 48)
                     }
+                    else
+                    {
+                        if (Model.AvatarImage != null)
+                        {
+                            @Html.ImageTag(new WebImageOCC(Model.AvatarImage), string.Format("{0} {1}", Model.DisplayFirstName, Model.DisplayLastName), 48, 48)
+                        }
+                    }
                 </a>
             </div>
             @* <p><a href="@Url.Action("LogOff", "Account")">Logout</a> / <a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")">F.A.Q.</a></p>*@

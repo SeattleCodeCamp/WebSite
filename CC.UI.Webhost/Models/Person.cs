@@ -57,6 +57,8 @@ namespace CC.UI.Webhost.Models
 
         public string ImageUrl { get; set; }
 
+        public byte[] Image { get; set; }
+
         public bool IsAdmin { get; set; }
 
         public string FullName { get { return FirstName + " " + LastName; } }

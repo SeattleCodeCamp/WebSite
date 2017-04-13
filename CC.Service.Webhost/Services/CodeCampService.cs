@@ -827,7 +827,8 @@ namespace CC.Service.Webhost.CodeCampSvc
                     Website = string.IsNullOrEmpty(s.Website) ? string.Empty : s.Website,
                     Blog = string.IsNullOrEmpty(s.Blog) ? string.Empty : s.Blog,
                     Twitter = string.IsNullOrEmpty(s.Twitter) ? string.Empty : s.Twitter,
-                    ImageUrl = s.ImageUrl
+                    ImageUrl = s.ImageUrl,
+                    Image = s.Image
                 };
 
                 foreach (var session in s.Sessions)

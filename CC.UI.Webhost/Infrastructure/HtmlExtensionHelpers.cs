@@ -29,6 +29,24 @@ namespace CC.UI.Webhost.Infrastructure
             return MvcHtmlString.Create(imgHtml);
         }
 
+        public static MvcHtmlString ImageTag(this HtmlHelper html, WebImageOCC src, string alt, int? height = null, int? width = null,
+                             string title = null, string cssClass = null)
+        {
+            var imageTagBuilder = new TagBuilder("img");
+            imageTagBuilder.MergeAttribute("src", "data:image;base64," + Convert.ToBase64String(src.GetBytes()));
+            imageTagBuilder.MergeAttribute("alt", alt);
+            if (height != null && height > 0)
+                imageTagBuilder.MergeAttribute("height", height.ToString());
+            if (width != null && width > 0)
+                imageTagBuilder.MergeAttribute("width", width.ToString());
+            if (!string.IsNullOrEmpty(title))
+                imageTagBuilder.MergeAttribute("title", title);
+            if (!string.IsNullOrEmpty(cssClass))
+                imageTagBuilder.MergeAttribute("class", cssClass);
+            string imgHtml = imageTagBuilder.ToString(TagRenderMode.SelfClosing);
+
+            return MvcHtmlString.Create(imgHtml);
+        }
 
         public static MvcHtmlString ImageTag(this HtmlHelper html, MetroTileImage image, string cssClass = null)
         {

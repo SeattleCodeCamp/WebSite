@@ -90,11 +90,12 @@ namespace CC.UI.Webhost.Controllers
             foreach (var speaker in speakers)
             {
                 Speaker sp = new Speaker()
-                              {
-                                  ID = speaker.ID,
-                                  FirstName = speaker.FirstName,
-                                  LastName = speaker.LastName,
-                                  ImageUrl = speaker.ImageUrl
+                {
+                                    ID = speaker.ID,
+                                    FirstName = speaker.FirstName,
+                                    LastName = speaker.LastName,
+                                    ImageUrl = speaker.ImageUrl,
+                                    Image = speaker.Image
                               };
                 List<Session> sessions = new List<Session>();
                 foreach (var session in service.GetSpeakerSessions(eventid, sp.ID))
@@ -134,6 +135,7 @@ namespace CC.UI.Webhost.Controllers
                                       Description = session.Description,
                                       Speaker = session.Speaker,
                                       ImageUrl = session.ImageUrl,
+                                      Image = session.Image,
                                       SpeakerID = session.SpeakerID,
                                       StartTime = session.StartTime.HasValue ? session.StartTime.Value.ToString() : string.Empty,
                                       EndTime = session.EndTime.HasValue ? session.EndTime.Value.ToString() : string.Empty,
@@ -435,11 +437,9 @@ namespace CC.UI.Webhost.Controllers
                                 LastName = assignee.LastName,
                                 Email = assignee.Email,
                                 ID = assignee.ID,
-                                ImageUrl =
-                                    (String.IsNullOrEmpty(assignee.ImageUrl)
-                                         ? CONST_DEFAULT_ICON_URL
-                                         : assignee.ImageUrl)
-                            };
+                                ImageUrl = assignee.ImageUrl,
+                                Image = assignee.Image
+                    };
                     vt.Volunteers.Add(v);
                 }
             }

@@ -61,6 +61,7 @@ namespace CC.UI.Webhost.Controllers
                 Speaker = session.Speaker,
                 Status = session.Status,
                 ImageUrl = session.ImageUrl,
+                Image = session.Image,
                 StartTime = string.Format("{0}", session.StartTime.HasValue ? session.StartTime.Value.ToShortTimeString() : "N/A"),
                 EndTime = string.Format("{0}", session.EndTime.HasValue ? session.EndTime.Value.ToShortTimeString() : "N/A"),
                 Location = string.IsNullOrEmpty(session.Location) ? string.Empty : session.Location

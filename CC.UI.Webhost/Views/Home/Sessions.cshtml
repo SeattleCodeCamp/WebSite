@@ -41,7 +41,20 @@ else
         <div style="float: left; width: 48px">
             <a href="@Url.Action("Details", "Speaker", new { id = session.SpeakerID })">
                 <div>
-                    @Html.ImageTag(session.ImageUrl, session.Speaker, 48, 48, session.Speaker)
+                    @if (!String.IsNullOrEmpty(session.ImageUrl))
+                    {
+                        @Html.ImageTag(session.ImageUrl, session.Speaker, 48, 48, session.Speaker)
+                    }
+                    else if (session.Image != null)
+                    {
+                        @Html.ImageTag(new WebImageOCC(session.Image), session.Speaker, 48, 48, session.Speaker)
+                    }
+                    else
+                    {
+                        var defaultImgUri = "/Content/Avatar/default_user_icon.jpg";
+                        @Html.ImageTag(defaultImgUri, session.Speaker, 48, 48, session.Speaker)
+                    }
+                   @* @Html.ImageTag(session.ImageUrl, session.Speaker, 48, 48, session.Speaker)*@
                     <div style="position: relative; top: 0px; left: 0px;"><small>@session.Speaker</small>
                     </div>
                 </div>
