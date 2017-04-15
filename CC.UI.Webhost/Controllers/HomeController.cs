@@ -11,7 +11,7 @@ namespace CC.UI.Webhost.Controllers
 
     using CC.UI.Webhost.Models;
     using System.Web.UI;
-    using Tasks = System.Threading.Tasks;
+    using OCC.UI.Webhost.Utilities;
 
     [RequireHttps]
     public class HomeController : BaseController
@@ -294,14 +294,14 @@ namespace CC.UI.Webhost.Controllers
 
             foreach (var sponsor in sponsors)
                 model.Add(new Sponsor()
-                {
-                    ID = sponsor.ID,
-                    Name = sponsor.Name,
-                    Description = sponsor.Description,
-                    SponsorshipLevel = sponsor.SponsorshipLevel,
-                    WebsiteUrl = sponsor.WebsiteUrl,
-                    Logo = sponsor.Image == null ? null : new Infrastructure.WebImageOCC(sponsor.Image)
-                });
+                              {
+                                  ID = sponsor.ID,
+                                  Name = sponsor.Name,
+                                  Description = sponsor.Description,
+                                  SponsorshipLevel = sponsor.SponsorshipLevel,
+                                  WebsiteUrl = sponsor.WebsiteUrl,
+                                  Logo = ImageUtils.ImageFromBytes(sponsor.Image)
+                              });
 
             return View(model);
         }

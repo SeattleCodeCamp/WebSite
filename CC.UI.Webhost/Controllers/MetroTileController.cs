@@ -5,6 +5,7 @@ using CC.Service.Webhost.CodeCampSvc;
 using CC.UI.Webhost.Infrastructure;
 using CC.UI.Webhost.Models;
 using CC.Service.Webhost.Services;
+using OCC.UI.Webhost.Utilities;
 
 namespace CC.UI.Webhost.Controllers
 {
@@ -113,14 +114,10 @@ namespace CC.UI.Webhost.Controllers
 
             foreach (var sponsor in sponsors)
             {
-                if (!string.IsNullOrEmpty(sponsor.Name) && sponsor.Image != null)
+                MetroTileImage sponsorTile = SponsorToDoubleMetroTile(sponsor);
+                if (sponsorTile != null)
                 {
-                    tileViewModel.MetroTileIcons.Add(new MetroTileImage(new Infrastructure.WebImageOCC(sponsor.Image))
-                    {
-                        AltText = sponsor.Name,
-                        Title = string.Format("{0} ({1} sponsor)", sponsor.Name, sponsor.SponsorshipLevel.Replace("sponsor", String.Empty)),
-                        AnchorTagUri = sponsor.WebsiteUrl
-                    });
+                    tileViewModel.MetroTileIcons.Add(sponsorTile);
                 }
             }
             tileViewModel.MetroTileIcons.Shuffle();
@@ -327,5 +324,30 @@ namespace CC.UI.Webhost.Controllers
 
             return PartialView("_TwitterMetroTile", twitterTileViewModel);
         }
+
+        #region Private Helpers
+
+        private MetroTileImage SponsorToDoubleMetroTile(Service.Webhost.Services.Sponsor sponsor)
+        {
+            // Only create a tile if the sponsor has a Name AND an image.
+            // Also, if the sponsor image is corrupted for some reason, don't add it.
+            WebImageOCC image = ImageUtils.ImageFromBytes(sponsor.Image);
+
+            if (!string.IsNullOrEmpty(sponsor.Name) && image != null)
+            {
+                return new MetroTileImage(image)
+                {
+                    AltText = sponsor.Name,
+                    Title = string.Format("{0} ({1} sponsor)", sponsor.Name, sponsor.SponsorshipLevel.Replace("sponsor", String.Empty)),
+                    AnchorTagUri = sponsor.WebsiteUrl
+                };
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        #endregion
     }
 }
