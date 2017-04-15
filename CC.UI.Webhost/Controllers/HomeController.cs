@@ -26,10 +26,9 @@ namespace CC.UI.Webhost.Controllers
         {
         }
 
-        public async Tasks.Task<ActionResult> Index(int eventid)
+        public ActionResult Index(int eventid)
         {
             var currentEvent = service.GetEvent(eventid);
-            currentEvent.Name = await service.GetKey();
 
             ViewBag.Event = currentEvent;
             ViewBag.Message = currentEvent.Name;
@@ -294,14 +293,14 @@ namespace CC.UI.Webhost.Controllers
 
             foreach (var sponsor in sponsors)
                 model.Add(new Sponsor()
-                              {
-                                  ID = sponsor.ID,
-                                  Name = sponsor.Name,
-                                  Description = sponsor.Description,
-                                  SponsorshipLevel = sponsor.SponsorshipLevel,
-                                  WebsiteUrl = sponsor.WebsiteUrl,
-                                  Logo = ImageUtils.ImageFromBytes(sponsor.Image)
-                              });
+                {
+                    ID = sponsor.ID,
+                    Name = sponsor.Name,
+                    Description = sponsor.Description,
+                    SponsorshipLevel = sponsor.SponsorshipLevel,
+                    WebsiteUrl = sponsor.WebsiteUrl,
+                    Logo = ImageUtils.ImageFromBytes(sponsor.Image)
+                });
 
             return View(model);
         }
