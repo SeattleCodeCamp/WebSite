@@ -310,6 +310,7 @@
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Models\VolunteerTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\ImageUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Avatar\2014.jpg" />

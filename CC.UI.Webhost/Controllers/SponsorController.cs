@@ -8,6 +8,8 @@ namespace CC.UI.Webhost.Controllers
     using System.Web;
     using System.Web.Mvc;
     using CC.UI.Webhost.Models;
+    using OCC.UI.Webhost.Utilities;
+    using System.Linq;
 
     public class SponsorController : BaseController
     {
@@ -21,21 +23,7 @@ namespace CC.UI.Webhost.Controllers
         public ActionResult Index(int eventid)
         {
             var sponsors = service.GetSponsors(eventid);
-
-            List<Sponsor> model = new List<Sponsor>();
-
-            foreach (var sponsor in sponsors)
-                model.Add(new Sponsor()
-                {
-                    ID = sponsor.ID,
-                    EventID = sponsor.EventID,
-                    Name = sponsor.Name,
-                    Description = sponsor.Description,
-                    SponsorshipLevel = sponsor.SponsorshipLevel,
-                    WebsiteUrl = sponsor.WebsiteUrl,
-                    Logo = sponsor.Image == null ? null : new Infrastructure.WebImageOCC(sponsor.Image),
-                });
-
+            List<Sponsor> model = sponsors.Select(ServiceToWebHostSponsor).ToList();
             return View(model);
         }
 
@@ -103,18 +91,7 @@ namespace CC.UI.Webhost.Controllers
         public ActionResult Edit(int id)
         {
             var sponsor = service.GetSponsor(id);
-
-            Sponsor model = new Sponsor()
-            {
-                ID = sponsor.ID,
-                EventID = sponsor.EventID,
-                Name = sponsor.Name,
-                Description = sponsor.Description,
-                SponsorshipLevel = sponsor.SponsorshipLevel,
-                WebsiteUrl = sponsor.WebsiteUrl,
-                Logo = sponsor.Image == null ? null : new Infrastructure.WebImageOCC(sponsor.Image),
-            };
-
+            Sponsor model = ServiceToWebHostSponsor(sponsor);
             return View(model);
         }
 
@@ -176,6 +153,8 @@ namespace CC.UI.Webhost.Controllers
             }
         }
 
+        #region Private Helpers
+
         private byte[] ConvertToByes(HttpPostedFileBase image)
         {
             byte[] imageBytes = null;
@@ -183,5 +162,23 @@ namespace CC.UI.Webhost.Controllers
             imageBytes = reader.ReadBytes((int)image.ContentLength);
             return imageBytes;
         }
+
+        // Leaving fully qualified names here since it's kind of confusing having the two sponsor classes
+        // named the same.  This way, it's clear.
+        private CC.UI.Webhost.Models.Sponsor ServiceToWebHostSponsor(Service.Webhost.Services.Sponsor serviceSponsor)
+        {
+            return new CC.UI.Webhost.Models.Sponsor()
+            {
+                ID = serviceSponsor.ID,
+                EventID = serviceSponsor.EventID,
+                Name = serviceSponsor.Name,
+                Description = serviceSponsor.Description,
+                SponsorshipLevel = serviceSponsor.SponsorshipLevel,
+                WebsiteUrl = serviceSponsor.WebsiteUrl,
+                Logo = ImageUtils.ImageFromBytes(serviceSponsor.Image),
+            };
+        }
+
+        #endregion
     }
 }
