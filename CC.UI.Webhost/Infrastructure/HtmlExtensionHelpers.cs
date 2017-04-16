@@ -6,15 +6,28 @@ namespace CC.UI.Webhost.Infrastructure
 {
     public static class HtmlExtensionHelpers
     {
-        public static MvcHtmlString ImageTag(this HtmlHelper html, string src, string alt, int? height = null, int? width = null,
+        public static MvcHtmlString ImageTag(this HtmlHelper html, byte[] srcImage, string srcImageUrl, string alt, int? height = null, int? width = null,
                                              string title = null, string cssClass = null)
         {
-            if (string.IsNullOrWhiteSpace(src))
-                return null;
             var url = new UrlHelper(html.ViewContext.RequestContext);
-
             var imageTagBuilder = new TagBuilder("img");
-            imageTagBuilder.MergeAttribute("src", url.Content(src));
+
+            // Use image if available.
+            if (srcImage != null)
+            {
+                imageTagBuilder.MergeAttribute("src", "data:image;base64," + Convert.ToBase64String(srcImage));
+            }
+            // Use url.
+            else
+            {
+                // Use default if not provided.
+                if (string.IsNullOrEmpty(srcImageUrl))
+                    srcImageUrl = "/Content/Avatar/default_user_icon.jpg";
+
+                // Default to url.
+                imageTagBuilder.MergeAttribute("src", url.Content(srcImageUrl));
+            }
+
             imageTagBuilder.MergeAttribute("alt", alt);
             if (height != null && height > 0)
                 imageTagBuilder.MergeAttribute("height", height.ToString());
@@ -29,28 +42,9 @@ namespace CC.UI.Webhost.Infrastructure
             return MvcHtmlString.Create(imgHtml);
         }
 
-        public static MvcHtmlString ImageTag(this HtmlHelper html, WebImageOCC src, string alt, int? height = null, int? width = null,
-                             string title = null, string cssClass = null)
-        {
-            var imageTagBuilder = new TagBuilder("img");
-            imageTagBuilder.MergeAttribute("src", "data:image;base64," + Convert.ToBase64String(src.GetBytes()));
-            imageTagBuilder.MergeAttribute("alt", alt);
-            if (height != null && height > 0)
-                imageTagBuilder.MergeAttribute("height", height.ToString());
-            if (width != null && width > 0)
-                imageTagBuilder.MergeAttribute("width", width.ToString());
-            if (!string.IsNullOrEmpty(title))
-                imageTagBuilder.MergeAttribute("title", title);
-            if (!string.IsNullOrEmpty(cssClass))
-                imageTagBuilder.MergeAttribute("class", cssClass);
-            string imgHtml = imageTagBuilder.ToString(TagRenderMode.SelfClosing);
-
-            return MvcHtmlString.Create(imgHtml);
-        }
-
         public static MvcHtmlString ImageTag(this HtmlHelper html, MetroTileImage image, string cssClass = null)
         {
-            return ImageTag(html, image.PathUri, image.AltText, image.Height, image.Width, image.Title, cssClass);
+            return ImageTag(html, null, image.PathUri, image.AltText, image.Height, image.Width, image.Title, cssClass);
         }
 
         public static MvcHtmlString TileImageTag(this HtmlHelper html, MetroTileImage image, string cssClass = null)

@@ -10,19 +10,7 @@
 
 <div class="field-value">
     <div style="width: 250px">
-        @if (!String.IsNullOrEmpty(ViewData.Model.ImageUrl))
-        {
-            @Html.ImageTag(ViewData.Model.ImageUrl, ViewData.Model.FullName);
-        }
-        else if (ViewData.Model.Image != null)
-        {
-            @Html.ImageTag(new WebImageOCC(ViewData.Model.Image), ViewData.Model.FullName);
-        }
-        else
-        {
-            var defaultImgUri = "/Content/Avatar/default_user_icon.jpg";
-            @Html.ImageTag(defaultImgUri, ViewData.Model.FullName);
-        }
+        @Html.ImageTag(ViewData.Model.Image, ViewData.Model.ImageUrl, ViewData.Model.FullName)
     </div>
 </div>
 

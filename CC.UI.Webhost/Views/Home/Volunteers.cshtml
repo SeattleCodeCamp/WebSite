@@ -59,19 +59,7 @@
                 @foreach (var volunteer in task.Volunteers)
                 {
                     <ul>
-                        @if (!String.IsNullOrEmpty(volunteer.ImageUrl))
-                        { 
-                            <li>@Html.ImageTag(volunteer.ImageUrl, string.Empty, 50, 50) &nbsp; @volunteer.FirstName @volunteer.LastName</li>
-                        }
-                        else if (volunteer.Image != null)
-                        {
-                            <li>@Html.ImageTag(new WebImageOCC(volunteer.Image), string.Empty, 50, 50) &nbsp; @volunteer.FirstName @volunteer.LastName</li>
-                        }
-                        else
-                        {
-                            var defaultImgUri = "/Content/Avatar/default_user_icon.jpg";
-                            <li>@Html.ImageTag(defaultImgUri, string.Empty, 50, 50) &nbsp; @volunteer.FirstName @volunteer.LastName</li>
-                        }
+                        <li>@Html.ImageTag(volunteer.Image, volunteer.ImageUrl, string.Empty, 50, 50) &nbsp; @volunteer.FirstName @volunteer.LastName</li>
                    </ul>
                 }
         </div>
