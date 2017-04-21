@@ -21,6 +21,7 @@ namespace CC.UI.Webhost.Infrastructure
             {
                 ID = person.ID,
                 ImageUrl = person.ImageUrl,
+                Image = person.Image,
                 Website = person.Website,
                 Email = person.Email,
                 Bio = person.Bio,
@@ -48,6 +49,7 @@ namespace CC.UI.Webhost.Infrastructure
             {
                 ID = person.ID,
                 ImageUrl = person.ImageUrl,
+                Image = person.Image,
                 Website = person.Website,
                 Email = person.Email,
                 Bio = person.Bio,
@@ -69,6 +71,7 @@ namespace CC.UI.Webhost.Infrastructure
             {
                 ID = person.ID,
                 ImageUrl = person.ImageUrl,
+                Image = person.Image,
                 Website = person.Website,
                 Email = person.Email,
                 Bio = person.Bio,
@@ -93,6 +96,7 @@ namespace CC.UI.Webhost.Infrastructure
             var modelSpeaker = new Model.Speaker()
                                    {
                                        ImageUrl = speaker.ImageUrl,
+                                       Image = speaker.Image,
                                        Website = speaker.Website,
                                        Email = speaker.Email,
                                        Bio = speaker.Bio,

@@ -79,32 +79,7 @@ namespace CC.UI.Webhost.Controllers
             return twitterUrl;
         }
 
-        //"../../Content/avatar"
-        protected string GetImageInfo(HttpPostedFileBase file, string destinationFolder)
-        {
-            string imgUrl = string.Empty;
-            var postedFile = file;
-            if (postedFile.ContentLength > 0)
-            {
-                try
-                {
-                    WebImage rewrittenImage = RewritePostedImage(file);
-                    var persistedPath = string.Format("../..{0}/{1}", destinationFolder, rewrittenImage.FileName);
-                    string fullPath = Path.Combine(Server.MapPath(destinationFolder), rewrittenImage.FileName);
-                    postedFile.SaveAs(fullPath);
-                    imgUrl = persistedPath;
-                }
-                catch (Exception e)
-                {
-                    string s = e.GetBaseException().Message;
-                    // Swallow
-                }
-
-            }
-            return imgUrl;
-        }
-
-        private WebImage RewritePostedImage(HttpPostedFileBase uploadedFile)
+        protected WebImage RewritePostedImage(HttpPostedFileBase uploadedFile)
         {
             byte[] imageArray = new byte[uploadedFile.ContentLength];
             uploadedFile.InputStream.Read(imageArray, 0, uploadedFile.ContentLength);

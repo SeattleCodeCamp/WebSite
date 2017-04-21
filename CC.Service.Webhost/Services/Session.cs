@@ -43,6 +43,9 @@
         public string ImageUrl { get; set; }
 
         [DataMember]
+        public byte[] Image { get; set; }
+
+        [DataMember]
         public DateTime? StartTime { get; set; }
 
         [DataMember]

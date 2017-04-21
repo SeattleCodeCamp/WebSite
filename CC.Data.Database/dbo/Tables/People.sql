@@ -13,7 +13,8 @@
     [IsAdmin]      BIT             NOT NULL,
     [Location]     NVARCHAR (100)  NULL,
     [TShirtSize]   INT             NULL,
-    [LoginProvider] NVARCHAR(128) NULL, 
-    CONSTRAINT [PK__People__3214EC2714FCD345] PRIMARY KEY CLUSTERED ([ID] ASC)
+    [LoginProvider] NVARCHAR(128) NULL,
+	[Image]         VARBINARY (MAX) NULL,
+     CONSTRAINT [PK__People__3214EC2714FCD345] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 

@@ -41,7 +41,7 @@ else
         <div style="float: left; width: 48px">
             <a href="@Url.Action("Details", "Speaker", new { id = session.SpeakerID })">
                 <div>
-                    @Html.ImageTag(session.ImageUrl, session.Speaker, 48, 48, session.Speaker)
+                    @Html.AvatarImageTag(session.Image, session.ImageUrl, session.Speaker, 48, 48, session.Speaker)
                     <div style="position: relative; top: 0px; left: 0px;"><small>@session.Speaker</small>
                     </div>
                 </div>

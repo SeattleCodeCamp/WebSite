@@ -6,15 +6,24 @@ namespace CC.UI.Webhost.Infrastructure
 {
     public static class HtmlExtensionHelpers
     {
-        public static MvcHtmlString ImageTag(this HtmlHelper html, string src, string alt, int? height = null, int? width = null,
+        public static MvcHtmlString ImageTag(this HtmlHelper html, byte[] srcImage, string srcImageUrl, string alt, int? height = null, int? width = null,
                                              string title = null, string cssClass = null)
         {
-            if (string.IsNullOrWhiteSpace(src))
+            // Don't return an html string for null.
+            if (string.IsNullOrWhiteSpace(srcImageUrl) && srcImage == null)
                 return null;
+
             var url = new UrlHelper(html.ViewContext.RequestContext);
 
             var imageTagBuilder = new TagBuilder("img");
-            imageTagBuilder.MergeAttribute("src", url.Content(src));
+
+            // Use image if available.
+            if (srcImage != null)
+                imageTagBuilder.MergeAttribute("src", "data:image;base64," + Convert.ToBase64String(srcImage));
+            // Use url.
+            else
+                imageTagBuilder.MergeAttribute("src", url.Content(srcImageUrl));
+
             imageTagBuilder.MergeAttribute("alt", alt);
             if (height != null && height > 0)
                 imageTagBuilder.MergeAttribute("height", height.ToString());
@@ -29,10 +38,15 @@ namespace CC.UI.Webhost.Infrastructure
             return MvcHtmlString.Create(imgHtml);
         }
 
+        public static MvcHtmlString AvatarImageTag(this HtmlHelper html, byte[] srcImage, string srcImageUrl, string alt, int? height = null, int? width = null,
+                                     string title = null, string cssClass = null)
+        {
+            return ImageTag(html, srcImage, !string.IsNullOrEmpty(srcImageUrl) ? srcImageUrl : "/Content/Avatar/default_user_icon.jpg", alt, height, width, title = null, cssClass = null);
+        }
 
         public static MvcHtmlString ImageTag(this HtmlHelper html, MetroTileImage image, string cssClass = null)
         {
-            return ImageTag(html, image.PathUri, image.AltText, image.Height, image.Width, image.Title, cssClass);
+            return ImageTag(html, null, image.PathUri, image.AltText, image.Height, image.Width, image.Title, cssClass);
         }
 
         public static MvcHtmlString TileImageTag(this HtmlHelper html, MetroTileImage image, string cssClass = null)

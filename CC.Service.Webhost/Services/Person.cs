@@ -50,5 +50,8 @@
 
         [DataMember]
         public string LoginProvider { get; set; }
+
+        [DataMember]
+        public byte[] Image { get; set; }
     }
 }

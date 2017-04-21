@@ -36,6 +36,8 @@
 
         public string ImageUrl { get; set; }
 
+        public byte[] Image { get; set; }
+
         public string StartTime { get; set; }
 
         public string EndTime { get; set; }
