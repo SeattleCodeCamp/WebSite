@@ -14,19 +14,10 @@ namespace CC.UI.Webhost.Infrastructure
 
             // Use image if available.
             if (srcImage != null)
-            {
                 imageTagBuilder.MergeAttribute("src", "data:image;base64," + Convert.ToBase64String(srcImage));
-            }
             // Use url.
             else
-            {
-                // Use default if not provided.
-                if (string.IsNullOrEmpty(srcImageUrl))
-                    srcImageUrl = "/Content/Avatar/default_user_icon.jpg";
-
-                // Default to url.
                 imageTagBuilder.MergeAttribute("src", url.Content(srcImageUrl));
-            }
 
             imageTagBuilder.MergeAttribute("alt", alt);
             if (height != null && height > 0)
@@ -40,6 +31,12 @@ namespace CC.UI.Webhost.Infrastructure
             string imgHtml = imageTagBuilder.ToString(TagRenderMode.SelfClosing);
 
             return MvcHtmlString.Create(imgHtml);
+        }
+
+        public static MvcHtmlString AvatarImageTag(this HtmlHelper html, byte[] srcImage, string srcImageUrl, string alt, int? height = null, int? width = null,
+                                     string title = null, string cssClass = null)
+        {
+            return ImageTag(html, srcImage, !string.IsNullOrEmpty(srcImageUrl) ? srcImageUrl : "/Content/Avatar/default_user_icon.jpg", alt, height, width, title = null, cssClass = null);
         }
 
         public static MvcHtmlString ImageTag(this HtmlHelper html, MetroTileImage image, string cssClass = null)

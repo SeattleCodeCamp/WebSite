@@ -20,7 +20,7 @@
 			<div class="field-value">
 				<a href="@Url.Action( "Details", "Speaker", new { id = ViewData.Model.SpeakerID })">
 				    <div>
-                        @Html.ImageTag(ViewData.Model.Image, ViewData.Model.ImageUrl, ViewData.Model.Speaker, 60, 60, ViewData.Model.Speaker)
+                        @Html.AvatarImageTag(ViewData.Model.Image, ViewData.Model.ImageUrl, ViewData.Model.Speaker, 60, 60, ViewData.Model.Speaker)
 				        <div style="position: relative; top: 0px; left: 0px;">@ViewData.Model.Speaker
 				        </div>
 				    </div>

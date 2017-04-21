@@ -59,7 +59,7 @@
                 @foreach (var volunteer in task.Volunteers)
                 {
                     <ul>
-                        <li>@Html.ImageTag(volunteer.Image, volunteer.ImageUrl, string.Empty, 50, 50) &nbsp; @volunteer.FirstName @volunteer.LastName</li>
+                        <li>@Html.AvatarImageTag(volunteer.Image, volunteer.ImageUrl, string.Empty, 50, 50) &nbsp; @volunteer.FirstName @volunteer.LastName</li>
                    </ul>
                 }
         </div>
