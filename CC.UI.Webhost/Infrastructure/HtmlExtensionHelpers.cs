@@ -9,7 +9,12 @@ namespace CC.UI.Webhost.Infrastructure
         public static MvcHtmlString ImageTag(this HtmlHelper html, byte[] srcImage, string srcImageUrl, string alt, int? height = null, int? width = null,
                                              string title = null, string cssClass = null)
         {
+            // Don't return an html string for null.
+            if (string.IsNullOrWhiteSpace(srcImageUrl) && srcImage == null)
+                return null;
+
             var url = new UrlHelper(html.ViewContext.RequestContext);
+
             var imageTagBuilder = new TagBuilder("img");
 
             // Use image if available.
