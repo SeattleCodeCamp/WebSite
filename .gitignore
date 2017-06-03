@@ -191,3 +191,6 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/CC.UI.Webhost/Properties/PublishProfiles/seacc - Web Deploy.pubxml
+/CC.UI.Webhost/Properties/PublishProfiles/seacc - FTP.pubxml
+/CC.Data.Database/CC.Data.Database.jfm
