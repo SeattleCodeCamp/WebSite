@@ -37,6 +37,8 @@
         [StringLength(500)]
         public string ImageUrl { get; set; }
 
+        public byte[] Image { get; set; }
+        
         [StringLength(100)]
         public string Location { get; set; }
 

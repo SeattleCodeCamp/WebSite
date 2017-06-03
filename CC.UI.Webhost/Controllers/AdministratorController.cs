@@ -28,9 +28,11 @@
                                   ID = speaker.ID,
                                   Email = speaker.Email,
                                   Twitter = speaker.Twitter,
-                                  ImageUrl = speaker.ImageUrl
-                              };
-                if (string.IsNullOrEmpty(speaker.ImageUrl)) 
+                                  ImageUrl = speaker.ImageUrl,
+                                  Image = speaker.Image
+                };
+
+                if (speaker.Image == null && string.IsNullOrEmpty(speaker.ImageUrl)) 
                 {
                     var person = service.FindPersonByEmail(sp.Email, sp.LoginProvider);
                     person.ImageUrl = GetImageInfo(person.Twitter, localImageUrl);

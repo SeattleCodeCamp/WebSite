@@ -61,6 +61,14 @@ namespace CC.UI.Webhost.Controllers
                         Title = string.Format("Welcome, {0}", user.FirstName)
                     };
                 }
+                else if (user.Image != null)
+                {
+                    metroTileImage = new MetroTileImage(new WebImageOCC(user.Image))
+                    {
+                        AltText = user.FullName,
+                        Title = string.Format("Welcome, {0}", user.FirstName)
+                    };
+                }
             }
             else
             {

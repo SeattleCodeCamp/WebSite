@@ -12,13 +12,9 @@
             </div>
             <div class="avatarImage">
                 <a href="@Url.Action("UpdateProfile", "Account")">
-                    @if (Model.Avatar != null)
-                    {
-                        @Html.ImageTag(Model.Avatar, string.Format("{0} {1}", Model.DisplayFirstName, Model.DisplayLastName), 48, 48)
-                    }
+                    @Html.AvatarImageTag(Model.AvatarImage, Model.Avatar, string.Format("{0} {1}", Model.DisplayFirstName, Model.DisplayLastName), 48, 48)
                 </a>
             </div>
-            @* <p><a href="@Url.Action("LogOff", "Account")">Logout</a> / <a class="loginDisplayArea" href="@Url.Action("FAQ", "Home")">F.A.Q.</a></p>*@
             <div class="loginDisplayContainer">
                 <a class="loginDisplayArea" href="@Url.Action("LogOff", "Account")"><h6>Logout</h6></a>
             </div>

@@ -10,6 +10,7 @@ namespace CC.UI.Webhost.Models
         public string DisplayFirstName { get; set; }
         public string DisplayLastName { get; set; }
         public string Avatar { get; set; }
+        public byte[] AvatarImage { get; set; }
         public bool IsLoggedIn { get; set; }
     }
 

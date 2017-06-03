@@ -38,7 +38,8 @@ using System.Web.UI;
                 Website = speaker.Website,
                 Blog = speaker.Blog,
                 Twitter = speaker.Twitter,
-                ImageUrl = speaker.ImageUrl
+                ImageUrl = speaker.ImageUrl,
+                Image = speaker.Image
             };
 
             foreach (var session in speaker.Sessions)

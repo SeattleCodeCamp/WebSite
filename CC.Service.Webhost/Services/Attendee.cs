@@ -42,6 +42,9 @@
         [DataMember]
         public IList<Session> Agenda { get; set; }
 
+        [DataMember]
+        public byte[] Image { get; set; }
+
         public Attendee()
         {
             Agenda = new List<Session>();
