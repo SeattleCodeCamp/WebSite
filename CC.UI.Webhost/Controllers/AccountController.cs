@@ -44,14 +44,17 @@ namespace CC.UI.Webhost.Controllers
 
                     if (string.IsNullOrEmpty(CurrentUser.ImageUrl))
                     {
+                        if (CurrentUser.Image != null)
+                        {
+                            userDisplay.AvatarImage = CurrentUser.Image;
+                            userDisplay.Avatar = null;
+                        }
                     }
                     else
                     {
                         try
                         {
-                            //userDisplay.Avatar = new WebImageOCC(CurrentUser.ImageUrl);
-                            //userDisplay.Avatar.Alt = CurrentUser.FirstName + " avatar image.";
-                            //userDisplay.Avatar.Title = "User Profile Settings";
+                            userDisplay.AvatarImage = null;
                             userDisplay.Avatar = CurrentUser.ImageUrl;
                         }
                         catch
@@ -184,22 +187,10 @@ namespace CC.UI.Webhost.Controllers
                     LastName = model.LastName,
                     Location = model.Location,
                     TShirtSize = model.TShirtSizeId,
-                    LoginProvider = internalUserPwProvider
+                    LoginProvider = internalUserPwProvider,
+                    Image = GetPersonImage(model.Avatar),
+                    ImageUrl = GetPersonImageUrl(model.Avatar, LocalImageUrl, model.Twitter, frm["cbTwitter"] == "on")
                 };
-
-                bool useTwitter = frm["cbTwitter"] == "on";
-                if (model.Avatar != null)
-                {
-                    newPerson.ImageUrl = GetImageInfo(model.Avatar, "/Content/avatar");
-                }
-                else if (useTwitter)
-                {
-                    newPerson.ImageUrl = GetImageInfo(model.Twitter, LocalImageUrl);
-                }
-                else
-                {
-                    newPerson.ImageUrl = LocalImageUrl;
-                }
 
                 // service.RegisterPerson(newPerson);
 
@@ -211,6 +202,7 @@ namespace CC.UI.Webhost.Controllers
                 {
                     ID = newPerson.ID,
                     ImageUrl = newPerson.ImageUrl,
+                    Image = newPerson.Image,
                     Website = newPerson.Website,
                     Email = newPerson.Email,
                     Bio = newPerson.Bio,
@@ -311,42 +303,9 @@ namespace CC.UI.Webhost.Controllers
         [HttpPost]
         public ActionResult UpdateProfile(uiModel.Person person, FormCollection frm)
         {
-            bool useTwitter = frm["cbTwitter"] == "on";
-            if (person.Avatar != null)
-            {
-                person.ImageUrl = GetImageInfo(person.Avatar, "/Content/avatar");
-            }
-            else if (useTwitter)
-            {
-                person.ImageUrl = GetImageInfo(person.Twitter, LocalImageUrl);
-            }
-            else
-            {
-                person.ImageUrl = LocalImageUrl;
-            }
+            person.Image = GetPersonImage(person.Avatar);
+            person.ImageUrl = GetPersonImageUrl(person.Avatar, LocalImageUrl, person.Twitter, frm["cbTwitter"] == "on");
 
-            //string txtAvatarURL = frm["txtAvatarURL"];
-            //bool useTwitter = frm["cbTwitter"] == "on";
-            //if (useTwitter)
-            //    person.ImageUrl = GetImageInfo(person.Twitter, localImageUrl);
-            //else
-            //    person.ImageUrl = string.IsNullOrEmpty(txtAvatarURL) ? localImageUrl : txtAvatarURL;
-
-
-            //TODO - Can't update avatar after initial save due to filesystem security
-            //if (String.IsNullOrEmpty(person.ImageUrl))
-            //{
-            //    person.ImageUrl = this.GetImageInfo(person.Avatar);
-            //}
-            //else
-            //{
-            //    string tempPersonUri = person.ImageUrl;
-            //    person.ImageUrl =
-            //        string.Format("{0}.{1}",
-            //                      DateTime.UtcNow.Ticks.ToString(CultureInfo.InvariantCulture),
-            //                      tempPersonUri);
-            //    person.Avatar.FileName = person.ImageUrl;
-            //}
             service.UpdatePerson(person.Transform());
 
             this.CurrentUser = person;
@@ -407,6 +366,7 @@ namespace CC.UI.Webhost.Controllers
             {
                 ID = authenticatedPerson.ID,
                 ImageUrl = authenticatedPerson.ImageUrl,
+                Image = authenticatedPerson.Image,
                 Website = authenticatedPerson.Website,
                 Email = authenticatedPerson.Email,
                 Bio = authenticatedPerson.Bio,
@@ -593,21 +553,7 @@ namespace CC.UI.Webhost.Controllers
                     ModelState.AddModelError("Email", "The user at this email address is already registered.");
                     return View(model);
                 }
-                else
-                {
-                    newPerson = new Services.Person()
-                    {
-                        Email = model.Email,
-                        //PasswordHash = UserNamePasswordHashProvider.ComputePasswordHash(model.Password),
-                        Twitter = model.Twitter,
-                        FirstName = model.FirstName,
-                        LastName = model.LastName,
-                        Location = model.Location,
-                        TShirtSize = model.TShirtSizeId,
-                        LoginProvider = model.LoginProvider
-                    };
-                }
-                
+
                 if (!String.IsNullOrEmpty(model.Twitter))
                 {
                     if (!model.Twitter.StartsWith("@"))
@@ -617,21 +563,20 @@ namespace CC.UI.Webhost.Controllers
                     }
                 }
 
-                bool useTwitter = frm["cbTwitter"] == "on";
-                //bool useTwitter = false;
-                if (model.Avatar != null)
+                newPerson = new Services.Person()
                 {
-                    newPerson.ImageUrl = GetImageInfo(model.Avatar, "/Content/avatar");
-                }
-                else if (useTwitter)
-                {
-                    newPerson.ImageUrl = GetImageInfo(model.Twitter, LocalImageUrl);
-                }
-                else
-                {
-                    newPerson.ImageUrl = LocalImageUrl;
-                }
-
+                    Email = model.Email,
+                    //PasswordHash = UserNamePasswordHashProvider.ComputePasswordHash(model.Password),
+                    Twitter = model.Twitter,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Location = model.Location,
+                    TShirtSize = model.TShirtSizeId,
+                    LoginProvider = model.LoginProvider,
+                    Image = GetPersonImage(model.Avatar),
+                    ImageUrl = GetPersonImageUrl(model.Avatar, LocalImageUrl, model.Twitter, frm["cbTwitter"] == "on")
+                };
+                
                 // service.RegisterPerson(newPerson);
 
                 newPerson.ID = service.RegisterPerson(newPerson); // service.FindPersonByEmail(newPerson.Email).ID;
@@ -645,6 +590,7 @@ namespace CC.UI.Webhost.Controllers
                 {
                     ID = newPerson.ID,
                     ImageUrl = newPerson.ImageUrl,
+                    Image = newPerson.Image,
                     Website = newPerson.Website,
                     Email = newPerson.Email,
                     Bio = newPerson.Bio,
@@ -713,6 +659,41 @@ namespace CC.UI.Webhost.Controllers
                 return Redirect(returnUrl);
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        /// <summary>
+        /// Gets the appropriate value for the Image property.
+        /// </summary>
+        /// <param name="avatar">The avatar (from the UI).</param>
+        private byte[] GetPersonImage(HttpPostedFileBase avatar)
+        {
+            // Use avatar if provided.
+            if (avatar != null)
+                return RewritePostedImage(avatar).GetBytes();
+
+            // Otherwise use null, ImageURL will be used in this case.
+            return null;
+        }
+
+        /// <summary>
+        /// Gets the appropriate value for the ImageURL property.
+        /// </summary>
+        /// <param name="avatar">The avatar (from the UI).</param>
+        /// <param name="imageURL">The current imageURL (from the UI).</param>
+        /// <param name="twitterURL">The person's twitterURL image URL.</param>
+        /// <param name="useTwitter">Whether to use the twitterURL URL to get the image.</param>
+        private string GetPersonImageUrl(HttpPostedFileBase avatar, string imageURL, string twitterURL, bool useTwitter)
+        {
+            // If avatar is provided this property won't be used.
+            if (avatar != null)
+                return null;
+
+            // Get twitterURL image URL.
+            if (useTwitter)
+                return GetImageInfo(twitterURL, imageURL);
+
+            // Default to local image URL.
+            return imageURL;
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

@@ -29,8 +29,8 @@
             <div style="float:left;width:60px">
                 <a href="@Url.Action( "Details", "Speaker", new { id = speaker.ID })">
                     <div>
-                        @Html.ImageTag(speaker.ImageUrl, speaker.FullName, 60, 60, speaker.FullName)
-                        <div style="position:relative;top:0px;left:0px;">@speaker.FullName
+                        @Html.AvatarImageTag(speaker.Image, speaker.ImageUrl, speaker.FullName, 60, 60, speaker.FullName)
+                        <div style="position: relative; top: 0px; left: 0px;">@speaker.FullName
                         </div>
                     </div>
                 </a>

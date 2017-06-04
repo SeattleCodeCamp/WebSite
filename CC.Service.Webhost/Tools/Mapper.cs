@@ -139,6 +139,7 @@
                 Location = s.Location,
                 Speaker = s.Speaker.FirstName + " " + s.Speaker.LastName,
                 ImageUrl = s.Speaker.ImageUrl,
+                Image = s.Speaker.Image,
                 SpeakerID = s.Speaker.ID,
                 TrackID = s.Track_ID,
                 Track = s.Track == null ? "" : s.Track.Name,
@@ -166,7 +167,8 @@
                 Website = p.Website,
                 Blog = p.Blog,
                 Twitter = p.Twitter,
-                ImageUrl = p.ImageUrl
+                ImageUrl = p.ImageUrl,
+                Image = p.Image
             };
 
             foreach (var session in p.Sessions)
@@ -188,7 +190,8 @@
                 Website = p.Website,
                 Blog = p.Blog,
                 Twitter = p.Twitter,
-                ImageUrl = p.ImageUrl
+                ImageUrl = p.ImageUrl,
+                Image = p.Image
             };
 
             return person;
@@ -207,7 +210,8 @@
                 Website = p.Website,
                 Blog = p.Blog,
                 Twitter = p.Twitter,
-                ImageUrl = p.ImageUrl
+                ImageUrl = p.ImageUrl,
+                Image = p.Image
             };
 
             return person;
