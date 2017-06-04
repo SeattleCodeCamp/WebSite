@@ -19,7 +19,7 @@ namespace CC.UI.Webhost.Controllers
         // Magic Strings
         private const string CONST_TASK_PARAMETER_ID = "taskId";
         private const string CONST_DEFAULT_ICON_URL = "/Content/Avatar/default_user_icon.jpg";
-        
+
         //Test helper
         public HomeController(ICodeCampService service, ICodeCampServiceRepository repo)
             : base(service, repo)
@@ -92,20 +92,21 @@ namespace CC.UI.Webhost.Controllers
             {
                 Speaker sp = new Speaker()
                 {
-                                    ID = speaker.ID,
-                                    FirstName = speaker.FirstName,
-                                    LastName = speaker.LastName,
-                                    ImageUrl = speaker.ImageUrl,
-                                    Image = speaker.Image
-                              };
+
+                      ID = speaker.ID,
+                      FirstName = speaker.FirstName,
+                      LastName = speaker.LastName,
+                      ImageUrl = speaker.ImageUrl,
+                      Image = speaker.Image
+                };
                 List<Session> sessions = new List<Session>();
                 foreach (var session in service.GetSpeakerSessions(eventid, sp.ID))
                 {
                     sessions.Add(new Session()
-                        {
-                            ID = session.ID,
-                            Name = session.Name
-                        });
+                    {
+                        ID = session.ID,
+                        Name = session.Name
+                    });
                 }
                 sp.Sessions = sessions;
                 model.Add(sp);
@@ -130,19 +131,20 @@ namespace CC.UI.Webhost.Controllers
                 if ((id == null) || (id == -1) || (session.TimeslotID == id))
                 {
                     viewModel.Sessions.Add(new Session()
-                                  {
-                                      ID = session.ID,
-                                      Name = session.Name,
-                                      Description = session.Description,
-                                      Speaker = session.Speaker,
-                                      ImageUrl = session.ImageUrl,
-                                      Image = session.Image,
-                                      SpeakerID = session.SpeakerID,
-                                      StartTime = session.StartTime.HasValue ? session.StartTime.Value.ToString() : string.Empty,
-                                      EndTime = session.EndTime.HasValue ? session.EndTime.Value.ToString() : string.Empty,
-                                      Status = session.Status,
-                                      Location = string.IsNullOrEmpty(session.Location) ? string.Empty : session.Location
-                                  });
+
+                    {
+                        ID = session.ID,
+                        Name = session.Name,
+                        Description = session.Description,
+                        Speaker = session.Speaker,
+                        ImageUrl = session.ImageUrl,
+                        Image = session.Image,
+                        SpeakerID = session.SpeakerID,
+                        StartTime = session.StartTime.HasValue ? session.StartTime.Value.ToString() : string.Empty,
+                        EndTime = session.EndTime.HasValue ? session.EndTime.Value.ToString() : string.Empty,
+                        Status = session.Status,
+                        Location = string.IsNullOrEmpty(session.Location) ? string.Empty : session.Location
+                    });
                 }
 
             foreach (var time in timeSlots)
@@ -173,16 +175,16 @@ namespace CC.UI.Webhost.Controllers
 
                 foreach (var session in track.Sessions.OrderBy((s) => s.StartTime))
                     t.Sessions.Add(new Session()
-                                       {
-                                           ID = session.ID,
-                                           Name = session.Name,
-                                           Description = session.Description,
-                                           Speaker = session.Speaker,
-                                           SpeakerID = session.SpeakerID,
-                                           StartTime = session.StartTime.Value.ToShortTimeString(),
-                                           EndTime = session.EndTime.Value.ToShortTimeString(),
-                                           Location = string.IsNullOrEmpty(session.Location) ? string.Empty : session.Location
-                                       });
+                    {
+                        ID = session.ID,
+                        Name = session.Name,
+                        Description = session.Description,
+                        Speaker = session.Speaker,
+                        SpeakerID = session.SpeakerID,
+                        StartTime = session.StartTime.Value.ToShortTimeString(),
+                        EndTime = session.EndTime.Value.ToShortTimeString(),
+                        Location = string.IsNullOrEmpty(session.Location) ? string.Empty : session.Location
+                    });
 
                 model.Add(t);
             }
@@ -295,14 +297,14 @@ namespace CC.UI.Webhost.Controllers
 
             foreach (var sponsor in sponsors)
                 model.Add(new Sponsor()
-                              {
-                                  ID = sponsor.ID,
-                                  Name = sponsor.Name,
-                                  Description = sponsor.Description,
-                                  SponsorshipLevel = sponsor.SponsorshipLevel,
-                                  WebsiteUrl = sponsor.WebsiteUrl,
-                                  Logo = ImageUtils.ImageFromBytes(sponsor.Image)
-                              });
+                {
+                    ID = sponsor.ID,
+                    Name = sponsor.Name,
+                    Description = sponsor.Description,
+                    SponsorshipLevel = sponsor.SponsorshipLevel,
+                    WebsiteUrl = sponsor.WebsiteUrl,
+                    Logo = ImageUtils.ImageFromBytes(sponsor.Image)
+                });
 
             return View(model);
         }
@@ -331,7 +333,7 @@ namespace CC.UI.Webhost.Controllers
             {
                 model = new List<VolunteerTask>();
             }
-                
+
             return View(model);
         }
 
@@ -413,19 +415,19 @@ namespace CC.UI.Webhost.Controllers
         private IEnumerable<VolunteerTask> FormatEventTasks(ICollection<Services.Task> eventTasks)
         {
             var tasks = new List<VolunteerTask>(eventTasks.Count);
-            
+
             VolunteerTask vt;
             foreach (var eventTask in eventTasks)
             {
                 vt = new VolunteerTask
-                         {
-                             Id = eventTask.Id,
-                             Description = eventTask.Description,
-                             StartTime = eventTask.StartTime,
-                             EndTime = eventTask.EndTime,
-                             Capacity = eventTask.Capacity,
-                             Volunteers = new List<Volunteer>()
-                         };
+                {
+                    Id = eventTask.Id,
+                    Description = eventTask.Description,
+                    StartTime = eventTask.StartTime,
+                    EndTime = eventTask.EndTime,
+                    Capacity = eventTask.Capacity,
+                    Volunteers = new List<Volunteer>()
+                };
 
                 tasks.Add(vt);
 
@@ -433,13 +435,13 @@ namespace CC.UI.Webhost.Controllers
                 foreach (var assignee in eventTask.Assignees)
                 {
                     v = new Volunteer
-                            {
-                                FirstName = assignee.FirstName,
-                                LastName = assignee.LastName,
-                                Email = assignee.Email,
-                                ID = assignee.ID,
-                                ImageUrl = assignee.ImageUrl,
-                                Image = assignee.Image
+                    {
+                        FirstName = assignee.FirstName,
+                        LastName = assignee.LastName,
+                        Email = assignee.Email,
+                        ID = assignee.ID,
+                        ImageUrl = assignee.ImageUrl,
+                        Image = assignee.Image
                     };
                     vt.Volunteers.Add(v);
                 }
