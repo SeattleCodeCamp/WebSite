@@ -57,12 +57,12 @@
 foreach (RateSession rs in Model.RateSessions)
 {
     <div>
-        @(((CC.Service.Webhost.Services.Timeslot[])ViewBag.TimeSlots).ToList<CC.Service.Webhost.Services.Timeslot>().Where(ts => ts.ID == rs.TimeSlotID).FirstOrDefault().Name)
-        <input type="hidden" id="Timeslot_@i" name="Timeslot_@i" value="@(((CC.Service.Webhost.Services.Timeslot[])ViewBag.TimeSlots).ToList<CC.Service.Webhost.Services.Timeslot>().Where(ts => ts.ID == rs.TimeSlotID).FirstOrDefault().ID)" />
+        @((ViewBag.TimeSlots as IList<CC.Service.Webhost.Services.Timeslot>).Where(ts => ts.ID == rs.TimeSlotID).FirstOrDefault().Name)
+        <input type="hidden" id="Timeslot_@i" name="Timeslot_@i" value="@((ViewBag.TimeSlots as IList<CC.Service.Webhost.Services.Timeslot>).Where(ts => ts.ID == rs.TimeSlotID).FirstOrDefault().ID)" />
     </div>
     <div>
         <select name="SessionID_@i" id="SessionID_@i">
-            @foreach (var session in ((CC.Service.Webhost.Services.Session[])ViewBag.Sessions).Where(s => s.TimeslotID == rs.TimeSlotID).Select(s => s))
+            @foreach (var session in (ViewBag.Sessions as IList<CC.Service.Webhost.Services.Session>).Where(s => s.TimeslotID == rs.TimeSlotID).Select(s => s))
             {
                 <option value="@session.ID">@string.Format("{0}....", session.Name.Substring(0, Math.Min(session.Name.Length, 50)))</option>
 
