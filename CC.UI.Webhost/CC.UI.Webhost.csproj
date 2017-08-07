@@ -585,6 +585,7 @@
     <Content Include="Content\Documents\Seattle Code Camp 2016 Contributor Information.pdf" />
     <None Include="Properties\PublishProfiles\seatlecc - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\seatlecc - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\seattlecc-WebStage - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <None Include="Scripts\jquery-2.1.4-vsdoc.js" />
     <Content Include="Scripts\bootstrap.js" />
