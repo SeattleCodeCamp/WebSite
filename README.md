@@ -4,12 +4,12 @@ Go ahead, submit a pull request.
 
 Live site at http://seattle.codecamp.us
 ## Dev Machine Setup
-### Prerequisites
+### Pre-Requisites:
 * Visual Studio 2015 Update 3
 * LocalDB database server (Comes with VS 2015)
 * IIS Express (Comes with VS 2015)
 
-### Steps
+### Steps:
 1. Open powershell as admin in repo root
 2. Run Set-ExecutionPolicy -ExecutionPolicy Bypass
 3. Run SetupDevMachine.ps1
